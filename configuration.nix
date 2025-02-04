@@ -9,7 +9,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
-    ./main-user.nix
+    # ./main-user.nix
   ];
 
   nix.settings.experimental-features = [
@@ -17,24 +17,17 @@
     "flakes"
   ];
 
-  main-user = {
-    enable = true;
-    userName = "tim";
-  };
-
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "tim" = import ./home.nix;
-    };
-  };
+  # main-user = {
+  #   enable = true;
+  #   userName = "tim";
+  # };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 5;
 
-  networking.hostName = "nixBTW"; # Define your hostname.
+  networking.hostName = "nixBTW";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
@@ -71,8 +64,21 @@
     wireplumber.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  users.users.tim = {
+    isNormalUser = true;
+    description = "tim";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+      thunderbird
+    ];
+  };
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "tim" = import ./home.nix;
+    };
+  };
 
   programs = {
     firefox.enable = true;
