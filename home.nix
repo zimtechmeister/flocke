@@ -6,6 +6,12 @@
   home.username = "tim";
   home.homeDirectory = "/home/tim";
 
+  programs.git = {
+    enable = true;
+    userEmail = "tim.zechmeister03@gmail.com";
+    userName = "Tim Zechmeister";
+  };
+
   # GNU stow alternative
   xdg.configFile."starship.toml".source = ./starship.toml;
 

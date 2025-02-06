@@ -6,21 +6,14 @@
 
 {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
-    # ./main-user.nix
   ];
 
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
-
-  # main-user = {
-  #   enable = true;
-  #   userName = "tim";
-  # };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -30,13 +23,10 @@
   networking.hostName = "nixBTW";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -54,7 +44,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
