@@ -1,9 +1,7 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   swayncConfig = {
     "$schema" = "${pkgs.swaynotificationcenter}/etc/xdg/swaync/configSchema.json";
-    positionX = "right";
+    positionX = "center";
     positionY = "top";
     control-center-margin-top = 10;
     control-center-margin-bottom = 10;
@@ -14,6 +12,8 @@ let
       "dnd"
       "title"
       "notifications"
+      "volume"
+      "mpris"
     ];
     widget-config = {
       buttons-grid.actions = [
@@ -26,8 +26,16 @@ let
           command = "systemctl reboot";
         }
         {
-          label = "󰌿";
-          command = "hyprlock";
+          label = "󰤄";
+          command = "systemctl suspend";
+        }
+        {
+          label = "";
+          comamnd = "systemctl lock-session";
+        }
+        {
+          label = "󰈆";
+          command = "hyprctl dispatch exit";
         }
       ];
       dnd = {
@@ -38,25 +46,17 @@ let
         clear-all-button = true;
         button-text = "󰆴";
       };
+      volume = {
+        label = "󰕾";
+      };
     };
   };
-in
-{
-
+in {
   home = {
-    packages = [ pkgs.swaynotificationcenter ];
+    packages = [pkgs.swaynotificationcenter];
     file = {
       ".config/swaync/config.json".text = builtins.toJSON swayncConfig;
       ".config/swaync/style.css".source = ./style.css;
     };
   };
-
-  wayland.windowManager.hyprland.settings = {
-    exec-once = [ "swaync" ];
-    layerrule = [
-      "animation slide top, swaync-control-center"
-      "animation slide top, swaync-notification-window"
-    ];
-  };
-
 }

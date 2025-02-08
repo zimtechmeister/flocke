@@ -2,9 +2,7 @@
   pkgs,
   inputs,
   ...
-}:
-
-{
+}: {
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
@@ -61,13 +59,13 @@
       "wheel"
     ];
     shell = pkgs.zsh;
-    packages = with pkgs; [
+    packages = with pkgs; [ # is this the same as dooing it in home-manager?
       thunderbird
     ];
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users = {
       "tim" = import ./home.nix;
     };
@@ -75,8 +73,8 @@
 
   services.flatpak.enable = true;
   systemd.services.flatpak-repo = {
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
+    wantedBy = ["multi-user.target"];
+    path = [pkgs.flatpak];
     script = ''
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';
@@ -110,28 +108,38 @@
   environment.systemPackages = with pkgs; [
     neovide
     neovim
+
+    #lsp server
     lua-language-server
     jdt-language-server
-    eslint
+    # eslint
     typescript-language-server
     nixd
-    nixfmt-rfc-style
+
+    # nix formatter
+    # nixfmt-rfc-style
+    alejandra
 
     git
+    # which zip thing do i want to use?
+    gzip
     zip
     unzip
+
     ntfs3g
     ripgrep
     fd
+    # languages
     gcc
     cmake
     meson
-    cpio
-    pkg-config
     nodejs
-    wget
+
+    cpio
     killall
-    fd
+    wget
+    pkg-config
+
     less
     fzf
     difftastic
@@ -210,13 +218,17 @@
   fonts.packages = with pkgs; [
     fira-code
     nerd-fonts.fira-code
+    monocraft # is this with nerd-fonts
     twemoji-color-font
     noto-fonts
     noto-fonts-emoji
     noto-fonts-cjk-sans
   ];
 
-  services.udev.packages = [ pkgs.via ];
+  # this is for the nixd lsp to get the pkgs from the flake if im correct?
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+
+  services.udev.packages = [pkgs.via];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
