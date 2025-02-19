@@ -8,10 +8,13 @@
     inputs.home-manager.nixosModules.default
   ];
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    warn-dirty = false;
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -51,6 +54,12 @@
     wireplumber.enable = true;
   };
 
+  users.defaultUserShell = pkgs.zsh;
+  environment.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
+
   users.users.tim = {
     isNormalUser = true;
     description = "tim";
@@ -58,10 +67,8 @@
       "networkmanager"
       "wheel"
     ];
-    shell = pkgs.zsh;
-    packages = with pkgs; [ # is this the same as dooing it in home-manager?
-      thunderbird
-    ];
+    useDefaultShell = true;
+    # shell = pkgs.zsh;
   };
 
   home-manager = {
@@ -69,15 +76,6 @@
     users = {
       "tim" = import ./home.nix;
     };
-  };
-
-  services.flatpak.enable = true;
-  systemd.services.flatpak-repo = {
-    wantedBy = ["multi-user.target"];
-    path = [pkgs.flatpak];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
   };
 
   programs = {
@@ -112,7 +110,7 @@
     #lsp server
     lua-language-server
     jdt-language-server
-    # eslint
+    eslint
     typescript-language-server
     nixd
 
@@ -134,6 +132,7 @@
     cmake
     meson
     nodejs
+    yarn
 
     cpio
     killall
@@ -167,7 +166,6 @@
     # zsh-vi-mode
     starship
 
-    #grimshot
     hyprland
     hypridle
     hyprlock
@@ -189,6 +187,9 @@
     imv
     wev
 
+    glib
+    google-cursor
+
     kitty
     firefox
     chromium
@@ -204,6 +205,7 @@
     gimp
     qimgv
     zoom-us
+    localsend
 
     aquamarine
     hyprutils
@@ -218,11 +220,14 @@
   fonts.packages = with pkgs; [
     fira-code
     nerd-fonts.fira-code
+    nerd-fonts.symbols-only
     monocraft # is this with nerd-fonts
+    geist-font
     twemoji-color-font
     noto-fonts
     noto-fonts-emoji
     noto-fonts-cjk-sans
+    google-fonts # how many fonts is this? maybe too many
   ];
 
   # this is for the nixd lsp to get the pkgs from the flake if im correct?

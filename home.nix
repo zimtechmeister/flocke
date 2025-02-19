@@ -1,8 +1,11 @@
 {
   config,
   pkgs,
+  inputs,
   ...
-}: {
+}: let
+  system = "x86_64-linux";
+in {
   imports = [
     ./swaync
   ];
@@ -26,9 +29,9 @@
 
   programs = {
     git = {
-    enable = true;
-    userName = "Tim Zechmeister";
-    userEmail = "tim.zechmeister03@gmail.com";
+      enable = true;
+      userName = "Tim Zechmeister";
+      userEmail = "tim.zechmeister03@gmail.com";
     };
 
     # this is problematic
@@ -40,9 +43,24 @@
     # };
   };
 
+  # Cursor theme
+  home = {
+    pointerCursor = {
+      # name = "GoogleDot-Black";
+      # package = pkgs.google-cursor;
+      name = "phinger-cursors-dark";
+      package = pkgs.phinger-cursors;
+      size = 24;
+      gtk.enable = true;
+      # x11.enable = true;
+    };
+  };
+
   xdg.configFile."starship.toml".source = ./starship.toml;
 
   home.packages = [
+    inputs.zen-browser.packages."${system}".default
+
     # You can also create simple shell scripts directly inside your
     # configuration. For example, this adds a command 'my-hello' to your
     # environment:
@@ -55,10 +73,12 @@
     # you could source your .zshrc here for example
   };
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
-  };
+  # programs.zsh.enable = true;
+  #
+  # home.sessionVariables = {
+  #   EDITOR = "nvim";
+  #   VISUAL = "nvim";
+  # };
 
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
