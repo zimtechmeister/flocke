@@ -1,4 +1,5 @@
 {
+  lib,
   config,
   pkgs,
   inputs,
@@ -13,6 +14,7 @@ in {
   home.username = "tim";
   home.homeDirectory = "/home/tim";
 
+  # is this still correct for
   xdg.mimeApps.defaultApplications = {
     "text/plain" = ["neovide.desktop"];
     "image/*" = ["imv.desktop"]; # qimgv.desktop
@@ -44,16 +46,21 @@ in {
   };
 
   # Cursor theme
-  home = {
-    pointerCursor = {
-      # name = "GoogleDot-Black";
-      # package = pkgs.google-cursor;
-      name = "phinger-cursors-dark";
-      package = pkgs.phinger-cursors;
-      size = 24;
-      gtk.enable = true;
-      # x11.enable = true;
-    };
+  # not working for gtk
+  # maybe home-manager -switch to see error message
+  home.pointerCursor = {
+    package = pkgs.google-cursor;
+    name = "GoogleDot-Black";
+    size = 24;
+    gtk.enable = true;
+  };
+  gtk = {
+    enable = true;
+  #   cursorTheme = {
+  #     package = pkgs.google-cursor;
+  #     name = "GoogleDot-Black";
+  #     size = 24;
+  #   };
   };
 
   xdg.configFile."starship.toml".source = ./starship.toml;

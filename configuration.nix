@@ -216,6 +216,7 @@
     ghostty
     ulauncher
     anyrun
+    walker # not working
   ];
   fonts.packages = with pkgs; [
     fira-code
