@@ -76,6 +76,7 @@
     users = {
       "tim" = import ./home.nix;
     };
+    backupFileExtension = "hm-backup";
   };
 
   programs = {
@@ -94,6 +95,8 @@
       syntaxHighlighting.enable = true;
     };
   };
+
+  hardware.opentabletdriver.enable = true;
 
   # Electron apps to use Wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
@@ -232,7 +235,7 @@
   ];
 
   # this is for the nixd lsp to get the pkgs from the flake if im correct?
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   services.udev.packages = [pkgs.via];
 

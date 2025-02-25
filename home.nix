@@ -46,8 +46,6 @@ in {
   };
 
   # Cursor theme
-  # not working for gtk
-  # maybe home-manager -switch to see error message
   home.pointerCursor = {
     package = pkgs.google-cursor;
     name = "GoogleDot-Black";
@@ -56,11 +54,6 @@ in {
   };
   gtk = {
     enable = true;
-  #   cursorTheme = {
-  #     package = pkgs.google-cursor;
-  #     name = "GoogleDot-Black";
-  #     size = 24;
-  #   };
   };
 
   xdg.configFile."starship.toml".source = ./starship.toml;
