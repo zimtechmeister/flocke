@@ -235,7 +235,7 @@
   ];
 
   # this is for the nixd lsp to get the pkgs from the flake if im correct?
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   services.udev.packages = [pkgs.via];
 

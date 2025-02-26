@@ -20,13 +20,13 @@
     ...
   } @ inputs: {
     nixosConfigurations = {
-        default = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./configuration.nix
-        inputs.home-manager.nixosModules.default
-      ];
-    };
+      default = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          # ./configuration.nix
+          ./hosts/default/configuration.nix
+        ];
+      };
     };
   };
 }
