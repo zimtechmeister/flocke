@@ -58,6 +58,7 @@
   environment.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
+    FLAKE = "/home/tim/nixos";
   };
 
   users.users.tim = {
@@ -81,6 +82,16 @@
 
   programs = {
     firefox.enable = true;
+
+    nh = {
+      enable = true;
+      # flake = /home/tim/nixos;
+      clean = {
+        enable = true;
+        extraArgs = "--keep 5 --keep-since 3d";
+        dates = "daily";
+      };
+    };
 
     hyprland = {
       enable = true;

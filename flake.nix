@@ -14,16 +14,11 @@
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
-  outputs = {
-    nixpkgs,
-    zen-browser,
-    ...
-  } @ inputs: {
+  outputs = {nixpkgs, ...} @ inputs: {
     nixosConfigurations = {
-      default = nixpkgs.lib.nixosSystem {
+      nixBTW = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         modules = [
-          # ./configuration.nix
           ./hosts/default/configuration.nix
         ];
       };
