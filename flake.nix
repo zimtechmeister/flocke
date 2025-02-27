@@ -20,6 +20,7 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/default/configuration.nix
+          ./nixosModules
         ];
       };
     };
