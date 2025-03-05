@@ -5,14 +5,11 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.default
+    inputs.home-manager.nixosModules.home-manager
   ];
 
-  # enable modules https://www.youtube.com/watch?v=vYc6IzKvAJQ
-  mypackages.enable = true;
-
   nix.settings = {
-    warn-dirty = false;
+    # warn-dirty = false;
     experimental-features = [
       "nix-command"
       "flakes"
@@ -70,13 +67,27 @@
     # shell = pkgs.zsh;
   };
 
+  # NOTE: one of the following should work
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
-    users = {
-      "tim" = import ./home.nix;
-    };
+    users.tim = import ./home.nix;
     backupFileExtension = "hm-backup";
   };
+
+  # home-manager.tim = {
+  #   extraSpecialArgs = {inherit inputs;};
+  #   users = {
+  #     modules = [
+  #       ./home.nix
+  #       inputs.self.outputs.homeManagerModules.default
+  #     ];
+  #   };
+  #   backupFileExtension = "hm-backup";
+  # };
+
+
+
+
 
   # Electron apps to use Wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

@@ -35,14 +35,16 @@
         ];
       };
     };
-    homeConfigurations = {
-      tim = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {inherit inputs;};
-        modules = [
-          ./homeManagerModules
-        ];
-      };
+
+    homeConfigurations."tim-home" = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      extraSpecialArgs = {inherit inputs;};
+      modules = [
+        ./homeManagerModules
+      ];
     };
+
+    nixosModules.default = ./nixosModules;
+    homeManagerModules.default = ./homeManagerModules;
   };
 }
