@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    # not generated yet
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
   ];
@@ -20,7 +21,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 5;
 
-  networking.hostName = "nixBTW";
+  networking.hostName = "t480";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Berlin";
@@ -73,21 +74,6 @@
     users.tim = import ./home.nix;
     backupFileExtension = "hm-backup";
   };
-
-  # home-manager.tim = {
-  #   extraSpecialArgs = {inherit inputs;};
-  #   users = {
-  #     modules = [
-  #       ./home.nix
-  #       inputs.self.outputs.homeManagerModules.default
-  #     ];
-  #   };
-  #   backupFileExtension = "hm-backup";
-  # };
-
-
-
-
 
   # Electron apps to use Wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

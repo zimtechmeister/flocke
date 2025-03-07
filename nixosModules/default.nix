@@ -1,6 +1,6 @@
 {lib, ...}: {
   imports = [
-    ./packages/nixBTW.nix # mypackages
+    ./packages/mypackages.nix # mypackages
   ];
 
   mypackages.enable =

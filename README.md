@@ -2,6 +2,8 @@
 rebuild nixos with flake
 ```bash
 sudo nixos-rebuild switch --flake /home/tim/nixos#nixBTW
+nh os switch
+nh os switch --update
 ```
 update flake
 ```bash

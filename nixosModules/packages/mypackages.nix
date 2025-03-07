@@ -11,8 +11,6 @@
   };
   config = lib.mkIf config.mypackages.enable {
     programs = {
-      firefox.enable = true;
-
       nh = {
         enable = true;
         # flake = /home/tim/nixos;
@@ -23,11 +21,12 @@
         };
       };
 
-      hyprland = {
-        enable = true;
-        portalPackage = pkgs.xdg-desktop-portal-hyprland;
-        xwayland.enable = true;
-      };
+      # hyprland = {
+      #   enable = true;
+      #   package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+      #   portalPackage = pkgs.xdg-desktop-portal-hyprland;
+      #   xwayland.enable = true;
+      # };
 
       zsh = {
         enable = true;
@@ -101,7 +100,11 @@
       # zsh-vi-mode
       starship
 
-      hyprland
+      # hyprland
+      # aquamarine
+      # hyprutils
+      # hyprlang
+      hyprpolkitagent
       hypridle
       hyprlock
       hyprcursor
@@ -141,10 +144,6 @@
       qimgv
       zoom-us
       localsend
-
-      aquamarine
-      hyprutils
-      hyprlang
 
       jdk
 

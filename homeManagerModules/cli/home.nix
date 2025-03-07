@@ -8,16 +8,13 @@
 }: let
   system = "x86_64-linux";
 in {
-  # options = {
-  #   mongo.enable =
-  #     lib.mkEnableOption "enables home-manager for nixBTW";
-  # };
-  #
-  # config = lib.mkIf config.mongo.enable {
-    imports = [
-      # ./swaync
-    ];
 
+  options = {
+    mongo.enable =
+      lib.mkEnableOption "enables home-manager for nixBTW";
+  };
+
+  config = lib.mkIf config.mongo.enable {
     # is this still correct for
     xdg.mimeApps.defaultApplications = {
       "text/plain" = ["neovide.desktop"];
@@ -48,7 +45,8 @@ in {
 
     # excange system with pkgs.system or whatever from the flake file or sth
     home.packages = [
-      inputs.zen-browser.packages."${system}".default
+      # TODO: look at hyprland there i use pkgs.system
+      inputs.zen-browser.packages."${pkgs.system}".default
 
       # You can also create simple shell scripts directly inside your
       # configuration. For example, this adds a command 'my-hello' to your
@@ -66,5 +64,5 @@ in {
 
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
-  # };
+  };
 }

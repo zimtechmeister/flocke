@@ -1,4 +1,9 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
   swayncConfig = {
     "$schema" = "${pkgs.swaynotificationcenter}/etc/xdg/swaync/configSchema.json";
     positionX = "center";
@@ -52,11 +57,18 @@
     };
   };
 in {
-  home = {
-    packages = [pkgs.swaynotificationcenter];
-    file = {
-      ".config/swaync/config.json".text = builtins.toJSON swayncConfig;
-      ".config/swaync/style.css".source = ./style.css;
+  options = {
+    swaync.enable =
+      lib.mkEnableOption "enables swaync";
+  };
+
+  config = lib.mkIf config.swaync.enable {
+    home = {
+      packages = [pkgs.swaynotificationcenter];
+      file = {
+        ".config/swaync/config.json".text = builtins.toJSON swayncConfig;
+        ".config/swaync/style.css".source = ./style.css;
+      };
     };
   };
 }
