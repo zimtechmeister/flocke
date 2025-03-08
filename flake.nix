@@ -43,9 +43,7 @@
           ./nixosModules
         ];
       };
-    };
 
-    nixosConfigurations = {
       t480 = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs;};
@@ -54,9 +52,7 @@
           ./nixosModules
         ];
       };
-    };
 
-    nixosConfigurations = {
       lab = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs;};
@@ -66,13 +62,20 @@
         ];
       };
     };
-
-    homeConfigurations."tim-home" = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      extraSpecialArgs = {inherit inputs;};
-      modules = [
-        ./homeManagerModules
-      ];
+      # NOTE:
+      # this is for lsp
+      # in nix repl
+      # :lf /home/tim/nixos
+      # builtins.attrNames (builtins.getFlake "/home/tim/nixos").nixosConfigurations.PC
+      # builtins.attrNames (builtins.getFlake "/home/tim/nixos").homeConfigurations.tim-home
+    homeConfigurations = {
+      "tim-home" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {inherit inputs;};
+        modules = [
+          ./homeManagerModules
+        ];
+      };
     };
 
     nixosModules.default = ./nixosModules;

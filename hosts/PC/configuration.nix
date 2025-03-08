@@ -18,6 +18,9 @@
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
 
+  # this is for the nixd lsp to get the pkgs from the flake if im correct?
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 5;
