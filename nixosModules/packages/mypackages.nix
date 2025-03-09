@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }: {
   options = {
@@ -20,18 +21,29 @@
         };
       };
 
-      # hyprland = {
-      #   enable = true;
-      #   package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-      #   portalPackage = pkgs.xdg-desktop-portal-hyprland;
-      #   xwayland.enable = true;
-      # };
+      hyprland = {
+        # enable = true;
+        # package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+        #   portalPackage = pkgs.xdg-desktop-portal-hyprland;
+        #   xwayland.enable = true;
+
+        enable = true;
+        package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+        portalPackage = inputs.hyprland.packages."${pkgs.system}".xdg-desktop-portal-hyprland;
+      };
 
       zsh = {
         enable = true;
         enableCompletion = true;
         autosuggestions.enable = true;
         syntaxHighlighting.enable = true;
+        shellInit = ''
+          if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+              exec Hyprland
+              # reccomended way to start hyprland
+              # exec uwsm start hyprland.desktop
+          fi
+        '';
       };
     };
     hardware.opentabletdriver.enable = true;

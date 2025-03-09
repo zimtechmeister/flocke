@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ./cachix.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -13,9 +14,6 @@
       "nix-command"
       "flakes"
     ];
-    # cachix for hyprland flake (no need to compile it myself)
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
 
   # this is for the nixd lsp to get the pkgs from the flake if im correct?

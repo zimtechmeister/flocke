@@ -45,6 +45,11 @@ in {
 
     # excange system with pkgs.system or whatever from the flake file or sth
     home.packages = [
+
+      # seems like i need this when gtk.enable is set
+      pkgs.dconf
+
+
       # TODO: look at hyprland there i use pkgs.system
       inputs.zen-browser.packages."${pkgs.system}".default
 
