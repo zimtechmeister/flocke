@@ -4,18 +4,20 @@
   ...
 }: {
   imports = [
-    # not generated yet
     ./hardware-configuration.nix
+    ./cachix.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
   nix.settings = {
-    # warn-dirty = false;
     experimental-features = [
       "nix-command"
       "flakes"
     ];
   };
+
+  # this is for the nixd lsp to get the pkgs from the flake if im correct?
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -74,6 +76,21 @@
     users.tim = import ./home.nix;
     backupFileExtension = "hm-backup";
   };
+
+  # home-manager.tim = {
+  #   extraSpecialArgs = {inherit inputs;};
+  #   users = {
+  #     modules = [
+  #       ./home.nix
+  #       inputs.self.outputs.homeManagerModules.default
+  #     ];
+  #   };
+  #   backupFileExtension = "hm-backup";
+  # };
+
+
+
+
 
   # Electron apps to use Wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";

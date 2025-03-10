@@ -10,6 +10,9 @@
     inputs.self.outputs.homeManagerModules.default
   ];
 
+  monitorLayout =
+    lib.mkForce "PC";
+
   home.username = "tim";
   home.homeDirectory = "/home/tim";
 

@@ -34,7 +34,7 @@ in {
     home.pointerCursor = {
       package = pkgs.google-cursor;
       name = "GoogleDot-Black";
-      size = 24;
+      size = 16;
       gtk.enable = true;
     };
     gtk = {
