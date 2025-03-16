@@ -10,9 +10,9 @@
     inputs.self.outputs.homeManagerModules.default
   ];
 
-  monitorLayout =
-    lib.mkForce "PC";
-
+  hyprland.monitorLayout =
+    lib.mkDefault "t480";
+ 
   home.username = "tim";
   home.homeDirectory = "/home/tim";
 

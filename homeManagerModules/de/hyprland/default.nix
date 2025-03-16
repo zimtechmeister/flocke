@@ -18,7 +18,7 @@
       ", preferred, auto, 1, mirror, eDP-"
     ];
   };
-  monitorLayout = builtins.getAttr (config.monitorLayout) monitorLayouts;
+  monitorLayout = builtins.getAttr (config.hyprland.monitorLayout) monitorLayouts;
 
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
     wl-paste --type text --watch cliphist store &
@@ -34,13 +34,15 @@ in {
     ./keybinds.nix
   ];
   options = {
-    hyprland.enable =
-      lib.mkEnableOption "enables hyprland";
-    monitorLayout = lib.mkOption {
-      default = "PC";
-      description = ''
-        hyprland monitor layout
-      '';
+    hyprland = {
+      enable = lib.mkEnableOption "enables hyprland";
+      monitorLayout = lib.mkOption {
+        default = null;
+        # default = "PC";
+        description = ''
+          hyprland monitor layout
+        '';
+      };
     };
   };
   config = lib.mkIf config.hyprland.enable {

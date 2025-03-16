@@ -1,4 +1,8 @@
-{lib, config, ...}: {
+{
+  lib,
+  config,
+  ...
+}: {
   imports = [
     ./swaync
     ./hyprland
@@ -10,10 +14,9 @@
   };
 
   config = lib.mkIf config.de.enable {
-  hyprland.enable =
+    hyprland.enable =
       lib.mkDefault true;
-  swaync.enable =
-    lib.mkDefault true;
+    swaync.enable =
+      lib.mkDefault true;
   };
-
 }
