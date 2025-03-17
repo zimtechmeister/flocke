@@ -14,7 +14,7 @@
     t480 = [
       "eDP-1, preferred, 0x0, 1"
       "desc:Microstep Optix MAG24C 0000000000001, preferred, 1920x0, 1"
-      "desc:Dell Inc. DELL U2412M 0FFXD33I1C7L, preferred, 3840, 1"
+      "desc:Dell Inc. DELL U2412M 0FFXD33I1C7L, preferred, 3840x0, 1"
       ", preferred, auto, 1, mirror, eDP-"
     ];
   };
