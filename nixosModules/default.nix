@@ -1,6 +1,7 @@
 {lib, ...}: {
   imports = [
-    ./packages/mypackages.nix # mypackages
+    ./packages/mypackages.nix
+    ./features/bluetooth.nix
   ];
 
   mypackages.enable =

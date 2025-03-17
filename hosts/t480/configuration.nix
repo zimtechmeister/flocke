@@ -1,6 +1,8 @@
 {
   pkgs,
   inputs,
+  lib,
+  config,
   ...
 }: {
   imports = [
@@ -8,6 +10,9 @@
     ./cachix.nix
     inputs.home-manager.nixosModules.home-manager
   ];
+
+  bluetooth.enable =
+    lib.mkDefault true;
 
   nix.settings = {
     experimental-features = [
@@ -87,10 +92,6 @@
   #   };
   #   backupFileExtension = "hm-backup";
   # };
-
-
-
-
 
   # Electron apps to use Wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
