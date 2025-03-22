@@ -5,10 +5,7 @@
   inputs,
   outputs,
   ...
-}: let
-  system = "x86_64-linux";
-in {
-
+}: {
   options = {
     mongo.enable =
       lib.mkEnableOption "enables home-manager for nixBTW";
@@ -41,14 +38,10 @@ in {
       enable = true;
     };
 
-    xdg.configFile."starship.toml".source = ./starship.toml;
-
     # excange system with pkgs.system or whatever from the flake file or sth
     home.packages = [
-
       # seems like i need this when gtk.enable is set
       pkgs.dconf
-
 
       # TODO: look at hyprland there i use pkgs.system
       inputs.zen-browser.packages."${pkgs.system}".default
@@ -60,10 +53,6 @@ in {
         echo "Hello, ${config.home.username}!"
       '')
     ];
-
-    home.file = {
-      # you could source your .zshrc here for example
-    };
 
     home.stateVersion = "24.11"; # Please read the comment before changing.
 

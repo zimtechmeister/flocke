@@ -58,13 +58,13 @@
       eslint
       typescript-language-server
       nixd
+      harper
 
-      # nix formatter
-      # nixfmt-rfc-style
+      # nix formater
       alejandra
 
       git
-      # which zip thing do i want to use?
+      # Which zip thing do I want to use?
       gzip
       zip
       unzip
@@ -104,11 +104,6 @@
       yt-dlp
       # cronie
 
-      # zsh
-      # zsh-fzf-tab
-      # zsh-autosuggestions
-      # zsh-syntax-highlighting
-      # zsh-vi-mode
       starship
 
       # hyprland
@@ -148,7 +143,7 @@
       gimp
       mpv
       pcmanfm
-      zathura # do i need pdf mupdf?
+      zathura
       via
       prismlauncher
       gimp
@@ -173,7 +168,7 @@
       noto-fonts
       noto-fonts-emoji
       noto-fonts-cjk-sans
-      google-fonts # how many fonts is this? maybe too many
+      google-fonts # How many fonts is this? maybe too many
     ];
 
     services.udev.packages = [pkgs.via];

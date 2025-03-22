@@ -1,6 +1,7 @@
 {lib, ...}: {
   imports = [
     ./cli/home.nix
+    ./cli
     ./de
   ];
   mongo.enable =
