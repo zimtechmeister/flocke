@@ -13,9 +13,6 @@
   hyprland.monitorLayout =
     lib.mkDefault "t480";
  
-  home.username = "tim";
-  home.homeDirectory = "/home/tim";
-
   programs = {
     git = {
       enable = true;

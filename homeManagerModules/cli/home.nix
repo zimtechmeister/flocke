@@ -12,6 +12,7 @@
   };
 
   config = lib.mkIf config.mongo.enable {
+
     # is this still correct for
     xdg.mimeApps.defaultApplications = {
       "text/plain" = ["neovide.desktop"];

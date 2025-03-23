@@ -69,7 +69,7 @@
       # builtins.attrNames (builtins.getFlake "/home/tim/nixos").nixosConfigurations.PC
       # builtins.attrNames (builtins.getFlake "/home/tim/nixos").homeConfigurations.tim-home
     homeConfigurations = {
-      "tim-home" = home-manager.lib.homeManagerConfiguration {
+      "tim" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {inherit inputs;};
         modules = [

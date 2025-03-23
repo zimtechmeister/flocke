@@ -106,9 +106,9 @@ in {
               "windowsOut, 1, 4, default, popin 80%"
               "layers, 1, 4, default, popin 80%"
               "fade, 1, 4, default"
-              "border, 1, 16, default"
+              "border, 0, 16, default"
               "borderangle, 0, 8, default"
-              "workspaces, 1, 4, default, fade"
+              "workspaces, 0, 4, default, fade"
             ];
           };
           dwindle = {

@@ -13,9 +13,6 @@
   hyprland.monitorLayout =
     lib.mkDefault "PC";
 
-  home.username = "tim";
-  home.homeDirectory = "/home/tim";
-
   programs = {
     git = {
       enable = true;
