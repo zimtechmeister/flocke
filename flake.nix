@@ -73,6 +73,7 @@
         inherit pkgs;
         extraSpecialArgs = {inherit inputs;};
         modules = [
+          ./hosts/PC/home.nix
           ./homeManagerModules
         ];
       };
