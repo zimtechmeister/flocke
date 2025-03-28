@@ -157,6 +157,8 @@
       ulauncher
       anyrun
       walker # not working
+
+      libsForQt5.kdenlive
     ];
     fonts.packages = with pkgs; [
       fira-code

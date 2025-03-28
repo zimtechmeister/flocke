@@ -5,9 +5,6 @@
     ./de
   ];
 
-  home.username = "tim";
-  home.homeDirectory = "/home/tim";
-
   mongo.enable =
     lib.mkDefault true;
   de.enable =

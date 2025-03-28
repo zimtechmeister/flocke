@@ -12,6 +12,8 @@
   };
 
   config = lib.mkIf config.mongo.enable {
+    home.username = "tim";
+    home.homeDirectory = "/home/tim";
 
     # is this still correct for
     xdg.mimeApps.defaultApplications = {
@@ -39,7 +41,6 @@
       enable = true;
     };
 
-    # excange system with pkgs.system or whatever from the flake file or sth
     home.packages = [
       # seems like i need this when gtk.enable is set
       pkgs.dconf
@@ -50,7 +51,7 @@
       # You can also create simple shell scripts directly inside your
       # configuration. For example, this adds a command 'my-hello' to your
       # environment:
-      (pkgs.writeShellScriptBin "mo-hello" ''
+      (pkgs.writeShellScriptBin "my-hello" ''
         echo "Hello, ${config.home.username}!"
       '')
     ];

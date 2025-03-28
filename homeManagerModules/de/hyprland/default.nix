@@ -99,17 +99,7 @@ in {
             };
           };
           animations = {
-            enabled = true;
-            bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-            animation = [
-              "windows, 1, 4, default"
-              "windowsOut, 1, 4, default, popin 80%"
-              "layers, 1, 4, default, popin 80%"
-              "fade, 1, 4, default"
-              "border, 0, 16, default"
-              "borderangle, 0, 8, default"
-              "workspaces, 0, 4, default, fade"
-            ];
+            enabled = false;
           };
           dwindle = {
             force_split = 2;
