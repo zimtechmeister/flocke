@@ -32,9 +32,9 @@
 
     # Cursor theme
     home.pointerCursor = {
-      package = pkgs.google-cursor;
-      name = "GoogleDot-Black";
-      size = 16;
+      package = pkgs.phinger-cursors;
+      name = "phinger-cursors-dark";
+      size = 24;
       gtk.enable = true;
     };
     gtk = {
