@@ -48,9 +48,11 @@ in {
   config = lib.mkIf config.hyprland.enable {
     wayland.windowManager = {
       hyprland = {
+        # NOTE: do i even need to enable specify the package if i already did in mypackages.nix
         enable = true;
-        # package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-        # portalPackage = inputs.hyprland.packages."${pkgs.system}".xdg-desktop-portal-hyprland;
+        package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+        portalPackage = inputs.hyprland.packages."${pkgs.system}".xdg-desktop-portal-hyprland;
+        # TODO: import these settings from a hyprland.conf file this way i still use these original hyprland config syntax
         settings = {
           monitor = monitorLayout;
           exec-once = ''${startupScript}/bin/start'';

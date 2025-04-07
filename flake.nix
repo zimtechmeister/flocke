@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -44,6 +45,10 @@
         ];
       };
 
+      # Add this line in modules for better hardware support https://github.com/NixOS/nixos-hardware
+      # nixos-hardware.nixosModules.lenovo-thinkpad-t480
+      # i dont know if i should then remove the hardwareconfiguration.nix file
+      # take care what happens to the boot configuration
       t480 = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs;};
@@ -62,24 +67,24 @@
         ];
       };
     };
-      # NOTE:
-      # this is for lsp
-      # in nix repl
-      # :lf /home/tim/nixos
-      # builtins.attrNames (builtins.getFlake "/home/tim/nixos").nixosConfigurations.PC
-      # builtins.attrNames (builtins.getFlake "/home/tim/nixos").homeConfigurations.tim-home
+    # NOTE:
+    # this is for lsp
+    # in nix repl
+    # :lf /home/tim/nixos
+    # builtins.attrNames (builtins.getFlake "/home/tim/nixos").nixosConfigurations.PC
+    # builtins.attrNames (builtins.getFlake "/home/tim/nixos").homeConfigurations.tim-home
     homeConfigurations = {
       tim = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {inherit inputs;};
         modules = [
           ./hosts/PC/home.nix
-          ./homeManagerModules
         ];
       };
     };
 
-    nixosModules.default = ./nixosModules;
-    homeManagerModules.default = ./homeManagerModules;
+    # TODO: remove
+    # nixosModules.default = ./nixosModules;
+    # homeManagerModules.default = ./homeManagerModules;
   };
 }

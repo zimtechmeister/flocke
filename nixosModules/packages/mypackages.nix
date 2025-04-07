@@ -22,11 +22,6 @@
       };
 
       hyprland = {
-        # enable = true;
-        # package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-        #   portalPackage = pkgs.xdg-desktop-portal-hyprland;
-        #   xwayland.enable = true;
-
         enable = true;
         package = inputs.hyprland.packages."${pkgs.system}".hyprland;
         portalPackage = inputs.hyprland.packages."${pkgs.system}".xdg-desktop-portal-hyprland;
@@ -69,6 +64,9 @@
       zip
       unzip
 
+      pandoc
+      python312Packages.pylatexenc
+      texliveMedium
       ntfs3g
       ripgrep
       fd
