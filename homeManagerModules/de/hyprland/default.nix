@@ -52,7 +52,6 @@ in {
         enable = true;
         package = inputs.hyprland.packages."${pkgs.system}".hyprland;
         portalPackage = inputs.hyprland.packages."${pkgs.system}".xdg-desktop-portal-hyprland;
-        # TODO: import these settings from a hyprland.conf file this way i still use these original hyprland config syntax
         settings = {
           monitor = monitorLayout;
           exec-once = ''${startupScript}/bin/start'';
