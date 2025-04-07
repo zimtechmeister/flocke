@@ -78,17 +78,6 @@
     backupFileExtension = "hm-backup";
   };
 
-  # home-manager.tim = {
-  #   extraSpecialArgs = {inherit inputs;};
-  #   users = {
-  #     modules = [
-  #       ./home.nix
-  #       inputs.self.outputs.homeManagerModules.default
-  #     ];
-  #   };
-  #   backupFileExtension = "hm-backup";
-  # };
-
   # Electron apps to use Wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 

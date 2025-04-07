@@ -57,15 +57,6 @@
           ./nixosModules
         ];
       };
-
-      lab = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/lab/configuration.nix
-          ./nixosModules
-        ];
-      };
     };
     # NOTE:
     # this is for lsp
@@ -82,9 +73,5 @@
         ];
       };
     };
-
-    # TODO: remove
-    # nixosModules.default = ./nixosModules;
-    # homeManagerModules.default = ./homeManagerModules;
   };
 }
