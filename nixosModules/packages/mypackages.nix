@@ -76,6 +76,7 @@
       meson
       nodejs
       yarn
+      python
 
       cpio
       killall
