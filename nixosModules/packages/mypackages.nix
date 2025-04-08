@@ -157,6 +157,9 @@
       walker # not working
 
       libsForQt5.kdenlive
+
+
+      python312Packages.dbus-python 
     ];
     fonts.packages = with pkgs; [
       fira-code
