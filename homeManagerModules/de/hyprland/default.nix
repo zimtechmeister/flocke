@@ -29,6 +29,8 @@
     hypridle &
     swaync &
   '';
+
+  toggle-keyboard = pkgs.lib.fileContents ./toggle-keyboard.sh;
 in {
   imports = [
     ./keybinds.nix
@@ -46,23 +48,30 @@ in {
     };
   };
   config = lib.mkIf config.hyprland.enable {
+    home.packages = [
+      (pkgs.writeShellScriptBin "toggle-keyboard" toggle-keyboard)
+    ];
     wayland.windowManager = {
       hyprland = {
         # NOTE: do i even need to enable specify the package if i already did in mypackages.nix
         enable = true;
         package = inputs.hyprland.packages."${pkgs.system}".hyprland;
         portalPackage = inputs.hyprland.packages."${pkgs.system}".xdg-desktop-portal-hyprland;
+        # TODO: dont know how to do the first line in settings
+        extraConfig = ''
+          $LAPTOP_KB_ENABLED = true
+          device {
+            name = at-translated-set-2-keyboard
+            enabled = $LAPTOP_KB_ENABLED
+            kb_options = caps:swapescape
+          }
+        '';
         settings = {
           monitor = monitorLayout;
           exec-once = ''${startupScript}/bin/start'';
           input = {
             kb_layout = "eu, de, us";
             accel_profile = "flat";
-          };
-          # TODO: only laptop
-          device = {
-            name = "at-translated-set-2-keyboard";
-            kb_options = "caps:swapescape";
           };
           gestures = {
             workspace_swipe = true;
