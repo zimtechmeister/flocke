@@ -6,6 +6,7 @@
   imports = [
     ./swaync
     ./hyprland
+    ./waybar
   ];
 
   options = {
@@ -17,6 +18,8 @@
     hyprland.enable =
       lib.mkDefault true;
     swaync.enable =
+      lib.mkDefault true;
+    waybar.enable =
       lib.mkDefault true;
   };
 }

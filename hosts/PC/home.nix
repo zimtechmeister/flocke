@@ -12,6 +12,8 @@
 
   hyprland.monitorLayout =
     lib.mkDefault "PC";
+  waybar.config =
+    lib.mkDefault "PC";
 
   programs = {
     git = {
