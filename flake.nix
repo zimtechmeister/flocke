@@ -36,6 +36,7 @@
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations = {
+      #TODO: rename PC to desktop
       PC = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs;};
