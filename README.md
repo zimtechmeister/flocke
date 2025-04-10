@@ -7,7 +7,6 @@ nh os switch -H PC
 # todo:
 - [-] stylix
 - [ ] disco
-- [ ] fastfetch
 - [ ] how do you want to manage wallpaper
 ## laptop only:
 - [ ] tlp

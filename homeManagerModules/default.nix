@@ -11,6 +11,7 @@
     ./hypridle
     ./hyprlock
     ./hyprpaper
+    ./fastfetch
   ];
 
   mongo.enable =
@@ -33,5 +34,7 @@
   hyprlock.enable =
     lib.mkDefault true;
   hyprpaper.enable =
+    lib.mkDefault true;
+  fastfetch.enable =
     lib.mkDefault true;
 }
