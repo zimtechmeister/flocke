@@ -11,14 +11,14 @@
   };
   clockAction = builtins.getAttr (config.waybar.config) clockActions;
 in {
-  imports = [
-  ];
   options = {
     waybar = {
       enable = lib.mkEnableOption "enables waybar";
       config = lib.mkOption {
+        # NOTE: this default might cause problems and its not the only
+        # occurrence of such a problem (maybe keep null the default and only if
+        # its set to something else this has effect)
         default = null;
-        # default = "PC";
         description = ''
           waybar config
         '';
@@ -29,7 +29,6 @@ in {
     programs.waybar = {
       enable = true;
       style = builtins.readFile (./style.css);
-      # NOTE: this does not work (wrong syntax)
       settings = {
         mainBar = {
           position = "bottom"; # Waybar position (top|bottom|left|right)

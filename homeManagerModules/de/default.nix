@@ -7,6 +7,7 @@
     ./swaync
     ./hyprland
     ./waybar
+    ./rofi
   ];
 
   options = {
@@ -20,6 +21,8 @@
     swaync.enable =
       lib.mkDefault true;
     waybar.enable =
+      lib.mkDefault true;
+    rofi.enable =
       lib.mkDefault true;
   };
 }

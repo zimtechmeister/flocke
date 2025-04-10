@@ -39,8 +39,10 @@ in {
     hyprland = {
       enable = lib.mkEnableOption "enables hyprland";
       monitorLayout = lib.mkOption {
+        # NOTE: this default might cause problems and its not the only
+        # occurrence of such a problem (maybe keep null the default and only if
+        # its set to something else this has effect)
         default = null;
-        # default = "PC";
         description = ''
           hyprland monitor layout
         '';
