@@ -9,7 +9,7 @@
     };
   };
   config = lib.mkIf config.hypridle.enable {
-    programs.hypridle = {
+    services.hypridle = {
       enable = true;
       settings = {
         general = {

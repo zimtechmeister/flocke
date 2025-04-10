@@ -26,7 +26,7 @@
     systemctl --user start hyprpolkitagent &
     hyprpaper &
     waybar &
-    hypridle &
+    # hypridle & #TODO: check if this is started as systemd service
     swaync &
   '';
 
