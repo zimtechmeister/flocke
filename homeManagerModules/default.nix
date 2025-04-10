@@ -7,6 +7,8 @@
     ./hyprland
     ./waybar
     ./rofi
+    ./ghostty
+    ./hypridle
   ];
 
   mongo.enable =
@@ -21,5 +23,9 @@
   waybar.enable =
     lib.mkDefault true;
   rofi.enable =
+    lib.mkDefault true;
+  ghostty.enable =
+    lib.mkDefault true;
+  hypridle.enable =
     lib.mkDefault true;
 }

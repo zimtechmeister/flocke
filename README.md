@@ -5,10 +5,8 @@ nh os switch -H PC
 ```
 
 # todo:
-- [-] kitty
 - [-] stylix
 - [ ] disco
-- [ ] hypridle
 - [ ] hyprlock
 - [ ] hyprpaper and wallpaper
 - [ ] fastfetch
