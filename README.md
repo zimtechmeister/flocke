@@ -5,7 +5,6 @@ nh os switch -H PC
 ```
 
 # todo:
-- [-] rofi
 - [-] kitty
 - [-] stylix
 - [ ] disco

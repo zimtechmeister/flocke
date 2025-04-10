@@ -5,7 +5,8 @@ configuration {
     font: "FiraCode Nerd Font 12";
 }
 
-    /*****----- theme? -----*****/
+@theme "/dev/null"
+
 * {
     bgDim: #1b1b1b;
     bg0: #282828;
