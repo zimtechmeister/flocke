@@ -10,6 +10,7 @@
     ./ghostty
     ./hypridle
     ./hyprlock
+    ./hyprpaper
   ];
 
   mongo.enable =
@@ -30,5 +31,7 @@
   hypridle.enable =
     lib.mkDefault true;
   hyprlock.enable =
+    lib.mkDefault true;
+  hyprpaper.enable =
     lib.mkDefault true;
 }

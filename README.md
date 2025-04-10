@@ -7,8 +7,7 @@ nh os switch -H PC
 # todo:
 - [-] stylix
 - [ ] disco
-- [ ] hyprlock
-- [ ] hyprpaper and wallpaper
 - [ ] fastfetch
+- [ ] how do you want to manage wallpaper
 ## laptop only:
 - [ ] tlp

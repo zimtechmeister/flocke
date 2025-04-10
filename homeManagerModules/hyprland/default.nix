@@ -24,7 +24,7 @@
     wl-paste --type text --watch cliphist store &
     wl-paste --type image --watch cliphist store &
     systemctl --user start hyprpolkitagent &
-    hyprpaper &
+    # hyprpaper & #TODO: check if this is started as systemd service
     waybar &
     # hypridle & #TODO: check if this is started as systemd service
     swaync &
