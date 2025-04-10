@@ -9,6 +9,7 @@
     ./rofi
     ./ghostty
     ./hypridle
+    ./hyprlock
   ];
 
   mongo.enable =
@@ -27,5 +28,7 @@
   ghostty.enable =
     lib.mkDefault true;
   hypridle.enable =
+    lib.mkDefault true;
+  hyprlock.enable =
     lib.mkDefault true;
 }
