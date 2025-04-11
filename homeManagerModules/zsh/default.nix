@@ -3,10 +3,8 @@
   config,
   ...
 }: {
-  options = {
-    zsh.enable =
-      lib.mkEnableOption "configure zsh to my liking";
-  };
+  options.zsh.enable =
+    lib.mkEnableOption "configure zsh to my liking";
 
   config = lib.mkIf config.zsh.enable {
     programs.zsh = {

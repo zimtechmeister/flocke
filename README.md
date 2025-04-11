@@ -5,6 +5,7 @@ nh os switch -H PC
 ```
 
 # todo:
+- [-] nvim
 - [-] stylix
 - [ ] disco
 - [ ] how do you want to manage wallpaper

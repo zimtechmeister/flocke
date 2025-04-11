@@ -5,7 +5,9 @@
   inputs,
   outputs,
   ...
-}: {
+}: let
+  toggle-keyboard = pkgs.lib.fileContents ./toggle-keyboard.sh;
+in {
   options = {
     mongo.enable =
       lib.mkEnableOption "enables home-manager for nixBTW";
@@ -28,32 +30,13 @@
       "x-scheme-handler/https" = ["zen-beta.desktop"];
       "x-scheme-handler/unknown" = ["zen-beta.desktop"];
       "x-scheme-handler/webcal" = ["zen-beta.desktop"];
-    };
-
-    # Cursor theme
-    home.pointerCursor = {
-      package = pkgs.phinger-cursors;
-      name = "phinger-cursors-dark";
-      size = 24;
-      gtk.enable = true;
-    };
-    gtk = {
-      enable = true;
+      "x-scheme-handler/chrome" = ["zen-beta.desktop"];
     };
 
     home.packages = [
-      # seems like i need this when gtk.enable is set
-      pkgs.dconf
-
-      # TODO: look at hyprland there i use pkgs.system
       inputs.zen-browser.packages."${pkgs.system}".default
 
-      # You can also create simple shell scripts directly inside your
-      # configuration. For example, this adds a command 'my-hello' to your
-      # environment:
-      (pkgs.writeShellScriptBin "my-hello" ''
-        echo "Hello, ${config.home.username}!"
-      '')
+      (pkgs.writeShellScriptBin "toggle-keyboard" toggle-keyboard)
     ];
 
     home.stateVersion = "24.11"; # Please read the comment before changing.

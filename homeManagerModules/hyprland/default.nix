@@ -20,39 +20,31 @@
   };
   monitorLayout = builtins.getAttr (config.hyprland.monitorLayout) monitorLayouts;
 
+  #TODO: might want to overthink how to do the startup
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
     wl-paste --type text --watch cliphist store &
     wl-paste --type image --watch cliphist store &
     systemctl --user start hyprpolkitagent &
-    # hyprpaper & #TODO: check if this is started as systemd service
     waybar &
-    # hypridle & #TODO: check if this is started as systemd service
     swaync &
   '';
-
-  toggle-keyboard = pkgs.lib.fileContents ./toggle-keyboard.sh;
 in {
   imports = [
     ./keybinds.nix
   ];
-  options = {
-    hyprland = {
-      enable = lib.mkEnableOption "enables hyprland";
-      monitorLayout = lib.mkOption {
-        # NOTE: this default might cause problems and its not the only
-        # occurrence of such a problem (maybe keep null the default and only if
-        # its set to something else this has effect)
-        default = null;
-        description = ''
-          hyprland monitor layout
-        '';
-      };
+  options.hyprland = {
+    enable = lib.mkEnableOption "enables hyprland";
+    monitorLayout = lib.mkOption {
+      # NOTE: this default might cause problems and its not the only
+      # occurrence of such a problem (maybe keep null the default and only if
+      # its set to something else this has effect)
+      default = null;
+      description = ''
+        hyprland monitor layout
+      '';
     };
   };
   config = lib.mkIf config.hyprland.enable {
-    home.packages = [
-      (pkgs.writeShellScriptBin "toggle-keyboard" toggle-keyboard)
-    ];
     wayland.windowManager = {
       hyprland = {
         # NOTE: do i even need to enable specify the package if i already did in mypackages.nix

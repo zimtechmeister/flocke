@@ -57,10 +57,8 @@
     };
   };
 in {
-  options = {
-    swaync.enable =
-      lib.mkEnableOption "enables swaync";
-  };
+  options.swaync.enable =
+    lib.mkEnableOption "enables swaync";
 
   config = lib.mkIf config.swaync.enable {
     home = {

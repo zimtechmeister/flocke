@@ -3,11 +3,7 @@
   config,
   ...
 }: {
-  options = {
-    hyprlock = {
-      enable = lib.mkEnableOption "enables hyprlock";
-    };
-  };
+  options.hyprlock.enable = lib.mkEnableOption "enables hyprlock";
   config = lib.mkIf config.hyprlock.enable {
     programs.hyprlock = {
       enable = true;
