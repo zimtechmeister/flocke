@@ -67,6 +67,7 @@
       pandoc
       python312Packages.pylatexenc
       texliveMedium
+      imagemagick
       ntfs3g
       ripgrep
       fd

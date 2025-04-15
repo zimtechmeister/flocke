@@ -92,6 +92,7 @@
         # { name = "fzf-tab-git"; }
       ];
     };
+    #TODO: maybe do this the nix way
     xdg.configFile."starship.toml".source = ./starship.toml;
   };
 }
