@@ -5,9 +5,9 @@ nh os switch -H PC
 ```
 
 # todo:
-- [-] nvim
-- [-] stylix
-- [-] hardwareconfig
+- [ ] nvim
+- [ ] stylix
+- [ ] hardwareconfig
 - [ ] disco
 - [ ] how do you want to manage wallpaper
 ## laptop only:
