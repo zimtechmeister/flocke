@@ -40,6 +40,10 @@
           fi
         '';
       };
+      localsend = {
+        enable = true;
+        openFirewall = true;
+      };
     };
     hardware.opentabletdriver.enable = true;
     nixpkgs.config.allowUnfree = true;
@@ -149,7 +153,6 @@
       gimp
       qimgv
       zoom-us
-      localsend
 
       jdk
 
@@ -160,14 +163,14 @@
 
       libsForQt5.kdenlive
 
-
-      python312Packages.dbus-python 
+      python312Packages.dbus-python
     ];
     fonts.packages = with pkgs; [
       fira-code
       nerd-fonts.fira-code
       nerd-fonts.symbols-only
       monocraft # is this with nerd-fonts
+      # maple mono
       geist-font
       twemoji-color-font
       noto-fonts
