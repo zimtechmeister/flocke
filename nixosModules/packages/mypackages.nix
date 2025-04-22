@@ -54,6 +54,7 @@
       #lsp server
       lua-language-server
       jdt-language-server
+      clang-tools
       eslint
       typescript-language-server
       nixd
