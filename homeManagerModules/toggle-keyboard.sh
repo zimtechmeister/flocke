@@ -12,7 +12,7 @@ disable_keyboard() {
     hyprctl keyword '$LAPTOP_KB_ENABLED' "false" -r
 }
 
-if ! [ -f "$STATUS_FILE" ]; then
+if [ -f "$STATUS_FILE" ]; then
     enable_keyboard
 else
     disable_keyboard
