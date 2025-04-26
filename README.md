@@ -5,7 +5,6 @@ nh os switch -H PC
 ```
 
 # todo:
-- [ ] nvim
 - [ ] stylix
 - [ ] hardwareconfig
 - [ ] disco
