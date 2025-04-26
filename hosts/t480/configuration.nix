@@ -61,7 +61,7 @@
   environment.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
-    FLAKE = "/home/tim/nixos";
+    NH_FLAKE = "/home/tim/nixos";
   };
 
   users.users.tim = {

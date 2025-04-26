@@ -1,4 +1,4 @@
-{lib, pkgs, inputs, ...}: {
+{lib, inputs, ...}: {
   imports = [
     ./home.nix
 
@@ -13,6 +13,9 @@
     ./rofi
     ./ghostty
     ./fastfetch
+    ./scripts
+    ./zen-browser.nix
+    ./nvim.nix
     ./cursor-theme.nix
     ./mimeApps.nix
   ];
@@ -30,13 +33,9 @@
   rofi.enable = lib.mkDefault true;
   ghostty.enable = lib.mkDefault true;
   fastfetch.enable = lib.mkDefault true;
+  scripts.enable = lib.mkDefault true;
+  zen-browser.enable = lib.mkDefault true;
+  nvim.enable = lib.mkDefault true;
   cursor-theme.enable = lib.mkDefault true;
   mimeApps.enable = lib.mkDefault true;
-
-  # TODO: dont do this here and use ${system} instead of x86_64-linux
-  # maybe even install for root
-  # also change the environment variables
-  home.packages = [
-    inputs.nixcats.packages.x86_64-linux.default
-  ];
 }

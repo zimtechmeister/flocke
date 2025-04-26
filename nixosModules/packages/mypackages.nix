@@ -49,6 +49,7 @@
     nixpkgs.config.allowUnfree = true;
     environment.systemPackages = with pkgs; [
       neovide
+      neovim
 
       # nix formater
       alejandra
@@ -130,7 +131,7 @@
       google-cursor
 
       kitty
-      firefox
+      # firefox
       chromium
       discord
       vesktop
@@ -159,9 +160,10 @@
     fonts.packages = with pkgs; [
       fira-code
       nerd-fonts.fira-code
+      nerd-fonts.geist-mono
       nerd-fonts.symbols-only
       monocraft # is this with nerd-fonts
-      # maple mono
+      maple-mono.NF
       geist-font
       twemoji-color-font
       noto-fonts
