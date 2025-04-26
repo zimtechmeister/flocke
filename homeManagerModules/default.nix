@@ -1,4 +1,4 @@
-{lib, ...}: {
+{lib, pkgs, inputs, ...}: {
   imports = [
     ./home.nix
 
@@ -32,4 +32,11 @@
   fastfetch.enable = lib.mkDefault true;
   cursor-theme.enable = lib.mkDefault true;
   mimeApps.enable = lib.mkDefault true;
+
+  # TODO: dont do this here and use ${system} instead of x86_64-linux
+  # maybe even install for root
+  # also change the environment variables
+  home.packages = [
+    inputs.nixcats.packages.x86_64-linux.default
+  ];
 }
