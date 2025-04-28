@@ -29,7 +29,7 @@
         kssh = "kitty +kitten ssh";
       };
 
-      initExtra =
+      initContent =
         /*
         sh
         */

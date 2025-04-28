@@ -130,8 +130,9 @@
       glib
       google-cursor
 
+      ghostty
       kitty
-      # firefox
+      firefox
       chromium
       discord
       vesktop
@@ -148,7 +149,6 @@
 
       jdk
 
-      ghostty
       ulauncher
       anyrun
       walker # not working

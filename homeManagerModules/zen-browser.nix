@@ -13,27 +13,13 @@
   ];
   config = lib.mkIf config.zen-browser.enable {
     # NOTE: can be configured just like firefox
-    # ask where to download to
-    # unduck default search also private window
-    # dns settings https://adblock.dns.mullvad.net/dns-query
-    # ask to save passwords
-    nixpkgs.config.allowUnfree = true;
     programs.zen-browser = {
       enable = true;
       languagePacks = ["de" "en-US"];
-      policies = {
-        AutofillAddressEnabled = false;
-        AutofillCreditCardEnabled = false;
-        DontCheckDefaultBrowser = true;
-        # DNSOverHTTPS
-        # Extension
-        # ExtensionSettings
-        # Preferences
-        # SearchEngines
-      };
       profiles.tim = {
         isDefault = true;
-        extensions = with inputs.firefox-addons.packages."${pkgs.system}"; [
+        # NOTE: list of available plugins: https://nur.nix-community.org/repos/rycee/
+        extensions.packages = with inputs.firefox-addons.packages."${pkgs.system}"; [
           bitwarden
           ublock-origin
           sponsorblock
@@ -41,38 +27,65 @@
           return-youtube-dislikes
           vimium
           youtube-nonstop
-          # NOTE: i somehow need to allowUnfree packages
+          refined-github
+          # NOTE: i somehow need to allowUnfree packages? (its already set)
           # enhancer-for-youtube
+          # also dont know how to configure plugins
         ];
-        search.engines = {
-          "Unduck" = {
-            urls = [
-              {
-                template = "https://unduck.link?q=%s";
-              }
-            ];
-            definedAliases = ["@ud"];
-          };
-          "Nix Packages" = {
-            urls = [
-              {
-                template = "https://search.nixos.org/packaegs";
-                params = [
-                  {
-                    name = "type";
-                    value = "packages";
-                  }
-                  {
-                    name = "query";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-            ];
-            definedAliases = ["@np"];
-          };
+        settings = {
+          "network.trr.mode" = 2;
+          "network.trr.uri" = "https://adblock.dns.mullvad.net/dns-query";
+          "network.trr.custom_uri" = "https://adblock.dns.mullvad.net/dns-query";
+          "browser.download.useDownloadDir" = false;
+          "general.autoScroll" = true;
+          "signon.rememberSignons" = false;
+          "browser.search.suggest.enabled" = true;
+          "sidebar.position_start" = false;
+          "zen.urlbar.behavior" = "float";
+          "zen.theme.color-prefs.use-workspace-colors" = false;
+          "zen.view.compact.color-sidebar" = false;
+          "zen.view.compact.color-toolbar" = false;
+          "zen.view.show-newtab-button-top" = false;
         };
-        search.force = true;
+        search = {
+          default = "Unduck";
+          privateDefault = "Unduck";
+          engines = {
+            "Unduck" = {
+              urls = [
+                {
+                  template = "https://unduck.link";
+                  params = [
+                    {
+                      name = "q";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+              definedAliases = ["@ud"];
+            };
+            "Nix Packages" = {
+              urls = [
+                {
+                  template = "https://search.nixos.org/packages";
+                  params = [
+                    {
+                      name = "type";
+                      value = "packages";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+              definedAliases = ["@np"];
+            };
+          };
+          force = true;
+        };
       };
     };
   };
