@@ -6,7 +6,7 @@
   ...
 }: {
   options.zen-browser.enable =
-    lib.mkEnableOption "enables home-manager for nixBTW";
+    lib.mkEnableOption "enables zen-browser";
 
   imports = [
     inputs.zen-browser.homeModules.default
@@ -30,6 +30,9 @@
           refined-github
           # NOTE: i somehow need to allowUnfree packages? (its already set)
           # enhancer-for-youtube
+          (enhancer-for-youtube.overrideAttrs (o: {
+            meta = o.meta // {license = lib.licenses.mit;};
+          }))
           # also dont know how to configure plugins
         ];
         settings = {

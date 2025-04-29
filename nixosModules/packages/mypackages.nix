@@ -46,7 +46,6 @@
       };
     };
     hardware.opentabletdriver.enable = true;
-    nixpkgs.config.allowUnfree = true;
     environment.systemPackages = with pkgs; [
       neovide
       neovim
@@ -148,10 +147,13 @@
       zoom-us
 
       jdk
+      R
+      rstudio
 
       ulauncher
       anyrun
       walker # not working
+      warp-terminal
 
       libsForQt5.kdenlive
 
