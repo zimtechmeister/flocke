@@ -28,23 +28,23 @@
           vimium
           youtube-nonstop
           refined-github
-          # NOTE: i somehow need to allowUnfree packages? (its already set)
-          # enhancer-for-youtube
+          # error allowUnfree so this hack to fix it
           (enhancer-for-youtube.overrideAttrs (o: {
             meta = o.meta // {license = lib.licenses.mit;};
           }))
-          # also dont know how to configure plugins
         ];
         settings = {
-          "network.trr.mode" = 2;
-          "network.trr.uri" = "https://adblock.dns.mullvad.net/dns-query";
-          "network.trr.custom_uri" = "https://adblock.dns.mullvad.net/dns-query";
+          "browser.shell.checkDefaultBrowser" = false;
           "browser.download.useDownloadDir" = false;
           "general.autoScroll" = true;
           "signon.rememberSignons" = false;
           "browser.search.suggest.enabled" = true;
+          "network.trr.mode" = 2;
+          "network.trr.uri" = "https://adblock.dns.mullvad.net/dns-query";
+          "network.trr.custom_uri" = "https://adblock.dns.mullvad.net/dns-query";
           "sidebar.position_start" = false;
           "zen.urlbar.behavior" = "float";
+"browser.translations.automaticallyPopup" = false;
           "zen.theme.color-prefs.use-workspace-colors" = false;
           "zen.view.compact.color-sidebar" = false;
           "zen.view.compact.color-toolbar" = false;

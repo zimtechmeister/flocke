@@ -139,6 +139,7 @@
       gimp
       mpv
       pcmanfm
+      nautilus
       zathura
       via
       prismlauncher
