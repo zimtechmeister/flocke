@@ -34,7 +34,7 @@ window#waybar {
     transition-duration: .5s;
 }
 window#waybar label {
-    font-family: FiraCode Nerd Font;
+    font-family: Maple Mono NF;
     font-size: 16px;
     color: @fg0;
 }

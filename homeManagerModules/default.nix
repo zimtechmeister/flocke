@@ -1,4 +1,8 @@
-{lib, inputs, ...}: {
+{
+  lib,
+  types,
+  ...
+}: {
   imports = [
     ./home.nix
 
@@ -20,22 +24,32 @@
     ./mimeApps.nix
   ];
 
-  mongo.enable = lib.mkDefault true;
+  # NOTE: maybe set this in fonts file or in extra options file
+  options.systemFont = lib.mkOption {
+    default = "Maple Mono NF";
+    description = ''
+      default system font
+    '';
+  };
 
-  zsh.enable = lib.mkDefault true;
-  git.enable = lib.mkDefault true;
-  hyprland.enable = lib.mkDefault true;
-  hypridle.enable = lib.mkDefault true;
-  hyprlock.enable = lib.mkDefault true;
-  hyprpaper.enable = lib.mkDefault true;
-  waybar.enable = lib.mkDefault true;
-  swaync.enable = lib.mkDefault true;
-  rofi.enable = lib.mkDefault true;
-  ghostty.enable = lib.mkDefault true;
-  fastfetch.enable = lib.mkDefault true;
-  scripts.enable = lib.mkDefault true;
-  zen-browser.enable = lib.mkDefault true;
-  nvim.enable = lib.mkDefault true;
-  cursor-theme.enable = lib.mkDefault true;
-  mimeApps.enable = lib.mkDefault true;
+  config = {
+    mongo.enable = lib.mkDefault true;
+
+    zsh.enable = lib.mkDefault true;
+    git.enable = lib.mkDefault true;
+    hyprland.enable = lib.mkDefault true;
+    hypridle.enable = lib.mkDefault true;
+    hyprlock.enable = lib.mkDefault true;
+    hyprpaper.enable = lib.mkDefault true;
+    waybar.enable = lib.mkDefault true;
+    swaync.enable = lib.mkDefault true;
+    rofi.enable = lib.mkDefault true;
+    ghostty.enable = lib.mkDefault true;
+    fastfetch.enable = lib.mkDefault true;
+    scripts.enable = lib.mkDefault true;
+    zen-browser.enable = lib.mkDefault true;
+    nvim.enable = lib.mkDefault true;
+    cursor-theme.enable = lib.mkDefault true;
+    mimeApps.enable = lib.mkDefault true;
+  };
 }

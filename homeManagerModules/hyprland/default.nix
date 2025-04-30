@@ -113,7 +113,7 @@ in {
             disable_hyprland_logo = true;
             disable_splash_rendering = true;
             # NOTE: font
-            font_family = "FiraCode Nerd Font";
+            font_family = config.systemFont;
             mouse_move_enables_dpms = false;
             key_press_enables_dpms = true;
             new_window_takes_over_fullscreen = true;

@@ -5,6 +5,7 @@ nh os switch -H PC
 ```
 
 # todo:
+- [ ] apply systemFont to waybar and rofi
 - [ ] stylix
 - [ ] hardwareconfig
 - [ ] disco

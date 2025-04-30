@@ -2,7 +2,7 @@ configuration {
     display-drun: " apps";
     drun-display-format: "{name}";
     modi: "drun,";
-    font: "FiraCode Nerd Font 12";
+    font: "Maple Mono NF 12";
 }
 
 @theme "/dev/null"

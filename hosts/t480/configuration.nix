@@ -74,7 +74,6 @@
   };
 
   # TODO: maybe do this in the flake.nix file don't know
-  # NOTE: one of the following should work
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users.tim = import ./home.nix;

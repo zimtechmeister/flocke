@@ -62,7 +62,7 @@
             text = "cmd[update:1000] echo -e $(date '+%H')";
             color = "rgb(d4be98)";
             font_size = 80;
-            font_family = "FiraCode Nerd Font Bold";
+            font_family = "${config.systemFont} Bold";
             halign = "center";
             valign = "center";
             position = "0, 235";
@@ -74,7 +74,7 @@
             text = "cmd[update:1000] echo -e $(date '+%M')";
             color = "rgb(d4be98)";
             font_size = 80;
-            font_family = "FiraCode Nerd Font Bold";
+            font_family = "${config.systemFont} Bold";
             halign = "center";
             valign = "center";
             position = "0, 135";
@@ -86,7 +86,7 @@
             text = "cmd[update:1000] echo -e $(date '+%a %d-%m')";
             color = "rgb(d4be98)";
             font_size = 20;
-            font_family = "FiraCode Nerd Font Bold";
+            font_family = "${config.systemFont} Bold";
             halign = "center";
             valign = "center";
             position = "0, 50";

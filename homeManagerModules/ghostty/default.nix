@@ -9,7 +9,7 @@
       enable = true;
       enableZshIntegration = true;
       settings = {
-        font-family = "FiraCode Nerd Font";
+        font-family = config.systemFont;
         font-size = 12.0;
         theme = "GruvboxDark";
         cursor-color = "#d4be98";
