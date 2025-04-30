@@ -1,6 +1,7 @@
 {lib, ...}: {
   imports = [
     ./packages/mypackages.nix
+    ./packages/myfont.nix
     ./features/bluetooth.nix
   ];
 

@@ -7,8 +7,23 @@
     lib.mkEnableOption "configure zsh to my liking";
 
   config = lib.mkIf config.zsh.enable {
+    # programs.zoxide.enableZshIntegration
+    # programs.yazi.enableZshIntegration
+    # programs.starship.enableZshIntegration
+    # programs.ghostty.enableZshIntegration
     programs.zsh = {
       enable = true;
+      autosuggestion.enable = true;
+      enableCompletion = true;
+      syntaxHighlighting.enable = true;
+      loginExtra = ''
+        if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+            exec Hyprland
+            # reccomended way to start hyprland
+            # exec uwsm start hyprland.desktop
+        fi
+      '';
+      # profileExtra
       history = {
         ignorePatterns = [
           "ls*"

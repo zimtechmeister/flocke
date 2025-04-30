@@ -21,6 +21,12 @@
         };
       };
 
+      localsend = {
+        enable = true;
+        openFirewall = true;
+      };
+
+      # NOTE: need to be enabled systemwide but are configured in home-manager
       hyprland = {
         enable = true;
         package = inputs.hyprland.packages."${pkgs.system}".hyprland;
@@ -29,22 +35,10 @@
 
       zsh = {
         enable = true;
-        enableCompletion = true;
-        autosuggestions.enable = true;
-        syntaxHighlighting.enable = true;
-        shellInit = ''
-          if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-              exec Hyprland
-              # reccomended way to start hyprland
-              # exec uwsm start hyprland.desktop
-          fi
-        '';
-      };
-      localsend = {
-        enable = true;
-        openFirewall = true;
       };
     };
+    users.defaultUserShell = pkgs.zsh;
+
     hardware.opentabletdriver.enable = true;
     environment.systemPackages = with pkgs; [
       neovide
@@ -153,26 +147,12 @@
 
       ulauncher
       anyrun
-      walker # not working
+      walker
       warp-terminal
 
       libsForQt5.kdenlive
 
       python312Packages.dbus-python
-    ];
-    fonts.packages = with pkgs; [
-      fira-code
-      nerd-fonts.fira-code
-      nerd-fonts.geist-mono
-      nerd-fonts.symbols-only
-      monocraft # is this with nerd-fonts
-      maple-mono.NF
-      geist-font
-      twemoji-color-font
-      noto-fonts
-      noto-fonts-emoji
-      noto-fonts-cjk-sans
-      google-fonts # How many fonts is this? maybe too many
     ];
     services.udev.packages = [pkgs.via];
   };

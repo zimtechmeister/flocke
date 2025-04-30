@@ -57,7 +57,6 @@
     wireplumber.enable = true;
   };
 
-  users.defaultUserShell = pkgs.zsh;
   environment.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
@@ -72,7 +71,6 @@
       "wheel"
     ];
     useDefaultShell = true;
-    # shell = pkgs.zsh;
   };
 
   # TODO: maybe do this in the flake.nix file don't know

@@ -123,7 +123,7 @@
                   ];
                 }
               ];
-              definedAliases = ["hmo"];
+              definedAliases = ["@hmo"];
             };
           };
           force = true;
