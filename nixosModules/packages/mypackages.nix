@@ -174,7 +174,6 @@
       noto-fonts-cjk-sans
       google-fonts # How many fonts is this? maybe too many
     ];
-
     services.udev.packages = [pkgs.via];
   };
 }

@@ -19,7 +19,12 @@
       profiles.tim = {
         isDefault = true;
         # NOTE: list of available plugins: https://nur.nix-community.org/repos/rycee/
-        extensions.packages = with inputs.firefox-addons.packages."${pkgs.system}"; [
+        extensions.packages = with inputs.firefox-addons.packages."${pkgs.system}"; let
+          # could not fix an allowUnfree error -> so this hack fixes it
+          enhancer-for-youtube = inputs.firefox-addons.packages."${pkgs.system}".enhancer-for-youtube.overrideAttrs (old: {
+            meta = old.meta // {license.free = true;};
+          });
+        in [
           bitwarden
           ublock-origin
           sponsorblock
@@ -28,10 +33,7 @@
           vimium
           youtube-nonstop
           refined-github
-          # error allowUnfree so this hack to fix it
-          (enhancer-for-youtube.overrideAttrs (o: {
-            meta = o.meta // {license = lib.licenses.mit;};
-          }))
+          enhancer-for-youtube
         ];
         settings = {
           "browser.shell.checkDefaultBrowser" = false;
@@ -43,8 +45,9 @@
           "network.trr.uri" = "https://adblock.dns.mullvad.net/dns-query";
           "network.trr.custom_uri" = "https://adblock.dns.mullvad.net/dns-query";
           "sidebar.position_start" = false;
+          "browser.tabs.insertAfterCurrent" = true;
+          "browser.translations.automaticallyPopup" = false;
           "zen.urlbar.behavior" = "float";
-"browser.translations.automaticallyPopup" = false;
           "zen.theme.color-prefs.use-workspace-colors" = false;
           "zen.view.compact.color-sidebar" = false;
           "zen.view.compact.color-toolbar" = false;
@@ -74,8 +77,8 @@
                   template = "https://search.nixos.org/packages";
                   params = [
                     {
-                      name = "type";
-                      value = "packages";
+                      name = "channel";
+                      value = "unstable";
                     }
                     {
                       name = "query";
@@ -85,6 +88,42 @@
                 }
               ];
               definedAliases = ["@np"];
+            };
+            "Nix Options" = {
+              urls = [
+                {
+                  template = "https://search.nixos.org/options";
+                  params = [
+                    {
+                      name = "channel";
+                      value = "unstable";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+              definedAliases = ["@no"];
+            };
+            "Home Manager Options" = {
+              urls = [
+                {
+                  template = "https://home-manager-options.extranix.com/";
+                  params = [
+                    {
+                      name = "release";
+                      value = "master";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+              definedAliases = ["hmo"];
             };
           };
           force = true;
