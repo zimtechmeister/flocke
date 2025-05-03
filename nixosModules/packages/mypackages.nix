@@ -13,11 +13,11 @@
     programs = {
       nh = {
         enable = true;
-        # flake = /home/tim/nixos;
+        flake = /home/tim/nixos;
         clean = {
           enable = true;
-          extraArgs = "--keep 5 --keep-since 3d";
-          dates = "daily";
+          extraArgs = "--keep 1 --keep-since 3d";
+          dates = "hourly";
         };
       };
 
@@ -41,6 +41,7 @@
 
     hardware.opentabletdriver.enable = true;
     environment.systemPackages = with pkgs; [
+      inputs.nix-alien.packages.${pkgs.system}.nix-alien
       neovide
       neovim
 

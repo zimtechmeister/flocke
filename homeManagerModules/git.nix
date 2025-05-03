@@ -11,6 +11,7 @@
       userEmail = "tim.zechmeister03@gmail.com";
       extraConfig = {
         pull.rebase = "false";
+        init.defaultBranch = "main";
       };
     };
   };
