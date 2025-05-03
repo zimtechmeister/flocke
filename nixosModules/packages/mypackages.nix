@@ -13,7 +13,6 @@
     programs = {
       nh = {
         enable = true;
-        flake = /home/tim/nixos;
         clean = {
           enable = true;
           extraArgs = "--keep 1 --keep-since 3d";
