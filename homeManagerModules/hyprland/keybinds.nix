@@ -15,8 +15,7 @@
           "$mod, semicolon, exec, /home/tim/dotfiles/scripts/rofi/scripts.sh"
           "$mod, R, exec, rofi -show drun"
           "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-          "$mod, S, exec, grimblast copy area # screenshot"
-          "$mod SHIFT, S, exec, ~/dotfiles/scripts/pinshot.sh"
+          "$mod, S, exec, screenshot"
 
           "$mod, Z, exit,"
           "$mod, Q, killactive,"

@@ -106,7 +106,11 @@
       hyprpaper
       hyprsunset
       hyprpicker
-      grimblast
+      # Screenshot
+      grim
+      slurp
+      satty
+
       wl-clipboard
       cliphist
       rofi-wayland
@@ -145,10 +149,9 @@
       R
       rstudio
 
-      ulauncher
-      anyrun
-      walker
+      # experimental
       warp-terminal
+      helix
 
       libsForQt5.kdenlive
 
