@@ -13,6 +13,7 @@
         font-size = 12.0;
         theme = "GruvboxDark";
         cursor-color = "#d4be98";
+        window-padding-balance = true;
       };
     };
   };

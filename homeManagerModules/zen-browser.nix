@@ -42,6 +42,8 @@
           "signon.rememberSignons" = false;
           "browser.search.suggest.enabled" = true;
           "network.trr.mode" = 2;
+          "extensions.formautofill.addresses.enabled" = false;
+          "extensions.formautofill.creditCards.enabled" = false;
           "network.trr.uri" = "https://adblock.dns.mullvad.net/dns-query";
           "network.trr.custom_uri" = "https://adblock.dns.mullvad.net/dns-query";
           "sidebar.position_start" = false;

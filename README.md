@@ -9,6 +9,8 @@ nh os switch /path/to/flake -H PC -u
 - [ ] stylix
 - [ ] hardwareconfig
 - [ ] disco
+- [ ] [impermanence](https://github.com/nix-community/impermanence)
+- [ ] devenv
 - [ ] how do you want to manage wallpaper
 ## laptop only:
 - [ ] tlp
