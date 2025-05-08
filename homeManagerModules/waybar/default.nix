@@ -195,11 +195,6 @@ in {
             ];
           };
 
-          "custom/separator" = {
-            format = "";
-            on-click = "~/dotfiles/scripts/toggle-keybard.sh";
-          };
-
           "group/power" = {
             orientation = "inherit";
             drawer = {
@@ -214,11 +209,6 @@ in {
               "custom/lock"
               "custom/quit"
             ];
-          };
-          "custom/rofi" = {
-            format = "󰣇";
-            tooltip = false;
-            on-click = "/home/tim/dotfiles/scripts/rofi/scripts.sh";
           };
           "custom/shutdown" = {
             format = "󰐥";

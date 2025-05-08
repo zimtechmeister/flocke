@@ -40,7 +40,6 @@
         mv = "mv -i";
         cp = "cp -i";
         ls = "lsd -lhA --group-dirs first --header";
-        thm = "~/dotfiles/scripts/thm-vpn.sh";
         kssh = "kitty +kitten ssh";
       };
 

@@ -1,10 +1,4 @@
-{
-  pkgs,
-  lib,
-  config,
-  inputs,
-  ...
-}: {
+{...}: {
   wayland.windowManager = {
     hyprland = {
       settings = {
@@ -12,7 +6,7 @@
         bind = [
           # NOTE: terminal
           "$mod, Return, exec, ghostty"
-          "$mod, semicolon, exec, /home/tim/dotfiles/scripts/rofi/scripts.sh"
+          "$mod, semicolon, exec, menu"
           "$mod, R, exec, rofi -show drun"
           "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
           "$mod, S, exec, screenshot"

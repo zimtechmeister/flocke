@@ -113,8 +113,6 @@
 
       wl-clipboard
       cliphist
-      rofi-wayland
-      rofimoji
       waybar
       swaynotificationcenter
       smartmontools
