@@ -1,4 +1,10 @@
-Rebuild "PC" is the host in those examples
+# Installation (NixOS)
+requires NixOS [ISO](https://nixos.org/download/#nixos-iso)  
+generate hardwareconfig
+```bash
+sudo nixos-generate-config --dir /some/dir --force
+```
+Rebuild: "PC" is the host in those examples
 ```bash
 sudo nixos-rebuild --extra-experimental-features "nix-command flakes" switch --flake github:zimtechmeister/nixos#PC
 nh os switch /path/to/flake -H PC -u

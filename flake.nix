@@ -15,10 +15,10 @@
     nixcats.url = "github:zimtechmeister/nixCats.nvim";
 
     hyprland.url = "github:hyprwm/Hyprland";
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";

@@ -19,18 +19,10 @@
     ];
   };
   monitorLayout = builtins.getAttr (config.hyprland.monitorLayout) monitorLayouts;
-
-  #TODO: might want to overthink how to do the startup
-  startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
-    wl-paste --type text --watch cliphist store &
-    wl-paste --type image --watch cliphist store &
-    systemctl --user start hyprpolkitagent &
-    waybar &
-    swaync &
-  '';
 in {
   imports = [
     ./keybinds.nix
+    # ./plugins/hyprscrolling.nix
   ];
   options.hyprland = {
     enable = lib.mkEnableOption "enables hyprland";
@@ -62,7 +54,12 @@ in {
         '';
         settings = {
           monitor = monitorLayout;
-          exec-once = ''${startupScript}/bin/start'';
+          exec-once = [
+            "wl-paste --watch cliphist store"
+            "systemctl --user start hyprpolkitagent"
+            "waybar"
+            "swaync"
+          ];
           input = {
             kb_layout = "eu, de, us";
             accel_profile = "flat";
