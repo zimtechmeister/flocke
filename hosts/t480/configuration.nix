@@ -7,7 +7,6 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./cachix.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 

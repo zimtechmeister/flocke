@@ -2,7 +2,8 @@
   description = "Nixos config flake";
 
   inputs = {
-    #TODO: which url is what "github:nixos/nixpkgs/nixpkgs-unstable"
+    # NOTE: i dont fully understand inputs follows
+    # TODO: which url is what "github:nixos/nixpkgs/nixpkgs-unstable"
     # this one is default at nix flake init"github:nixos/nixpkgs?ref=nixos-unstable"
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -18,6 +19,11 @@
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
+    };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser = {

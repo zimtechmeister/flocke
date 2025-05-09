@@ -15,7 +15,7 @@
 }
 .widget-buttons-grid>flowbox>flowboxchild>button {
   padding: 6px 62px;
-  background: transparent;
+  background: #282828;
   border-radius: 8px;
 }
 .widget-buttons-grid>flowbox>flowboxchild>button:hover {

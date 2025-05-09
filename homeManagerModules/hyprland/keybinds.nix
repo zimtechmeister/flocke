@@ -11,7 +11,7 @@
           "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
           "$mod, S, exec, screenshot"
 
-          "$mod, Z, exit,"
+          "$mod SHIFT, Z, exit,"
           "$mod, Q, killactive,"
           "$mod, I, togglefloating,"
 

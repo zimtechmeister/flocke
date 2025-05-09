@@ -1,5 +1,6 @@
 {lib, ...}: {
   imports = [
+    ./cachix.nix
     ./packages/mypackages.nix
     ./packages/myfont.nix
     ./features/bluetooth.nix
