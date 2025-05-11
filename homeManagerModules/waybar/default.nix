@@ -38,6 +38,7 @@ in {
           # Choose the order of the modules
           modules-left = [
             "hyprland/workspaces"
+            "niri/workspaces"
           ];
           modules-center = [
             "clock"

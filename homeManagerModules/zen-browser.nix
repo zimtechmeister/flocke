@@ -50,11 +50,13 @@
           "browser.tabs.insertAfterCurrent" = true;
           "browser.translations.automaticallyPopup" = false;
           "zen.urlbar.behavior" = "float";
+          "zen.theme.accent-color" = "#ebdbb2";
           "zen.theme.color-prefs.use-workspace-colors" = false;
           "zen.view.compact.toolbar-flash-popup" = true;
           "zen.view.compact.color-sidebar" = false;
           "zen.view.compact.color-toolbar" = false;
           "zen.view.show-newtab-button-top" = false;
+          "zen.theme.content-element-separation" = 0; # remove border
         };
         search = {
           default = "Unduck";

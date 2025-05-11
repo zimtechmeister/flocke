@@ -41,13 +41,14 @@
             inactive.color = "#2a2e2a";
           };
         };
+        # NOTE: "niri msg action" to display availabe actions
         binds = with config.lib.niri.actions; {
           "Super+Return".action = spawn "ghostty";
-          "Super+R".action = spawn "rofi -show drun";
+          "Super+R".action = spawn "rofi -show drun"; # does not work
+          "Super+S".action = spawn "menu";
 
           "Super+Shift+Z".action = quit;
           "Super+Q".action = close-window;
-          # "Super+O".action = toggle-overview;
 
           "Super+H".action = focus-column-left;
           "Super+L".action = focus-column-right;
@@ -59,8 +60,7 @@
           "Super+Shift+K".action = move-window-up;
           "Super+Shift+J".action = move-window-down;
 
-          "Super+N".action = focus-workspace-down;
-          "Super+P".action = focus-workspace-up;
+          # NOTE: workspaces are interesting here probaply need to name them
           "Super+1".action = focus-workspace 1;
           "Super+2".action = focus-workspace 2;
           "Super+3".action = focus-workspace 3;
@@ -72,11 +72,16 @@
           "Super+9".action = focus-workspace 9;
           "Super+0".action = focus-workspace 10;
 
-          "Super+Shift+N".action = move-workspace-down;
-          "Super+Shift+P".action = move-workspace-up;
-
-          "Super+Ctrl+N".action = move-column-to-workspace-down;
-          "Super+Ctrl+P".action = move-column-to-workspace-up;
+          # "Super+Shift+1".action = move-window-to-workspace 1;
+          # "Super+Shift+2".action = move-window-to-workspace 2;
+          # "Super+Shift+3".action = move-window-to-workspace 3;
+          # "Super+Shift+4".action = move-window-to-workspace 4;
+          # "Super+Shift+5".action = move-window-to-workspace 5;
+          # "Super+Shift+6".action = move-window-to-workspace 6;
+          # "Super+Shift+7".action = move-window-to-workspace 7;
+          # "Super+Shift+8".action = move-window-to-workspace 8;
+          # "Super+Shift+9".action = move-window-to-workspace 9;
+          # "Super+Shift+0".action = move-window-to-workspace 10;
         };
       };
     };
