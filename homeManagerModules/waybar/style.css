@@ -29,7 +29,7 @@
 }
 
 window#waybar {
-    background-color: @bg0;
+    background-color: alpha(@bg0, 0.8);
     transition-property: background-color;
     transition-duration: .5s;
 }
