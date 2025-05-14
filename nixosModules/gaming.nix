@@ -13,19 +13,18 @@
     # gamescope %command%
     # gamemoderun %command%
     # mangohud %command%
-
-    # NOTE: for protonGE run command & select in steam games compatibility menu
-    # protonup -d "~/.steam/root/compatibilitytools.d/"
     programs = {
       steam = {
         enable = true;
         gamescopeSession.enable = true;
+        extraCompatPackages = with pkgs; [
+          proton-ge-bin
+        ];
       };
       gamemode.enable = true;
     };
     environment.systemPackages = with pkgs; [
       mangohud
-      protonup
       prismlauncher
     ];
   };
