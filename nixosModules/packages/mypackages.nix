@@ -45,7 +45,7 @@
       neovim
 
       # nix formater
-      alejandra
+      # alejandra
 
       git
       # Which zip thing do I want to use?
@@ -95,10 +95,7 @@
 
       starship
 
-      # hyprland
-      # aquamarine
-      # hyprutils
-      # hyprlang
+      # NOTE: which of these do i need?
       hyprpolkitagent
       hypridle
       hyprlock
@@ -106,7 +103,7 @@
       hyprpaper
       hyprsunset
       hyprpicker
-      # Screenshot
+      # Screenshot only need satty
       grim
       slurp
       satty
@@ -138,7 +135,6 @@
       nautilus
       zathura
       via
-      prismlauncher
       gimp
       qimgv
       zoom-us

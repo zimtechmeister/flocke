@@ -4,6 +4,7 @@
     ./packages/mypackages.nix
     ./packages/myfont.nix
     ./features/bluetooth.nix
+    ./gaming.nix
   ];
 
   mypackages.enable =

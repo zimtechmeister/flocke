@@ -1,12 +1,15 @@
 {
-  pkgs,
   inputs,
+  lib,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.home-manager
   ];
+
+  gaming.enable =
+    lib.mkDefault true;
 
   nix.settings = {
     experimental-features = [

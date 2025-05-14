@@ -8,7 +8,7 @@
 
     ./zsh
     ./git.nix
-    ./niri # remove later?
+    ./niri
     ./hyprland
     ./hypridle
     ./hyprlock
@@ -38,7 +38,7 @@
 
     zsh.enable = lib.mkDefault true;
     git.enable = lib.mkDefault true;
-    niri.enable = lib.mkDefault true; # remove later?
+    niri.enable = lib.mkDefault false;
     hyprland.enable = lib.mkDefault true;
     hypridle.enable = lib.mkDefault true;
     hyprlock.enable = lib.mkDefault true;
