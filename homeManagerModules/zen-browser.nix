@@ -31,7 +31,7 @@
           darkreader
           return-youtube-dislikes
           vimium
-          youtube-nonstop
+          youtube-nonstop # does this even work?
           refined-github
           enhancer-for-youtube
         ];
@@ -55,7 +55,7 @@
           "zen.view.compact.toolbar-flash-popup" = true;
           "zen.view.compact.color-sidebar" = false;
           "zen.view.compact.color-toolbar" = false;
-          "zen.view.show-newtab-button-top" = false;
+          "zen.tabs.show-newtab-vertical" = false;
           "zen.theme.content-element-separation" = 0; # remove border
         };
         search = {

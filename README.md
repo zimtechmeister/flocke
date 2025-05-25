@@ -17,6 +17,6 @@ nh os switch /path/to/flake -H PC -u
 - [ ] disco
 - [ ] [impermanence](https://github.com/nix-community/impermanence)
 - [ ] devenv
-- [ ] how do you want to manage wallpaper
+- [ ] how do you want to manage wallpaper [raf's solution](https://github.com/NotAShelf/wallpkgs)
 ## laptop only:
 - [ ] tlp

@@ -103,7 +103,6 @@
       hyprpaper
       hyprsunset
       hyprpicker
-      # Screenshot only need satty
       grim
       slurp
       satty
