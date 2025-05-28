@@ -66,6 +66,7 @@ in {
           };
           gestures = {
             workspace_swipe = true;
+            workspace_swipe_invert = false;
             workspace_swipe_use_r = true;
           };
           general = {
