@@ -27,9 +27,6 @@ in {
   options.hyprland = {
     enable = lib.mkEnableOption "enables hyprland";
     monitorLayout = lib.mkOption {
-      # NOTE: this default might cause problems and its not the only
-      # occurrence of such a problem (maybe keep null the default and only if
-      # its set to something else this has effect)
       default = null;
       description = ''
         hyprland monitor layout
@@ -39,11 +36,10 @@ in {
   config = lib.mkIf config.hyprland.enable {
     wayland.windowManager = {
       hyprland = {
-        # NOTE: do i even need to enable specify the package if i already did in mypackages.nix
         enable = true;
         package = inputs.hyprland.packages."${pkgs.system}".hyprland;
         portalPackage = inputs.hyprland.packages."${pkgs.system}".xdg-desktop-portal-hyprland;
-        # TODO: dont know how to do the first line in settings
+        # NOTE: dont know how to do the first line in settings
         extraConfig = ''
           $LAPTOP_KB_ENABLED = true
           device {
@@ -56,7 +52,7 @@ in {
           monitor = monitorLayout;
           exec-once = [
             "wl-paste --watch cliphist store"
-            "systemctl --user start hyprpolkitagent"
+            # "systemctl --user start hyprpolkitagent"
             "waybar"
             "swaync"
           ];

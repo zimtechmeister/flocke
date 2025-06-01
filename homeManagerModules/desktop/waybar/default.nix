@@ -1,23 +1,20 @@
 {
-  pkgs,
   lib,
   config,
-  inputs,
   ...
 }: let
   clockActions = {
     PC = "swaync-client -t -sw";
-    # TODO: this somehow does not work
     t480 = "toggle-keyboard";
   };
   clockAction = builtins.getAttr (config.waybar.config) clockActions;
 in {
+  imports = [
+    ./sytle.nix
+  ];
   options.waybar = {
     enable = lib.mkEnableOption "enables waybar";
     config = lib.mkOption {
-      # NOTE: this default might cause problems and its not the only
-      # occurrence of such a problem (maybe keep null the default and only if
-      # its set to something else this has effect)
       default = null;
       description = ''
         waybar config
@@ -27,7 +24,8 @@ in {
   config = lib.mkIf config.waybar.enable {
     programs.waybar = {
       enable = true;
-      style = builtins.readFile ./style.css;
+      # NOTE: better for css syntax highlighting but not in nix!
+      # style = builtins.readFile ./style.css;
       settings = {
         mainBar = {
           position = "bottom"; # Waybar position (top|bottom|left|right)
