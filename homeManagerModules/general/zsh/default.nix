@@ -9,7 +9,6 @@
   config = lib.mkIf config.zsh.enable {
     # programs.zoxide.enableZshIntegration
     # programs.yazi.enableZshIntegration
-    # programs.starship.enableZshIntegration
     # programs.ghostty.enableZshIntegration
     programs.zsh = {
       enable = true;
@@ -74,7 +73,6 @@
           }
 
           # shell integrations
-          eval "$(starship init zsh)"
           eval "$(fzf --zsh)"
           eval "$(zoxide init zsh)"  # change command (zoxide init --cmd cd zsh)
 
@@ -106,7 +104,5 @@
         # { name = "fzf-tab-git"; }
       ];
     };
-    #TODO: maybe do this the nix way
-    xdg.configFile."starship.toml".source = ./starship.toml;
   };
 }
