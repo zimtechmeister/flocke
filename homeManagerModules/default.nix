@@ -13,6 +13,7 @@
     ./hypridle
     ./hyprlock
     ./hyprpaper
+    ./hyprpolkitagent
     ./waybar
     ./swaync
     ./rofi
@@ -43,6 +44,7 @@
     hypridle.enable = lib.mkDefault true;
     hyprlock.enable = lib.mkDefault true;
     hyprpaper.enable = lib.mkDefault true;
+    hyprpolkitagent.enable = lib.mkDefault true;
     waybar.enable = lib.mkDefault true;
     swaync.enable = lib.mkDefault true;
     rofi.enable = lib.mkDefault true;

@@ -11,6 +11,7 @@
       name = "phinger-cursors-dark";
       size = 24;
       gtk.enable = true;
+      hyprcursor.enable = true;
     };
     gtk = {
       enable = true;

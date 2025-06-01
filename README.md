@@ -11,7 +11,6 @@ nh os switch /path/to/flake -H PC -u
 ```
 
 # todo:
-- [ ] apply systemFont to waybar and rofi
 - [ ] stylix
 - [ ] hardwareconfig
 - [ ] disco

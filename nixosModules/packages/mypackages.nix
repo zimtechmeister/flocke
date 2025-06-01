@@ -20,6 +20,7 @@
         };
       };
 
+      # make home-manager
       localsend = {
         enable = true;
         openFirewall = true;
@@ -32,6 +33,7 @@
         portalPackage = inputs.hyprland.packages."${pkgs.system}".xdg-desktop-portal-hyprland;
       };
 
+      # NOTE: needs to be enabled systemwide
       zsh = {
         enable = true;
       };
@@ -40,39 +42,34 @@
 
     hardware.opentabletdriver.enable = true;
     environment.systemPackages = with pkgs; [
-      inputs.nix-alien.packages.${pkgs.system}.nix-alien
       neovide
       neovim
 
-      # nix formater
-      # alejandra
-
-      git
-      # Which zip thing do I want to use?
-      gzip
-      zip
-      unzip
-
-      pandoc
-      python312Packages.pylatexenc
-      texliveMedium
-      imagemagick
-      ntfs3g
-      ripgrep
-      fd
       # languages
+      jdk
+      R
+      rstudio
       gcc
       cmake
       meson
       nodejs
       yarn
       python3
+      pipenv
 
+      # cli tools
+      git
+      lazygit
+      gzip
+      zip
+      unzip
       cpio
       killall
       wget
-      pkg-config
-
+      pkg-config # what is this
+      ntfs3g
+      ripgrep
+      fd
       less
       fzf
       difftastic
@@ -86,69 +83,66 @@
       lsd
       fastfetch
       yazi
-      lazygit
       zoxide
       openconnect
       tmux
       yt-dlp
-      # cronie
+      inputs.nix-alien.packages.${pkgs.system}.nix-alien
 
-      starship
+      # NOTE: probaply dont need this anymore(there are flakes for eduroam)
+      # python312Packages.dbus-python
 
-      # NOTE: which of these do i need?
-      hyprpolkitagent
-      hypridle
-      hyprlock
-      hyprcursor
-      hyprpaper
-      hyprsunset
+      # do i really need this
+      pandoc
+      texliveMedium
+      imagemagick
+      python312Packages.pylatexenc
+
+      starship # configure in home-manager
+
+      # desktop environment
+      hyprsunset # configure in home-manager
       hyprpicker
+
       grim
       slurp
       satty
 
       wl-clipboard
       cliphist
+      wev
       waybar
       swaynotificationcenter
       smartmontools
       pulsemixer
+
+      # some progams
       pavucontrol
       easyeffects
-      imv
-      wev
 
-      glib
-      google-cursor
+      glib # what do i need this fore? i thik this is some dependency
 
       ghostty
-      kitty
+
       firefox
       chromium
+
       discord
       vesktop
       thunderbird
-      gimp
-      mpv
+
       pcmanfm
-      nautilus
       zathura
-      via
-      gimp
+      mpv
+      imv
       qimgv
+
       zoom-us
 
-      jdk
-      R
-      rstudio
-
-      # experimental
-      warp-terminal
-      helix
-
+      # only desktop?
+      via
       libsForQt5.kdenlive
-
-      python312Packages.dbus-python
+      gimp
     ];
     services.udev.packages = [pkgs.via];
   };
