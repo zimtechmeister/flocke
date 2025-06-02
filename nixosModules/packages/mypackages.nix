@@ -42,8 +42,6 @@
 
     hardware.opentabletdriver.enable = true;
     environment.systemPackages = with pkgs; [
-      neovide
-      neovim
 
       # languages
       jdk
@@ -58,6 +56,7 @@
       pipenv
 
       # cli tools
+      neovim
       git
       lazygit
       gzip

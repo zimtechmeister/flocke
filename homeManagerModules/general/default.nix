@@ -8,6 +8,7 @@
     ./starship
     ./zsh
     ./git.nix
+    ./neovide.nix
     ./nvim.nix
   ];
 
@@ -19,6 +20,7 @@
     starship.enable = lib.mkDefault true;
     zsh.enable = lib.mkDefault true;
     git.enable = lib.mkDefault true;
+    neovide.enable = lib.mkDefault true;
     nvim.enable = lib.mkDefault true;
   };
 }
