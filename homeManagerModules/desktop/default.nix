@@ -16,6 +16,7 @@
     ./waybar
     ./cursor-theme.nix
     ./mimeApps.nix
+    ./vesktop.nix
     ./zen-browser.nix
   ];
 
@@ -35,6 +36,7 @@
     waybar.enable = lib.mkDefault true;
     cursor-theme.enable = lib.mkDefault true;
     mimeApps.enable = lib.mkDefault true;
+    vesktop.enable = lib.mkDefault true;
     zen-browser.enable = lib.mkDefault true;
   };
 }

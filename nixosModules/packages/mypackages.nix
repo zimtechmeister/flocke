@@ -127,7 +127,6 @@
       chromium
 
       discord
-      vesktop
       thunderbird
 
       pcmanfm
