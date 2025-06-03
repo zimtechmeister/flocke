@@ -3,8 +3,6 @@
 
   inputs = {
     # NOTE: i dont fully understand inputs follows
-    # TODO: which url is what "github:nixos/nixpkgs/nixpkgs-unstable"
-    # this one is default at nix flake init"github:nixos/nixpkgs?ref=nixos-unstable"
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
