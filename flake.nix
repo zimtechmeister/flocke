@@ -11,6 +11,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixcats.url = "github:zimtechmeister/nixCats.nvim";
 
     hyprland.url = "github:hyprwm/Hyprland";
@@ -40,6 +45,7 @@
   outputs = {
     nixpkgs,
     home-manager,
+    stylix,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -51,6 +57,7 @@
         inherit system;
         specialArgs = {inherit inputs;};
         modules = [
+          stylix.nixosModules.stylix
           ./hosts/PC/configuration.nix
           ./nixosModules
         ];
@@ -80,6 +87,7 @@
         inherit pkgs;
         extraSpecialArgs = {inherit inputs;};
         modules = [
+          stylix.homeModules.stylix
           ./hosts/PC/home.nix
         ];
       };
