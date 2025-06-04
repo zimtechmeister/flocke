@@ -71,6 +71,7 @@
         inherit system;
         specialArgs = {inherit inputs;};
         modules = [
+          stylix.nixosModules.stylix
           ./hosts/t480/configuration.nix
           ./nixosModules
         ];
@@ -87,7 +88,6 @@
         inherit pkgs;
         extraSpecialArgs = {inherit inputs;};
         modules = [
-          stylix.homeModules.stylix
           ./hosts/PC/home.nix
         ];
       };

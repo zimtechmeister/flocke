@@ -69,9 +69,8 @@ in {
             border_size = 2;
             gaps_in = 4;
             gaps_out = 8;
-            # NOTE: style
-            "col.inactive_border" = "rgb(1d2021)";
-            "col.active_border" = "rgb(d4be98)";
+            "col.inactive_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base11})";
+            "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base05})";
             #col.active_border = rgb(ea6962) rgb(e78a4e) rgb(d8a657) rgb(a9b665) rgb(89b482) rgb(7daea3) rgb(d3869b) 0deg
 
             layout = "dwindle";
@@ -91,8 +90,7 @@ in {
             shadow = {
               range = 4;
               render_power = 1;
-              # NOTE: style
-              color = "rgb(282828)";
+              color = lib.mkForce "rgb(${config.stylix.base16Scheme.base00})";
               # color_inactive = "rgb(d3869b)"; # if not set, will fall back to color
             };
           };
@@ -114,9 +112,8 @@ in {
           };
           windowrulev2 = [
             "suppressevent maximize, class:.*"
-            "float, title:Picture-in-Picture"
           ];
-          workspace = "special:scratchpad, gapsout:64, gapsin:32";
+          workspace = "special:scratchpad, gapsout:32, gapsin:4";
         };
       };
     };

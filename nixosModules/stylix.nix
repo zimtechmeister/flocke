@@ -1,0 +1,35 @@
+{pkgs, ...}: let
+  gruvbox-dark = {
+    base00 = "282828"; #282828
+    base01 = "3c3836"; #3c3836
+    base02 = "504945"; #504945
+    base03 = "665c54"; #665c54
+    base04 = "928374"; #928374
+    base05 = "ebdbb2"; #ebdbb2
+    base06 = "fbf1c7"; #fbf1c7
+    base07 = "f9f5d7"; #f9f5d7
+    base08 = "cc241d"; #cc241d
+    base09 = "d65d0e"; #d65d0e
+    base0A = "d79921"; #d79921
+    base0B = "98971a"; #98971a
+    base0C = "689d6a"; #689d6a
+    base0D = "458588"; #458588
+    base0E = "b16286"; #b16286
+    base0F = "9d0006"; #9d0006
+    base10 = "2a2520"; #2a2520
+    base11 = "1d1d1d"; #1d1d1d
+    base12 = "fb4934"; #fb4934
+    base13 = "fabd2f"; #fabd2f
+    base14 = "b8bb26"; #b8bb26
+    base15 = "8ec07c"; #8ec07c
+    base16 = "83a598"; #83a598
+    base17 = "d3869b"; #d3869b
+  };
+in {
+  stylix = {
+    enable = true;
+    # base16Scheme = gruvbox-dark;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark.yaml";
+    polarity = "dark"; # “light” or “either”
+  };
+}
