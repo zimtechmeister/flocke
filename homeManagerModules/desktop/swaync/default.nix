@@ -103,7 +103,7 @@ in {
       packages = [pkgs.swaynotificationcenter];
       file = {
         ".config/swaync/config.json".text = builtins.toJSON swayncConfig;
-        ".config/swaync/style.css".source = ./style.css;
+        # ".config/swaync/style.css".source = ./style.css;
       };
     };
   };

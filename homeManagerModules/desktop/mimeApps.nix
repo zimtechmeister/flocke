@@ -9,9 +9,13 @@
       enable = true;
       defaultApplications = {
         "text/plain" = ["neovide.desktop"];
+
         "image/*" = ["qimgv.desktop"]; # imv.desktop
+
         "video/*" = ["mpv.desktop"];
+
         "inode/directory" = ["pcmanfm.desktop"];
+
         "application/pdf" = ["zen-beta.desktop"]; # zathura.desktop
         "text/html" = ["zen-beta.desktop"];
         "x-scheme-handler/about" = ["zen-beta.desktop"];

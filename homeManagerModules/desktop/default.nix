@@ -14,7 +14,6 @@
     ./rofi
     ./swaync
     ./waybar
-    ./cursor-theme.nix
     ./mimeApps.nix
     ./vesktop.nix
     ./zen-browser.nix
@@ -28,15 +27,16 @@
     hypridle.enable = lib.mkDefault true;
     hyprland.enable = lib.mkDefault true;
     hyprlock.enable = lib.mkDefault true;
-    hyprpaper.enable = lib.mkDefault true;
     hyprpolkitagent.enable = lib.mkDefault true;
-    niri.enable = lib.mkDefault false;
     rofi.enable = lib.mkDefault true;
     swaync.enable = lib.mkDefault true;
     waybar.enable = lib.mkDefault true;
-    cursor-theme.enable = lib.mkDefault true;
     mimeApps.enable = lib.mkDefault true;
     vesktop.enable = lib.mkDefault true;
     zen-browser.enable = lib.mkDefault true;
+
+    # swapped out for stylix
+    hyprpaper.enable = lib.mkDefault false;
+    niri.enable = lib.mkDefault false;
   };
 }

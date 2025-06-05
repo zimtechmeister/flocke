@@ -10,7 +10,7 @@
   clockAction = builtins.getAttr (config.waybar.config) clockActions;
 in {
   imports = [
-    ./sytle.nix
+    ./style.nix
   ];
   options.waybar = {
     enable = lib.mkEnableOption "enables waybar";
@@ -24,8 +24,6 @@ in {
   config = lib.mkIf config.waybar.enable {
     programs.waybar = {
       enable = true;
-      # NOTE: better for css syntax highlighting but not in nix!
-      # style = builtins.readFile ./style.css;
       settings = {
         mainBar = {
           position = "bottom"; # Waybar position (top|bottom|left|right)

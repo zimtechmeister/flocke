@@ -14,7 +14,7 @@
 
         background = {
           monitor = "";
-          path = "~/.config/wallpaper/forest-fog-grey.jpg";
+          path = lib.mkForce "~/.config/wallpaper/forest-fog-grey.jpg";
           blur_passes = 0;
         };
 

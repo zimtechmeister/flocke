@@ -69,9 +69,10 @@ in {
             border_size = 2;
             gaps_in = 4;
             gaps_out = 8;
-            "col.inactive_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base11})";
             "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base05})";
             #col.active_border = rgb(ea6962) rgb(e78a4e) rgb(d8a657) rgb(a9b665) rgb(89b482) rgb(7daea3) rgb(d3869b) 0deg
+            # NOTE: transparent
+            "col.inactive_border" = lib.mkForce "rgba(${config.stylix.base16Scheme.base11}00)";
 
             layout = "dwindle";
             resize_on_border = true;
@@ -102,6 +103,8 @@ in {
             preserve_split = true;
           };
           misc = {
+            # solid background_color (wallpaper)
+            background_color = lib.mkForce "rgb(${config.stylix.base16Scheme.base11})";
             disable_hyprland_logo = true;
             disable_splash_rendering = true;
             # NOTE: font
@@ -112,6 +115,9 @@ in {
           };
           windowrulev2 = [
             "suppressevent maximize, class:.*"
+          ];
+          layerrule = [
+            "dimaround, rofi"
           ];
           workspace = "special:scratchpad, gapsout:32, gapsin:4";
         };

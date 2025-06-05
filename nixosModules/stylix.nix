@@ -1,4 +1,9 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: let
   gruvbox-dark = {
     base00 = "282828"; #282828
     base01 = "3c3836"; #3c3836
@@ -28,8 +33,51 @@
 in {
   stylix = {
     enable = true;
-    # base16Scheme = gruvbox-dark;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark.yaml";
-    polarity = "dark"; # “light” or “either”
+
+    base16Scheme = gruvbox-dark;
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark.yaml";
+    polarity = "dark";
+
+    # NOTE: premade script wont work as nice
+    # image = config.lib.stylix.pixel "base17";
+    # NOTE: reference implementation modified it a bit https://nix-community.github.io/stylix/tricks.html#dynamic-wallpaper-generation-based-on-selected-theme
+    image = pkgs.runCommand "image.png" {} ''
+      ${lib.getExe pkgs.imagemagick} -size 1920x1080 xc:"#${config.stylix.base16Scheme.base11}" $out
+    '';
+
+    # NOTE: this somehow has no effect
+    # thats why i have to use my own script to generate the image and match my monitors size
+    imageScalingMode = "tile"; # one of "stretch", "fill", "fit", "center", "tile"
+
+    cursor = {
+      package = pkgs.phinger-cursors;
+      name = "phinger-cursors-dark";
+      size = 24;
+    };
+
+    fonts = {
+      sizes = {
+        terminal = 12;
+        applications = 12;
+        desktop = 12;
+        popups = 12;
+      };
+      monospace = {
+        name = "Maple Mono NF";
+        package = pkgs.maple-mono.NF;
+      };
+      sansSerif = {
+        name = "Geist";
+        package = pkgs.geist-font;
+      };
+      serif = {
+        name = "Geist";
+        package = pkgs.geist-font;
+      };
+      emoji = {
+        name = "Twitter Color Emoji";
+        package = pkgs.twemoji-color-font;
+      };
+    };
   };
 }

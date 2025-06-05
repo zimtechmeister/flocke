@@ -130,6 +130,7 @@
       thunderbird
 
       pcmanfm
+      nautilus
       zathura
       mpv
       imv

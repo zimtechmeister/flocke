@@ -1,5 +1,5 @@
-{...}: {
-  programs.waybar.style = ''
+{lib, ...}: {
+  programs.waybar.style = lib.mkAfter ''
     @define-color bgDim #1b1b1b;
     @define-color bg0 #282828;
     @define-color bg1 #32302f;
@@ -31,7 +31,7 @@
     }
 
     window#waybar {
-        background-color: alpha(@bg0, 0.8);
+        background-color: alpha(@bg0, 0.0);
         transition-property: background-color;
         transition-duration: .5s;
     }
