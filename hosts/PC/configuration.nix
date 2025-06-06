@@ -8,8 +8,10 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  gaming.enable =
-    lib.mkDefault true;
+  gaming.enable = lib.mkDefault true;
+
+  # enable postgresql for dbs modul in uni
+  dbs.enable = true;
 
   nix.settings = {
     experimental-features = [

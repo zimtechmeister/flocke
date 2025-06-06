@@ -25,6 +25,7 @@
           ShowConnections.enabled = true;
           ShowHiddenChannels.enabled = true;
           VoiceChatDoubleClick.enabled = true;
+          VolumeBooster.enabled = true;
         };
       };
     };

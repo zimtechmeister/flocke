@@ -6,6 +6,8 @@
     ./features/bluetooth.nix
     ./gaming.nix
     ./stylix.nix
+
+    ./postgresql.nix
   ];
 
   mypackages.enable = lib.mkDefault true;
