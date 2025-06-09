@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   lib,
   config,
   ...
@@ -74,6 +75,16 @@
           label = "";
           command = "hyprsunset -t 5000 -g 80";
           tooltip = "eye saver";
+        }
+        {
+          label = "";
+          command = "killall hyprsunset";
+          tooltip = "turn off eye saver";
+        }
+        {
+          label = "";
+          command = "anyrun --show-results-immediately true --plugins ${inputs.anyrun.packages.${pkgs.system}.randr}/lib/librandr.so";
+          tooltip = "randr";
         }
       ];
       dnd = {
