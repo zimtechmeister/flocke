@@ -34,16 +34,24 @@ in {
   stylix = {
     enable = true;
 
+    # NOTE: collection of colorschemes https://tinted-theming.github.io/tinted-gallery/
     base16Scheme = gruvbox-dark;
+    # somehow this wont work
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark.yaml";
     polarity = "dark";
 
     # NOTE: premade script wont work as nice
     # image = config.lib.stylix.pixel "base17";
+
     # NOTE: reference implementation modified it a bit https://nix-community.github.io/stylix/tricks.html#dynamic-wallpaper-generation-based-on-selected-theme
     image = pkgs.runCommand "image.png" {} ''
       ${lib.getExe pkgs.imagemagick} -size 1920x1080 xc:"#${config.stylix.base16Scheme.base11}" $out
     '';
+
+    # image = pkgs.fetchurl {
+    #   url = "https://raw.githubusercontent.com/zimtechmeister/wallpaper/refs/heads/master/forest-shroom.jpg";
+    #   hash = "sha256-q4rsjdaAnjeMFHh56cHr0t58VHj0wfouCYdT90HtAO0=";
+    # };
 
     # NOTE: this somehow has no effect
     # thats why i have to use my own script to generate the image and match my monitors size

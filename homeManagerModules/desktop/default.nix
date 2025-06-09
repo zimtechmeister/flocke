@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./anyrun
     ./ghostty
     ./hypridle
     ./hyprland
@@ -11,7 +12,6 @@
     ./hyprpaper
     ./hyprpolkitagent
     ./niri
-    ./rofi
     ./swaync
     ./waybar
     ./mimeApps.nix
@@ -23,12 +23,12 @@
     lib.mkEnableOption "enables desktop home-manager config";
 
   config = lib.mkIf config.desktop.enable {
+    anyrun.enable = lib.mkDefault true;
     ghostty.enable = lib.mkDefault true;
     hypridle.enable = lib.mkDefault true;
     hyprland.enable = lib.mkDefault true;
     hyprlock.enable = lib.mkDefault true;
     hyprpolkitagent.enable = lib.mkDefault true;
-    rofi.enable = lib.mkDefault true;
     swaync.enable = lib.mkDefault true;
     waybar.enable = lib.mkDefault true;
     mimeApps.enable = lib.mkDefault true;

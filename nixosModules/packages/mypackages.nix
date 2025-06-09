@@ -42,7 +42,6 @@
 
     hardware.opentabletdriver.enable = true;
     environment.systemPackages = with pkgs; [
-
       # languages
       jdk
       R
@@ -142,15 +141,6 @@
       via
       libsForQt5.kdenlive
       gimp
-
-      # experimental
-      fuzzel
-      walker
-      ulauncher
-      anyrun
-      wofi
-      tofi
-      bemenu
     ];
     services.udev.packages = [pkgs.via];
   };

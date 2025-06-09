@@ -1,12 +1,18 @@
-{...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   wayland.windowManager = {
     hyprland = {
       settings = {
         bind = [
           "SUPER, Return, exec, ghostty"
-          "SUPER, semicolon, exec, menu"
-          "SUPER, R, exec, rofi -show drun"
-          "SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+
+          # Anyrun
+          "SUPER, Space, exec, anyrun"
+          "SUPER, V, exec, cliphist list | anyrun --show-results-immediately true --plugins ${inputs.anyrun.packages.${pkgs.system}.stdin}/lib/libstdin.so | cliphist decode | wl-copy"
+
           "SUPER, S, exec, screenshot"
 
           "SUPER SHIFT, Z, exit,"
@@ -52,8 +58,8 @@
           "SUPER SHIFT, 9, movetoworkspacesilent, 9"
           "SUPER SHIFT, 0, movetoworkspacesilent, 10"
 
-          "SUPER, Space, togglespecialworkspace, scratchpad"
-          "SUPER SHIFT, Space, movetoworkspacesilent, special:scratchpad"
+          # "SUPER, Space, togglespecialworkspace, scratchpad"
+          # "SUPER SHIFT, Space, movetoworkspacesilent, special:scratchpad"
         ];
         binde = [
           "SUPER SHIFT CTRL, H, moveactive, -20 0"

@@ -22,6 +22,7 @@
 in {
   imports = [
     ./keybinds.nix
+    # NOTE: after enabeling a plugin restart hyprland
     # ./plugins/hyprscrolling.nix
   ];
   options.hyprland = {
@@ -89,9 +90,10 @@ in {
               ignore_opacity = true;
             };
             shadow = {
+              enabled = false;
               range = 4;
               render_power = 1;
-              color = lib.mkForce "rgb(${config.stylix.base16Scheme.base00})";
+              color = lib.mkForce "rgb(${config.stylix.base16Scheme.base11})";
               # color_inactive = "rgb(d3869b)"; # if not set, will fall back to color
             };
           };
