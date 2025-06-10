@@ -13,11 +13,12 @@ nh os switch /path/to/flake -H PC -u
 ```
 
 # todo:
-- [ ] stylix
 - [ ] hardwareconfig
 - [ ] disco
 - [ ] [impermanence](https://github.com/nix-community/impermanence)
 - [ ] devenv
+- [ ] scripting in nix [vimjoyer](https://www.youtube.com/watch?v=qRE6kf30u4g)
+- [ ] secrets sops [vimjoyer](https://www.youtube.com/watch?v=G5f6GC7SnhU)
 - [ ] how do you want to manage wallpaper [raf's solution](https://github.com/NotAShelf/wallpkgs)
 ## laptop only:
 - [ ] tlp

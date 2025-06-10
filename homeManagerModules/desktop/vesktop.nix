@@ -9,7 +9,6 @@
       enable = true;
       settings = {
         discordBranch = "stable";
-        checkUpdates = false;
         minimizeToTray = false;
         tray = false;
       };

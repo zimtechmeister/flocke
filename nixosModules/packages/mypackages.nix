@@ -53,6 +53,8 @@
       yarn
       python3
       pipenv
+      rustc
+      cargo
 
       # cli tools
       neovim
