@@ -12,7 +12,7 @@
       enableZshIntegration = true;
       settings = {
         format = ''
-          $fill$git_branch$git_status$git_metrics$fill
+          $fill
           $sudo$character
         '';
         right_format = ''
