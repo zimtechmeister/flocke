@@ -12,10 +12,6 @@
       settings = {
         tabs = true; # this is the default might want to change this
         vsync = true;
-        font = {
-          normal = ["Maple Mono NF"];
-          size = 12.0;
-        };
       };
     };
   };

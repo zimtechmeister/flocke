@@ -71,9 +71,8 @@ in {
         popups = 12;
       };
       monospace = {
-        name = "JetBrainsMono Nerd Font";
-        package = pkgs.nerd-fonts.jetbrains-mono
-;
+        name = "Maple Mono NF";
+        package = pkgs.maple-mono.NF;
       };
       sansSerif = {
         name = "Geist";
