@@ -10,7 +10,7 @@
 
   config = lib.mkIf config.nvim.enable {
     home.packages = [
-      inputs.nixcats.packages.${pkgs.system}.default
+      inputs.neovix.packages.${pkgs.system}.default
     ];
   };
 }

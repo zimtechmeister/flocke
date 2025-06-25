@@ -23,8 +23,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixcats = {
-      url = "github:zimtechmeister/neovim";
+    neovix = {
+      url = "github:zimtechmeister/neovix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
