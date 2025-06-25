@@ -10,9 +10,6 @@
 
   gaming.enable = lib.mkDefault true;
 
-  # enable postgresql for dbs modul in uni
-  dbs.enable = true;
-
   nix.settings = {
     experimental-features = [
       "nix-command"
