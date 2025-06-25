@@ -44,8 +44,6 @@
     environment.systemPackages = with pkgs; [
       # languages
       jdk
-      R
-      rstudio
       gcc
       cmake
       meson
@@ -85,6 +83,7 @@
       yazi
       zoxide
       openconnect
+      wireguard-tools
       tmux
       yt-dlp
       inputs.nix-alien.packages.${pkgs.system}.nix-alien
@@ -93,8 +92,9 @@
       # python312Packages.dbus-python
 
       # do i really need this
+      typst
       pandoc
-      texliveMedium
+      texliveFull
       imagemagick
       python312Packages.pylatexenc
 
@@ -135,7 +135,7 @@
       zathura
       mpv
       imv
-      qimgv
+      qimgv # might take a long time to complie? does it depend on deno?
 
       zoom-us
 

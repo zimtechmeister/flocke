@@ -13,6 +13,7 @@ nh os switch /path/to/flake -H PC -u
 ```
 
 # todo:
+- [ ] anyrun cant scroll
 - [ ] hardwareconfig
 - [ ] disco
 - [ ] [impermanence](https://github.com/nix-community/impermanence)

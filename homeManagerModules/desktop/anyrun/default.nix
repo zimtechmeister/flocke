@@ -30,7 +30,10 @@
           # inputs.anyrun.packages.${pkgs.system}.stdin
           inputs.anyrun.packages.${pkgs.system}.symbols
           # inputs.anyrun.packages.${pkgs.system}.translate
+          # NOTE: which of both?
           inputs.anyrun.packages.${pkgs.system}.websearch
+          # this does not work
+          # inputs.anyrun-websearchengines.packages.${pkgs.system}.default
         ];
       };
 
@@ -55,11 +58,12 @@
       extraConfigFiles."websearch.ron".text = ''
         Config(
           prefix: "?",
+          engines: [
           Custom(
-            name: "Custom",
+            name: "Unduck",
             url: "unduck.link/?q={}",
           ),
-          engines: [DuckDuckGo]
+          ],
         )
       '';
 
