@@ -14,6 +14,9 @@
         theme = "GruvboxDark";
         cursor-color = "#d4be98";
         window-padding-balance = true;
+        window-new-tab-position = "current"; # current, end
+        gtk-tabs-location = "top"; # top, bottom, left, right, hidden
+        gtk-wide-tabs = true;
       };
     };
   };

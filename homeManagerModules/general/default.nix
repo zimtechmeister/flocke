@@ -10,6 +10,7 @@
     ./git.nix
     ./neovide.nix
     ./nvim.nix
+    ./tmux.nix
   ];
 
   options.general.enable =
@@ -22,5 +23,6 @@
     git.enable = lib.mkDefault true;
     neovide.enable = lib.mkDefault true;
     nvim.enable = lib.mkDefault true;
+    tmux.enable = lib.mkDefault true;
   };
 }

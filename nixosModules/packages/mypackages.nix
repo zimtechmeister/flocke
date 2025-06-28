@@ -84,8 +84,6 @@
       zoxide
       openconnect
       wireguard-tools
-      tmux
-      zellij
       yt-dlp
       inputs.nix-alien.packages.${pkgs.system}.nix-alien
 

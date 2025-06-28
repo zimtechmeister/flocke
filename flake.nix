@@ -23,6 +23,7 @@
 
     neovix = {
       url = "github:zimtechmeister/neovix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     hyprland = {
@@ -39,9 +40,11 @@
 
     anyrun = {
       url = "github:anyrun-org/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     anyrun-websearchengines = {
       url = "github:zimtechmeister/anyrun-websearchengines";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser = {
@@ -49,6 +52,12 @@
     };
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    minimal-tmux = {
+      url = "github:niksingh710/minimal-tmux-status";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
