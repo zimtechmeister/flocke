@@ -14,23 +14,22 @@
       baseIndex = 1;
       keyMode = "vi";
       mouse = true;
+      clock24 = true;
+      escapeTime = 0;
+      historyLimit = 10000;
+      terminal = "screen-256color";
+      customPaneNavigationAndResize = true;
+      sensibleOnTop = true;
       extraConfig = ''
         set -g renumber-windows on
-        set -g set-clipboard on
         set -g status-position top
-
-        set -g detach-on-destroy off     # don't exit from tmux when closing a session
-        set -g escape-time 0             # zero-out escape time delay
-        set -g history-limit 100000     # increase history size (from 2,000)
-        set -g pane-active-border-style 'fg=magenta,bg=default'
-        set -g pane-border-style 'fg=brightblack,bg=default'
+        set -g detach-on-destroy off
+        set -g status-keys emacs
+        set -s extended-keys on
+        set -as terminal-features 'xterm*:extkeys'
       '';
       plugins = with pkgs; [
-        tmuxPlugins.cpu
-        {
-          plugin = tmuxPlugins.resurrect;
-          extraConfig = "set -g @resurrect-strategy-nvim 'session'";
-        }
+        tmuxPlugins.resurrect
         {
           plugin = inputs.minimal-tmux.packages.${pkgs.system}.default;
           extraConfig = ''
