@@ -45,6 +45,7 @@
       # languages
       jdk
       gcc
+      gnumake
       cmake
       meson
       nodejs
