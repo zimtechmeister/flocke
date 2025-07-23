@@ -24,7 +24,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 5;
 
-  networking.hostName = "PC";
+  networking.hostName = "desktop";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Berlin";

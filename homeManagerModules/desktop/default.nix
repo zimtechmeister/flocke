@@ -17,6 +17,8 @@
     ./mimeApps.nix
     ./vesktop.nix
     ./zen-browser.nix
+
+    ./walker.nix
   ];
 
   options.desktop.enable =

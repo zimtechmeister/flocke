@@ -42,8 +42,9 @@
       url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    anyrun-websearchengines = {
-      url = "github:zimtechmeister/anyrun-websearchengines";
+
+    walker = {
+      url = "github:abenz1267/walker";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -71,13 +72,12 @@
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     nixosConfigurations = {
-      #TODO: rename PC to desktop
-      PC = nixpkgs.lib.nixosSystem {
+      desktop = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs;};
         modules = [
           stylix.nixosModules.stylix
-          ./hosts/PC/configuration.nix
+          ./hosts/desktop/configuration.nix
           ./nixosModules
         ];
       };
@@ -96,18 +96,18 @@
         ];
       };
     };
-    # NOTE:
+    # TODO:
     # this is for lsp
     # in nix repl
     # :lf /home/tim/nixos
-    # builtins.attrNames (builtins.getFlake "/home/tim/nixos").nixosConfigurations.PC
+    # builtins.attrNames (builtins.getFlake "/home/tim/nixos").nixosConfigurations.desktop
     # builtins.attrNames (builtins.getFlake "/home/tim/nixos").homeConfigurations.tim-home
     homeConfigurations = {
       "tim" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {inherit inputs;};
         modules = [
-          ./hosts/PC/home.nix
+          ./hosts/desktop/home.nix
         ];
       };
     };

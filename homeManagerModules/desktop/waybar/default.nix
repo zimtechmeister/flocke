@@ -4,7 +4,7 @@
   ...
 }: let
   clockActions = {
-    PC = "swaync-client -t -sw";
+    desktop = "swaync-client -t -sw";
     t480 = "toggle-keyboard";
   };
   clockAction = builtins.getAttr (config.waybar.config) clockActions;

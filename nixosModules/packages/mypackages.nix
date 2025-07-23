@@ -86,6 +86,8 @@
       openconnect
       wireguard-tools
       yt-dlp
+      gemini-cli
+      claude-code
       inputs.nix-alien.packages.${pkgs.system}.nix-alien
 
       # NOTE: probaply dont need this anymore(there are flakes for eduroam)
@@ -130,7 +132,6 @@
       discord
       thunderbird
 
-      pcmanfm
       nautilus
       zathura
       mpv
