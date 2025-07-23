@@ -9,7 +9,7 @@
       enable = true;
       enableZshIntegration = true;
       settings = {
-        font-family = config.systemFont;
+        font-family = config.stylix.fonts.monospace.name;
         font-size = 12.0;
         theme = "GruvboxDark";
         cursor-color = "#d4be98";

@@ -50,7 +50,6 @@
           "browser.tabs.insertAfterCurrent" = true;
           "browser.translations.automaticallyPopup" = false;
           "zen.urlbar.behavior" = "float";
-          "zen.theme.accent-color" = "#${config.stylix.base16Scheme.base05}";
           "zen.theme.color-prefs.use-workspace-colors" = false;
           "zen.view.compact.toolbar-flash-popup" = true;
           "zen.view.compact.color-sidebar" = false;
@@ -136,5 +135,6 @@
         };
       };
     };
+    stylix.targets.zen-browser.profileNames = ["tim"];
   };
 }

@@ -37,7 +37,7 @@
       * {
           /* important to reset all setings set by gtk theme */
           all: initial;
-          font-family: Maple Mono NF;
+          font-family: ${config.stylix.fonts.monospace.name};
           font-size: 16px;
       }
 
