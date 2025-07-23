@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: let
+{pkgs, ...}: let
   gruvbox-dark = {
     base00 = "282828"; #282828
     base01 = "3c3836"; #3c3836
@@ -44,14 +39,14 @@ in {
     # image = config.lib.stylix.pixel "base17";
 
     # NOTE: reference implementation modified it a bit https://nix-community.github.io/stylix/tricks.html#dynamic-wallpaper-generation-based-on-selected-theme
-    image = pkgs.runCommand "image.png" {} ''
-      ${lib.getExe pkgs.imagemagick} -size 1920x1080 xc:"#${config.stylix.base16Scheme.base11}" $out
-    '';
+    # image = pkgs.runCommand "image.png" {} ''
+    #   ${lib.getExe pkgs.imagemagick} -size 1920x1080 xc:"#${config.stylix.base16Scheme.base11}" $out
+    # '';
 
-    # image = pkgs.fetchurl {
-    #   url = "https://raw.githubusercontent.com/zimtechmeister/wallpaper/refs/heads/master/forest-shroom.jpg";
-    #   hash = "sha256-q4rsjdaAnjeMFHh56cHr0t58VHj0wfouCYdT90HtAO0=";
-    # };
+    image = pkgs.fetchurl {
+      url = "https://raw.githubusercontent.com/zimtechmeister/wallpaper/refs/heads/master/forest-shroom.jpg";
+      hash = "sha256-q4rsjdaAnjeMFHh56cHr0t58VHj0wfouCYdT90HtAO0=";
+    };
 
     # NOTE: this somehow has no effect
     # thats why i have to use my own script to generate the image and match my monitors size
