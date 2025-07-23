@@ -27,9 +27,18 @@
         set -g status-keys emacs
         set -s extended-keys on
         set -as terminal-features 'xterm*:extkeys'
+
+        bind-key -n C-h swap-window -t -1\; select-window -t -1
+        bind-key -n C-l swap-window -t +1\; select-window -t +1
       '';
       plugins = with pkgs; [
         tmuxPlugins.resurrect
+        {
+          plugin = tmuxPlugins.session-wizard;
+          extraConfig = ''
+            set -g @session-wizard 'C-t'
+          '';
+        }
         {
           plugin = inputs.minimal-tmux.packages.${pkgs.system}.default;
           extraConfig = ''
