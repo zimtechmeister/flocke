@@ -37,7 +37,7 @@
       * {
           /* important to reset all setings set by gtk theme */
           all: initial;
-          font-family: ${config.stylix.fonts.monospace.name};
+          font-family: ${config.stylix.fonts.serif.name};
           font-size: 16px;
       }
 

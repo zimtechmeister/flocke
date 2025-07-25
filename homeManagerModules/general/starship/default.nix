@@ -15,7 +15,7 @@
         scan_timeout = 10;
 
         format = ''
-          $fill$git_status$fill
+          $fill
           $character
         '';
         right_format = ''
@@ -58,10 +58,6 @@
           read_only = "";
           read_only_style = "red";
           style = "green";
-        };
-
-        git_status = {
-          format = "([$all_status$ahead_behind](green))";
         };
       };
     };

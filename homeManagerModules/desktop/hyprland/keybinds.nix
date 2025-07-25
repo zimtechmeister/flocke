@@ -19,9 +19,13 @@
           "SUPER, Q, killactive,"
           "SUPER, I, togglefloating,"
 
-          "SUPER, F, fullscreen, 1"
-          "SUPER SHIFT, F, fullscreen,"
-          "SUPER CTRL, F, fullscreenstate, 1"
+          # fullscreen 0 -> no gaps no bar
+          # fullscreen 1 -> only maximize
+          "SUPER, F, fullscreen, 0"
+          # exit fullscreen but window wont notice
+          # https://wiki.hypr.land/Configuring/Dispatchers/#fullscreenstate
+          "SUPER SHIFT, F, fullscreenstate, 1"
+          "SUPER CTRL, F, fullscreenstate, 0 2"
 
           "SUPER, O, pseudo,"
           "SUPER, E, togglesplit,"

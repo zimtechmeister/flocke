@@ -24,6 +24,7 @@ in {
     ./keybinds.nix
     # NOTE: after enabeling a plugin restart hyprland
     # ./plugins/hyprscrolling.nix
+    ./plugins/hyprbars.nix
   ];
   options.hyprland = {
     enable = lib.mkEnableOption "enables hyprland";
@@ -67,13 +68,13 @@ in {
             workspace_swipe_use_r = true;
           };
           general = {
-            border_size = 2;
+            border_size = lib.mkDefault 2;
             gaps_in = 4;
             gaps_out = 8;
-            "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base05})";
+            "col.active_border" = lib.mkOverride 10000 "rgb(${config.stylix.base16Scheme.base05})";
             #col.active_border = rgb(ea6962) rgb(e78a4e) rgb(d8a657) rgb(a9b665) rgb(89b482) rgb(7daea3) rgb(d3869b) 0deg
             # NOTE: transparent
-            "col.inactive_border" = lib.mkForce "rgba(${config.stylix.base16Scheme.base11}00)";
+            "col.inactive_border" = lib.mkOverride 10000 "rgba(${config.stylix.base16Scheme.base11}00)";
 
             layout = "dwindle";
             resize_on_border = true;
@@ -90,7 +91,7 @@ in {
               ignore_opacity = true;
             };
             shadow = {
-              enabled = false;
+              enabled = true;
               range = 4;
               render_power = 1;
               color = lib.mkForce "rgb(${config.stylix.base16Scheme.base11})";
@@ -110,18 +111,20 @@ in {
             disable_hyprland_logo = true;
             disable_splash_rendering = true;
             # NOTE: font
-            font_family = config.stylix.fonts.monospace.name;
+            font_family = config.stylix.fonts.serif.name;
             mouse_move_enables_dpms = false;
             key_press_enables_dpms = true;
             new_window_takes_over_fullscreen = true;
           };
-          windowrulev2 = [
+          windowrulev2 = lib.mkDefault [
             "suppressevent maximize, class:.*"
           ];
           layerrule = [
-            "dimaround, rofi"
+            "dimaround, anyrun"
           ];
-          workspace = "special:scratchpad, gapsout:32, gapsin:4";
+          workspace = lib.mkDefault [
+            "special:scratchpad, gapsout:32, gapsin:4"
+          ];
         };
       };
     };

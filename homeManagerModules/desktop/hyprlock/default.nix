@@ -62,7 +62,7 @@
             text = "cmd[update:1000] echo -e $(date '+%H')";
             color = "rgb(${config.stylix.base16Scheme.base05})";
             font_size = 80;
-            font_family = "${config.stylix.fonts.monospace.name} Bold";
+            font_family = "${config.stylix.fonts.serif.name} Bold";
             halign = "center";
             valign = "center";
             position = "0, 235";
@@ -74,7 +74,7 @@
             text = "cmd[update:1000] echo -e $(date '+%M')";
             color = "rgb(${config.stylix.base16Scheme.base05})";
             font_size = 80;
-            font_family = "${config.stylix.fonts.monospace.name} Bold";
+            font_family = "${config.stylix.fonts.serif.name} Bold";
             halign = "center";
             valign = "center";
             position = "0, 135";
@@ -86,7 +86,7 @@
             text = "cmd[update:1000] echo -e $(date '+%a %d-%m')";
             color = "rgb(${config.stylix.base16Scheme.base05})";
             font_size = 20;
-            font_family = "${config.stylix.fonts.monospace.name} Bold";
+            font_family = "${config.stylix.fonts.serif.name} Bold";
             halign = "center";
             valign = "center";
             position = "0, 50";
