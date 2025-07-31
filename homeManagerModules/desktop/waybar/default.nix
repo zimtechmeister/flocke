@@ -24,8 +24,13 @@ in {
   config = lib.mkIf config.waybar.enable {
     programs.waybar = {
       enable = true;
+      systemd = {
+        enable = true;
+        target = "graphical-session.target";
+      };
       settings = {
         mainBar = {
+          layer = "top";
           position = "bottom"; # Waybar position (top|bottom|left|right)
           height = 24; # Waybar height (to be removed for auto height)
           spacing = 4;

@@ -5,7 +5,9 @@
   ...
 }: let
   toggle-keyboard = pkgs.lib.fileContents ./toggle-keyboard.sh;
-  screenshot = pkgs.lib.fileContents ./screenshot.sh;
+  screenshot = pkgs.writeShellScriptBin "screenshot" ''
+    grim -g "$(slurp -o -c '#${config.stylix.base16Scheme.base08}ff')" -t ppm - | satty --filename - --fullscreen --output-filename $HOME/Pictures/screenshot-$(date '+%Y%m%d-%H:%M:%S').png
+  '';
 in {
   options.scripts.enable =
     lib.mkEnableOption "enables home-manager for nixBTW";
@@ -13,7 +15,7 @@ in {
   config = lib.mkIf config.scripts.enable {
     home.packages = [
       (pkgs.writeShellScriptBin "toggle-keyboard" toggle-keyboard)
-      (pkgs.writeShellScriptBin "screenshot" screenshot)
+      screenshot
     ];
   };
 }

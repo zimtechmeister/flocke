@@ -7,18 +7,18 @@
   config = lib.mkIf config.hyprpaper.enable {
     services.hyprpaper = {
       enable = true;
-      settings = {
-        # supported formats: png, jpg, jpeg, webp
-        preload = "~/.config/wallpaper/forest-shroom.jpg";
-
-        wallpaper = [
-          "eDP-1,~/.config/wallpaper/forest-shroom.jpg"
-          "DP-1,~/.config/wallpaper/forest-shroom.jpg"
-          "HDMI-A-2,~/.config/wallpaper/forest-shroom.jpg"
-        ];
-
-        ipc = false;
-      };
+      # settings = {
+      #   # supported formats: png, jpg, jpeg, webp
+      #   preload = "${config.stylix.image}";
+      #
+      #   wallpaper = [
+      #     "eDP-1,${config.stylix.image}"
+      #     "DP-1,${config.stylix.image}"
+      #     "HDMI-A-2,${config.stylix.image}"
+      #   ];
+      #
+      #   ipc = false;
+      # };
     };
   };
 }

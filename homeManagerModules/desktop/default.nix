@@ -28,8 +28,8 @@
     anyrun.enable = lib.mkDefault true;
     ghostty.enable = lib.mkDefault true;
     hypridle.enable = lib.mkDefault true;
-    hyprland.enable = lib.mkDefault true;
     hyprlock.enable = lib.mkDefault true;
+    hyprpaper.enable = lib.mkDefault true;
     hyprpolkitagent.enable = lib.mkDefault true;
     swaync.enable = lib.mkDefault true;
     waybar.enable = lib.mkDefault true;
@@ -37,8 +37,7 @@
     vesktop.enable = lib.mkDefault true;
     zen-browser.enable = lib.mkDefault true;
 
-    # swapped out for stylix
-    hyprpaper.enable = lib.mkDefault false;
-    niri.enable = lib.mkDefault false;
+    hyprland.enable = lib.mkDefault false;
+    niri.enable = lib.mkDefault true;
   };
 }
