@@ -26,11 +26,14 @@ in {
       enable = true;
       systemd = {
         enable = true;
-        target = "graphical-session.target";
+        # target = "niri.service";
       };
       settings = {
         mainBar = {
-          layer = "top";
+          layer =
+            if config.niri.enable
+            then "top"
+            else "bottom";
           position = "bottom"; # Waybar position (top|bottom|left|right)
           height = 24; # Waybar height (to be removed for auto height)
           spacing = 4;

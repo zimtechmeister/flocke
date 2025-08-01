@@ -24,7 +24,7 @@ in {
     ./keybinds.nix
     # NOTE: after enabeling a plugin restart hyprland
     # ./plugins/hyprscrolling.nix
-    ./plugins/hyprbars.nix
+    # ./plugins/hyprbars.nix
   ];
   options.hyprland = {
     enable = lib.mkEnableOption "enables hyprland";
@@ -55,8 +55,11 @@ in {
           exec-once = [
             "wl-paste --watch cliphist store"
             # "systemctl --user start hyprpolkitagent"
-            "waybar"
+            # "waybar"
             "swaync"
+            # NOTE: which way should you start waybar?
+            # "systemctl --user start waybar" # could also be done in the waybar config using nix
+            # "uwsm app -s s -- waybar"
           ];
           input = {
             kb_layout = "eu, de, us";
@@ -71,10 +74,11 @@ in {
             border_size = lib.mkDefault 2;
             gaps_in = 4;
             gaps_out = 8;
-            "col.active_border" = lib.mkOverride 10000 "rgb(${config.stylix.base16Scheme.base05})";
+            # TODO: mkOverride 10000 does not have the same effect as mkForce?
+            "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base05})";
             #col.active_border = rgb(ea6962) rgb(e78a4e) rgb(d8a657) rgb(a9b665) rgb(89b482) rgb(7daea3) rgb(d3869b) 0deg
             # NOTE: transparent
-            "col.inactive_border" = lib.mkOverride 10000 "rgba(${config.stylix.base16Scheme.base11}00)";
+            "col.inactive_border" = lib.Force "rgba(${config.stylix.base16Scheme.base11}00)";
 
             layout = "dwindle";
             resize_on_border = true;

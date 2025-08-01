@@ -1,15 +1,15 @@
 {lib, ...}: {
   imports = [
-    ./cachix.nix
-    ./packages/mypackages.nix
-    ./packages/myfont.nix
     ./features/bluetooth.nix
+    ./packages/myfont.nix
+    ./packages/mypackages.nix
+    ./cachix.nix
     ./gaming.nix
     ./stylix.nix
   ];
 
   mypackages.enable = lib.mkDefault true;
 
-  # maybe do this somewhere else
+  # TODO: maybe do this somewhere else
   nixpkgs.config.allowUnfree = true;
 }

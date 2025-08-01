@@ -20,18 +20,40 @@
         };
       };
 
-      # make home-manager
+      # TODO: make home-manager
       localsend = {
         enable = true;
         openFirewall = true;
       };
 
+      # uwsm = {
+      #   enable = true;
+      #   waylandCompositors = {
+      #     hyprland = {
+      #       prettyName = "Hyprland";
+      #       comment = "Hyprland compositor managed by UWSM";
+      #       # NOTE :It is recommended to use the /run/current-system/sw/bin/ path
+      #       # instead of lib.getExe pkgs.<compositor> to avoid version mismatch of
+      #       # the compositor used by UWSM and the one installed in the system.
+      #       binPath = "/run/current-system/sw/bin/Hyprland";
+      #     };
+      #     niri = {
+      #       prettyName = "Niri";
+      #       comment = "Niri compositor managed by UWSM";
+      #       binPath = pkgs.writeShellScript "niri" ''
+      #         ${lib.getExe config.programs.niri.package} --session
+      #       '';
+      #     };
+      #   };
+      # };
+
       # NOTE: need to be enabled systemwide but are configured in home-manager
-      hyprland = {
-        enable = true;
-        package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-        portalPackage = inputs.hyprland.packages."${pkgs.system}".xdg-desktop-portal-hyprland;
-      };
+      # hyprland = {
+      #   enable = true;
+      #   package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+      #   portalPackage = inputs.hyprland.packages."${pkgs.system}".xdg-desktop-portal-hyprland;
+      #   # withUWSM = true;
+      # };
 
       # NOTE: needs to be enabled systemwide
       zsh = {

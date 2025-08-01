@@ -37,7 +37,8 @@
     vesktop.enable = lib.mkDefault true;
     zen-browser.enable = lib.mkDefault true;
 
-    hyprland.enable = lib.mkDefault false;
+    # NOTE: somehow cant use hyprland when niri is enabled
+    hyprland.enable = lib.mkDefault true;
     niri.enable = lib.mkDefault true;
   };
 }
