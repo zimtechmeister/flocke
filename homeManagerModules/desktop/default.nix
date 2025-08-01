@@ -37,7 +37,7 @@
     vesktop.enable = lib.mkDefault true;
     zen-browser.enable = lib.mkDefault true;
 
-    hyprland.enable = lib.mkDefault false;
+    hyprland.enable = lib.mkDefault true;
     niri.enable = lib.mkDefault true;
   };
 }

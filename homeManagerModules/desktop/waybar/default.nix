@@ -26,7 +26,7 @@ in {
       enable = true;
       systemd = {
         enable = true;
-        target = "graphical-session.target";
+        # target = "niri.service";
       };
       settings = {
         mainBar = {

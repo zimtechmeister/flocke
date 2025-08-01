@@ -33,6 +33,23 @@
           {command = ["systemctl" "--user" "start" "swaync"];}
         ];
 
+        environment = {
+          CLUTTER_BACKEND = "wayland";
+          GDK_BACKEND = "wayland,x11";
+          MOZ_ENABLE_WAYLAND = "1";
+          NIXOS_OZONE_WL = "1";
+          QT_QPA_PLATFORM = "wayland";
+          QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+          ELECTRON_OZONE_PLATFORM_HINT = "auto";
+
+          XDG_SESSION_TYPE = "wayland";
+          XDG_CURRENT_DESKTOP = "niri";
+          DISPLAY = ":0";
+
+          # QT_QPA_PLATFORM = "wayland";
+          # DISPLAY = ":0";
+        };
+
         overview = {
           backdrop-color = null;
           workspace-shadow.enable = false;
@@ -100,7 +117,7 @@
           gaps = 16;
           focus-ring.enable = false;
           center-focused-column = "never";
-          default-column-width.proportion = 1.0;
+          default-column-width.proportion = 0.5;
           shadow.enable = false;
           background-color = "#00000000";
           border = {
