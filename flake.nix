@@ -95,6 +95,15 @@
           ./nixosModules
         ];
       };
+      server = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs;};
+        modules = [
+          stylix.nixosModules.stylix
+          ./hosts/server/configuration.nix
+          ./nixosModules
+        ];
+      };
     };
     # TODO:
     # this is for lsp

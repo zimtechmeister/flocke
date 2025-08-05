@@ -24,7 +24,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 5;
 
-  networking.hostName = "t480";
+  networking.hostName = "server";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Berlin";

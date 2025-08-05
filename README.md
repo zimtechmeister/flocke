@@ -1,5 +1,9 @@
 # Installation (NixOS)
 requires NixOS [ISO](https://nixos.org/download/#nixos-iso)  
+write the image to the USB flash drive.
+```bash
+sudo dd bs=4M conv=fsync oflag=direct status=progress if=<path-to-image> of=/dev/sdX
+```
 generate hardwareconfig:
 ```bash
 sudo nixos-generate-config --dir /some/dir --force
