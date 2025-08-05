@@ -78,7 +78,7 @@ in {
             "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base05})";
             #col.active_border = rgb(ea6962) rgb(e78a4e) rgb(d8a657) rgb(a9b665) rgb(89b482) rgb(7daea3) rgb(d3869b) 0deg
             # NOTE: transparent
-            "col.inactive_border" = lib.Force "rgba(${config.stylix.base16Scheme.base11}00)";
+            "col.inactive_border" = lib.mkForce "rgba(${config.stylix.base16Scheme.base11}00)";
 
             layout = "dwindle";
             resize_on_border = true;

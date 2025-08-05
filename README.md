@@ -10,10 +10,10 @@ sudo nixos-generate-config --dir /some/dir --force
 ```
 Rebuild: "desktop" is the host in those examples
 ```bash
-sudo nixos-rebuild --extra-experimental-features "nix-command flakes" switch --flake github:zimtechmeister/flocke#desktop
+sudo nixos-rebuild switch --flake github:zimtechmeister/flocke#desktop
 ```
 ```bash
-nh os switch /path/to/flake -H desktop -u
+nh os switch /path/to/flake -H desktop
 ```
 
 # todo:
