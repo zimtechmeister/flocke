@@ -56,7 +56,7 @@
         };
 
         outputs = {
-          "DP-1" = {
+          "Microstep Optix MAG24C 0000000000001" = {
             mode = {
               width = 1920;
               height = 1080;
