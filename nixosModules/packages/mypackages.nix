@@ -48,12 +48,12 @@
       # };
 
       # NOTE: need to be enabled systemwide but are configured in home-manager
-      # hyprland = {
-      #   enable = true;
-      #   package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-      #   portalPackage = inputs.hyprland.packages."${pkgs.system}".xdg-desktop-portal-hyprland;
-      #   # withUWSM = true;
-      # };
+      hyprland = {
+        enable = true;
+        package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+        portalPackage = inputs.hyprland.packages."${pkgs.system}".xdg-desktop-portal-hyprland;
+        # withUWSM = true;
+      };
 
       # NOTE: needs to be enabled systemwide
       zsh = {

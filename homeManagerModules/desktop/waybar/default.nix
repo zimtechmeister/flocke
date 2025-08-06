@@ -5,6 +5,7 @@
 }: let
   clockActions = {
     desktop = "swaync-client -t -sw";
+    optiplex3000 = "swaync-client -t -sw";
     t480 = "toggle-keyboard";
   };
   clockAction = builtins.getAttr (config.waybar.config) clockActions;

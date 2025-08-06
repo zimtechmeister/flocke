@@ -95,12 +95,12 @@
           ./nixosModules
         ];
       };
-      server = nixpkgs.lib.nixosSystem {
+      optiplex3000 = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs;};
         modules = [
           stylix.nixosModules.stylix
-          ./hosts/server/configuration.nix
+          ./hosts/optiplex3000/configuration.nix
           ./nixosModules
         ];
       };
