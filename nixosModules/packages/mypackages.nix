@@ -79,7 +79,6 @@
 
       # cli tools
       neovim
-      git
       lazygit
       gzip
       zip
@@ -87,24 +86,21 @@
       cpio
       killall
       wget
-      pkg-config # what is this
       ntfs3g
       ripgrep
       fd
       less
-      fzf
       difftastic
       bat
       man
       man-db
       man-pages
       tldr
+      pkg-config # what is this
       trash-cli
       smartmontools
       lsd
-      fastfetch
       yazi
-      zoxide
       openconnect
       wireguard-tools
       yt-dlp
