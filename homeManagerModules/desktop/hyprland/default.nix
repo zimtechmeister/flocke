@@ -78,7 +78,7 @@ in {
             border_size = lib.mkDefault 2;
             gaps_in = 4;
             gaps_out = 8;
-            # TODO: mkOverride 10000 does not have the same effect as mkForce?
+            # NOTE:: mkOverride 10000 does not have the same effect as mkForce?
             "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base05})";
             #col.active_border = rgb(ea6962) rgb(e78a4e) rgb(d8a657) rgb(a9b665) rgb(89b482) rgb(7daea3) rgb(d3869b) 0deg
             # NOTE: transparent

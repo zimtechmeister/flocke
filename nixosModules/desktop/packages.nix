@@ -9,8 +9,17 @@
       lib.mkEnableOption "desktop-packages";
   };
   config = lib.mkIf config.desktop-packages.enable {
+    services.printing.enable = true;
+
+    security.rtkit.enable = true;
+    services.pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      wireplumber.enable = true;
+    };
     environment.systemPackages = with pkgs; [
-      hyprsunset # TODO: configure in home-manager
       hyprpicker
 
       grim

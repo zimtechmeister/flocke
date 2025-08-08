@@ -72,13 +72,15 @@
           tooltip = "log out";
         }
         {
-          label = "";
-          command = "hyprsunset -t 5000 -g 80";
+          label = ""; # TODO: toggle option 󰖚
+          # command = "hyprsunset -t 5000 -g 80";
+          command = "hyprctl hyprsunset temperature 5000";
           tooltip = "eye saver";
         }
         {
           label = "";
-          command = "killall hyprsunset";
+          # command = "killall hyprsunset";
+          command = "hyprctl hyprsunset identity";
           tooltip = "turn off eye saver";
         }
         {

@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./nh.nix
+    ./openssh.nix
     ./zsh.nix
     ./packages.nix
   ];
@@ -13,6 +14,7 @@
 
   config = lib.mkIf config.general.enable {
     nh.enable = lib.mkDefault true;
+    openssh.enable = lib.mkDefault true;
     zsh.enable = lib.mkDefault true;
     general-packages.enable = lib.mkDefault true;
   };
