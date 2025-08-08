@@ -8,7 +8,7 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  bluetooth.enable = lib.mkDefault true;
+  bluetooth.enable = lib.mkForce true;
 
   nix.settings = {
     experimental-features = [

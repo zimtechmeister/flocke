@@ -7,6 +7,7 @@
     ./fastfetch
     ./fzf.nix
     ./git.nix
+    ./lsd.nix
     ./neovide.nix
     ./nvim.nix
     ./starship.nix
@@ -22,6 +23,7 @@
   config = lib.mkIf config.general.enable {
     fastfetch.enable = lib.mkDefault true;
     fzf.enable = lib.mkDefault true;
+    lsd.enable = lib.mkDefault true;
     git.enable = lib.mkDefault true;
     neovide.enable = lib.mkDefault true;
     nvim.enable = lib.mkDefault true;

@@ -8,7 +8,7 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  gaming.enable = lib.mkDefault true;
+  gaming.enable = lib.mkForce true;
 
   nix.settings = {
     experimental-features = [

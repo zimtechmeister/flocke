@@ -17,6 +17,7 @@ nh os switch /path/to/flake -H desktop
 ```
 
 # todo:
+- [ ] understand the difference between builtins.fetchurl and pkgs.fetchurl
 - [ ] anyrun cant scroll
 - [ ] try walker again
 - [ ] hardwareconfig checkout cachyOs

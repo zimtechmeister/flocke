@@ -5,6 +5,7 @@
 }: {
   options.hyprlock.enable = lib.mkEnableOption "enables hyprlock";
   config = lib.mkIf config.hyprlock.enable {
+    stylix.targets.hyprlock.useWallpaper = false;
     programs.hyprlock = {
       enable = true;
       settings = {
@@ -12,9 +13,13 @@
           ignore_empty_input = true;
         };
 
-        background = {
+        background = let
+        in {
           monitor = "";
-          path = lib.mkForce "~/.config/wallpaper/forest-fog-grey.jpg";
+          path = builtins.fetchurl {
+            url = "https://raw.githubusercontent.com/zimtechmeister/wallpaper/refs/heads/master/forest-fog-grey.jpg";
+            sha256 = "sha256:1df24dcd5ksx1030f7h7ir515yxpi1yi692k2s42g5v9jwaci2xz";
+          };
           blur_passes = 0;
         };
 

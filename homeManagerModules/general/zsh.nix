@@ -38,7 +38,7 @@
         grep = "grep -i --color=auto";
         mv = "mv -i";
         cp = "cp -i";
-        ls = "lsd -lhA --group-dirs first --header";
+        ls = lib.mkForce "lsd -lhA --group-dirs first --header";
       };
 
       initContent =
