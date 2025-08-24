@@ -9,6 +9,7 @@
   ];
 
   #TODO: variables to enable/disable specific functionalty
+  desktop.enable = lib.mkForce true;
   gaming.enable = lib.mkForce true;
 
   networking.hostName = "desktop";

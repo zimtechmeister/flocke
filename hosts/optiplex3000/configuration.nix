@@ -10,6 +10,7 @@
   ];
 
   desktop.enable = lib.mkForce true;
+  bluetooth.enable = lib.mkForce true;
   server.enable = lib.mkForce true;
 
   # Accelerated Video Playback
