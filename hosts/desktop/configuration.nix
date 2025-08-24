@@ -8,6 +8,7 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
+  #TODO: variables to enable/disable specific functionalty
   gaming.enable = lib.mkForce true;
 
   networking.hostName = "desktop";
