@@ -21,9 +21,12 @@
         # NOTE: list of available plugins: https://nur.nix-community.org/repos/rycee/
         extensions.packages = with inputs.firefox-addons.packages."${pkgs.system}"; let
           # could not fix an allowUnfree error -> so this hack fixes it
-          # enhancer-for-youtube = inputs.firefox-addons.packages."${pkgs.system}".enhancer-for-youtube.overrideAttrs (old: {
-          #   meta = old.meta // {license.free = true;};
-          # });
+          improved-tube = inputs.firefox-addons.packages."${pkgs.system}".improved-tube.overrideAttrs (old: {
+            meta = old.meta // {license.free = true;};
+          });
+          languagetool = inputs.firefox-addons.packages."${pkgs.system}".languagetool.overrideAttrs (old: {
+            meta = old.meta // {license.free = true;};
+          });
         in [
           bitwarden
           ublock-origin
@@ -33,7 +36,8 @@
           vimium
           youtube-nonstop # does this even work?
           refined-github
-          # enhancer-for-youtube
+          improved-tube
+          languagetool
         ];
         settings = {
           "browser.shell.checkDefaultBrowser" = false;
