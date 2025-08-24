@@ -1,4 +1,5 @@
 {
+  pkgs,
   inputs,
   lib,
   ...
@@ -8,7 +9,17 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  bluetooth.enable = lib.mkForce true;
+  desktop.enable = lib.mkForce true;
+  server.enable = lib.mkForce true;
+
+  # Accelerated Video Playback
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+    ];
+  };
+  environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";}; # Optionally, set the environment variable
 
   networking.hostName = "optiplex3000";
 

@@ -6,6 +6,7 @@
   imports = [
     ./desktop
     ./general
+    ./server
 
     ./cachix.nix
     ./stylix.nix
@@ -14,6 +15,7 @@
   config = {
     desktop.enable = lib.mkDefault true;
     general.enable = lib.mkDefault true;
+    server.enable = lib.mkDefault false;
 
     nixpkgs.config.allowUnfree = true;
 

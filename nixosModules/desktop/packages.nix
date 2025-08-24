@@ -62,6 +62,6 @@
       gimp
     ];
     services.udev.packages = [pkgs.via];
-    hardware.opentabletdriver.enable = true;
+    hardware.opentabletdriver.enable = true; # TODO: not working as expected
   };
 }
