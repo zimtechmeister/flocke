@@ -8,6 +8,8 @@
     nextcloud.enable = lib.mkEnableOption "nextcloud";
   };
   config = lib.mkIf config.nextcloud.enable {
+    # TODO: hide password
+    environment.etc."nextcloud-admin-pass".text = "password123";
     services = {
       nextcloud = {
         enable = true;
@@ -20,9 +22,8 @@
         settings.default_phone_region = "DE";
         config = {
           dbtype = "sqlite";
-          # TODO: hide password
-          adminuser = "ding";
-          adminpassFile = "ding";
+          adminuser = "root";
+          adminpassFile = "/etc/nextcloud-admin-pass";
         };
         settings = {
           trusted_domains = [

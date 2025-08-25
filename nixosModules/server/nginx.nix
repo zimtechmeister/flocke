@@ -18,25 +18,14 @@
         "timzechmeister.dynv6.net" = {
           addSSL = true;
           enableACME = true;
-          locations."/" = {
-            proxyPass = "http://localhost:8080";
-            proxyWebsockets = true;
-          };
         };
-        # "nextcloud.timzechmeister.dynv6.net" = {
-        #   addSSL = true;
-        #   enableACME = true;
+        # "immich-tim.dynv6.net" = {
+        #   # addSSL = true;
+        #   # enableACME = true;
         #   locations."/" = {
-        #     proxyPass = "http://localhost:8080";
+        #     proxyPass = "127.0.0.1:2283";
         #     proxyWebsockets = true;
         #   };
-        # };
-        # "immich.local" = {
-        #   # forceSSL = true;
-        #   # enableACME = true;
-        #   # locations."/immich" = {
-        #   #   proxyPass = "http://localhost:2283";
-        #   # };
         # };
       };
     };

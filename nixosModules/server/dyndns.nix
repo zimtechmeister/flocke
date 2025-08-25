@@ -8,7 +8,6 @@
     dyndns.enable = lib.mkEnableOption "dyndns";
   };
   config = lib.mkIf config.dyndns.enable {
-    # NOTE: this is only temporary cause with the fritzbox router i wont need another dynamic dns service
     services.ddclient = {
       enable = true;
       # TODO: hide password
@@ -16,9 +15,10 @@
         protocol=dyndns2
         server=dynv6.com
         login=none
-        password='password'
-        use=web, web=ipv6.icanhazip.com
+        password='password123'
+        use=cmd, cmd="${pkgs.iproute2}/bin/ip -6 addr show dev wlp3s0 scope global | ${pkgs.gawk}/bin/awk '/inet6/{print $2}' | cut -d/ -f1 | head -n1"
         timzechmeister.dynv6.net
+        immich-tim.dynv6.net
       '';
     };
   };
