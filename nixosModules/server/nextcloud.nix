@@ -9,13 +9,12 @@
   };
   config = lib.mkIf config.nextcloud.enable {
     # TODO: hide password
-    environment.etc."nextcloud-admin-pass".text = "password123";
+    environment.etc."nextcloud-admin-pass".text = "";
     services = {
       nextcloud = {
         enable = true;
         package = pkgs.nextcloud31;
-        # hostName = "nextcloud.timzechmeister.dynv6.net";
-        hostName = "timzechmeister.dynv6.net";
+        hostName = "timzechmeister.de";
         https = true;
         configureRedis = true;
         maxUploadSize = "1G";
@@ -27,9 +26,6 @@
         };
         settings = {
           trusted_domains = [
-            "192.168.0.20"
-            "timzechmeister.dynv6.net"
-            # "nextcloud.timzechmeister.dynv6.net"
             "timzechmeister.de"
           ];
           # Disable external storage by default for security

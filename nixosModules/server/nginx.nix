@@ -12,23 +12,15 @@
       defaults.email = "tim.zechmeister03@gmail.com";
     };
     services.nginx = {
-      # NOTE: where do i eneable this if i need it for multiple modules
-      enable = true; # this is automatically set to true by the nextcloud thing
+      enable = true;
       virtualHosts = {
-        "timzechmeister.dynv6.net" = {
+        "timzechmeister.de" = {
           addSSL = true;
           enableACME = true;
         };
-        # "immich-tim.dynv6.net" = {
-        #   # addSSL = true;
-        #   # enableACME = true;
-        #   locations."/" = {
-        #     proxyPass = "127.0.0.1:2283";
-        #     proxyWebsockets = true;
-        #   };
-        # };
       };
     };
+    # TODO: not nice
     networking.firewall = {
       enable = true;
       allowedTCPPorts = [80 443];

@@ -13,7 +13,7 @@
   ];
 
   config = {
-    desktop.enable = lib.mkDefault true;
+    desktop.enable = lib.mkDefault false;
     general.enable = lib.mkDefault true;
     server.enable = lib.mkDefault false;
 

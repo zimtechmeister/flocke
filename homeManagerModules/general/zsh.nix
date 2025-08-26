@@ -12,15 +12,6 @@
       autosuggestion.enable = true;
       enableCompletion = true;
       syntaxHighlighting.enable = true;
-      loginExtra = ''
-        # if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-        if [[ -z $DISPLAY ]] && [[ "$XDG_VTNR" = 1 ]]; then
-          exec Hyprland
-          # reccomended way to start hyprland
-          # exec uwsm start hyprland.desktop
-        fi
-      '';
-      # profileExtra
       history = {
         ignorePatterns = [
           "ls*"

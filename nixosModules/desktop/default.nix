@@ -14,6 +14,7 @@
 
   options.desktop.enable = lib.mkEnableOption "enables desktop nixos-module";
 
+  # TODO: some set the defaults somewhere else
   config = lib.mkIf config.desktop.enable {
     bluetooth.enable = lib.mkDefault false;
     fonts.enable = lib.mkDefault true;

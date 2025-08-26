@@ -6,9 +6,9 @@
   ];
 
   config = {
-    desktop.enable = lib.mkDefault true;
+    desktop.enable = lib.mkDefault false;
     general.enable = lib.mkDefault true;
-    scripts.enable = lib.mkDefault true;
+    scripts.enable = lib.mkDefault false;
 
     home = {
       username = "tim";

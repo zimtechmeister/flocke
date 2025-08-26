@@ -40,6 +40,14 @@ in {
     };
   };
   config = lib.mkIf config.hyprland.enable {
+    programs.zsh.loginExtra = ''
+      # if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+      if [[ -z $DISPLAY ]] && [[ "$XDG_VTNR" = 1 ]]; then
+        exec Hyprland
+        # reccomended way to start hyprland
+        # exec uwsm start hyprland.desktop
+      fi
+    '';
     wayland.windowManager = {
       hyprland = {
         enable = true;
