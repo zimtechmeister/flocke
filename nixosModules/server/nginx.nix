@@ -17,6 +17,22 @@
         "timzechmeister.de" = {
           addSSL = true;
           enableACME = true;
+          # Nextcloud config is injected automatically here
+        };
+        # Nextcloud
+        "cloud.timzechmeister.de" = {
+          addSSL = true;
+          enableACME = true;
+          # Nextcloud config is injected automatically here
+        };
+        # Immich
+        "immich.timzechmeister.de" = {
+          addSSL = true;
+          enableACME = true;
+          locations."/" = {
+            proxyPass = "http://127.0.0.1:2283";
+            proxyWebsockets = true;
+          };
         };
       };
     };
