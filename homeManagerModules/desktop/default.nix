@@ -25,7 +25,7 @@
     lib.mkEnableOption "enables desktop home-manager config";
 
   config = lib.mkIf config.desktop.enable {
-    anyrun.enable = lib.mkDefault true;
+    anyrun.enable = lib.mkDefault false;
     hyprland.enable = lib.mkDefault true;
     niri.enable = lib.mkDefault true;
     swaync.enable = lib.mkDefault true;

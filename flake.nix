@@ -11,7 +11,6 @@
 
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware/master";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     stylix = {
@@ -46,7 +45,6 @@
     anyrun = {
       # TODO: deprecated
       url = "github:anyrun-org/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser = {

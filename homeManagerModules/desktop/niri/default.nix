@@ -31,6 +31,7 @@
           {command = ["systemctl" "--user" "start" "xwayland-satellite"];}
           # {command = ["waybar"];}
           {command = ["systemctl" "--user" "start" "swaync"];}
+          {command = ["walker" "--gapplication-service"];}
         ];
 
         environment = {

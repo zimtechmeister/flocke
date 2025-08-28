@@ -58,8 +58,9 @@
 
       # not necesary?
       via
-      libsForQt5.kdenlive
+      kdePackages.kdenlive
       gimp
+      walker
     ];
     services.udev.packages = [pkgs.via];
     hardware.opentabletdriver.enable = true; # TODO: not working as expected

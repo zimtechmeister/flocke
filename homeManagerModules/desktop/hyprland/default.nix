@@ -65,7 +65,8 @@ in {
         settings = {
           monitor = monitorLayout;
           exec-once = [
-            "wl-paste --watch cliphist store"
+            "walker --gapplication-service"
+            # "wl-paste --watch cliphist store"
             # "systemctl --user start hyprpolkitagent"
             # "waybar"
             "swaync"
@@ -76,11 +77,6 @@ in {
           input = {
             kb_layout = "eu, de, us";
             accel_profile = "flat";
-          };
-          gestures = {
-            workspace_swipe = true;
-            workspace_swipe_invert = false;
-            workspace_swipe_use_r = true;
           };
           general = {
             border_size = lib.mkDefault 2;
@@ -136,7 +132,7 @@ in {
             "suppressevent maximize, class:.*"
           ];
           layerrule = [
-            "dimaround, anyrun"
+            "dimaround, walker"
           ];
           workspace = lib.mkDefault [
             "special:scratchpad, gapsout:32, gapsin:4"
