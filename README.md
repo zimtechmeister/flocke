@@ -6,7 +6,7 @@ sudo dd bs=4M conv=fsync oflag=direct status=progress if=<path-to-image> of=/dev
 ```
 generate hardwareconfig:
 ```bash
-sudo nixos-generate-config --dir /some/dir --force
+nixos-generate-config --no-filesystems --force --dir ./
 ```
 Rebuild: "desktop" is the host in those examples
 ```bash
