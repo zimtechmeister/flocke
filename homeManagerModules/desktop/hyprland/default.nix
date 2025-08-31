@@ -65,7 +65,6 @@ in {
         settings = {
           monitor = monitorLayout;
           exec-once = [
-            "walker --gapplication-service"
             # "wl-paste --watch cliphist store"
             # "systemctl --user start hyprpolkitagent"
             # "waybar"
