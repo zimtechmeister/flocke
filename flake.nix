@@ -74,53 +74,33 @@
     };
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    stylix,
-    ...
-  } @ inputs: let
+  outputs = {nixpkgs, ...} @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
-    # TODO: add minimal config as outputs to flash to usb
+    nixosModules.default = ./nixosModules;
+    homeManagerModules.default = ./homeManagerModules;
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs;};
         modules = [
-          stylix.nixosModules.stylix
-          ./hosts/desktop/configuration.nix
-          ./nixosModules
-        ];
-      };
-
-      # Add this line in modules for better hardware support https://github.com/NixOS/nixos-hardware
-      # nixos-hardware.nixosModules.lenovo-thinkpad-t480
-      # I don't know if I should then remove the hardwareconfiguration.nix file
-      # take care what happens to the boot configuration
-      t480 = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs;};
-        modules = [
-          # TODO: can i do this sylix thing in the stylix.nix file?
+          inputs.self.outputs.nixosModules.default
+          inputs.home-manager.nixosModules.home-manager
           inputs.stylix.nixosModules.stylix
           inputs.disko.nixosModules.default
-          # TODO: could rename to default to only import ./hosts/t480/
-          ./hosts/t480/configuration.nix
-          ./nixosModules
+          # TODO: could rename to default to only import ./hosts/desktop
+          ./hosts/desktop/configuration.nix
           {
             # TODO: enable and disable your nixos config options here
             # programs.zsh.enable = true;
           }
-
-          inputs.home-manager.nixosModules.home-manager
           {
             home-manager = {
               users.tim = {
                 imports = [
-                  ./hosts/t480/home.nix
-                  # inputs.self.outputs.homeManagerModules.default
+                  inputs.self.outputs.homeManagerModules.default
+                  ./hosts/desktop/home.nix
                 ];
                 # TODO: enable and disable your home-manager config options here
               };
@@ -132,19 +112,68 @@
           }
         ];
       };
+      t480 = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs;};
+        modules = [
+          inputs.self.outputs.nixosModules.default
+          inputs.home-manager.nixosModules.home-manager
+          inputs.stylix.nixosModules.stylix
+          inputs.disko.nixosModules.default
+          ./hosts/t480/configuration.nix
+          {
+            home-manager = {
+              users.tim = {
+                imports = [
+                  inputs.self.outputs.homeManagerModules.default
+                  ./hosts/t480/home.nix
+                ];
+              };
+              extraSpecialArgs = {inherit inputs;};
+              backupFileExtension = "hm-backup";
+              useUserPackages = true;
+              useGlobalPkgs = true;
+            };
+          }
+        ];
+      };
+      iso-t480 = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs;};
+        modules = [
+          inputs.self.outputs.nixosModules.default
+          inputs.stylix.nixosModules.stylix
+          inputs.disko.nixosModules.default
+          # TODO: could rename to default to only import ./hosts/t480/
+          ./hosts/t480/configuration.nix
+        ];
+      };
       optiplex3000 = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs;};
         modules = [
-          stylix.nixosModules.stylix
-          ./hosts/optiplex3000/configuration.nix
-          ./nixosModules
           inputs.self.outputs.nixosModules.default
+          inputs.home-manager.nixosModules.home-manager
+          inputs.stylix.nixosModules.stylix
+          inputs.disko.nixosModules.default
+          ./hosts/server/configuration.nix
+          {
+            home-manager = {
+              users.tim = {
+                imports = [
+                  inputs.self.outputs.homeManagerModules.default
+                  ./hosts/server/home.nix
+                ];
+              };
+              extraSpecialArgs = {inherit inputs;};
+              backupFileExtension = "hm-backup";
+              useUserPackages = true;
+              useGlobalPkgs = true;
+            };
+          }
         ];
       };
     };
-    nixosModules.default = ./nixosModules;
-    homeManagerModules.default = ./homeManagerModules;
     # TODO:
     # this is for lsp
     # in nix repl
@@ -152,7 +181,7 @@
     # builtins.attrNames (builtins.getFlake "/home/tim/nixos").nixosConfigurations.desktop
     # builtins.attrNames (builtins.getFlake "/home/tim/nixos").homeConfigurations.tim-home
     homeConfigurations = {
-      "tim" = home-manager.lib.homeManagerConfiguration {
+      "tim" = inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {inherit inputs;};
         modules = [
