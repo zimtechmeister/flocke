@@ -43,17 +43,10 @@
     };
 
     niri = {
-      # TODO: deprecated
       url = "github:sodiboo/niri-flake";
     };
 
-    anyrun = {
-      # TODO: deprecated
-      url = "github:anyrun-org/anyrun";
-    };
-
     zen-browser = {
-      # TODO: deprecated
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -78,74 +71,14 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
-    nixosModules.default = ./nixosModules;
-    homeManagerModules.default = ./homeManagerModules;
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs;};
         modules = [
-          inputs.self.outputs.nixosModules.default
-          inputs.home-manager.nixosModules.home-manager
           inputs.stylix.nixosModules.stylix
-          inputs.disko.nixosModules.default
-          # TODO: could rename to default to only import ./hosts/desktop
-          ./hosts/desktop/configuration.nix
-          {
-            # TODO: enable and disable your nixos config options here
-            # programs.zsh.enable = true;
-          }
-          {
-            home-manager = {
-              users.tim = {
-                imports = [
-                  inputs.self.outputs.homeManagerModules.default
-                  ./hosts/desktop/home.nix
-                ];
-                # TODO: enable and disable your home-manager config options here
-              };
-              extraSpecialArgs = {inherit inputs;};
-              backupFileExtension = "hm-backup";
-              useUserPackages = true;
-              useGlobalPkgs = true;
-            };
-          }
-        ];
-      };
-      t480 = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs;};
-        modules = [
           inputs.self.outputs.nixosModules.default
-          inputs.home-manager.nixosModules.home-manager
-          inputs.stylix.nixosModules.stylix
-          inputs.disko.nixosModules.default
-          ./hosts/t480/configuration.nix
-          {
-            home-manager = {
-              users.tim = {
-                imports = [
-                  inputs.self.outputs.homeManagerModules.default
-                  ./hosts/t480/home.nix
-                ];
-              };
-              extraSpecialArgs = {inherit inputs;};
-              backupFileExtension = "hm-backup";
-              useUserPackages = true;
-              useGlobalPkgs = true;
-            };
-          }
-        ];
-      };
-      iso-t480 = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs;};
-        modules = [
-          inputs.self.outputs.nixosModules.default
-          inputs.stylix.nixosModules.stylix
-          inputs.disko.nixosModules.default
-          # TODO: could rename to default to only import ./hosts/t480/
-          ./hosts/t480/configuration.nix
+          ./hosts/desktop
         ];
       };
       optiplex3000 = nixpkgs.lib.nixosSystem {
@@ -153,27 +86,22 @@
         specialArgs = {inherit inputs;};
         modules = [
           inputs.self.outputs.nixosModules.default
-          inputs.home-manager.nixosModules.home-manager
           inputs.stylix.nixosModules.stylix
-          inputs.disko.nixosModules.default
-          ./hosts/server/configuration.nix
-          {
-            home-manager = {
-              users.tim = {
-                imports = [
-                  inputs.self.outputs.homeManagerModules.default
-                  ./hosts/server/home.nix
-                ];
-              };
-              extraSpecialArgs = {inherit inputs;};
-              backupFileExtension = "hm-backup";
-              useUserPackages = true;
-              useGlobalPkgs = true;
-            };
-          }
+          ./hosts/optiplex3000
+        ];
+      };
+      t480 = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs;};
+        modules = [
+          inputs.stylix.nixosModules.stylix
+          inputs.self.outputs.nixosModules.default
+          ./hosts/t480
         ];
       };
     };
+    nixosModules.default = ./nixosModules;
+    homeManagerModules.default = ./homeManagerModules;
     # TODO:
     # this is for lsp
     # in nix repl

@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  lib,
+  inputs,
+  ...
+}: {
   #TODO: you could set thoes options in flake.nix
   desktop.enable = lib.mkForce true;
   general.enable = lib.mkForce true;
