@@ -83,6 +83,7 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
+    # TODO: add minimal config as outputs to flash to usb
     nixosConfigurations = {
       desktop = nixpkgs.lib.nixosSystem {
         inherit system;
@@ -102,9 +103,33 @@
         inherit system;
         specialArgs = {inherit inputs;};
         modules = [
-          stylix.nixosModules.stylix
+          # TODO: can i do this sylix thing in the stylix.nix file?
+          inputs.stylix.nixosModules.stylix
+          inputs.disko.nixosModules.default
+          # TODO: could rename to default to only import ./hosts/t480/
           ./hosts/t480/configuration.nix
           ./nixosModules
+          {
+            # TODO: enable and disable your nixos config options here
+            # programs.zsh.enable = true;
+          }
+
+          inputs.home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              users.tim = {
+                imports = [
+                  ./hosts/t480/home.nix
+                  # inputs.self.outputs.homeManagerModules.default
+                ];
+                # TODO: enable and disable your home-manager config options here
+              };
+              extraSpecialArgs = {inherit inputs;};
+              backupFileExtension = "hm-backup";
+              useUserPackages = true;
+              useGlobalPkgs = true;
+            };
+          }
         ];
       };
       optiplex3000 = nixpkgs.lib.nixosSystem {
@@ -114,9 +139,12 @@
           stylix.nixosModules.stylix
           ./hosts/optiplex3000/configuration.nix
           ./nixosModules
+          inputs.self.outputs.nixosModules.default
         ];
       };
     };
+    nixosModules.default = ./nixosModules;
+    homeManagerModules.default = ./homeManagerModules;
     # TODO:
     # this is for lsp
     # in nix repl

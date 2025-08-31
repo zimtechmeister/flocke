@@ -4,23 +4,14 @@
   ...
 }: {
   imports = [
-    ./disko.nix
-    inputs.disko.nixosModules.default
-
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.home-manager
+    ./disko.nix
   ];
 
   desktop.enable = lib.mkForce true;
   bluetooth.enable = lib.mkForce true;
 
   networking.hostName = "t480";
-
-  home-manager = {
-    extraSpecialArgs = {inherit inputs;};
-    users.tim = import ./home.nix;
-    backupFileExtension = "hm-backup";
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

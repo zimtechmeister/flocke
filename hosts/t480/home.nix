@@ -1,6 +1,10 @@
-{lib, ...}: {
+{
+  inputs,
+  lib,
+  ...
+}: {
   imports = [
-    ../../homeManagerModules
+    inputs.self.outputs.homeManagerModules.default
   ];
   desktop.enable = lib.mkForce true;
   general.enable = lib.mkForce true;
