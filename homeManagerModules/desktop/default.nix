@@ -28,7 +28,7 @@
     hyprland.enable = lib.mkDefault true;
     niri.enable = lib.mkDefault false;
     swaync.enable = lib.mkDefault true;
-    walker.enable = lib.mkDefault false;
+    walker.enable = lib.mkDefault true;
     waybar.enable = lib.mkDefault true;
     firefox.enable = lib.mkDefault true;
     ghostty.enable = lib.mkDefault true;

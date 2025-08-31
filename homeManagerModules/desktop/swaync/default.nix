@@ -83,11 +83,11 @@
           command = "hyprctl hyprsunset identity";
           tooltip = "turn off eye saver";
         }
-        {
-          label = "";
-          command = "anyrun --show-results-immediately true --plugins ${inputs.anyrun.packages.${pkgs.system}.randr}/lib/librandr.so";
-          tooltip = "randr";
-        }
+        # {
+        #   label = "";
+        #   command = "anyrun --show-results-immediately true --plugins ${inputs.anyrun.packages.${pkgs.system}.randr}/lib/librandr.so";
+        #   tooltip = "randr";
+        # }
       ];
       dnd = {
         text = "Do not disturb";

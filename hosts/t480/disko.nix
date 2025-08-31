@@ -1,7 +1,9 @@
 {
   disko.devices = {
     disk.main = {
-      device = "/dev/sda";
+      # NOTE: find the disk id by the most plausable option that points to ../../sda forexample
+      # ls /dev/disk/by-id/
+      device = "/dev/disk/by-id/ata-Samsung_SSD_750_EVO_250GB_S33SNWBH664027Y";
       type = "disk";
       content = {
         type = "gpt";
@@ -15,7 +17,7 @@
           };
           esp = {
             name = "ESP";
-            size = "1G";
+            size = "500M";
             type = "EF00";
             content = {
               type = "filesystem";
