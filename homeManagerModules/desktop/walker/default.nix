@@ -17,13 +17,13 @@
       config = {
         # use this as reference for this config
         # https://github.com/basecamp/omarchy/blob/master/config/walker/config.toml
-        search.placeholder = "Example";
-        ui.fullscreen = true;
-        list = {
-          height = 200;
-        };
-        websearch.prefix = "?";
-        switcher.prefix = "/";
+        # search.placeholder = "Example";
+        # ui.fullscreen = true;
+        # list = {
+        #   height = 200;
+        # };
+        # websearch.prefix = "?";
+        # switcher.prefix = "/";
       };
 
       # If this is not set the default styling is used.
