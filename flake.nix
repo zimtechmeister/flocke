@@ -72,7 +72,11 @@
     };
   };
 
-  outputs = {nixpkgs, ...} @ inputs: let
+  outputs = {
+    nixpkgs,
+    disko, #TODO: probaply not needed
+    ...
+  } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
@@ -102,6 +106,7 @@
           inputs.stylix.nixosModules.stylix
           inputs.self.outputs.nixosModules.default
           ./hosts/t480
+          inputs.disko.nixosModules.disko # TODO: probaply not needed
         ];
       };
     };

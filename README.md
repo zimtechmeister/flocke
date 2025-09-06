@@ -6,12 +6,21 @@ sudo dd bs=4M conv=fsync oflag=direct status=progress if=<path-to-image> of=/dev
 ```
 generate hardwareconfig:
 ```bash
-nixos-generate-config --no-filesystems --force --dir ./
+nixos-generate-config --no-filesystems --force --dir ./ # when to use --root?
 ```
+<!-- there is a disko-install command which should do both in one step but im not shure if it works correctly -->
+<!-- sudo nix run --extra-experimental-features 'nix-command flakes' github:nix-community/disko/latest#disko-install -- --flake .#desktop --disk main /dev/sda -->
 install from live-iso:
+clone the repo first
 ```bash
-sudo nix run --extra-experimental-features 'nix-command flakes' github:nix-community/disko/latest#disko-install -- --flake github:zimtechmeister/flocke#desktop &
-sudo nixos-install --extra-experimental-features 'nix-command flakes' --flake github:zimtechmeister/flocke#desktop
+sudo nix \
+extra-experimental-features 'nix-command flakes' \
+run github:nix-community/disko/latest -- --mode destroy,format,mount ./hosts/t480/disko.nix
+# run github:nix-community/disko/latest -- --mode disko ./hosts/t480/disko.nix
+```
+then
+```bash
+sudo nixos-install --flake .#desktop
 ```
 Rebuild: "desktop" is the host in those examples
 ```bash

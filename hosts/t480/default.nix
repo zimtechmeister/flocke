@@ -6,7 +6,7 @@
   imports = [
     ./hardware-configuration.nix
     ./disko.nix
-    inputs.disko.nixosModules.default
+    # inputs.disko.nixosModules.default # TODO: uncomment when not in the flake.nix file
     inputs.home-manager.nixosModules.home-manager
   ];
 
