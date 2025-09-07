@@ -40,10 +40,6 @@
 
       glib # what do i need this fore? i thik this is some dependency
 
-      ghostty
-      kitty
-
-      firefox
       chromium
 
       discord
