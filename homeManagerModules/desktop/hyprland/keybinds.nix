@@ -1,6 +1,6 @@
 {
-  pkgs,
-  inputs,
+  # pkgs,
+  # inputs,
   ...
 }: {
   wayland.windowManager = {
@@ -15,7 +15,7 @@
 
           # walker
           "SUPER, Space, exec, walker"
-          "SUPER, V, exec, walker --modules=clipboard"
+          "SUPER, V, exec, walker -m clipboard"
 
           "SUPER, S, exec, screenshot"
 
