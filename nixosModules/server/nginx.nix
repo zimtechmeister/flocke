@@ -14,13 +14,8 @@
     services.nginx = {
       enable = true;
       virtualHosts = {
-        "timzechmeister.de" = {
-          addSSL = true;
-          enableACME = true;
-          # Nextcloud config is injected automatically here
-        };
         # Nextcloud
-        "cloud.timzechmeister.de" = {
+        "timzechmeister.de" = { # TODO: rename to cloud.timzechmeister.de or use config.services.nextcloud.hostName
           addSSL = true;
           enableACME = true;
           # Nextcloud config is injected automatically here

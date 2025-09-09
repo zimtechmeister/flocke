@@ -14,7 +14,7 @@
       nextcloud = {
         enable = true;
         package = pkgs.nextcloud31;
-        hostName = "timzechmeister.de";
+        hostName = "timzechmeister.de"; # TODO: rename to cloud.timzechmeister.de
         https = true;
         configureRedis = true;
         maxUploadSize = "1G";
@@ -26,7 +26,7 @@
         };
         settings = {
           trusted_domains = [
-            "timzechmeister.de"
+            "timzechmeister.de" # TODO: rename to cloud.timzechmeister.de or use config.services.nextcloud.hostName
           ];
           # Disable external storage by default for security
           # "allow_local_remote_servers" = false;
