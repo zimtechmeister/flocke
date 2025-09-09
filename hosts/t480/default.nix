@@ -10,8 +10,8 @@
     inputs.home-manager.nixosModules.home-manager
   ];
 
-  desktop.enable = lib.mkForce false;
-  bluetooth.enable = lib.mkForce false;
+  desktop.enable = lib.mkForce true;
+  bluetooth.enable = lib.mkForce true;
 
   networking.hostName = "t480";
 

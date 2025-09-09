@@ -1,5 +1,5 @@
 {lib, ...}: {
-  desktop.enable = lib.mkForce false;
+  desktop.enable = lib.mkForce true;
   general.enable = lib.mkForce true;
   scripts.enable = lib.mkForce true;
 
