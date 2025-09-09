@@ -16,14 +16,14 @@
 
         "inode/directory" = ["pcmanfm.desktop"];
 
-        "application/pdf" = ["zen-beta.desktop"]; # zathura.desktop
-        "text/html" = ["zen-beta.desktop"];
-        "x-scheme-handler/about" = ["zen-beta.desktop"];
-        "x-scheme-handler/http" = ["zen-beta.desktop"];
-        "x-scheme-handler/https" = ["zen-beta.desktop"];
-        "x-scheme-handler/unknown" = ["zen-beta.desktop"];
-        "x-scheme-handler/webcal" = ["zen-beta.desktop"];
-        "x-scheme-handler/chrome" = ["zen-beta.desktop"];
+        "application/pdf" = ["firefox.desktop"]; # zathura.desktop
+        "text/html" = ["firefox.desktop"];
+        "x-scheme-handler/about" = ["firefox.desktop"];
+        "x-scheme-handler/http" = ["firefox.desktop"];
+        "x-scheme-handler/https" = ["firefox.desktop"];
+        "x-scheme-handler/unknown" = ["firefox.desktop"];
+        "x-scheme-handler/webcal" = ["firefox.desktop"];
+        "x-scheme-handler/chrome" = ["firefox.desktop"];
       };
     };
   };

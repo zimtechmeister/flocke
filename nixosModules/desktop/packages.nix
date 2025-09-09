@@ -40,9 +40,6 @@
 
       glib # what do i need this fore? i thik this is some dependency
 
-      ghostty
-
-      firefox
       chromium
 
       discord
@@ -54,11 +51,14 @@
       imv
       qimgv
 
+      # usefulltools
+      switcheroo
+
       zoom-us
 
       # not necesary?
       via
-      libsForQt5.kdenlive
+      kdePackages.kdenlive
       gimp
     ];
     services.udev.packages = [pkgs.via];

@@ -1,7 +1,7 @@
 {
   config,
-  inputs,
-  pkgs,
+  # inputs,
+  # pkgs,
   ...
 }: {
   programs.niri.settings = {
@@ -10,8 +10,10 @@
       sh = spawn "sh" "-c";
     in {
       "super+return".action = spawn "ghostty";
-      "super+space".action = spawn "anyrun";
-      "super+v".action = sh "cliphist list | anyrun --show-results-immediately true --plugins ${inputs.anyrun.packages.${pkgs.system}.stdin}/lib/libstdin.so | cliphist decode | wl-copy";
+      # "super+space".action = spawn "anyrun";
+      # "super+v".action = sh "cliphist list | anyrun --show-results-immediately true --plugins ${inputs.anyrun.packages.${pkgs.system}.stdin}/lib/libstdin.so | cliphist decode | wl-copy";
+      "super+space".action = spawn "walker";
+      "super+v".action = sh "walker -m clipboard";
 
       "super+s".action = spawn "screenshot";
       "super+shift+s".action = screenshot;

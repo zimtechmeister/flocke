@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -15,6 +16,15 @@
       settings.server.externalDomain = "https://immich.timzechmeister.de";
       accelerationDevices = null; # null gives access to all devices
     };
+
+    # Accelerated Video Playback
+    hardware.graphics = {
+      enable = true;
+      extraPackages = with pkgs; [
+        intel-media-driver
+      ];
+    };
+    environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";}; # Optionally, set the environment variable
     users.users.immich.extraGroups = ["video" "render"];
   };
 }

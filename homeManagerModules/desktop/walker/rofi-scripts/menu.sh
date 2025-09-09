@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 menu() {
     options=" apps\n⏻ power\n󰅍 cliphist\n emoji" selected=$(echo -e $options |rofi -dmenu -p "menu" -i)

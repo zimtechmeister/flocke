@@ -1,6 +1,6 @@
 {
-  pkgs,
-  inputs,
+  # pkgs,
+  # inputs,
   ...
 }: {
   wayland.windowManager = {
@@ -10,8 +10,12 @@
           "SUPER, Return, exec, ghostty"
 
           # Anyrun
-          "SUPER, Space, exec, anyrun"
-          "SUPER, V, exec, cliphist list | anyrun --show-results-immediately true --plugins ${inputs.anyrun.packages.${pkgs.system}.stdin}/lib/libstdin.so | cliphist decode | wl-copy"
+          # "SUPER, Space, exec, anyrun"
+          # "SUPER, V, exec, cliphist list | anyrun --show-results-immediately true --plugins ${inputs.anyrun.packages.${pkgs.system}.stdin}/lib/libstdin.so | cliphist decode | wl-copy"
+
+          # walker
+          "SUPER, Space, exec, walker"
+          "SUPER, V, exec, walker -m clipboard"
 
           "SUPER, S, exec, screenshot"
 

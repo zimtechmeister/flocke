@@ -60,11 +60,14 @@
           "network.trr.custom_uri" = "https://adblock.dns.mullvad.net/dns-query";
 
           "browser.tabs.inTitlebar" = 0;
-          "sidebar.position_start" = false;
           "browser.tabs.insertAfterCurrent" = true;
           "browser.translations.automaticallyPopup" = false;
 
-          # "services.sync.username" = "rst";
+          "sidebar.verticalTabs" = true;
+          "sidebar.position_start" = true;
+
+          # TODO: secrets
+          # "services.sync.username" = "";
           "services.sync.declinedEngines" = "passwords,creditcards,prefs,addresses,workspaces";
         };
         search = {

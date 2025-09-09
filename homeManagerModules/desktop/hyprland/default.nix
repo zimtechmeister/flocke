@@ -65,7 +65,7 @@ in {
         settings = {
           monitor = monitorLayout;
           exec-once = [
-            "wl-paste --watch cliphist store"
+            # "wl-paste --watch cliphist store"
             # "systemctl --user start hyprpolkitagent"
             # "waybar"
             "swaync"
@@ -76,11 +76,6 @@ in {
           input = {
             kb_layout = "eu, de, us";
             accel_profile = "flat";
-          };
-          gestures = {
-            workspace_swipe = true;
-            workspace_swipe_invert = false;
-            workspace_swipe_use_r = true;
           };
           general = {
             border_size = lib.mkDefault 2;
@@ -111,7 +106,7 @@ in {
               range = 4;
               render_power = 1;
               color = lib.mkForce "rgb(${config.stylix.base16Scheme.base11})";
-              # color_inactive = "rgb(d3869b)"; # if not set, will fall back to color
+              color_inactive = lib.mkForce "rgba(${config.stylix.base16Scheme.base11}00)"; # if not set, will fall back to color
             };
           };
           animations = {
@@ -136,7 +131,7 @@ in {
             "suppressevent maximize, class:.*"
           ];
           layerrule = [
-            "dimaround, anyrun"
+            "dimaround, walker"
           ];
           workspace = lib.mkDefault [
             "special:scratchpad, gapsout:32, gapsin:4"

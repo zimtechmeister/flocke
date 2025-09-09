@@ -9,9 +9,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware/master";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     stylix = {
@@ -39,18 +43,15 @@
     };
 
     niri = {
-      # TODO: deprecated
       url = "github:sodiboo/niri-flake";
     };
 
-    anyrun = {
-      # TODO: deprecated
-      url = "github:anyrun-org/anyrun";
+    walker = {
+      url = "github:abenz1267/walker";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser = {
-      # TODO: deprecated
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -73,8 +74,7 @@
 
   outputs = {
     nixpkgs,
-    home-manager,
-    stylix,
+    disko, #TODO: probaply not needed
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -85,35 +85,33 @@
         inherit system;
         specialArgs = {inherit inputs;};
         modules = [
-          stylix.nixosModules.stylix
-          ./hosts/desktop/configuration.nix
-          ./nixosModules
-        ];
-      };
-
-      # Add this line in modules for better hardware support https://github.com/NixOS/nixos-hardware
-      # nixos-hardware.nixosModules.lenovo-thinkpad-t480
-      # I don't know if I should then remove the hardwareconfiguration.nix file
-      # take care what happens to the boot configuration
-      t480 = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs;};
-        modules = [
-          stylix.nixosModules.stylix
-          ./hosts/t480/configuration.nix
-          ./nixosModules
+          inputs.stylix.nixosModules.stylix
+          inputs.self.outputs.nixosModules.default
+          ./hosts/desktop
         ];
       };
       optiplex3000 = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {inherit inputs;};
         modules = [
-          stylix.nixosModules.stylix
-          ./hosts/optiplex3000/configuration.nix
-          ./nixosModules
+          inputs.self.outputs.nixosModules.default
+          inputs.stylix.nixosModules.stylix
+          ./hosts/optiplex3000
+        ];
+      };
+      t480 = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs;};
+        modules = [
+          inputs.stylix.nixosModules.stylix
+          inputs.self.outputs.nixosModules.default
+          ./hosts/t480
+          inputs.disko.nixosModules.disko # TODO: probaply not needed
         ];
       };
     };
+    nixosModules.default = ./nixosModules;
+    homeManagerModules.default = ./homeManagerModules;
     # TODO:
     # this is for lsp
     # in nix repl
@@ -121,7 +119,7 @@
     # builtins.attrNames (builtins.getFlake "/home/tim/nixos").nixosConfigurations.desktop
     # builtins.attrNames (builtins.getFlake "/home/tim/nixos").homeConfigurations.tim-home
     homeConfigurations = {
-      "tim" = home-manager.lib.homeManagerConfiguration {
+      "tim" = inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {inherit inputs;};
         modules = [

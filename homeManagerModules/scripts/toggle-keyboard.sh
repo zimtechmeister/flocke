@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 export STATUS_FILE="$XDG_RUNTIME_DIR/keyboard.status"
 
