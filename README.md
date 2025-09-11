@@ -58,3 +58,17 @@ Garbage collect:
 - [ ] tlp
 
 </details>
+
+<details>
+<summary>eduroam</summary>
+
+download the eduroam script from [here](https://cat.eduroam.org/)  
+enter a shell with
+```bash
+nix-shell -p "python3.withPackages (ps: with ps; [ dbus-python ])"
+```
+and execute the eduroamscript
+```bash
+python ./location/eduroamscript
+```
+</details>
