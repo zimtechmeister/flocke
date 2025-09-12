@@ -15,7 +15,7 @@
   options.server.enable = lib.mkEnableOption "enables server nixos-module";
 
   config = lib.mkIf config.server.enable {
-    dyndns.enable = lib.mkDefault false;
+    dyndns.enable = lib.mkDefault true;
     frp.enable = lib.mkDefault true;
     immich.enable = lib.mkDefault true;
     minecraft-server.enable = lib.mkDefault false; # waiting for minecraftctl to be merged
