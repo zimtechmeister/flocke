@@ -24,6 +24,12 @@
         keep_open_modifier = "shift";
         exact_search_prefix = "'";
         theme = "default";
+        # NOTE: this does not work
+        # theme.style = ''
+        #   * {
+        #     color: #ff00ff;
+        #   }
+        # '';
         disable_mouse = false;
 
         keybinds = {
