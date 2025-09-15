@@ -31,6 +31,7 @@
           "SUPER SHIFT, F, fullscreenstate, 1"
           "SUPER CTRL, F, fullscreenstate, 0 2"
 
+          # only in dwindle layout
           "SUPER, O, pseudo,"
           "SUPER, E, togglesplit,"
 
