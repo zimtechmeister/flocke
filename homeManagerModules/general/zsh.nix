@@ -58,6 +58,10 @@
             fi
             rm -f -- "$tmp"
           }
+          # carapace
+          export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+          zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+          source <(carapace _carapace)
 
 
           # in vi normal mode press ctrl v to edit command in $EDITOR
