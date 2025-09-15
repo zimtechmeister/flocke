@@ -7,10 +7,22 @@
     lib.mkEnableOption "configure zsh to my liking";
 
   config = lib.mkIf config.zsh.enable {
+    programs.carapace = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    # selfhost?
+    # programs.atuin = {
+    #   enable = true;
+    #   enableZshIntegration = true;
+    #   daemon = {
+    #     enable = true;
+    #   };
+    # };
     programs.zsh = {
       enable = true;
       autosuggestion.enable = true;
-      enableCompletion = true;
+      # enableCompletion = true;
       syntaxHighlighting.enable = true;
       history = {
         ignorePatterns = [
