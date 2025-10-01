@@ -35,6 +35,10 @@
           "SUPER, O, pseudo,"
           "SUPER, E, togglesplit,"
 
+          # scrolling layout
+          "SUPER SHIFT, O, layoutmsg, colresize, +0.25"
+          "SUPER SHIFT, E, layoutmsg, colresize, -0.25"
+
           "SUPER, H, movefocus, l"
           "SUPER, l, movefocus, r"
           "SUPER, k, movefocus, u"

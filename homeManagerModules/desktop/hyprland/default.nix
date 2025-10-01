@@ -1,8 +1,6 @@
 {
-  pkgs,
   lib,
   config,
-  inputs,
   ...
 }: let
   monitorLayouts = {
@@ -51,8 +49,9 @@ in {
     wayland.windowManager = {
       hyprland = {
         enable = true;
-        package = inputs.hyprland.packages."${pkgs.system}".hyprland;
-        portalPackage = inputs.hyprland.packages."${pkgs.system}".xdg-desktop-portal-hyprland;
+        # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
+        package = null;
+        portalPackage = null;
         # NOTE: dont know how to do the first line in settings
         extraConfig = ''
           $LAPTOP_KB_ENABLED = true
@@ -110,7 +109,7 @@ in {
             };
           };
           animations = {
-            enabled = false;
+            enabled = lib.mkDefault false;
           };
           dwindle = {
             force_split = 2;
