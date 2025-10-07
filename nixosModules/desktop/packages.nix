@@ -57,6 +57,13 @@
       zoom-us
 
       # not necesary?
+      typst
+      pandoc
+      imagemagick
+      miktex                        # \
+      texliveFull                   #  > might only need one?
+      python312Packages.pylatexenc  # /
+
       via
       kdePackages.kdenlive
       gimp

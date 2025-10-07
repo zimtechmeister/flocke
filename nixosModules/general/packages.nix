@@ -50,14 +50,7 @@
       wireguard-tools
       yt-dlp
       gemini-cli
-      claude-code
       inputs.nix-alien.packages.${pkgs.system}.nix-alien
-
-      typst
-      pandoc
-      texliveFull
-      imagemagick
-      python312Packages.pylatexenc
     ];
   };
 }
