@@ -44,8 +44,8 @@ in {
     # '';
 
     image = pkgs.fetchurl {
-      url = "https://raw.githubusercontent.com/zimtechmeister/wallpaper/refs/heads/master/forest-shroom.jpg";
-      hash = "sha256-q4rsjdaAnjeMFHh56cHr0t58VHj0wfouCYdT90HtAO0=";
+      url = "https://raw.githubusercontent.com/zimtechmeister/wallpaper/refs/heads/master/maelifell-iceland.jpeg";
+      hash = "sha256-e6EF1+NsNQ/jtokInzVRPxx9XSjN7zSWQCfeGD0qjg8=";
     };
 
     # NOTE: this somehow has no effect
