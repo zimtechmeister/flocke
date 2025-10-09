@@ -17,6 +17,9 @@
         window-new-tab-position = "current"; # current, end
         gtk-tabs-location = "top"; # top, bottom, left, right, hidden
         gtk-wide-tabs = true;
+        keybind = [
+          "ctrl+s=write_scrollback_file:open"
+        ];
       };
     };
   };
