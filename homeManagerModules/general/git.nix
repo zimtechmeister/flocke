@@ -7,9 +7,11 @@
   config = lib.mkIf config.git.enable {
     programs.git = {
       enable = true;
-      userName = "Tim Zechmeister";
-      userEmail = "tim.zechmeister03@gmail.com";
-      extraConfig = {
+      settings = {
+        user = {
+          name = "Tim Zechmeister";
+          email = "tim.zechmeister03@gmail.com";
+        };
         pull.rebase = "false";
       };
     };
