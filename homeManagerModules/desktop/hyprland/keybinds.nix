@@ -7,7 +7,7 @@
     hyprland = {
       settings = {
         bind = [
-          "SUPER, Return, exec, ghostty"
+          "SUPER, Return, exec, uwsm-app -- ghostty"
 
           # Anyrun
           # "SUPER, Space, exec, anyrun"
@@ -17,7 +17,7 @@
           "SUPER, Space, exec, walker"
           "SUPER, V, exec, walker -m clipboard"
 
-          "SUPER, S, exec, screenshot"
+          "SUPER, S, exec, uwsm-app -- screenshot"
 
           "SUPER SHIFT, Z, exit,"
           "SUPER, Q, killactive,"

@@ -16,7 +16,7 @@
       "super+v".action = sh "walker -m clipboard";
 
       "super+s".action = spawn "screenshot";
-      "super+shift+s".action = screenshot;
+      # "super+shift+s".action = screenshot; # depricated?
 
       "super+shift+z".action = quit;
       "super+q".action = close-window;

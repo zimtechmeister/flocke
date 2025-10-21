@@ -23,6 +23,7 @@
       pipenv
       rustc
       cargo
+      pnpm
 
       # cli tools
       neovim
