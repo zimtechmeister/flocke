@@ -13,17 +13,24 @@
     environment.systemPackages = with pkgs; [
       # languages
       jdk
+
       gcc
       gnumake
       cmake
       meson
+
       nodejs
       yarn
+      pnpm
+      bun
+      R
+
       python3
       pipenv
+
       rustc
       cargo
-      pnpm
+
 
       # cli tools
       neovim
