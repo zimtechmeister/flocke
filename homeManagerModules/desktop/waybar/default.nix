@@ -32,9 +32,9 @@ in {
       settings = {
         mainBar = {
           layer =
-            if config.niri.enable
-            then "top"
-            else "bottom";
+            if config.hyprland.enable
+            then "bottom"
+            else "top";
           position = "bottom"; # Waybar position (top|bottom|left|right)
           height = 24; # Waybar height (to be removed for auto height)
           spacing = 4;

@@ -20,7 +20,7 @@
       twemoji-color-font
 
       noto-fonts
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       noto-fonts-cjk-sans
       google-fonts
     ];

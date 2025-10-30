@@ -21,6 +21,7 @@
     };
     environment.systemPackages = with pkgs; [
       hyprpicker
+      wl-kbptr
 
       grim
       slurp

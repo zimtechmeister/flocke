@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./hyprland
-    ./niri
+    # ./niri
     ./swaync
     ./walker
     ./waybar
@@ -26,7 +26,7 @@
 
   config = lib.mkIf config.desktop.enable {
     hyprland.enable = lib.mkDefault true;
-    niri.enable = lib.mkDefault false;
+    # niri.enable = lib.mkDefault false;
     swaync.enable = lib.mkDefault true;
     walker.enable = lib.mkDefault true;
     waybar.enable = lib.mkDefault true;
