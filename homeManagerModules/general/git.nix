@@ -12,7 +12,6 @@
           name = "Tim Zechmeister";
           email = "tim.zechmeister03@gmail.com";
         };
-        pull.rebase = "false";
       };
     };
   };
