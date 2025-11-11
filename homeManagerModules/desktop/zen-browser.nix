@@ -5,12 +5,13 @@
   inputs,
   ...
 }: {
-  options.zen-browser.enable =
-    lib.mkEnableOption "enables zen-browser";
+  options.zen-browser.enable = lib.mkEnableOption "enables zen-browser";
 
   imports = [
     inputs.zen-browser.homeModules.default
   ];
+  # "if" is lazily evaluated: faster build time, but not good for caching
+  # config = if config.zen-browser.enable then {
   config = lib.mkIf config.zen-browser.enable {
     # NOTE: can be configured just like firefox
     programs.zen-browser = {
@@ -40,27 +41,50 @@
           languagetool
         ];
         settings = {
-          "browser.shell.checkDefaultBrowser" = false;
-          "browser.download.useDownloadDir" = false;
-          "general.autoScroll" = true;
-          "signon.rememberSignons" = false;
-          "browser.search.suggest.enabled" = true;
+          "browser.startup.page" = 3; # Open previous windows and tabs
+          "browser.shell.checkDefaultBrowser" = false; # Always check if Firefox is your default browser
+          "browser.download.useDownloadDir" = false; # Always ask you where to save files
+          # play drm controlled content
+          "general.autoScroll" = true; # Use autoscrolling
+          "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons" = false; # Recommend extensions as you browse
+          "browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features" = false; # Recommend features as you browse
+
+          # "browser.newtabpage.activity-stream.showSponsored" = false;
+          "browser.newtabpage.activity-stream.showSponsoredCheckboxes" = false;
+          "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+          # "browser.newtabpage.activity-stream.system.showSponsored" = false;
+          # "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsored" = false;
+          # "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+
+          # "browser.newtabpage.activity-stream.feeds.trendingsearchfeed" = false;
+          "browser.urlbar.suggest.trending" = false;
+
+          "signon.rememberSignons" = false; # Ask to save passwords
+          "extensions.formautofill.addresses.enabled" = false; # Save and fill addresses
+          "extensions.formautofill.creditCards.enabled" = false; # Save and fill payment methods
           "network.trr.mode" = 2;
-          "extensions.formautofill.addresses.enabled" = false;
-          "extensions.formautofill.creditCards.enabled" = false;
           "network.trr.uri" = "https://adblock.dns.mullvad.net/dns-query";
           "network.trr.custom_uri" = "https://adblock.dns.mullvad.net/dns-query";
-          "sidebar.position_start" = false;
+
+          # "browser.tabs.inTitlebar" = 0;
           "browser.tabs.insertAfterCurrent" = true;
           "browser.translations.automaticallyPopup" = false;
-          "zen.urlbar.behavior" = "float";
-          "zen.theme.color-prefs.use-workspace-colors" = false;
-          "zen.view.compact.toolbar-flash-popup" = true;
-          "zen.view.compact.color-sidebar" = false;
-          "zen.view.compact.color-toolbar" = false;
-          "zen.tabs.show-newtab-vertical" = false;
-          "zen.theme.content-element-separation" = 0; # remove border
-          "zen.view.experimental-no-window-controls" = true;
+
+          # "sidebar.verticalTabs" = true;
+          # "sidebar.position_start" = true;
+
+          # TODO: secrets
+          # "services.sync.username" = "";
+          "services.sync.declinedEngines" = "passwords,creditcards,prefs,addresses,workspaces";
+
+          # "zen.urlbar.behavior" = "float";
+          # "zen.theme.color-prefs.use-workspace-colors" = false;
+          # "zen.view.compact.toolbar-flash-popup" = true;
+          # "zen.view.compact.color-sidebar" = false;
+          # "zen.view.compact.color-toolbar" = false;
+          # "zen.tabs.show-newtab-vertical" = false;
+          # "zen.theme.content-element-separation" = 0; # remove border
+          # "zen.view.experimental-no-window-controls" = true;
         };
         search = {
           default = "Unduck";
