@@ -8,7 +8,7 @@
     xdg.mimeApps = {
       enable = true;
       defaultApplications = {
-        "text/plain" = ["neovide.desktop"];
+        "text/*" = ["neovide.desktop"];
 
         "image/*" = ["qimgv.desktop"]; # imv.desktop
 

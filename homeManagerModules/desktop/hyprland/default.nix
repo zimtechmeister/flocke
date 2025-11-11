@@ -53,6 +53,7 @@ in {
         # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
         package = null;
         portalPackage = null;
+        systemd.variables = ["--all"];
         # NOTE: dont know how to do the first line in settings
         extraConfig = ''
           $LAPTOP_KB_ENABLED = true
