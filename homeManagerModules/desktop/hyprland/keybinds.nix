@@ -19,6 +19,7 @@
 
           # vicinae
           "SUPER, Space, exec, vicinae toggle"
+          "SUPER, V, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
 
           "SUPER, S, exec, uwsm-app -- screenshot"
 

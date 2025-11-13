@@ -132,7 +132,7 @@ in {
             "suppressevent maximize, class:.*"
           ];
           layerrule = [
-            "dimaround, walker"
+            "dimaround, vicinae"
           ];
           workspace = lib.mkDefault [
             "special:scratchpad, gapsout:32, gapsin:4"
