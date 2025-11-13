@@ -11,7 +11,7 @@
   options.vicinae.enable = lib.mkEnableOption "enable vicinae";
   config = lib.mkIf config.vicinae.enable {
     home.sessionVariables = {
-      EMOJI_FONT = "Twitter Color Emoji";
+      EMOJI_FONT = "Noto Color Emoji";
     };
     services.vicinae = {
       enable = true;

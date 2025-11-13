@@ -50,7 +50,8 @@
           # "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
 
           # "browser.newtabpage.activity-stream.feeds.trendingsearchfeed" = false;
-          "browser.urlbar.suggest.trending" = false;
+          "browser.search.suggest.enabled" = true; # Show search suggestions
+          "browser.urlbar.suggest.trending" = true; # Show trending searches in address bar true is default
 
           "signon.rememberSignons" = false; # Ask to save passwords
           "extensions.formautofill.addresses.enabled" = false; # Save and fill addresses

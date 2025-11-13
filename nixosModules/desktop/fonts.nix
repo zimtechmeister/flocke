@@ -18,6 +18,7 @@
       geist-font
 
       twemoji-color-font
+      noto-fonts-color-emoji
 
       noto-fonts
       noto-fonts-color-emoji

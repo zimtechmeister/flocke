@@ -57,7 +57,8 @@
           # "services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
 
           # "browser.newtabpage.activity-stream.feeds.trendingsearchfeed" = false;
-          "browser.urlbar.suggest.trending" = false;
+          "browser.search.suggest.enabled" = true; # Show search suggestions
+          "browser.urlbar.suggest.trending" = true; # Show trending searches in address bar true is default
 
           "signon.rememberSignons" = false; # Ask to save passwords
           "extensions.formautofill.addresses.enabled" = false; # Save and fill addresses
@@ -77,14 +78,13 @@
           # "services.sync.username" = "";
           "services.sync.declinedEngines" = "passwords,creditcards,prefs,addresses,workspaces";
 
-          # "zen.urlbar.behavior" = "float";
-          # "zen.theme.color-prefs.use-workspace-colors" = false;
-          # "zen.view.compact.toolbar-flash-popup" = true;
-          # "zen.view.compact.color-sidebar" = false;
-          # "zen.view.compact.color-toolbar" = false;
-          # "zen.tabs.show-newtab-vertical" = false;
-          # "zen.theme.content-element-separation" = 0; # remove border
-          # "zen.view.experimental-no-window-controls" = true;
+          "zen.workspaces.continue-where-left-off" = true;
+          "zen.tabs.show-newtab-vertical" = false;
+          "zen.view.compact.toolbar-flash-popup" = true;
+          "zen.urlbar.behavior" = "float";
+          "zen.workspaces.separate-essentials" = false; # Tab Management.Pinned Tabs.Enable container-specific essentials
+          "zen.view.experimental-no-window-controls" = true;
+          "zen.theme.content-element-separation" = 0; # remove border
         };
         search = {
           default = "Unduck";
