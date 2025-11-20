@@ -1,6 +1,8 @@
 {
   lib,
   config,
+  inputs,
+  pkgs,
   ...
 }: {
   options.zsh.enable =
@@ -11,7 +13,7 @@
       enable = true;
       enableZshIntegration = true;
     };
-    # selfhost?
+    # TODO: selfhost?
     # programs.atuin = {
     #   enable = true;
     #   enableZshIntegration = true;
@@ -42,7 +44,9 @@
         ls = lib.mkForce "lsd -lhAg --group-dirs first --header";
       };
 
-      initContent =
+      initContent = let
+        mynvim = inputs.neovix.packages.${pkgs.system}.default;
+      in
         /*
         sh
         */
@@ -58,11 +62,22 @@
             fi
             rm -f -- "$tmp"
           }
+
           # carapace
           export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
           zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
           source <(carapace _carapace)
 
+          # avoid nested nvim instances
+          # TODO: if editor is set to nvim and this function is called nvim git commit will execute this
+          # then git waits till the process exits (how can i do this without exiting the whole nvim instance?)
+          vi() {
+            if [ -n "$NVIM" ]; then
+              ${mynvim}/bin/nvim --server "$NVIM" --remote "$@"
+            else
+              ${mynvim}/bin/nvim "$@"
+            fi
+          }
 
           # in vi normal mode press ctrl v to edit command in $EDITOR
           autoload -U edit-command-line

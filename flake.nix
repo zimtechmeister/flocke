@@ -62,7 +62,6 @@
     };
 
     minimal-tmux = {
-      # TODO: deprecated
       url = "github:niksingh710/minimal-tmux-status";
       inputs.nixpkgs.follows = "nixpkgs";
     };
