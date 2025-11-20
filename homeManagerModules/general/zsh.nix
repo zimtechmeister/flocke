@@ -72,10 +72,27 @@
           # TODO: if editor is set to nvim and this function is called nvim git commit will execute this
           # then git waits till the process exits (how can i do this without exiting the whole nvim instance?)
           vi() {
-            if [ -n "$NVIM" ]; then
-              ${mynvim}/bin/nvim --server "$NVIM" --remote "$@"
+            # Check if arguments (files) were provided
+            if [ -n "$1" ]; then
+              # CASE 1: Files provided (e.g., 'vi test.lua')
+              if [ -n "$NVIM" ]; then
+                # Inside Neovim: Tell parent to open the file(s)
+                ${mynvim}/bin/nvim --server "$NVIM" --remote "$@"
+              else
+                # Outside Neovim: Open normally
+                ${mynvim}/bin/nvim "$@"
+              fi
             else
-              ${mynvim}/bin/nvim "$@"
+              # CASE 2: No arguments provided (just typed 'vi')
+              if [ -n "$NVIM" ]; then
+                # Inside Neovim: Tell parent to open a NEW terminal split
+                # <C-\><C-n> ensures we exit insert mode first
+                # :vsplit | terminal -> opens terminal in vertical split
+                ${mynvim}/bin/nvim --server "$NVIM" --remote-send "<C-\><C-n>:terminal<CR>i"
+              else
+                # Outside Neovim: Start nvim directly in terminal mode
+                ${mynvim}/bin/nvim -c "terminal"
+              fi
             fi
           }
 
