@@ -15,7 +15,7 @@
         scan_timeout = 10;
 
         format = ''
-          $fill$username[@](green)$hostname $directory
+          $fill$directory $username[@](green)$hostname
           $character
         '';
         right_format = ''
