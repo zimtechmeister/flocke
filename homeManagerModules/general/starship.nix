@@ -15,11 +15,10 @@
         scan_timeout = 10;
 
         format = ''
-          $fill
+          $fill$username[@](green)$hostname $directory
           $character
         '';
         right_format = ''
-          $directory $username[@](green)$hostname
         '';
 
         fill = {
@@ -51,7 +50,7 @@
         };
 
         directory = {
-          format = "[$read_only]($read_only_style) [$path]($style)";
+          format = "[$read_only]($read_only_style)[$path]($style)";
           truncation_length = 4;
           truncation_symbol = "";
           truncate_to_repo = true;
