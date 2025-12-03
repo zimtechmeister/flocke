@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 powermenu() {
     options="Shutdown\nRestart\nSuspend\nLock\nLog out"

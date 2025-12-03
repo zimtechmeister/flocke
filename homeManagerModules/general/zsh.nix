@@ -97,7 +97,9 @@
           }
           # update nvim cwd
           cvd() {
-            ${mynvim}/bin/nvim --server "$NVIM" --remote-send "<C-\><C-n>:cd $(pwd)<CR>i"
+            if [ -n "$NVIM" ]; then
+              ${mynvim}/bin/nvim --server "$NVIM" --remote-send "<C-\><C-n>:cd $(pwd)<CR>i"
+            fi
           }
 
           # in vi normal mode press ctrl v to edit command in $EDITOR

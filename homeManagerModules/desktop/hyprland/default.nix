@@ -26,7 +26,7 @@ in {
   imports = [
     ./keybinds.nix
     # NOTE: after enabeling a plugin restart hyprland
-    # ./plugins/hyprscrolling.nix
+    ./plugins/hyprscrolling.nix
     # ./plugins/hyprbars.nix
   ];
   options.hyprland = {
@@ -37,6 +37,7 @@ in {
         hyprland monitor layout
       '';
     };
+    plugins.hyprscrolling.enable = lib.mkEnableOption "enables hyprscrolling plugin";
   };
   config = lib.mkIf config.hyprland.enable {
     programs.zsh.loginExtra = ''
@@ -62,10 +63,12 @@ in {
             enabled = $LAPTOP_KB_ENABLED
             kb_options = caps:swapescape
           }
+          source = ~/.config/hypr/monitors.conf
         '';
         settings = {
           monitor = monitorLayout;
           exec-once = [
+            "touch ~/.config/hypr/monitors.conf"
             # "wl-paste --watch cliphist store"
             # "systemctl --user start hyprpolkitagent"
             # "waybar"

@@ -21,13 +21,13 @@
         font.size = config.stylix.fonts.sizes.applications;
         popToRootOnClose = false;
         rootSearch.searchFiles = false;
-        theme.name = "gruvbox-dark";
-        window = {
-          csd = false;
-          opacity = 1;
-        };
+        # theme.name = "gruvbox-dark";
+        # window = {
+        #   csd = false;
+        #   opacity = 1;
+        # };
       };
-      extensions = [
+      # extensions = [
         # (inputs.vicinae.mkVicinaeExtension.${pkgs.system} {
         #   inherit pkgs;
         #   name = "extension-name";
@@ -40,7 +40,7 @@
         #     sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
         #   }; # If the extension is in a subdirectory you can add ` + "/subdir"` between the brace and the semicolon here
         # })
-      ];
+      # ];
     };
   };
 }

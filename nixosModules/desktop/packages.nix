@@ -22,6 +22,7 @@
     environment.systemPackages = with pkgs; [
       hyprpicker
       wl-kbptr
+      nwg-displays
 
       grim
       slurp
