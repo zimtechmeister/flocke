@@ -129,7 +129,6 @@ in {
             font_family = config.stylix.fonts.serif.name;
             mouse_move_enables_dpms = false;
             key_press_enables_dpms = true;
-            new_window_takes_over_fullscreen = true;
           };
           windowrule = lib.mkDefault [
             "match:class .*, suppress_event maximize"
