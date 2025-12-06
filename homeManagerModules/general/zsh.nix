@@ -69,12 +69,10 @@
           source <(carapace _carapace)
 
           # avoid nested nvim instances
-          # TODO: if editor is set to nvim and this function is called nvim git commit will execute this
-          # then git waits till the process exits (how can i do this without exiting the whole nvim instance?)
-          vi() {
+          mux() {
             # Check if arguments (files) were provided
             if [ -n "$1" ]; then
-              # CASE 1: Files provided (e.g., 'vi test.lua')
+              # CASE 1: Files provided (e.g., 'mux test.lua')
               if [ -n "$NVIM" ]; then
                 # Inside Neovim: Tell parent to open the file(s)
                 ${mynvim}/bin/nvim --server "$NVIM" --remote "$@"
@@ -83,7 +81,7 @@
                 ${mynvim}/bin/nvim "$@"
               fi
             else
-              # CASE 2: No arguments provided (just typed 'vi')
+              # CASE 2: No arguments provided (just typed 'mux')
               if [ -n "$NVIM" ]; then
                 # Inside Neovim: Tell parent to open a NEW terminal split
                 # <C-\><C-n> ensures we exit insert mode first
@@ -95,6 +93,7 @@
               fi
             fi
           }
+
           # update nvim cwd
           cvd() {
             if [ -n "$NVIM" ]; then

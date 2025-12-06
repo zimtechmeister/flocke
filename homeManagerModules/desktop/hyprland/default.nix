@@ -44,6 +44,7 @@ in {
       # if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
       if [[ -z $DISPLAY ]] && [[ "$XDG_VTNR" = 1 ]]; then
         # exec uwsm start select
+        # exec uwsm start default
         exec uwsm start hyprland-uwsm.desktop
         # exec Hyprland
       fi
@@ -54,7 +55,10 @@ in {
         # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
         package = null;
         portalPackage = null;
-        systemd.variables = ["--all"];
+        systemd = {
+          enable = false;
+          variables = ["--all"];
+        };
         # NOTE: dont know how to do the first line in settings
         extraConfig = ''
           $LAPTOP_KB_ENABLED = true
