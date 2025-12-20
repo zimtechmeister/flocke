@@ -16,7 +16,7 @@ lib.mkIf config.hyprland.plugins.hyprscrolling.enable {
         general.layout = lib.mkForce "scrolling";
         "plugin:hyprscrolling" = {
           fullscreen_on_one_column = true;
-          column_width = 1.0;
+          column_width = 0.5;
           focus_fit_method = 1;
         };
       };
