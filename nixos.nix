@@ -31,7 +31,6 @@
                 users.tim = {
                   imports = [
                     self.homeManagerModules.default
-                    ./hosts/${hostname}/home.nix
                   ];
                 };
               };
@@ -64,7 +63,6 @@
       modules = [
         self.homeManagerModules.default
         inputs.stylix.homeModules.stylix
-        ./hosts/desktop/home.nix
         # stylix has problems with home-manager if not imported here too
         ./nixosModules/stylix.nix
       ];
