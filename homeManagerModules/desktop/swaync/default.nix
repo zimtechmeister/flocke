@@ -88,7 +88,7 @@
             }
             # {
             #   label = "";
-            #   command = "anyrun --show-results-immediately true --plugins ${inputs.anyrun.packages.${pkgs.system}.randr}/lib/librandr.so";
+            #   command = "anyrun --show-results-immediately true --plugins ${inputs.anyrun.packages.${pkgs.stdenv.hostPlatform.system}.randr}/lib/librandr.so";
             #   tooltip = "randr";
             # }
           ];

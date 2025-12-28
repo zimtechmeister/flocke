@@ -20,12 +20,12 @@
       profiles.tim = {
         isDefault = true;
         # NOTE: list of available plugins: https://nur.nix-community.org/repos/rycee/
-        extensions.packages = with inputs.firefox-addons.packages."${pkgs.system}"; let
+        extensions.packages = with inputs.firefox-addons.packages."${pkgs.stdenv.hostPlatform.system}"; let
           # could not fix an allowUnfree error -> so this hack fixes it
-          improved-tube = inputs.firefox-addons.packages."${pkgs.system}".improved-tube.overrideAttrs (old: {
+          improved-tube = inputs.firefox-addons.packages."${pkgs.stdenv.hostPlatform.system}".improved-tube.overrideAttrs (old: {
             meta = old.meta // {license.free = true;};
           });
-          languagetool = inputs.firefox-addons.packages."${pkgs.system}".languagetool.overrideAttrs (old: {
+          languagetool = inputs.firefox-addons.packages."${pkgs.stdenv.hostPlatform.system}".languagetool.overrideAttrs (old: {
             meta = old.meta // {license.free = true;};
           });
         in [

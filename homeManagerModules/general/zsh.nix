@@ -1,7 +1,7 @@
 {
   lib,
   config,
-  inputs,
+  self,
   pkgs,
   ...
 }: {
@@ -45,7 +45,7 @@
       };
 
       initContent = let
-        mynvim = inputs.neovix.packages.${pkgs.system}.default;
+        mynvim = self.packages.${pkgs.stdenv.hostPlatform.system}.neovix; # TODO: change this to automatically macht whats in nvim.nix
       in
         /*
         sh

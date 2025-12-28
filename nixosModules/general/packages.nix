@@ -58,7 +58,7 @@
       wireguard-tools
       yt-dlp
       gemini-cli
-      inputs.nix-alien.packages.${pkgs.system}.nix-alien
+      inputs.nix-alien.packages.${pkgs.stdenv.hostPlatform.system}.nix-alien
     ];
   };
 }

@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    flake-parts.url = "github:hercules-ci/flake-parts";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,6 +22,7 @@
 
     stylix = {
       url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-alien = {
@@ -27,30 +30,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    neovix = {
-      url = "github:zimtechmeister/neovix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-    };
+    hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
 
-    niri = {
-      url = "github:sodiboo/niri-flake";
-    };
+    niri.url = "github:sodiboo/niri-flake";
 
-    walker = {
-      url = "github:abenz1267/walker";
-    };
+    walker.url = "github:abenz1267/walker";
 
-    vicinae = {
-      url = "github:vicinaehq/vicinae";
-    };
+    vicinae.url = "github:vicinaehq/vicinae";
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -70,62 +60,18 @@
       url = "github:Infinidoge/nix-minecraft";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = {
-    nixpkgs,
-    disko, #TODO: probaply not needed
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-  in {
-    nixosConfigurations = {
-      desktop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs;};
-        modules = [
-          inputs.stylix.nixosModules.stylix
-          inputs.self.outputs.nixosModules.default
-          ./hosts/desktop
-        ];
-      };
-      optiplex3000 = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs;};
-        modules = [
-          inputs.self.outputs.nixosModules.default
-          inputs.stylix.nixosModules.stylix
-          ./hosts/optiplex3000
-        ];
-      };
-      t480 = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs;};
-        modules = [
-          inputs.stylix.nixosModules.stylix
-          inputs.self.outputs.nixosModules.default
-          ./hosts/t480
-          inputs.disko.nixosModules.disko # TODO: probaply not needed
-        ];
-      };
+  outputs = inputs @ {flake-parts, ...}:
+    flake-parts.lib.mkFlake {inherit inputs;}
+    {
+      systems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
+      imports = [
+        inputs.home-manager.flakeModules.home-manager
+        ./neovim.nix
+        ./nixos.nix
+      ];
     };
-    nixosModules.default = ./nixosModules;
-    homeManagerModules.default = ./homeManagerModules;
-    # TODO:
-    # this is for lsp
-    # in nix repl
-    # :lf /home/tim/nixos
-    # builtins.attrNames (builtins.getFlake "/home/tim/nixos").nixosConfigurations.desktop
-    # builtins.attrNames (builtins.getFlake "/home/tim/nixos").homeConfigurations.tim-home
-    homeConfigurations = {
-      "tim" = inputs.home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/desktop/home.nix
-        ];
-      };
-    };
-  };
 }

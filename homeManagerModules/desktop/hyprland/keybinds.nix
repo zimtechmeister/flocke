@@ -47,7 +47,7 @@ in {
 
             # Anyrun
             # "SUPER, Space, exec, anyrun"
-            # "SUPER, V, exec, cliphist list | anyrun --show-results-immediately true --plugins ${inputs.anyrun.packages.${pkgs.system}.stdin}/lib/libstdin.so | cliphist decode | wl-copy"
+            # "SUPER, V, exec, cliphist list | anyrun --show-results-immediately true --plugins ${inputs.anyrun.packages.${pkgs.stdenv.hostPlatform.system}.stdin}/lib/libstdin.so | cliphist decode | wl-copy"
 
             # walker
             # "SUPER, Space, exec, walker"

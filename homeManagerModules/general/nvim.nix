@@ -2,7 +2,7 @@
   pkgs,
   lib,
   config,
-  inputs,
+  self,
   ...
 }: {
   options.nvim.enable =
@@ -10,7 +10,7 @@
 
   config = lib.mkIf config.nvim.enable {
     home.packages = [
-      inputs.neovix.packages.${pkgs.system}.default
+      self.packages.${pkgs.stdenv.hostPlatform.system}.neovix
     ];
   };
 }

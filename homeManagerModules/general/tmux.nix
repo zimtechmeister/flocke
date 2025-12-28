@@ -40,7 +40,7 @@
           '';
         }
         {
-          plugin = inputs.minimal-tmux.packages.${pkgs.system}.default;
+          plugin = inputs.minimal-tmux.packages.${pkgs.stdenv.hostPlatform.system}.default;
           extraConfig = ''
             set -g @minimal-tmux-bg "#${config.stylix.base16Scheme.base05}"
             set -g @minimal-tmux-fg "#${config.stylix.base16Scheme.base00}"
