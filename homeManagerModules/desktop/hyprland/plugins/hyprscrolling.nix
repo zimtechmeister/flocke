@@ -5,7 +5,7 @@
   config,
   ...
 }:
-lib.mkIf config.hyprland.plugins.hyprscrolling.enable {
+lib.mkIf config.my.hyprland.plugins.hyprscrolling.enable {
   wayland.windowManager = {
     hyprland = {
       plugins = [

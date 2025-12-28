@@ -21,7 +21,7 @@
       ", preferred, auto, 1, mirror, DP-1"
     ];
   };
-  monitorLayout = builtins.getAttr (config.hyprland.monitorLayout) monitorLayouts;
+  monitorLayout = builtins.getAttr (config.my.hyprland.monitorLayout) monitorLayouts;
 in {
   imports = [
     ./keybinds.nix
@@ -29,7 +29,7 @@ in {
     ./plugins/hyprscrolling.nix
     # ./plugins/hyprbars.nix
   ];
-  options.hyprland = {
+  options.my.hyprland = {
     enable = lib.mkEnableOption "enables hyprland";
     monitorLayout = lib.mkOption {
       default = null;
@@ -39,7 +39,7 @@ in {
     };
     plugins.hyprscrolling.enable = lib.mkEnableOption "enables hyprscrolling plugin";
   };
-  config = lib.mkIf config.hyprland.enable {
+  config = lib.mkIf config.my.hyprland.enable {
     programs.zsh.loginExtra = ''
       # if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
       if [[ -z $DISPLAY ]] && [[ "$XDG_VTNR" = 1 ]]; then

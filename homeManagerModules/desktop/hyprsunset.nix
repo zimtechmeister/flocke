@@ -3,16 +3,16 @@
   config,
   ...
 }: {
-  options.hyprsunset.enable = lib.mkEnableOption "hyprsunset";
-  config = lib.mkIf config.hyprsunset.enable {
+  options.my.hyprsunset.enable = lib.mkEnableOption "hyprsunset";
+  config = lib.mkIf config.my.hyprsunset.enable {
     services.hyprsunset = {
       # TODO: this could be usefull for using this without systemd
       # systemd.services.sshd.wantedBy = lib.mkForce [ ];
       enable = true;
       systemdTarget =
-        if config.hyprland.enable
+        if config.my.hyprland.enable
         then "hyprland-session.target"
-        else if config.niri.enable
+        else if config.my.niri.enable
         then "niri.service"
         else config.wayland.systemd.target;
       settings = {

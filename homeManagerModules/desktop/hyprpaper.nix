@@ -3,8 +3,8 @@
   config,
   ...
 }: {
-  options.hyprpaper.enable = lib.mkEnableOption "enables hyprpaper";
-  config = lib.mkIf config.hyprpaper.enable {
+  options.my.hyprpaper.enable = lib.mkEnableOption "enables hyprpaper";
+  config = lib.mkIf config.my.hyprpaper.enable {
     services.hyprpaper = {
       enable = true;
       # settings = {

@@ -4,12 +4,14 @@
     # ./disko.nix
   ];
 
-  desktop.enable = lib.mkForce true;
-  gaming.enable = lib.mkForce true;
-
   networking.hostName = "desktop";
 
-  home-manager.users.tim = {
+  my = {
+    desktop.enable = lib.mkForce true;
+    gaming.enable = lib.mkForce true;
+  };
+
+  home-manager.users.tim.my = {
     desktop.enable = lib.mkForce true;
     general.enable = lib.mkForce true;
     scripts.enable = lib.mkForce true;

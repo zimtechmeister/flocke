@@ -4,10 +4,8 @@
   config,
   ...
 }: {
-  options = {
-    immich.enable = lib.mkEnableOption "immich";
-  };
-  config = lib.mkIf config.immich.enable {
+  options.my.immich.enable = lib.mkEnableOption "immich";
+  config = lib.mkIf config.my.immich.enable {
     services.immich = {
       enable = true;
       port = 2283;

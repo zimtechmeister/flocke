@@ -6,10 +6,8 @@
   ...
 }: {
   imports = [inputs.nix-minecraft.nixosModules.minecraft-servers];
-  options = {
-    minecraft-server.enable = lib.mkEnableOption "minecraft-server";
-  };
-  config = lib.mkIf config.minecraft-server.enable {
+  options.my.minecraft-server.enable = lib.mkEnableOption "minecraft-server";
+  config = lib.mkIf config.my.minecraft-server.enable {
     nixpkgs.overlays = [inputs.nix-minecraft.overlay];
     services.minecraft-servers = {
       enable = true;

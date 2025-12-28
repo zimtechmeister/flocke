@@ -8,8 +8,8 @@
   imports = [
     inputs.vicinae.homeManagerModules.default
   ];
-  options.vicinae.enable = lib.mkEnableOption "enable vicinae";
-  config = lib.mkIf config.vicinae.enable {
+  options.my.vicinae.enable = lib.mkEnableOption "enable vicinae";
+  config = lib.mkIf config.my.vicinae.enable {
     home.sessionVariables = {
       EMOJI_FONT = "Noto Color Emoji";
     };

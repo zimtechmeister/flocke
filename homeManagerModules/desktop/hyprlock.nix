@@ -3,8 +3,8 @@
   config,
   ...
 }: {
-  options.hyprlock.enable = lib.mkEnableOption "enables hyprlock";
-  config = lib.mkIf config.hyprlock.enable {
+  options.my.hyprlock.enable = lib.mkEnableOption "enables hyprlock";
+  config = lib.mkIf config.my.hyprlock.enable {
     stylix.targets.hyprlock.useWallpaper = false;
     programs.hyprlock = {
       enable = true;

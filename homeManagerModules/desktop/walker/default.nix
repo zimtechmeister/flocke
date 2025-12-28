@@ -7,8 +7,8 @@
   imports = [
     inputs.walker.homeManagerModules.default
   ];
-  options.walker.enable = lib.mkEnableOption "enable walker";
-  config = lib.mkIf config.walker.enable {
+  options.my.walker.enable = lib.mkEnableOption "enable walker";
+  config = lib.mkIf config.my.walker.enable {
     programs.walker = {
       enable = true;
       runAsService = true;

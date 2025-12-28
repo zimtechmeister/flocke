@@ -3,10 +3,8 @@
   config,
   ...
 }: {
-  options = {
-    maintainance.enable = lib.mkEnableOption "maintainance";
-  };
-  config = lib.mkIf config.maintainance.enable {
+  options.my.maintainance.enable = lib.mkEnableOption "maintainance";
+  config = lib.mkIf config.my.maintainance.enable {
     programs = {
       nh = {
         enable = true;

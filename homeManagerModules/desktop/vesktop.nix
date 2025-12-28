@@ -3,8 +3,8 @@
   config,
   ...
 }: {
-  options.vesktop.enable = lib.mkEnableOption "enable vesktop";
-  config = lib.mkIf config.vesktop.enable {
+  options.my.vesktop.enable = lib.mkEnableOption "enable vesktop";
+  config = lib.mkIf config.my.vesktop.enable {
     programs.vesktop = {
       enable = true;
       settings = {

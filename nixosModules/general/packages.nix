@@ -5,11 +5,8 @@
   config,
   ...
 }: {
-  options = {
-    general-packages.enable =
-      lib.mkEnableOption "general-packages";
-  };
-  config = lib.mkIf config.general-packages.enable {
+  options.my.general-packages.enable = lib.mkEnableOption "general-packages";
+  config = lib.mkIf config.my.general-packages.enable {
     environment.systemPackages = with pkgs; [
       # languages
       jdk

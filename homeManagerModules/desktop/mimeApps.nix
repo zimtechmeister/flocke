@@ -3,8 +3,8 @@
   config,
   ...
 }: {
-  options.mimeApps.enable = lib.mkEnableOption "mimeApps";
-  config = lib.mkIf config.mimeApps.enable {
+  options.my.mimeApps.enable = lib.mkEnableOption "mimeApps";
+  config = lib.mkIf config.my.mimeApps.enable {
     xdg.mimeApps = {
       enable = true;
       defaultApplications = {

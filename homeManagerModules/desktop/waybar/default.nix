@@ -8,12 +8,12 @@
     optiplex3000 = "swaync-client -t -sw";
     t480 = "toggle-keyboard";
   };
-  clockAction = builtins.getAttr (config.waybar.config) clockActions;
+  clockAction = builtins.getAttr (config.my.waybar.config) clockActions;
 in {
   imports = [
     ./style.nix
   ];
-  options.waybar = {
+  options.my.waybar = {
     enable = lib.mkEnableOption "enables waybar";
     config = lib.mkOption {
       default = null;
@@ -22,7 +22,7 @@ in {
       '';
     };
   };
-  config = lib.mkIf config.waybar.enable {
+  config = lib.mkIf config.my.waybar.enable {
     programs.waybar = {
       enable = true;
       systemd = {
@@ -32,7 +32,7 @@ in {
       settings = {
         mainBar = {
           layer =
-            if config.hyprland.enable
+            if config.my.hyprland.enable
             then "bottom"
             else "top";
           position = "bottom"; # Waybar position (top|bottom|left|right)

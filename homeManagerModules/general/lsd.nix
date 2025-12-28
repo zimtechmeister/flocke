@@ -3,10 +3,8 @@
   config,
   ...
 }: {
-  options.lsd.enable =
-    lib.mkEnableOption "lsd";
-
-  config = lib.mkIf config.lsd.enable {
+  options.my.lsd.enable = lib.mkEnableOption "lsd";
+  config = lib.mkIf config.my.lsd.enable {
     programs.lsd = {
       enable = true;
       enableZshIntegration = true;

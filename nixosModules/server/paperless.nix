@@ -3,10 +3,8 @@
   config,
   ...
 }: {
-  options = {
-    nextcloud.enable = lib.mkEnableOption "nextcloud";
-  };
-  config = lib.mkIf config.nextcloud.enable {
+  options.my.nextcloud.enable = lib.mkEnableOption "nextcloud";
+  config = lib.mkIf config.my.nextcloud.enable {
     environment.etc."nextcloud-admin-pass".text = "password123";
     services.paperless = {
       # user = "${homelab_user}";

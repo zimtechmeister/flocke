@@ -3,10 +3,8 @@
   config,
   ...
 }: {
-  options = {
-    newt.enable = lib.mkEnableOption "pangolin";
-  };
-  config = lib.mkIf config.newt.enable {
+  options.my.newt.enable = lib.mkEnableOption "pangolin";
+  config = lib.mkIf config.my.newt.enable {
     environment.etc."newt-secret".text = ''
     '';
     services.newt = {

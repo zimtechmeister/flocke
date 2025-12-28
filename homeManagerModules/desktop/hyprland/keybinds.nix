@@ -97,7 +97,7 @@ in {
             # "SUPER SHIFT, Space, movetoworkspacesilent, special:scratchpad"
           ]
           ++ (
-            if config.hyprland.plugins.hyprscrolling.enable
+            if config.my.hyprland.plugins.hyprscrolling.enable
             then scrolling.bind
             else dwindle.bind
           );
@@ -114,7 +114,7 @@ in {
             "SUPER CTRL, L, resizeactive, 20 0"
           ]
           ++ (
-            if config.hyprland.plugins.hyprscrolling.enable
+            if config.my.hyprland.plugins.hyprscrolling.enable
             then scrolling.binde
             else dwindle.binde
           );

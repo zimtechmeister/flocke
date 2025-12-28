@@ -4,10 +4,8 @@
   config,
   ...
 }: {
-  options = {
-    nextcloud.enable = lib.mkEnableOption "nextcloud";
-  };
-  config = lib.mkIf config.nextcloud.enable {
+  options.my.nextcloud.enable = lib.mkEnableOption "nextcloud";
+  config = lib.mkIf config.my.nextcloud.enable {
     # TODO: hide password
     environment.etc."nextcloud-admin-pass".text = "";
     services = {

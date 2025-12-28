@@ -3,8 +3,8 @@
   config,
   ...
 }: {
-  options.ghostty.enable = lib.mkEnableOption "enables ghostty";
-  config = lib.mkIf config.ghostty.enable {
+  options.my.ghostty.enable = lib.mkEnableOption "enables ghostty";
+  config = lib.mkIf config.my.ghostty.enable {
     programs.ghostty = {
       enable = true;
       enableZshIntegration = true;

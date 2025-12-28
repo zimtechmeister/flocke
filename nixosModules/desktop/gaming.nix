@@ -4,8 +4,8 @@
   config,
   ...
 }: {
-  options.gaming.enable = lib.mkEnableOption "enables gaming support";
-  config = lib.mkIf config.gaming.enable {
+  options.my.gaming.enable = lib.mkEnableOption "enables gaming support";
+  config = lib.mkIf config.my.gaming.enable {
     # NOTE: there is a nixgaming flake https://github.com/fufexan/nix-gaming
     # NOTE: in steam set for specified game launch options
     # gamescope %command%

@@ -10,8 +10,8 @@
     ./keybind.nix
     ./rules.nix
   ];
-  options.niri.enable = lib.mkEnableOption "enables niri";
-  config = lib.mkIf config.niri.enable {
+  options.my.niri.enable = lib.mkEnableOption "enables niri";
+  config = lib.mkIf config.my.niri.enable {
     home.packages = [
       pkgs.xwayland-satellite
     ];

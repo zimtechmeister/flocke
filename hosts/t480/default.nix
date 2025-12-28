@@ -4,10 +4,12 @@
     ./disko.nix
   ];
 
-  desktop.enable = lib.mkForce true;
-  bluetooth.enable = lib.mkForce true;
-
   networking.hostName = "t480";
+
+  my = {
+    desktop.enable = lib.mkForce true;
+    bluetooth.enable = lib.mkForce true;
+  };
 
   home-manager.users.tim = {
     desktop.enable = lib.mkForce true;

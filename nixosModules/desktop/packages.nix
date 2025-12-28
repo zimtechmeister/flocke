@@ -4,11 +4,8 @@
   config,
   ...
 }: {
-  options = {
-    desktop-packages.enable =
-      lib.mkEnableOption "desktop-packages";
-  };
-  config = lib.mkIf config.desktop-packages.enable {
+  options.my.desktop-packages.enable = lib.mkEnableOption "desktop-packages";
+  config = lib.mkIf config.my.desktop-packages.enable {
     services.printing.enable = true;
 
     security.rtkit.enable = true;
@@ -62,9 +59,9 @@
       typst
       pandoc
       imagemagick
-      miktex                        # \
-      texliveFull                   #  > might only need one?
-      python312Packages.pylatexenc  # /
+      miktex # \
+      texliveFull #  > might only need one?
+      python312Packages.pylatexenc # /
 
       via
       kdePackages.kdenlive

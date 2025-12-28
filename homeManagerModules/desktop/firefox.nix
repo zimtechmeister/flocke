@@ -5,9 +5,9 @@
   inputs,
   ...
 }: {
-  options.firefox.enable = lib.mkEnableOption "enables firefox";
+  options.my.firefox.enable = lib.mkEnableOption "enables firefox";
 
-  config = lib.mkIf config.firefox.enable {
+  config = lib.mkIf config.my.firefox.enable {
     programs.firefox = {
       enable = true;
       languagePacks = ["de" "en-US"];

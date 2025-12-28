@@ -3,9 +3,8 @@
   config,
   ...
 }: {
-  options.neovide.enable =
-    lib.mkEnableOption "enable neovide";
-  config = lib.mkIf config.neovide.enable {
+  options.my.neovide.enable = lib.mkEnableOption "enable neovide";
+  config = lib.mkIf config.my.neovide.enable {
     programs.neovide = {
       enable = true;
       # NOTE: some settings are configurd in the nvim config with lua

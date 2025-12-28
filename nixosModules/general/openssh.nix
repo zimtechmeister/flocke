@@ -3,11 +3,8 @@
   config,
   ...
 }: {
-  options = {
-    openssh.enable =
-      lib.mkEnableOption "openssh";
-  };
-  config = lib.mkIf config.openssh.enable {
+  options.my.openssh.enable = lib.mkEnableOption "openssh";
+  config = lib.mkIf config.my.openssh.enable {
     services.fail2ban = {
       enable = true;
     };

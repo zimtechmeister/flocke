@@ -3,8 +3,8 @@
   config,
   ...
 }: {
-  options.git.enable = lib.mkEnableOption "git";
-  config = lib.mkIf config.git.enable {
+  options.my.git.enable = lib.mkEnableOption "git";
+  config = lib.mkIf config.my.git.enable {
     programs.git = {
       enable = true;
       settings = {

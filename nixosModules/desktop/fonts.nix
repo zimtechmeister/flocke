@@ -4,8 +4,8 @@
   config,
   ...
 }: {
-  options.fonts.enable = lib.mkEnableOption "collection of fonts";
-  config = lib.mkIf config.fonts.enable {
+  options.my.fonts.enable = lib.mkEnableOption "collection of fonts";
+  config = lib.mkIf config.my.fonts.enable {
     fonts.packages = with pkgs; [
       nerd-fonts.symbols-only
       maple-mono.NF

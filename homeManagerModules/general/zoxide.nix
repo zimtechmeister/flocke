@@ -3,10 +3,10 @@
   config,
   ...
 }: {
-  options.zoxide.enable =
+  options.my.zoxide.enable =
     lib.mkEnableOption "zoxide";
 
-  config = lib.mkIf config.zoxide.enable {
+  config = lib.mkIf config.my.zoxide.enable {
     programs.zoxide = {
       enable = true;
       enableZshIntegration = true;

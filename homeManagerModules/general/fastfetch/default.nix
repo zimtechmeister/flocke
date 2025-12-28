@@ -3,8 +3,8 @@
   config,
   ...
 }: {
-  options.fastfetch.enable = lib.mkEnableOption "enables fastfetch";
-  config = lib.mkIf config.fastfetch.enable {
+  options.my.fastfetch.enable = lib.mkEnableOption "enables fastfetch";
+  config = lib.mkIf config.my.fastfetch.enable {
     programs.fastfetch = {
       enable = true;
     };

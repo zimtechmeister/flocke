@@ -3,8 +3,8 @@
   config,
   ...
 }: {
-  options.localsend.enable = lib.mkEnableOption "localsend";
-  config = lib.mkIf config.localsend.enable {
+  options.my.localsend.enable = lib.mkEnableOption "localsend";
+  config = lib.mkIf config.my.localsend.enable {
     programs = {
       localsend = {
         enable = true;

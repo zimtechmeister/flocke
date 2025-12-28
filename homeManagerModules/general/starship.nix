@@ -3,10 +3,10 @@
   config,
   ...
 }: {
-  options.starship.enable =
+  options.my.starship.enable =
     lib.mkEnableOption "configure starship";
 
-  config = lib.mkIf config.starship.enable {
+  config = lib.mkIf config.my.starship.enable {
     programs.starship = {
       enable = true;
       enableZshIntegration = true;

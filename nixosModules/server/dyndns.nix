@@ -3,10 +3,8 @@
   config,
   ...
 }: {
-  options = {
-    dyndns.enable = lib.mkEnableOption "dyndns";
-  };
-  config = lib.mkIf config.dyndns.enable {
+  options.my.dyndns.enable = lib.mkEnableOption "dyndns";
+  config = lib.mkIf config.my.dyndns.enable {
     # TODO: hide password
     environment.etc."cloudflare-dyndns-api-token".text = "";
     # services.cfdyndns # also exists

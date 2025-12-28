@@ -1,14 +1,10 @@
 {
   lib,
   config,
-  self,
-  pkgs,
   ...
 }: {
-  options.zsh.enable =
-    lib.mkEnableOption "configure zsh to my liking";
-
-  config = lib.mkIf config.zsh.enable {
+  options.my.zsh.enable = lib.mkEnableOption "configure zsh to my liking";
+  config = lib.mkIf config.my.zsh.enable {
     programs.carapace = {
       enable = true;
       enableZshIntegration = true;
@@ -45,7 +41,7 @@
       };
 
       initContent = let
-        mynvim = self.packages.${pkgs.stdenv.hostPlatform.system}.neovix; # TODO: change this to automatically macht whats in nvim.nix
+        mynvim = config.my.nvim.package;
       in
         /*
         sh

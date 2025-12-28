@@ -5,14 +5,13 @@
   inputs,
   ...
 }: {
-  options.zen-browser.enable = lib.mkEnableOption "enables zen-browser";
-
+  options.my.zen-browser.enable = lib.mkEnableOption "enables zen-browser";
   imports = [
     inputs.zen-browser.homeModules.default
   ];
   # "if" is lazily evaluated: faster build time, but not good for caching
-  # config = if config.zen-browser.enable then {
-  config = lib.mkIf config.zen-browser.enable {
+  # config = if config.my.zen-browser.enable then {
+  config = lib.mkIf config.my.zen-browser.enable {
     # NOTE: can be configured just like firefox
     programs.zen-browser = {
       enable = true;
