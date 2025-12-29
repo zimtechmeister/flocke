@@ -9,7 +9,7 @@
       extraModules ? [],
     }:
       inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs self;};
         modules =
           [
             # imports = [];

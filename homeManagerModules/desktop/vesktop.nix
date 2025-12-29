@@ -18,7 +18,6 @@
         notifyAboutUpdates = false;
         plugins = {
           FakeNitro.enabled = true;
-          CallTimer.enabled = true;
           ReadAllNotificationsButton.enabled = true;
           ServerInfo.enabled = true;
           ShowConnections.enabled = true;
