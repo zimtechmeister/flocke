@@ -9,7 +9,7 @@
       inherit system;
       config.allowUnfree = true;
     };
-    packages.neovix = import ./packages/neovim {
+    packages.neovix = import ./wrapper.nix {
       inherit pkgs;
       inherit inputs;
     };
