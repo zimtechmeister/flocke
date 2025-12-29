@@ -1,6 +1,8 @@
 {
   lib,
   config,
+  pkgs,
+  self,
   ...
 }: {
   options.my.zsh.enable = lib.mkEnableOption "configure zsh to my liking";
@@ -41,7 +43,7 @@
       };
 
       initContent = let
-        mynvim = config.my.nvim.package;
+        mynvim = self.packages.${pkgs.stdenv.hostPlatform.system}.neovix;
       in
         /*
         sh

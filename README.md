@@ -24,7 +24,7 @@ run github:nix-community/disko/latest -- --mode disko ./hosts/desktop/disko.nix
 # NOTE: the above seems to work but the docs use this instead
 # run github:nix-community/disko/latest -- --mode destroy,format,mount ./hosts/desktop/disko.nix
 ```
-Installation (dont forget to enter the root password int this step)
+Installation (dont forget to enter the root password in this step)
 ```bash
 sudo nixos-install --flake .#desktop
 ```
@@ -43,6 +43,11 @@ sudo nixos-rebuild switch --flake github:zimtechmeister/flocke#desktop
 nh os switch /path/to/flake -H desktop
 ```
 
+run my Neovim distribution
+```bash
+nix run github:zimtechmeister/flocke#neovix
+```
+
 Garbage collect:
 
 </details>
@@ -50,8 +55,6 @@ Garbage collect:
 <details>
 <summary>todo</summary>
 
-- [ ] should i include the packages defined in home-manager in nixos module as environmet.systemPackages?
-- [ ] hardwareconfig checkout cachyOs
 - [ ] devenv
 - [ ] secrets sops [vimjoyer](https://www.youtube.com/watch?v=G5f6GC7SnhU)
 ## laptop only:

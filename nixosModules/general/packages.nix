@@ -3,6 +3,7 @@
   inputs,
   lib,
   config,
+  self,
   ...
 }: {
   options.my.general-packages.enable = lib.mkEnableOption "general-packages";
@@ -27,7 +28,6 @@
 
       rustc
       cargo
-
 
       # cli tools
       neovim
@@ -56,6 +56,7 @@
       yt-dlp
       gemini-cli
       inputs.nix-alien.packages.${pkgs.stdenv.hostPlatform.system}.nix-alien
+      self.packages.${pkgs.stdenv.hostPlatform.system}.neovix
     ];
   };
 }
