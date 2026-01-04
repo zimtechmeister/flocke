@@ -124,14 +124,17 @@
 in
   pkgs.symlinkJoin {
     name = "neovix";
-    # paths = [pkgs.neovim-unwrapped]; # Stable Neovim
-    paths = [inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default];
+    paths =
+      [
+        inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default
+        # pkgs.neovim-unwrapped # stable neovim
+      ]
+      ++ extraPackages;
     nativeBuildInputs = [pkgs.makeWrapper];
     postBuild = ''
       wrapProgram $out/bin/nvim \
         --add-flags '-u ${./nvim/init.lua}' \
-        --add-flags "--cmd 'set packpath^=${packpath} | set runtimepath^=${./nvim},${packpath}'" \
-        --prefix PATH : "${pkgs.lib.makeBinPath extraPackages}"
+        --add-flags "--cmd 'set packpath^=${packpath} | set runtimepath^=${./nvim},${packpath}'"
       ln -s $out/bin/nvim $out/bin/vi
       ln -s $out/bin/nvim $out/bin/vim
     '';
