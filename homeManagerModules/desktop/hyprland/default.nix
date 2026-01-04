@@ -45,8 +45,8 @@ in {
       if [[ -z $DISPLAY ]] && [[ "$XDG_VTNR" = 1 ]]; then
         # exec uwsm start select
         # exec uwsm start default
-        exec uwsm start hyprland-uwsm.desktop
-        # exec Hyprland
+        # exec uwsm start hyprland-uwsm.desktop
+        exec start-hyprland
       fi
     '';
     wayland.windowManager = {

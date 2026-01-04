@@ -10,9 +10,7 @@
       # systemd.services.sshd.wantedBy = lib.mkForce [ ];
       enable = true;
       systemdTarget =
-        if config.my.hyprland.enable
-        then "hyprland-session.target"
-        else if config.my.niri.enable
+        if !config.my.hyprland.enable && config.my.niri.enable
         then "niri.service"
         else config.wayland.systemd.target;
       settings = {
