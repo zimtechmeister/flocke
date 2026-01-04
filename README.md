@@ -48,7 +48,18 @@ run my Neovim distribution
 nix run github:zimtechmeister/flocke#neovix
 ```
 
-Garbage collect:
+</details>
+
+<details>
+<summary>GarbageCollect</summary>
+
+```bash
+sudo nix-collect-garbage -d
+```
+
+```bash
+sudo nix-store --optimise
+```
 
 </details>
 

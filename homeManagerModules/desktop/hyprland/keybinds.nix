@@ -14,6 +14,16 @@
 
       "SUPER, T, layoutmsg, togglefit"
 
+      "SUPER ALT, H, focusmonitor, l"
+      "SUPER ALT, J, focusmonitor, d"
+      "SUPER ALT, K, focusmonitor, u"
+      "SUPER ALT, L, focusmonitor, r"
+
+      "SUPER SHIFT ALT, H, movewindow, mon:l"
+      "SUPER SHIFT ALT, J, movewindow, mon:d"
+      "SUPER SHIFT ALT, K, movewindow, mon:u"
+      "SUPER SHIFT ALT, L, movewindow, mon:r"
+
       # does not work as expected
       "SUPER, mouse_down, layoutmsg, move +1"
       "SUPER, mouse_up, layoutmsg, move -1"
@@ -43,7 +53,7 @@ in {
       settings = {
         bind =
           [
-            "SUPER, Return, exec, uwsm-app -- ghostty"
+            "SUPER, Return, exec, ghostty"
 
             # Anyrun
             # "SUPER, Space, exec, anyrun"
@@ -54,10 +64,18 @@ in {
             # "SUPER, V, exec, walker -m clipboard"
 
             # vicinae
-            "SUPER, Space, exec, vicinae toggle"
-            "SUPER, V, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
+            "SUPER SHIFT, Space, exec, vicinae toggle"
+            "SUPER SHIFT, V, exec, vicinae vicinae://extensions/vicinae/clipboard/history"
 
-            "SUPER, S, exec, uwsm-app -- screenshot"
+            # noctalia-shell
+            "SUPER, Space, exec, noctalia-shell ipc call launcher toggle"
+            "SUPER, V, exec, noctalia-shell ipc call launcher clipboard"
+
+            "SUPER SHIFT, N, exec, noctalia-shell ipc call bar toggle"
+
+            "SUPER SHIFT, M, exec, noctalia-shell ipc call volume muteInput"
+
+            "SUPER, S, exec, screenshot"
 
             "SUPER SHIFT, Z, exit,"
             "SUPER, Q, killactive,"

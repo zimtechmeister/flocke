@@ -55,10 +55,6 @@ in {
         # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
         package = null;
         portalPackage = null;
-        systemd = {
-          enable = false;
-          variables = ["--all"];
-        };
         # NOTE: dont know how to do the first line in settings
         extraConfig = ''
           $LAPTOP_KB_ENABLED = true
@@ -87,8 +83,8 @@ in {
           };
           general = {
             border_size = lib.mkDefault 2;
-            gaps_in = 4;
-            gaps_out = 8;
+            gaps_in = 5;
+            gaps_out = 10;
             # NOTE:: mkOverride 10000 does not have the same effect as mkForce?
             "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base05})";
             #col.active_border = rgb(ea6962) rgb(e78a4e) rgb(d8a657) rgb(a9b665) rgb(89b482) rgb(7daea3) rgb(d3869b) 0deg
@@ -102,17 +98,19 @@ in {
             };
           };
           decoration = {
-            rounding = 4;
+            rounding = 20;
+            rounding_power = 2;
             blur = {
               enabled = true;
-              size = 4;
-              passes = 4;
+              size = 3;
+              passes = 2;
+              vibrancy = 0.1696;
               ignore_opacity = true;
             };
             shadow = {
               enabled = true;
               range = 4;
-              render_power = 1;
+              render_power = 3;
               color = lib.mkForce "rgb(${config.stylix.base16Scheme.base11})";
               color_inactive = lib.mkForce "rgba(${config.stylix.base16Scheme.base11}00)"; # if not set, will fall back to color
             };

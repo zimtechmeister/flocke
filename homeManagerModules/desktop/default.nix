@@ -4,7 +4,6 @@
   ...
 }: {
   imports = [
-    ./dankMaterialShell
     ./hyprland
     # ./niri
     ./swaync
@@ -18,6 +17,7 @@
     ./hyprpolkitagent.nix
     ./hyprsunset.nix
     ./mimeApps.nix
+    ./noctalia.nix
     ./vesktop.nix
     ./vicinae.nix
     ./zen-browser.nix
@@ -26,7 +26,6 @@
   options.my.desktop.enable = lib.mkEnableOption "enables desktop home-manager config";
   config = lib.mkIf config.my.desktop.enable {
     my = {
-      dankMaterialShell.enable = lib.mkDefault true;
       hyprland.enable = lib.mkDefault true;
       hyprland.plugins.hyprscrolling.enable = lib.mkDefault true;
       # niri.enable = lib.mkDefault false;
@@ -35,12 +34,13 @@
       waybar.enable = lib.mkDefault false;
       firefox.enable = lib.mkDefault true;
       ghostty.enable = lib.mkDefault true;
-      hypridle.enable = lib.mkDefault false;
+      hypridle.enable = lib.mkDefault true;
       hyprlock.enable = lib.mkDefault false;
       hyprpaper.enable = lib.mkDefault false;
       hyprpolkitagent.enable = lib.mkDefault true;
       hyprsunset.enable = lib.mkDefault false;
       mimeApps.enable = lib.mkDefault true;
+      noctalia.enable = lib.mkDefault true;
       vesktop.enable = lib.mkDefault true;
       vicinae.enable = lib.mkDefault true;
       zen-browser.enable = lib.mkDefault true;

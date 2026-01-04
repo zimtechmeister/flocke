@@ -24,7 +24,7 @@
         font.size = config.stylix.fonts.sizes.applications;
         popToRootOnClose = false;
         rootSearch.searchFiles = false;
-        theme.dark.name = "gruvbox-dark";
+        # theme.dark.name = "gruvbox-dark";
         launcher_window = {
           opacity = 1.0;
         };
