@@ -6,6 +6,21 @@
 }: {
   options.my.desktop-packages.enable = lib.mkEnableOption "desktop-packages";
   config = lib.mkIf config.my.desktop-packages.enable {
+
+    # TODO: move
+    programs.dms-shell = {
+      enable = true;
+      systemd = {
+        enable = true;
+        # restartIfChanged = true;
+      };
+      enableAudioWavelength = true;
+      enableCalendarEvents = true;
+      enableDynamicTheming = true;
+      enableSystemMonitoring = true;
+      enableVPN = true;
+    };
+
     services.printing.enable = true;
 
     security.rtkit.enable = true;

@@ -36,6 +36,11 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    # dankMaterialShell = {
+    #   url = "github:AvengeMedia/DankMaterialShell";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
     niri.url = "github:sodiboo/niri-flake";
 
     walker.url = "github:abenz1267/walker";
