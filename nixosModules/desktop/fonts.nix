@@ -6,6 +6,7 @@
 }: {
   options.my.fonts.enable = lib.mkEnableOption "collection of fonts";
   config = lib.mkIf config.my.fonts.enable {
+    fonts.fontconfig.enable = true;
     fonts.packages = with pkgs; [
       nerd-fonts.symbols-only
       maple-mono.NF
@@ -16,9 +17,6 @@
       nerd-fonts.jetbrains-mono
 
       geist-font
-
-      twemoji-color-font
-      noto-fonts-color-emoji
 
       noto-fonts
       noto-fonts-color-emoji

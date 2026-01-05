@@ -8,6 +8,7 @@
     ./fonts.nix
     ./gaming.nix
     ./hyprland.nix
+    ./laptop.nix
     ./localsend.nix
     ./packages.nix
   ];
@@ -19,6 +20,7 @@
       fonts.enable = lib.mkDefault true;
       gaming.enable = lib.mkDefault false;
       hyprland.enable = lib.mkDefault true;
+      laptop.enable = lib.mkDefault false;
       localsend.enable = lib.mkDefault true;
       desktop-packages.enable = lib.mkDefault true;
     };

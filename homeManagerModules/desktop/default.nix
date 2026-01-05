@@ -27,7 +27,7 @@
   config = lib.mkIf config.my.desktop.enable {
     my = {
       hyprland.enable = lib.mkDefault true;
-      hyprland.plugins.hyprscrolling.enable = lib.mkDefault true;
+      hyprland.plugins.hyprscrolling.enable = lib.mkDefault false;
       # niri.enable = lib.mkDefault false;
       swaync.enable = lib.mkDefault false;
       # walker.enable = lib.mkDefault true;

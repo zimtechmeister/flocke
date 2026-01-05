@@ -63,6 +63,8 @@
       texliveFull #  > might only need one?
       python312Packages.pylatexenc # /
 
+      zotero
+
       via
       kdePackages.kdenlive
       gimp

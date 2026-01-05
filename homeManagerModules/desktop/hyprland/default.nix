@@ -115,9 +115,6 @@ in {
               color_inactive = lib.mkForce "rgba(${config.stylix.base16Scheme.base11}00)"; # if not set, will fall back to color
             };
           };
-          animations = {
-            enabled = lib.mkDefault false;
-          };
           dwindle = {
             force_split = 2;
             preserve_split = true;

@@ -57,27 +57,11 @@
           widgets = {
             center = [
               {
-                characterCount = 2;
-                colorizeIcons = false;
-                enableScrollWheel = true;
-                followFocusedScreen = false;
-                groupedBorderOpacity = 1;
-                hideUnoccupied = false;
-                iconScale = 0.8;
-                id = "Workspace";
-                labelMode = "index";
-                showApplications = false;
-                showLabelsOnlyWhenOccupied = true;
-                unfocusedIconsOpacity = 1;
-              }
-            ];
-            left = [
-              {
                 customFont = "";
-                formatHorizontal = "HH:mm ddd, MMM dd";
+                formatHorizontal = "HH:mm - ddd, MMM dd";
                 formatVertical = "HH mm - dd MM";
                 id = "Clock";
-                tooltipFormat = "HH:mm:ss ddd, MMM dd";
+                tooltipFormat = "HH:mm:ss - ddd, MMM dd";
                 useCustomFont = false;
                 usePrimaryColor = false;
               }
@@ -93,6 +77,22 @@
                 showVisualizer = false;
                 useFixedWidth = false;
                 visualizerType = "wave";
+              }
+            ];
+            left = [
+              {
+                characterCount = 2;
+                colorizeIcons = false;
+                enableScrollWheel = true;
+                followFocusedScreen = false;
+                groupedBorderOpacity = 1;
+                hideUnoccupied = false;
+                iconScale = 0.8;
+                id = "Workspace";
+                labelMode = "index";
+                showApplications = false;
+                showLabelsOnlyWhenOccupied = true;
+                unfocusedIconsOpacity = 1;
               }
             ];
             right = [
@@ -128,8 +128,8 @@
                 displayMode = "onhover";
                 hideIfNotDetected = true;
                 id = "Battery";
-                showNoctaliaPerformance = false;
-                showPowerProfiles = false;
+                showNoctaliaPerformance = true;
+                showPowerProfiles = true;
                 warningThreshold = 30;
               }
               {
@@ -449,9 +449,9 @@
         };
         ui = {
           boxBorderEnabled = false;
-          fontDefault = "Geist";
+          fontDefault = "${config.stylix.fonts.serif.name}";
           fontDefaultScale = 1;
-          fontFixed = "Maple Mono NF";
+          fontFixed = "${config.stylix.fonts.monospace.name}";
           fontFixedScale = 1;
           panelBackgroundOpacity = 1.0;
           panelsAttachedToBar = true;
@@ -492,5 +492,44 @@
         };
       };
     };
+    # home.file.".config/noctalia/plugins" = {
+    #   recursive = true;
+    #   source = pkgs.fetchFromGitHub {
+    #     owner = "noctalia-dev";
+    #     repo = "noctalia-plugins";
+    #     rev = "e41dffb965ccb3c2b1e3a69a5bf153c99525e26a";
+    #     hash = "sha256-L8t/nY5/lORGqEtubx/34uSbGyWkQfadGom7w8AZznI=";
+    #     sparseCheckout = [
+    #       "mangowc-layout-switcher"
+    #       "privacy-indicator"
+    #     ];
+    #   };
+    # };
+    # home.file.".config/noctalia/plugins/privacy-indicator/settings.json" = {
+    #   text = builtins.toJSON {
+    #     hideInactive = true;
+    #     iconSpacing = 4;
+    #     removeMargins = false;
+    #   };
+    # };
+    # home.file.".config/noctalia/plugins.json" = {
+    #   text = builtins.toJSON {
+    #     sources = [
+    #       {
+    #         enabled = true;
+    #         name = "Official Noctalia Plugins";
+    #         url = "https://github.com/noctalia-dev/noctalia-plugins";
+    #       }
+    #     ];
+    #     states = {
+    #       mangowc-layout-switcher = {
+    #         enabled = true;
+    #       };
+    #       privacy-indicator = {
+    #         enabled = true;
+    #       };
+    #     };
+    #   };
+    # };
   };
 }

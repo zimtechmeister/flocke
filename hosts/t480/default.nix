@@ -8,6 +8,7 @@
 
   my = {
     desktop.enable = lib.mkForce true;
+    laptop.enable = lib.mkForce true;
     bluetooth.enable = lib.mkForce true;
   };
 

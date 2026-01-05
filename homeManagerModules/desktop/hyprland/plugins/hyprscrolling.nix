@@ -12,7 +12,6 @@ lib.mkIf config.my.hyprland.plugins.hyprscrolling.enable {
         inputs.hyprland-plugins.packages."${pkgs.stdenv.hostPlatform.system}".hyprscrolling
       ];
       settings = {
-        animations.enabled = lib.mkForce true;
         general.layout = lib.mkForce "scrolling";
         "plugin:hyprscrolling" = {
           fullscreen_on_one_column = true;

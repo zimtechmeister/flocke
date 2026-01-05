@@ -140,6 +140,9 @@ in {
           "SUPER, mouse:272, movewindow"
           "SUPER, mouse:273, resizewindow"
         ];
+        bindl = [
+          ", switch:on:Lid Switch, exec, noctalia-shell ipc call sessionMenu lockAndSuspend"
+        ];
       };
     };
   };

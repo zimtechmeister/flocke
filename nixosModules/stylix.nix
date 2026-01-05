@@ -78,8 +78,8 @@ in {
         package = pkgs.geist-font;
       };
       emoji = {
-        name = "Twitter Color Emoji";
-        package = pkgs.twemoji-color-font;
+        name = "Noto Color Emoji";
+        package = pkgs.noto-fonts-color-emoji;
       };
     };
   };
