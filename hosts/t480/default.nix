@@ -11,7 +11,7 @@
     bluetooth.enable = lib.mkForce true;
   };
 
-  home-manager.users.tim = {
+  home-manager.users.tim.my = {
     desktop.enable = lib.mkForce true;
     general.enable = lib.mkForce true;
     scripts.enable = lib.mkForce true;

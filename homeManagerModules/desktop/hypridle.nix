@@ -17,22 +17,12 @@
         listener = [
           {
             timeout = 600; # 10min.
-            on-timeout = "brightnessctl -s set 10%"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
+            on-timeout = "brightnessctl -s set 5%"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
             on-resume = "brightnessctl -r"; # monitor backlight restore.
           }
           {
-            timeout = 720; # 12min
-            on-timeout = "loginctl lock-session"; # lock screen when timeout has passed
-            on-resume = "birghtnessctl -r"; # monitor backlight restore.
-          }
-          {
-            timeout = 750; # 12.5min
-            on-timeout = "hyprctl dispatch dpms off"; # screen off when timeout has passed
-            on-resume = "birghtnessctl -r"; # monitor backlight restore.
-          }
-          {
             timeout = 900; # 15min
-            on-timeout = "systemctl suspend"; # suspend pc
+            on-timeout = "noctalia-shell ipc call sessionMenu lockAndSuspend"; # lock and suspend
             on-resume = "brightnessctl -r"; # monitor backlight restore.
           }
         ];
