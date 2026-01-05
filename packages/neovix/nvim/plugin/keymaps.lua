@@ -16,7 +16,7 @@ vim.keymap.set('x', 'g/', '<esc>/\\%V', { silent = false, desc = 'Search inside 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('t', '<C-Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+vim.keymap.set('t', '<A-ESC>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 vim.keymap.set({ 't', 'n' }, '<C-A>', '<cmd>Cvd<CR>', { desc = 'update cwd' })
 
 -- Exit nvim saving the filecontent and a session file to the current working directory
