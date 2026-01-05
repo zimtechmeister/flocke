@@ -1,17 +1,10 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }: {
   options.my.ghostty.enable = lib.mkEnableOption "enables ghostty";
   config = lib.mkIf config.my.ghostty.enable {
-    stylix.targets.ghostty.fonts.override = {
-      monospace = {
-        name = "Monocraft Nerd Font";
-        package = pkgs.monocraft;
-      };
-    };
     programs.ghostty = {
       enable = true;
       enableZshIntegration = true;

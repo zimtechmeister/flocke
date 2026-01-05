@@ -65,19 +65,6 @@
                 useCustomFont = false;
                 usePrimaryColor = false;
               }
-              {
-                hideMode = "hidden";
-                hideWhenIdle = false;
-                id = "MediaMini";
-                maxWidth = 145;
-                scrollingMode = "hover";
-                showAlbumArt = false;
-                showArtistFirst = true;
-                showProgressRing = true;
-                showVisualizer = false;
-                useFixedWidth = false;
-                visualizerType = "wave";
-              }
             ];
             left = [
               {
@@ -96,6 +83,19 @@
               }
             ];
             right = [
+              {
+                hideMode = "hidden";
+                hideWhenIdle = false;
+                id = "MediaMini";
+                maxWidth = 145;
+                scrollingMode = "hover";
+                showAlbumArt = false;
+                showArtistFirst = true;
+                showProgressRing = true;
+                showVisualizer = false;
+                useFixedWidth = false;
+                visualizerType = "wave";
+              }
               {
                 blacklist = [];
                 colorizeIcons = false;

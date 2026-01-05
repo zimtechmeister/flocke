@@ -30,6 +30,7 @@
       cargo
 
       # cli tools
+      bottom
       neovim
       lazygit
       gzip
