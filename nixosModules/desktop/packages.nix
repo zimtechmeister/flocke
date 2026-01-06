@@ -28,8 +28,6 @@
       wl-clipboard
       cliphist
       wev
-      waybar
-      swaynotificationcenter
       smartmontools
       pulsemixer
 
@@ -52,17 +50,15 @@
 
       # usefulltools
       switcheroo
-
-      zoom-us
-
-      # not necesary?
-      typst
       pandoc
       imagemagick
-      miktex # \
-      texliveFull #  > might only need one?
-      python312Packages.pylatexenc # /
 
+
+
+      # not necesary?
+      zoom-us
+
+      typst
       zotero
 
       via

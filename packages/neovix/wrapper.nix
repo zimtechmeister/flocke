@@ -81,7 +81,6 @@
     copilot-language-server
     air-formatter
     tinymist
-    texlab
     # typescript-language-server
     # vue-language-server
     vscode-langservers-extracted

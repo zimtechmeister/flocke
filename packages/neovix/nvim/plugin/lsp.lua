@@ -8,7 +8,6 @@ vim.lsp.enable('nixd')
 vim.lsp.enable('copilot')
 vim.lsp.enable('air')
 vim.lsp.enable('tinymist')
-vim.lsp.enable('texlab')
 vim.lsp.enable('eslint') -- can only lint but also works for .vue files
 vim.lsp.enable('vtsls') -- like more than ts_ls
 vim.lsp.enable('tailwindcss')
