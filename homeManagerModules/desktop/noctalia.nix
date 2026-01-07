@@ -49,7 +49,7 @@
           marginHorizontal = 0.25;
           marginVertical = 0.25;
           monitors = [];
-          outerCorners = true;
+          outerCorners = false;
           position = "top";
           showCapsule = true;
           showOutline = false;

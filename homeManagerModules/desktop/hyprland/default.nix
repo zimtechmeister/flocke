@@ -49,96 +49,98 @@ in {
         exec start-hyprland
       fi
     '';
-    wayland.windowManager = {
-      hyprland = {
-        enable = true;
-        # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
-        package = null;
-        portalPackage = null;
-        # NOTE: dont know how to do the first line in settings
-        extraConfig = ''
-          $LAPTOP_KB_ENABLED = true
-          device {
-            name = at-translated-set-2-keyboard
-            enabled = $LAPTOP_KB_ENABLED
-            kb_options = caps:swapescape
-          }
-          source = ~/.config/hypr/monitors.conf
-        '';
-        settings = {
-          monitor = monitorLayout;
-          exec-once = [
-            "touch ~/.config/hypr/monitors.conf"
-            # "wl-paste --watch cliphist store"
-            # "systemctl --user start hyprpolkitagent"
-            # "waybar"
-            # "swaync"
-            # NOTE: which way should you start waybar?
-            # "systemctl --user start waybar" # could also be done in the waybar config using nix
-            # "uwsm app -s s -- waybar"
-          ];
-          input = {
-            kb_layout = "eu, de, us";
-            accel_profile = "flat";
-          };
-          general = {
-            border_size = lib.mkDefault 2;
-            gaps_in = 5;
-            gaps_out = 10;
-            # NOTE:: mkOverride 10000 does not have the same effect as mkForce?
-            "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base05})";
-            #col.active_border = rgb(ea6962) rgb(e78a4e) rgb(d8a657) rgb(a9b665) rgb(89b482) rgb(7daea3) rgb(d3869b) 0deg
-            # NOTE: transparent
-            "col.inactive_border" = lib.mkForce "rgba(${config.stylix.base16Scheme.base11}00)";
-
-            layout = "dwindle";
-            resize_on_border = true;
-            snap = {
-              enabled = true;
-            };
-          };
-          decoration = {
-            rounding = 20;
-            rounding_power = 2;
-            blur = {
-              enabled = true;
-              size = 3;
-              passes = 2;
-              vibrancy = 0.1696;
-              ignore_opacity = true;
-            };
-            shadow = {
-              enabled = true;
-              range = 4;
-              render_power = 3;
-              color = lib.mkForce "rgb(${config.stylix.base16Scheme.base11})";
-              color_inactive = lib.mkForce "rgba(${config.stylix.base16Scheme.base11}00)"; # if not set, will fall back to color
-            };
-          };
-          dwindle = {
-            force_split = 2;
-            preserve_split = true;
-          };
-          misc = {
-            # solid background_color (wallpaper)
-            background_color = lib.mkForce "rgb(${config.stylix.base16Scheme.base11})";
-            disable_hyprland_logo = true;
-            disable_splash_rendering = true;
-            # NOTE: font
-            font_family = config.stylix.fonts.serif.name;
-            mouse_move_enables_dpms = false;
-            key_press_enables_dpms = true;
-          };
-          windowrule = lib.mkDefault [
-            "match:class .*, suppress_event maximize"
-          ];
-          layerrule = [
-            # "dimaround, vicinae"
-          ];
-          workspace = lib.mkDefault [
-            "special:scratchpad, gapsout:32, gapsin:4"
-          ];
+    wayland.windowManager.hyprland = {
+      enable = true;
+      # important for xdg-desktop-portal-hyprland to work and not uwsm dependent
+      systemd.variables = [
+        "--all"
+      ];
+      # set the Hyprland and XDPH packages to null to use the ones from the NixOS module
+      package = null;
+      portalPackage = null;
+      # NOTE: dont know how to do the first line in settings
+      extraConfig = ''
+        $LAPTOP_KB_ENABLED = true
+        device {
+          name = at-translated-set-2-keyboard
+          enabled = $LAPTOP_KB_ENABLED
+          kb_options = caps:swapescape
+        }
+        source = ~/.config/hypr/monitors.conf
+      '';
+      settings = {
+        monitor = monitorLayout;
+        exec-once = [
+          "touch ~/.config/hypr/monitors.conf"
+          # "wl-paste --watch cliphist store"
+          # "systemctl --user start hyprpolkitagent"
+          # "waybar"
+          # "swaync"
+          # NOTE: which way should you start waybar?
+          # "systemctl --user start waybar" # could also be done in the waybar config using nix
+          # "uwsm app -s s -- waybar"
+        ];
+        input = {
+          kb_layout = "eu, de, us";
+          accel_profile = "flat";
         };
+        general = {
+          border_size = lib.mkDefault 2;
+          gaps_in = 5;
+          gaps_out = 10;
+          # NOTE:: mkOverride 10000 does not have the same effect as mkForce?
+          "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base05})";
+          #col.active_border = rgb(ea6962) rgb(e78a4e) rgb(d8a657) rgb(a9b665) rgb(89b482) rgb(7daea3) rgb(d3869b) 0deg
+          # NOTE: transparent
+          "col.inactive_border" = lib.mkForce "rgba(${config.stylix.base16Scheme.base11}00)";
+
+          layout = "dwindle";
+          resize_on_border = true;
+          snap = {
+            enabled = true;
+          };
+        };
+        decoration = {
+          rounding = 0;
+          rounding_power = 2;
+          blur = {
+            enabled = true;
+            size = 3;
+            passes = 2;
+            vibrancy = 0.1696;
+            ignore_opacity = true;
+          };
+          shadow = {
+            enabled = true;
+            range = 4;
+            render_power = 3;
+            color = lib.mkForce "rgb(${config.stylix.base16Scheme.base11})";
+            color_inactive = lib.mkForce "rgba(${config.stylix.base16Scheme.base11}00)"; # if not set, will fall back to color
+          };
+        };
+        dwindle = {
+          force_split = 2;
+          preserve_split = true;
+        };
+        misc = {
+          # solid background_color (wallpaper)
+          background_color = lib.mkForce "rgb(${config.stylix.base16Scheme.base11})";
+          disable_hyprland_logo = true;
+          disable_splash_rendering = true;
+          # NOTE: font
+          font_family = config.stylix.fonts.serif.name;
+          mouse_move_enables_dpms = false;
+          key_press_enables_dpms = true;
+        };
+        windowrule = lib.mkDefault [
+          "match:class .*, suppress_event maximize"
+        ];
+        layerrule = [
+          # "dimaround, vicinae"
+        ];
+        workspace = lib.mkDefault [
+          "special:scratchpad, gapsout:32, gapsin:4"
+        ];
       };
     };
   };
