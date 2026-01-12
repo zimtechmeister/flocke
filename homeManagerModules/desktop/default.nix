@@ -32,7 +32,7 @@
       swaync.enable = lib.mkDefault false;
       # walker.enable = lib.mkDefault true;
       waybar.enable = lib.mkDefault false;
-      firefox.enable = lib.mkDefault true;
+      firefox.enable = lib.mkDefault false;
       ghostty.enable = lib.mkDefault true;
       hypridle.enable = lib.mkDefault true;
       hyprlock.enable = lib.mkDefault false;

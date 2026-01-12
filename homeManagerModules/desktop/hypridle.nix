@@ -1,10 +1,14 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   options.my.hypridle.enable = lib.mkEnableOption "enables hypridle";
   config = lib.mkIf config.my.hypridle.enable {
+    home.packages = with pkgs; [
+      libnotify
+    ];
     services.hypridle = {
       enable = true;
       settings = {
@@ -19,6 +23,10 @@
             timeout = 600; # 10min.
             on-timeout = "brightnessctl -s set 5%"; # set monitor backlight to minimum, avoid 0 on OLED monitor.
             on-resume = "brightnessctl -r"; # monitor backlight restore.
+          }
+          {
+            timeout = 840; # 14min
+            on-timeout = "notify-send 'Locking screen'";
           }
           {
             timeout = 900; # 15min

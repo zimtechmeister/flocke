@@ -1,54 +1,55 @@
 require("snacks").setup({
-    bigfile = { enabled = true },
-    dashboard = {
-        preset = {
-            keys = {
-                { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-                { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-                { icon = " ", key = "t", desc = "Open Terminal", action = ":Multiplex" },
-                { icon = " ", key = "p", desc = "Find Project", action = ":lua Snacks.dashboard.pick('projects')" },
-                { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-                { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-                { icon = " ", key = "s", desc = "Restore Session", section = "session" },
-                { icon = " ", key = "q", desc = "Quit", action = ":qa" },
-            },
-        },
-        sections = {
-            { section = "header" },
-            { section = "keys", gap = 1, padding = 1 },
-            { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
-            { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-            { pane = 2, icon = " ", title = "Sessions", section = "session", indent = 2, padding = 1 },
-            {
-                pane = 2,
-                icon = " ",
-                title = "Git Status",
-                section = "terminal",
-                enabled = function()
-                    return Snacks.git.get_root() ~= nil
-                end,
-                cmd = "git status --short --branch --renames",
-                height = 5,
-                padding = 1,
-                ttl = 5 * 60,
-                indent = 3,
-            },
-            -- { section = "startup" }, -- NOTE: this seems to require lazy.nvim
-        },
+  animate = { enabled = true },
+  bigfile = { enabled = true },
+  dashboard = {
+    preset = {
+      keys = {
+        { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+        { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+        { icon = " ", key = "t", desc = "Open Terminal", action = ":Multiplex" },
+        { icon = " ", key = "p", desc = "Find Project", action = ":lua Snacks.dashboard.pick('projects')" },
+        { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+        { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+        { icon = " ", key = "s", desc = "Restore Session", section = "session" },
+        { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+      },
     },
-    image = {
-        enabled = true,
-        doc = {
-            inline = vim.g.neovim_mode == "skitty" and true or false,
-        }
+    sections = {
+      { section = "header" },
+      { section = "keys", gap = 1, padding = 1 },
+      { pane = 2, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+      { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+      { pane = 2, icon = " ", title = "Sessions", section = "session", indent = 2, padding = 1 },
+      {
+        pane = 2,
+        icon = " ",
+        title = "Git Status",
+        section = "terminal",
+        enabled = function()
+          return Snacks.git.get_root() ~= nil
+        end,
+        cmd = "git status --short --branch --renames",
+        height = 5,
+        padding = 1,
+        ttl = 5 * 60,
+        indent = 3,
+      },
+      -- { section = "startup" }, -- NOTE: this seems to require lazy.nvim
     },
-    indent = { enabled = true },
-    input = { enabled = true },
-    notifier = { enabled = true },
-    picker = { enabled = true },
-    quickfile = { enabled = true },
-    statuscolumn = { enabled = true },
-    words = { enabled = true },
+  },
+  image = {
+    enabled = true,
+    doc = {
+      inline = vim.g.neovim_mode == "skitty" and true or false,
+    }
+  },
+  indent = { enabled = true },
+  input = { enabled = true },
+  notifier = { enabled = true },
+  picker = { enabled = true },
+  quickfile = { enabled = true },
+  statuscolumn = { enabled = true },
+  words = { enabled = true },
 })
 -- }
 
@@ -68,14 +69,14 @@ vim.keymap.set('n', '<leader>fr', function() Snacks.picker.recent() end, { desc 
 -- vim.keymap.set('n', '<leader>fb', function() Snacks.picker.buffers() end, { desc = "Buffers" })
 -- start in normal mode
 vim.keymap.set('n', '<leader>fb',
-    function()
-        Snacks.picker.buffers({
-            on_show = function()
-                vim.cmd.stopinsert()
-            end,
-        })
-    end,
-    { desc = "Buffers" }
+  function()
+    Snacks.picker.buffers({
+      on_show = function()
+        vim.cmd.stopinsert()
+      end,
+    })
+  end,
+  { desc = "Buffers" }
 )
 vim.keymap.set('n', '<leader>f/', function() Snacks.picker.grep() end, { desc = "Grep" })
 vim.keymap.set('n', '<leader>f?', function() Snacks.picker.grep_buffers() end, { desc = "Grep Open Buffers" })
@@ -96,9 +97,9 @@ vim.keymap.set('n', '<leader>fi', function() Snacks.picker.icons() end, { desc =
 vim.keymap.set('n', '<leader>lpd', function() Snacks.picker.lsp_definitions() end, { desc = "Picker Goto Definition" })
 vim.keymap.set('n', '<leader>lpD', function() Snacks.picker.lsp_declaration() end, { desc = "Picker Goto Declaration" })
 vim.keymap.set('n', '<leader>lpi', function() Snacks.picker.lsp_implementations() end,
-    { desc = "Picker Goto Implementation" })
+  { desc = "Picker Goto Implementation" })
 vim.keymap.set('n', '<leader>lpo', function() Snacks.picker.lsp_type_definitions() end,
-    { desc = "Picker Goto T[y]pe Definition" })
+  { desc = "Picker Goto T[y]pe Definition" })
 vim.keymap.set('n', '<leader>lpr', function() Snacks.picker.lsp_references() end,
-    { nowait = true, desc = "Picker References" })
+  { nowait = true, desc = "Picker References" })
 vim.keymap.set('n', '<leader>lps', function() Snacks.picker.lsp_symbols() end, { desc = "Picker LSP Symbols" })
