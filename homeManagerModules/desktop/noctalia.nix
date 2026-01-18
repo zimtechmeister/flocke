@@ -125,7 +125,7 @@
                 usePrimaryColor = false;
               }
               {
-                displayMode = "onhover";
+                displayMode = "alwaysShow";
                 hideIfNotDetected = true;
                 id = "Battery";
                 showNoctaliaPerformance = true;
@@ -394,7 +394,7 @@
             }
           ];
           showHeader = true;
-          showNumberLabels = false;
+          showNumberLabels = true;
         };
         systemMonitor = {
           cpuCriticalThreshold = 90;
