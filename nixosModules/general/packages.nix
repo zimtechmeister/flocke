@@ -59,5 +59,6 @@
       inputs.nix-alien.packages.${pkgs.stdenv.hostPlatform.system}.nix-alien
       self.packages.${pkgs.stdenv.hostPlatform.system}.neovix
     ];
+    virtualisation.docker.enable = true;
   };
 }
