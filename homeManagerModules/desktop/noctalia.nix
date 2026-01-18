@@ -332,7 +332,7 @@
           autoHideMs = 2000;
           backgroundOpacity = 1.0;
           enabled = true;
-          enabledTypes = [0 1 2 4 3];
+          enabledTypes = [0 2 4 3];
           location = "top";
           monitors = [];
           overlayLayer = true;
