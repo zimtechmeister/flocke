@@ -27,7 +27,7 @@
       neovide.enable = lib.mkDefault true;
       nvim.enable = lib.mkDefault true;
       starship.enable = lib.mkDefault true;
-      tmux.enable = lib.mkDefault false;
+      tmux.enable = lib.mkDefault true;
       yazi.enable = lib.mkDefault true;
       zoxide.enable = lib.mkDefault true;
       zsh.enable = lib.mkDefault true;
