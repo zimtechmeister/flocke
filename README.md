@@ -42,6 +42,16 @@ sudo nixos-rebuild switch --flake github:zimtechmeister/flocke#desktop
 ```bash
 nh os switch /path/to/flake -H desktop
 ```
+Update flake
+```bash
+nix flake update
+```
+
+Update packages locked to a specific version (helium)
+```bash
+cd /path/to/flake
+nix run nixpkgs#nix-update -- --flake helium
+```
 
 run my Neovim distribution
 ```bash
@@ -66,7 +76,8 @@ sudo nix-store --optimise
 <details>
 <summary>todo</summary>
 
-- [ ] devenv
+- [ ] update (e.g. helium) using github actions
+- [ ] devenv / devbox
 - [ ] secrets sops [vimjoyer](https://www.youtube.com/watch?v=G5f6GC7SnhU)
 ## laptop only:
 - [ ] tlp

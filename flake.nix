@@ -76,6 +76,7 @@
       imports = [
         inputs.home-manager.flakeModules.home-manager
         ./packages/neovix
+        ./packages/helium.nix
         ./nixos.nix
       ];
     };

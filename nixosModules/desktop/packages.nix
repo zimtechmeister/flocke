@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  self,
   ...
 }: {
   options.my.desktop-packages.enable = lib.mkEnableOption "desktop-packages";
@@ -38,6 +39,7 @@
       glib # what do i need this fore? i thik this is some dependency
 
       chromium
+      self.packages.${pkgs.stdenv.hostPlatform.system}.helium
 
       discord
       thunderbird

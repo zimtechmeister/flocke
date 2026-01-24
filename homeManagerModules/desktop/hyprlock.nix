@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   options.my.hyprlock.enable = lib.mkEnableOption "enables hyprlock";
@@ -16,7 +17,7 @@
         background = let
         in {
           monitor = "";
-          path = builtins.fetchurl {
+          path = pkgs.fetchurl {
             url = "https://raw.githubusercontent.com/zimtechmeister/wallpaper/refs/heads/master/forest-fog-grey.jpg";
             sha256 = "sha256:1df24dcd5ksx1030f7h7ir515yxpi1yi692k2s42g5v9jwaci2xz";
           };
