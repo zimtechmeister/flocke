@@ -29,8 +29,10 @@
           set -s extended-keys on
           set -as terminal-features 'xterm*:extkeys'
 
-          bind-key -n C-h swap-window -t -1\; select-window -t -1
-          bind-key -n C-l swap-window -t +1\; select-window -t +1
+          bind-key -r C-h swap-window -t -1\; select-window -t -1
+          bind-key -r C-l swap-window -t +1\; select-window -t +1
+
+          bind-key a attach-session -c "#{pane_current_path}" \; rename-session "#{pane_current_path}" \; display-message "Path synced to #{pane_current_path}"
         '';
         plugins = with pkgs; [
           {
