@@ -77,7 +77,7 @@ sudo nix-store --optimise
 <summary>todo</summary>
 
 - [ ] update (e.g. helium) using github actions
-- [ ] devenv / devbox
+- [ ] devenv / devbox / flox / direnv / my own
 - [ ] secrets sops [vimjoyer](https://www.youtube.com/watch?v=G5f6GC7SnhU)
 ## laptop only:
 - [ ] tlp

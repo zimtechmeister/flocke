@@ -55,8 +55,6 @@
       pandoc
       imagemagick
 
-
-
       # not necesary?
       zoom-us
 
