@@ -9,7 +9,7 @@ my_theme.command.c.bg = 'NONE'
 
 require('lualine').setup({
   options = {
-    theme = my_theme,     -- "auto"
+    theme = my_theme, -- "auto"
     component_separators = '',
     section_separators = { left = '', right = '' },
   },
@@ -22,21 +22,18 @@ require('lualine').setup({
       },
     },
     lualine_b = {
-      'branch',
-      'diagnostics'
+      {'filename', path = 1, },
     },
-    lualine_c = {
-      '%=',
-      { 'filename', path = 1, },
-    },
+    lualine_c = {},
     lualine_x = {},
     lualine_y = {
-      -- show recording macro https://www.lazyvim.org/plugins/ui#lualinenvim
-      {
-        function() return require("noice").api.status.mode.get() end,
-        cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-      },
-      'lsp_status'
+      -- show recording macro https://www.lazyvim.org/plugins/ui#lualinenvim when using noice
+      -- {
+      --   function() return require("noice").api.status.mode.get() end,
+      --   cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
+      -- },
+      'branch',
+      'diagnostics',
     },
     lualine_z = {
       {

@@ -16,8 +16,8 @@
 
     nvim-treesitter.withAllGrammars
     lualine-nvim
-    arrow-nvim
-    nvim-scrollbar
+    arrow-nvim # optional
+    nvim-scrollbar # optional
     gitsigns-nvim
     undotree
     markdown-preview-nvim
@@ -25,9 +25,8 @@
     snacks-nvim
     which-key-nvim
     todo-comments-nvim
-    noice-nvim
     flash-nvim
-    sidekick-nvim
+    sidekick-nvim # optional
     # mini
     mini-ai
     mini-comment
