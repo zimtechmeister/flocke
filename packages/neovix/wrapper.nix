@@ -37,6 +37,7 @@
     mini-icons
     mini-cursorword
     mini-hipatterns
+    mini-cmdline
 
     # colorschemes
     vim-moonfly-colors

@@ -66,10 +66,6 @@ vim.opt.completeopt    = {             -- Customize completions
     'preview'
 }
 
--- Command line completion options
-vim.opt.wildmode       = "noselect:lastused,full"
-vim.opt.wildoptions    = "pum"
-
 -- Neovide
 -- NOTE: some settings are configured in a neovide/config.toml file
 if vim.g.neovide then

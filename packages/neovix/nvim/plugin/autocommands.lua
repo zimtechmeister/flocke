@@ -11,15 +11,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 
-vim.api.nvim_create_autocmd("CmdlineChanged", {
-  desc = "Trigger wildmenu for command line, search, and substitute prompts",
-  group = qol,
-  pattern = { ":", "/", "?" },
-  callback = function()
-    vim.fn.wildtrigger()
-  end,
-})
-
 -- Stop automatic insertion of comments on newline 'fo-table' for reference
 vim.api.nvim_create_autocmd("FileType", {
   desc = "Stop automatic insertion of comments on newline",
