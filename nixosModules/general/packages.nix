@@ -12,6 +12,8 @@
       # languages
       jdk
 
+      typst
+
       gcc
       gnumake
       cmake
@@ -21,6 +23,7 @@
       yarn
       pnpm
       bun
+
       R
 
       python3
@@ -31,7 +34,6 @@
 
       # cli tools
       bottom
-      neovim
       lazygit
       gzip
       zip
@@ -49,7 +51,6 @@
       man-db
       man-pages
       tldr
-      pkg-config # what is this
       trash-cli
       smartmontools
       openconnect

@@ -21,22 +21,11 @@
       hyprpicker
       wl-kbptr
       nwg-displays
-
-      grim
-      slurp
-      satty
-
       wl-clipboard
       cliphist
       wev
       smartmontools
       pulsemixer
-
-      # some progams
-      pavucontrol
-      easyeffects
-
-      glib # what do i need this fore? i thik this is some dependency
 
       chromium
       self.packages.${pkgs.stdenv.hostPlatform.system}.helium
@@ -44,26 +33,22 @@
       discord
       thunderbird
 
+      pavucontrol
+      easyeffects
+
       nautilus
       zathura
       mpv
       imv
       qimgv
 
+      zotero
+
       # usefulltools
       switcheroo
       pandoc
       imagemagick
 
-      # not necesary?
-      zoom-us
-
-      typst
-      zotero
-
-      via
-      kdePackages.kdenlive
-      gimp
     ];
     services.udev.packages = [pkgs.via];
     hardware.opentabletdriver.enable = true; # TODO: not working as expected

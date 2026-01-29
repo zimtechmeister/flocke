@@ -13,6 +13,10 @@ in {
   config = lib.mkIf config.my.scripts.enable {
     home.packages = [
       (pkgs.writeShellScriptBin "toggle-keyboard" toggle-keyboard)
+
+      pkgs.grim
+      pkgs.slurp
+      pkgs.satty
       screenshot
     ];
   };
