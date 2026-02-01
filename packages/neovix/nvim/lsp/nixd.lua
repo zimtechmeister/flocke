@@ -2,7 +2,7 @@ return {
   settings = {
     nixd = {
       formatting = {
-        command = { "nix fmt" },
+        command = { "nix", "fmt" },
       },
       -- https://github.com/nix-community/nixd/blob/main/nixd/docs/configuration.md
       -- nixpkgs = {
