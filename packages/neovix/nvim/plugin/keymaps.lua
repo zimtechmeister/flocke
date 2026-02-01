@@ -22,7 +22,7 @@ vim.keymap.set({ 't', 'n' }, '<C-A>', '<cmd>Cvd<CR>', { desc = 'update cwd' })
 -- Exit nvim saving the filecontent and a session file to the current working directory
 -- Load the session with nvim -S Session.vim or :source Session.vim
 vim.keymap.set('n', 'ZS', function()
-  vim.cmd('wa')
-  vim.cmd('mksession! Session.vim')
-  vim.cmd('qa')
+    vim.cmd('wa')
+    vim.cmd('mksession! Session.vim')
+    vim.cmd('qa')
 end, { desc = "Save session in CWD and exit" })
