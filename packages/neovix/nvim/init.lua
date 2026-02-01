@@ -67,7 +67,7 @@ vim.opt.completeopt    = {             -- Customize completions
 }
 
 vim.opt.laststatus     = 3 -- Global status line (for all windows)
-vim.opt.cmdheight      = 0 -- Only show command line when needed and above the status line
+-- vim.opt.cmdheight      = 0 -- Only show command line when needed and above the status line NOTE: worse than using noice
 
 -- Neovide
 -- NOTE: some settings are configured in a neovide/config.toml file

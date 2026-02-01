@@ -28,10 +28,10 @@ require('lualine').setup({
     lualine_x = {},
     lualine_y = {
       -- show recording macro https://www.lazyvim.org/plugins/ui#lualinenvim when using noice
-      -- {
-      --   function() return require("noice").api.status.mode.get() end,
-      --   cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-      -- },
+      {
+        function() return require("noice").api.status.mode.get() end,
+        cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
+      },
       'branch',
       'diagnostics',
     },

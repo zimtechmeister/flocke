@@ -23,6 +23,7 @@
     markdown-preview-nvim
     # folke
     snacks-nvim
+    noice-nvim
     which-key-nvim
     todo-comments-nvim
     flash-nvim

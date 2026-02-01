@@ -54,7 +54,13 @@ require("snacks").setup({
 -- }
 
 vim.keymap.set('n', '<Esc', function() Snacks.notifier.hide() end, { desc = "Notification (Hide)" })
-vim.keymap.set('n', '<leader>n', function() Snacks.notifier.show_history() end, { desc = "Notification History" })
+vim.keymap.set('n', '<leader>n', function()
+  if package.loaded["noice"] then
+    vim.cmd("NoiceSnacks")
+  else
+    Snacks.notifier.show_history()
+  end
+end, { desc = "Notification History" })
 vim.keymap.set('n', '<leader>g', function() Snacks.lazygit.open() end, { desc = "Lazygit" })
 vim.keymap.set('n', '<leader>gb', function() Snacks.git.blame_line() end, { desc = "Git Blame Line" })
 -- incorrect syntax
