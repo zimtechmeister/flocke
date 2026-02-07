@@ -8,6 +8,7 @@
     ./openssh.nix
     ./zsh.nix
     ./packages.nix
+    ./kanata.nix
   ];
 
   options.my.general.enable = lib.mkEnableOption "enables general nixos-module";
@@ -17,6 +18,7 @@
       openssh.enable = lib.mkDefault true;
       zsh.enable = lib.mkDefault true;
       general-packages.enable = lib.mkDefault true;
+      kanata.enable = lib.mkDefault true;
     };
   };
 }

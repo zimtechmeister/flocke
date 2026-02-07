@@ -64,7 +64,6 @@ in {
         device {
           name = at-translated-set-2-keyboard
           enabled = $LAPTOP_KB_ENABLED
-          kb_options = caps:swapescape
         }
         source = ~/.config/hypr/monitors.conf
       '';
