@@ -43,6 +43,7 @@
       qimgv
 
       zotero
+      anki-bin
 
       # usefulltools
       switcheroo
