@@ -16,6 +16,7 @@
           ];
           extraDefCfg = "process-unmapped-keys yes";
           # "Timeless Home Row Mods" for kanata
+          # there is a hack to make require-prior-idle work but i dont like cheating and dont care too much
           # https://www.reddit.com/r/ErgoMechKeyboards/comments/1qosvc0/a_try_on_urobs_timeless_home_row_mods_for_kanata/
           config = ''
             (defsrc
@@ -27,23 +28,33 @@
             )
 
             (defvar
-              ;; Keys that trigger left-hand mods (Right side + Space)
-              r-triggers (
-                6 7 8 9 0 - = bspc
-                y u i o p [ ] \
-                h j k l ; ' ret
-                n m , . / rsft
-                ralt rmet rctl
-                spc
-              )
-              ;; Keys that trigger right-hand mods (Left side + Space)
-              l-triggers (
+              ;; Timing Variables
+              tapping-term 300
+              quick-tap 175
+
+              ;; left-hand keys no homerow mods
+              l-keys (
                 grv 1 2 3 4 5
                 tab q w e r t
-                caps a s d f g
+                caps
                 lsft z x c v b
                 lctl lmet lalt
-                spc
+              )
+              ;; left-hand homerow mods
+              l-hrm (
+                a s d f g
+              )
+              ;; right-hand keys no homerow mods
+              r-keys (
+                6 7 8 9 0 - = bspc
+                y u i o p [ ] \
+                ' ret
+                n m , . / rsft
+                ralt rmet rctl
+              )
+              ;; right-hand homerow mods
+              r-hrm (
+                h j k l ;
               )
             )
 
@@ -52,24 +63,24 @@
 
               ;; Homerow Mods
               ;; Left Hand
-              a (tap-hold-release-keys 300 175 a lalt $r-triggers)
-              s (tap-hold-release-keys 300 175 s lctl $r-triggers)
-              d (tap-hold-release-keys 300 175 d lsft $r-triggers)
-              f (tap-hold-release-keys 300 175 f lmet $r-triggers)
-              g (tap-hold-release-keys 300 175 g ralt $r-triggers)
+              a (tap-hold-release-tap-keys-release $quick-tap $tapping-term a lalt $l-keys $l-hrm)
+              s (tap-hold-release-tap-keys-release $quick-tap $tapping-term s lctl $l-keys $l-hrm)
+              d (tap-hold-release-tap-keys-release $quick-tap $tapping-term d lsft $l-keys $l-hrm)
+              f (tap-hold-release-tap-keys-release $quick-tap $tapping-term f lmet $l-keys $l-hrm)
+              g (tap-hold-release-tap-keys-release $quick-tap $tapping-term g ralt $l-keys $l-hrm)
 
               ;; Right Hand
-              h (tap-hold-release-keys 300 175 h ralt $l-triggers)
-              j (tap-hold-release-keys 300 175 j lmet $l-triggers)
-              k (tap-hold-release-keys 300 175 k lsft $l-triggers)
-              l (tap-hold-release-keys 300 175 l lctl $l-triggers)
-              ; (tap-hold-release-keys 300 175 ; lalt $l-triggers)
+              h (tap-hold-release-tap-keys-release $quick-tap $tapping-term h ralt $r-keys $r-hrm)
+              j (tap-hold-release-tap-keys-release $quick-tap $tapping-term j rmet $r-keys $r-hrm)
+              k (tap-hold-release-tap-keys-release $quick-tap $tapping-term k rsft $r-keys $r-hrm)
+              l (tap-hold-release-tap-keys-release $quick-tap $tapping-term l rctl $r-keys $r-hrm)
+              ; (tap-hold-release-tap-keys-release $quick-tap $tapping-term ; ralt $r-keys $r-hrm)
             )
 
             (deflayer base
               grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
               tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-              @lt  a    s    d    f    g    h    j    k    l    ;    '    ret
+              @lt  @a   @s   @d   @f   @g   @h   @j   @k   @l   @;   '    ret
               lsft z    x    c    v    b    n    m    ,    .    /    rsft
               lctl lmet lalt           spc            ralt @lt  rctl
             )
