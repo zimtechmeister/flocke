@@ -12,14 +12,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 
 -- Stop automatic insertion of comments on newline 'fo-table' for reference
-vim.api.nvim_create_autocmd("FileType", {
-    desc = "Stop automatic insertion of comments on newline",
-    group = qol,
-    pattern = "*",
-    callback = function()
-        vim.opt.formatoptions:remove { "c", "r", "o" }
-    end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--     desc = "Stop automatic insertion of comments on newline",
+--     group = qol,
+--     pattern = "*",
+--     callback = function()
+--         vim.opt.formatoptions:remove { "c", "r", "o" }
+--     end,
+-- })
 
 -- show line numbers and more in terminal buffer
 vim.api.nvim_create_autocmd("TermOpen", {
