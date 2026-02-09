@@ -9,6 +9,7 @@
   config = lib.mkIf config.my.starship.enable {
     programs.starship = {
       enable = true;
+      enableFishIntegration = true;
       enableZshIntegration = true;
       settings = {
         follow_symlinks = false;

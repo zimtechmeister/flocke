@@ -9,6 +9,7 @@
   config = lib.mkIf config.my.fzf.enable {
     programs.fzf = {
       enable = true;
+      enableFishIntegration = true;
       enableZshIntegration = true;
     };
   };

@@ -27,7 +27,6 @@
       smartmontools
       pulsemixer
 
-      chromium
       self.packages.${pkgs.stdenv.hostPlatform.system}.helium
 
       discord

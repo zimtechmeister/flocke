@@ -7,7 +7,7 @@
     ./kanata.nix
     ./maintainance.nix
     ./openssh.nix
-    ./zsh.nix
+    ./shell.nix
     ./packages.nix
   ];
 
@@ -17,7 +17,7 @@
       kanata.enable = lib.mkDefault true;
       maintainance.enable = lib.mkDefault true;
       openssh.enable = lib.mkDefault true;
-      zsh.enable = lib.mkDefault true;
+      shell.enable = lib.mkDefault true;
       general-packages.enable = lib.mkDefault true;
     };
   };
