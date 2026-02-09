@@ -7,7 +7,6 @@
     ./hyprland
     # ./niri
     ./swaync
-    # ./walker
     ./waybar
     ./firefox.nix
     ./ghostty.nix
@@ -30,7 +29,6 @@
       hyprland.plugins.hyprscrolling.enable = lib.mkDefault false;
       # niri.enable = lib.mkDefault false;
       swaync.enable = lib.mkDefault false;
-      # walker.enable = lib.mkDefault true;
       waybar.enable = lib.mkDefault false;
       firefox.enable = lib.mkDefault false;
       ghostty.enable = lib.mkDefault true;

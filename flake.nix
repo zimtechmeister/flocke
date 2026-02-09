@@ -43,8 +43,6 @@
 
     niri.url = "github:sodiboo/niri-flake";
 
-    walker.url = "github:abenz1267/walker";
-
     vicinae.url = "github:vicinaehq/vicinae";
 
     zen-browser = {
