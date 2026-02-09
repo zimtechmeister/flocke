@@ -17,6 +17,5 @@
     scripts.enable = lib.mkForce true;
 
     hyprland.monitorLayout = lib.mkDefault "desktop";
-    waybar.config = lib.mkDefault "desktop";
   };
 }

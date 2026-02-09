@@ -26,11 +26,9 @@
         screenshot-path = "~/Pictures/screenshot_%Y-%m-%d_%H:%M:%S.png";
         prefer-no-csd = true;
         spawn-at-startup = [
-          {command = ["wl-paste" "--watch" "cliphist" "store"];}
+          # {command = ["wl-paste" "--watch" "cliphist" "store"];}
           # {command = ["systemctl" "--user" "start" "hyprpolkitagent"];}
           {command = ["systemctl" "--user" "start" "xwayland-satellite"];}
-          # {command = ["waybar"];}
-          {command = ["systemctl" "--user" "start" "swaync"];}
         ];
 
         environment = {

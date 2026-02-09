@@ -71,13 +71,6 @@ in {
         monitor = monitorLayout;
         exec-once = [
           "touch ~/.config/hypr/monitors.conf"
-          # "wl-paste --watch cliphist store"
-          # "systemctl --user start hyprpolkitagent"
-          # "waybar"
-          # "swaync"
-          # NOTE: which way should you start waybar?
-          # "systemctl --user start waybar" # could also be done in the waybar config using nix
-          # "uwsm app -s s -- waybar"
         ];
         input = {
           kb_layout = "eu, de, us";

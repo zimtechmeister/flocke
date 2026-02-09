@@ -18,6 +18,5 @@
     scripts.enable = lib.mkForce false;
 
     hyprland.monitorLayout = lib.mkDefault "optiplex3000";
-    waybar.config = lib.mkDefault "optiplex3000";
   };
 }
