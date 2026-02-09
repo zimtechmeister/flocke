@@ -56,7 +56,7 @@
       openconnect
       wireguard-tools
       yt-dlp
-      gemini-cli
+      gemini-cli-bin
       inputs.nix-alien.packages.${pkgs.stdenv.hostPlatform.system}.nix-alien
       self.packages.${pkgs.stdenv.hostPlatform.system}.neovix
     ];

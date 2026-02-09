@@ -32,6 +32,7 @@
               tapping-term 300
               quick-tap 175
 
+              ;; TODO: does not respect nav layer
               ;; left-hand keys no homerow mods
               l-keys (
                 grv 1 2 3 4 5
@@ -59,7 +60,7 @@
             )
 
             (defalias
-              lt (tap-hold-release 300 175 esc (layer-toggle nav))
+              spc (tap-hold-release 300 175 spc (layer-toggle nav))
 
               ;; Homerow Mods
               ;; Left Hand
@@ -75,19 +76,31 @@
               k (tap-hold-release-tap-keys-release $quick-tap $tapping-term k rsft $r-keys $r-hrm)
               l (tap-hold-release-tap-keys-release $quick-tap $tapping-term l rctl $r-keys $r-hrm)
               ; (tap-hold-release-tap-keys-release $quick-tap $tapping-term ; ralt $r-keys $r-hrm)
+
+              ;; nav layer
+              ;; Left Hand
+              4 (tap-hold-release-tap-keys-release $quick-tap $tapping-term 4 lctl $l-keys $l-hrm)
+              5 (tap-hold-release-tap-keys-release $quick-tap $tapping-term 5 lsft $l-keys $l-hrm)
+              6 (tap-hold-release-tap-keys-release $quick-tap $tapping-term 6 lmet $l-keys $l-hrm)
+
+              ;; Right Hand
+              le (tap-hold-release-tap-keys-release $quick-tap $tapping-term left ralt $r-keys $r-hrm)
+              do (tap-hold-release-tap-keys-release $quick-tap $tapping-term down rmet $r-keys $r-hrm)
+              up (tap-hold-release-tap-keys-release $quick-tap $tapping-term up rsft $r-keys $r-hrm)
+              ri (tap-hold-release-tap-keys-release $quick-tap $tapping-term right rctl $r-keys $r-hrm)
             )
 
             (deflayer base
               grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
               tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-              @lt  @a   @s   @d   @f   @g   @h   @j   @k   @l   @;   '    ret
+              esc  @a   @s   @d   @f   @g   @h   @j   @k   @l   @;   '    ret
               lsft z    x    c    v    b    n    m    ,    .    /    rsft
-              lctl lmet lalt           spc            ralt @lt  rctl
+              lctl lmet lalt           @spc           ralt rmet rctl
             )
             (deflayer nav
               _    _    _    _    _    _    _    _    _    _    _    _    _    _
               _    _    7    8    9    0    _    _    _    _    _    _    _    _
-              _    _    4    5    6    _    left down up   right _    _    _
+              _    _    @4   @5   @6   _    @le  @do  @up  @ri  _    _    _
               _    _    1    2    3    _    _    _    _    _    _    _
               _    _    _              _              _    _    _
             )
