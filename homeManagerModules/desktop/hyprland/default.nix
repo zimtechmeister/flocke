@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   ...
@@ -22,6 +23,13 @@
     ];
   };
   monitorLayout = builtins.getAttr (config.my.hyprland.monitorLayout) monitorLayouts;
+
+  start-hyprland = pkgs.writeShellScript "start-hyprland" ''
+    # if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+    if [[ -z $DISPLAY ]] && [[ "$XDG_VTNR" = 1 ]]; then
+      exec start-hyprland
+    fi
+  '';
 in {
   imports = [
     ./keybinds.nix
@@ -40,14 +48,8 @@ in {
     plugins.hyprscrolling.enable = lib.mkEnableOption "enables hyprscrolling plugin";
   };
   config = lib.mkIf config.my.hyprland.enable {
-    programs.zsh.loginExtra = ''
-      # if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-      if [[ -z $DISPLAY ]] && [[ "$XDG_VTNR" = 1 ]]; then
-        # exec uwsm start select
-        # exec uwsm start default
-        # exec uwsm start hyprland-uwsm.desktop
-        exec start-hyprland
-      fi
+    programs.fish.loginShellInit = ''
+      ${start-hyprland}
     '';
     wayland.windowManager.hyprland = {
       enable = true;
