@@ -43,7 +43,7 @@
       };
 
       initContent = let
-        mynvim = self.packages.${pkgs.stdenv.hostPlatform.system}.neovix;
+        mynvim = lib.getExe' self.packages.${pkgs.stdenv.hostPlatform.system}.neovix "nvim";
       in
         /*
         sh
@@ -73,10 +73,10 @@
               # CASE 1: Files provided (e.g., 'mux test.lua')
               if [ -n "$NVIM" ]; then
                 # Inside Neovim: Tell parent to open the file(s)
-                ${mynvim}/bin/nvim --server "$NVIM" --remote "$@"
+                ${mynvim} --server "$NVIM" --remote "$@"
               else
                 # Outside Neovim: Open normally
-                ${mynvim}/bin/nvim "$@"
+                ${mynvim} "$@"
               fi
             else
               # CASE 2: No arguments provided (just typed 'mux')
@@ -84,10 +84,10 @@
                 # Inside Neovim: Tell parent to open a NEW terminal split
                 # <C-\><C-n> ensures we exit insert mode first
                 # :vsplit | terminal -> opens terminal in vertical split
-                ${mynvim}/bin/nvim --server "$NVIM" --remote-send "<C-\><C-n>:terminal<CR>i"
+                ${mynvim} --server "$NVIM" --remote-send "<C-\><C-n>:terminal<CR>i"
               else
                 # Outside Neovim: Start nvim directly in terminal mode
-                ${mynvim}/bin/nvim -c "terminal"
+                ${mynvim} -c "terminal"
               fi
             fi
           }
@@ -95,7 +95,7 @@
           # update nvim cwd
           cvd() {
             if [ -n "$NVIM" ]; then
-              ${mynvim}/bin/nvim --server "$NVIM" --remote-send "<C-\><C-n>:cd $(pwd)<CR>i"
+              ${mynvim} --server "$NVIM" --remote-send "<C-\><C-n>:cd $(pwd)<CR>i"
             fi
           }
 

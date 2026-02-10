@@ -15,7 +15,7 @@
     };
     apps.neovix = {
       type = "app";
-      program = "${self'.packages.neovix}/bin/nvim";
+      program = "${pkgs.lib.getExe' self'.packages.neovix "nvim"}";
     };
     devShells.neovix = pkgs.mkShell {
       buildInputs = [self'.packages.neovix];
