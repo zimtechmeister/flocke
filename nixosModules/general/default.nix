@@ -9,6 +9,7 @@
     ./openssh.nix
     ./shell.nix
     ./packages.nix
+    ./zram.nix
   ];
 
   options.my.general.enable = lib.mkEnableOption "enables general nixos-module";
@@ -19,6 +20,7 @@
       openssh.enable = lib.mkDefault true;
       shell.enable = lib.mkDefault true;
       general-packages.enable = lib.mkDefault true;
+      zram.enable = lib.mkDefault true;
     };
   };
 }

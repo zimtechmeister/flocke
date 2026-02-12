@@ -5,7 +5,7 @@
   self,
   ...
 }: {
-  options.my.fish.enable = lib.mkEnableOption "configure fish to my liking";
+  options.my.fish.enable = lib.mkEnableOption "configure fish";
   config = lib.mkIf config.my.fish.enable {
     programs.carapace = {
       enable = true;
@@ -15,9 +15,7 @@
     # programs.atuin = {
     #   enable = true;
     #   enableFishIntegration = true;
-    #   daemon = {
-    #     enable = true;
-    #   };
+    #   daemon.enable = true;
     # };
 
     programs.fish = {
@@ -34,8 +32,8 @@
         # yazi shell wrapper
         y = ''
           set tmp (mktemp -t "yazi-cwd.XXXXXX")
-          yazi $argv --cwd-file="$tmp"
-          if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+          command yazi $argv --cwd-file="$tmp"
+          if read -z cwd < "$tmp"; and [ "$cwd" != "$PWD" ]; and test -d "$cwd"
             builtin cd -- "$cwd"
           end
           rm -f -- "$tmp"
@@ -81,14 +79,11 @@
 
       interactiveShellInit = ''
         set -g fish_greeting
+        fish_vi_key_bindings
 
         # carapace
-        set -gx CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense' # optional
-        mkdir -p ~/.config/fish/completions
+        set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense' # optional
         carapace _carapace | source
-
-        # completions show hidden files (Fish does this by default usually, but good to ensure)
-        # setopt globdots is zsh specific, fish lists hidden files if you start with .
 
         # Keybindings
         bind \cv edit_command_buffer
