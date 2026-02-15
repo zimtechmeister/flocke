@@ -9,6 +9,7 @@
   options.my.general-packages.enable = lib.mkEnableOption "general-packages";
   config = lib.mkIf config.my.general-packages.enable {
     environment.systemPackages = with pkgs; [
+      # TODO: move to shell flake for the projects that need them
       # languages
       jdk
 

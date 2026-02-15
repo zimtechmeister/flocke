@@ -9,6 +9,7 @@
   ];
   options.my.noctalia.enable = lib.mkEnableOption "enables noctalia";
   config = lib.mkIf config.my.noctalia.enable {
+    # TODO: google calendar integration using khal and vdirsyncer
     programs.noctalia-shell = {
       enable = true;
       systemd.enable = true;

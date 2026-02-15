@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./kanata.nix
-    ./maintainance.nix
+    ./nix.nix
     ./openssh.nix
     ./shell.nix
     ./packages.nix
@@ -16,7 +16,7 @@
   config = lib.mkIf config.my.general.enable {
     my = {
       kanata.enable = lib.mkDefault true;
-      maintainance.enable = lib.mkDefault true;
+      nix.enable = lib.mkDefault true;
       openssh.enable = lib.mkDefault true;
       shell.enable = lib.mkDefault true;
       general-packages.enable = lib.mkDefault true;
