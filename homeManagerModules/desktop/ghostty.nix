@@ -19,6 +19,7 @@
         keybind = [
           "ctrl+s=write_scrollback_file:open"
         ];
+        shell-integration-features = "ssh-terminfo,ssh-env";
       };
     };
   };

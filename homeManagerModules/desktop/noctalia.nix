@@ -14,18 +14,25 @@
       enable = true;
       systemd.enable = true;
       settings = {
-        settingsVersion = 37;
         appLauncher = {
+          clipboardWatchImageCommand = "wl-paste --type image --watch cliphist store";
+          clipboardWatchTextCommand = "wl-paste --type text --watch cliphist store";
+          clipboardWrapText = true;
           customLaunchPrefix = "";
           customLaunchPrefixEnabled = false;
+          density = "compact";
           enableClipPreview = true;
           enableClipboardHistory = true;
+          enableSessionSearch = true;
+          enableSettingsSearch = true;
+          enableWindowsSearch = true;
           iconMode = "tabler";
           ignoreMouseInput = false;
-          pinnedExecs = [];
-          position = "center";
+          overviewLayer = false;
+          pinnedApps = [];
+          position = "follow_bar";
           screenshotAnnotationTool = "satty -f";
-          showCategories = false;
+          showCategories = true;
           showIconBackground = true;
           sortByMostUsed = true;
           terminalCommand = "ghostty -e";
@@ -34,11 +41,10 @@
         };
         audio = {
           cavaFrameRate = 30;
-          externalMixer = "pwvucontrol || pavucontrol";
-          mprisBlacklist = [];
           preferredPlayer = "";
           visualizerType = "mirrored";
-          volumeOverdrive = false;
+          volumeFeedback = true;
+          volumeOverdrive = true;
           volumeStep = 5;
         };
         bar = {
@@ -74,7 +80,7 @@
                 enableScrollWheel = true;
                 followFocusedScreen = false;
                 groupedBorderOpacity = 1;
-                hideUnoccupied = false;
+                hideUnoccupied = true;
                 iconScale = 0.8;
                 id = "Workspace";
                 labelMode = "index";
@@ -126,12 +132,13 @@
                 usePrimaryColor = false;
               }
               {
-                displayMode = "alwaysShow";
+                deviceNativePath = "__default__";
+                displayMode = "graphic";
+                hideIfIdle = false;
                 hideIfNotDetected = true;
                 id = "Battery";
-                showNoctaliaPerformance = true;
                 showPowerProfiles = true;
-                warningThreshold = 20;
+                showNoctaliaPerformance = true;
               }
               {
                 colorizeDistroLogo = false;
@@ -249,6 +256,7 @@
           avatarImage = "/home/tim/.face";
           boxRadiusRatio = 1;
           compactLockScreen = false;
+          lockScreenAnimations = true;
           dimmerOpacity = 0.2;
           enableShadows = false;
           forceBlackScreenCorners = false;
@@ -338,18 +346,6 @@
           monitors = [];
           overlayLayer = true;
         };
-        screenRecorder = {
-          audioCodec = "opus";
-          audioSource = "default_output";
-          colorRange = "limited";
-          copyToClipboard = false;
-          directory = "/home/tim/Videos";
-          frameRate = 60;
-          quality = "very_high";
-          showCursor = true;
-          videoCodec = "h264";
-          videoSource = "portal";
-        };
         sessionMenu = {
           countdownDuration = 2000;
           enableCountdown = true;
@@ -422,31 +418,8 @@
           warningColor = "";
         };
         templates = {
-          alacritty = false;
-          cava = false;
-          code = false;
-          discord = false;
-          emacs = false;
-          enableUserTemplates = false;
-          foot = false;
-          fuzzel = false;
-          ghostty = false;
-          gtk = false;
-          helix = false;
-          hyprland = false;
-          kcolorscheme = false;
-          kitty = false;
-          mango = false;
-          niri = false;
-          pywalfox = false;
-          qt = false;
-          spicetify = false;
-          telegram = false;
-          vicinae = false;
-          walker = false;
-          wezterm = false;
-          yazi = false;
-          zed = false;
+          activeTemplates = [];
+          enableUserTheming = false;
         };
         ui = {
           boxBorderEnabled = false;
