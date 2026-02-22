@@ -1,14 +1,18 @@
 {
-  inputs,
+  # inputs,
   lib,
   config,
   ...
 }: {
-  imports = [inputs.nix-index-database.nixosModules.nix-index];
+  # imports = [inputs.nix-index-database.nixosModules.nix-index];
   options.my.nix.enable = lib.mkEnableOption "nix";
   config = lib.mkIf config.my.nix.enable {
     programs = {
-      nix-index-database.comma.enable = true;
+      # nix-index = {
+      #   enable = true;
+      #   enableFishIntegration = true;
+      # };
+      # nix-index-database.comma.enable = true;
       nh = {
         enable = true;
         # clean = {

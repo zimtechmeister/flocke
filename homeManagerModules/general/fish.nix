@@ -3,14 +3,28 @@
   config,
   pkgs,
   self,
+  inputs,
   ...
 }: {
+  imports = [
+    inputs.nix-index-database.homeModules.nix-index
+  ];
+
   options.my.fish.enable = lib.mkEnableOption "configure fish";
   config = lib.mkIf config.my.fish.enable {
     programs.carapace = {
       enable = true;
       enableFishIntegration = true;
     };
+    programs.nix-index = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+    programs.nix-index-database.comma.enable = true;
+
+    # programs.command-not-found = {
+    #   enable = true;
+    # };
     # TODO: selfhost?
     # programs.atuin = {
     #   enable = true;
@@ -84,9 +98,6 @@
         # carapace
         set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense' # optional
         carapace _carapace | source
-
-        # Keybindings
-        bind \cv edit_command_buffer
       '';
     };
   };

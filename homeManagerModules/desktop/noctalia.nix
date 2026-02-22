@@ -347,51 +347,64 @@
           overlayLayer = true;
         };
         sessionMenu = {
-          countdownDuration = 2000;
+          countdownDuration = 5000;
           enableCountdown = true;
           largeButtonsLayout = "grid";
-          largeButtonsStyle = true;
-          position = "center";
+          largeButtonsStyle = false;
+          position = "top_right";
           powerOptions = [
             {
               action = "shutdown";
               command = "";
               countdownEnabled = true;
               enabled = true;
+              keybind = "1";
             }
             {
               action = "reboot";
               command = "";
               countdownEnabled = true;
               enabled = true;
+              keybind = "2";
             }
             {
               action = "lock";
               command = "";
               countdownEnabled = false;
               enabled = true;
+              keybind = "3";
             }
             {
               action = "suspend";
               command = "";
               countdownEnabled = true;
               enabled = true;
+              keybind = "4";
             }
             {
               action = "hibernate";
               command = "";
               countdownEnabled = true;
               enabled = true;
+              keybind = "5";
             }
             {
               action = "logout";
               command = "";
               countdownEnabled = true;
               enabled = true;
+              keybind = "6";
+            }
+            {
+              action = "rebootToUefi";
+              command = "";
+              countdownEnabled = true;
+              enabled = true;
+              keybind = "7";
             }
           ];
           showHeader = true;
-          showNumberLabels = true;
+          showKeybinds = true;
         };
         systemMonitor = {
           cpuCriticalThreshold = 90;
