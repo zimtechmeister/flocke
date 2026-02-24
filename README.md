@@ -76,9 +76,14 @@ sudo nix-store --optimise
 <details>
 <summary>todo</summary>
 
+[generally good source](https://www.vimjoyer.com/nix)
+[vimjoyer](https://github.com/Goxore/nixconf)
 - [ ] update (e.g. helium) using github actions
 - [ ] devenv / devbox / flox / direnv / my own
 - [ ] secrets sops [vimjoyer](https://www.youtube.com/watch?v=G5f6GC7SnhU)
+- [ ] [hardware](https://github.com/NixOS/nixos-hardware) / [facter](https://github.com/nix-community/nixos-facter)
+- [ ] secureboot [lancaboote](https://github.com/nix-community/lanzaboote)
+- [ ] [anywhere](https://github.com/nix-community/nixos-anywhere) [example](https://github.com/nix-community/nixos-anywhere-examples)
 ## laptop only:
 - [ ] tlp
 

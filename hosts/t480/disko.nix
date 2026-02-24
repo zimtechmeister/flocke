@@ -1,24 +1,14 @@
 {
   disko.devices = {
     disk.main = {
-      # NOTE: find the disk id by the most plausable option that points to ../../sda forexample
-      # ls /dev/disk/by-id/
-      # device = "/dev/disk/by-id/ata-Samsung_SSD_750_EVO_250GB_S33SNWBH664027Y";
-      device = "/dev/sda";
+      device = "/dev/disk/by-id/nvme-Micron_2450_NVMe_256GB_22353B15F9E2";
       type = "disk";
       content = {
         type = "gpt";
         partitions = {
-          # TODO: remove later
-          # If you use pure UEFI, this is probably useless, but it doesn’t hurt.
-          boot = {
-            name = "boot";
-            size = "1M";
-            type = "EF02";
-          };
-          esp = {
-            name = "ESP";
-            size = "500M";
+          ESP = {
+            priority = 1;
+            size = "1G";
             type = "EF00";
             content = {
               type = "filesystem";
@@ -27,20 +17,52 @@
               mountOptions = ["umask=0077"]; # security measurements only root can edit /boot
             };
           };
+          luks = {
+            size = "100%";
+            content = {
+              type = "luks";
+              name = "crypted";
+              settings = {
+                allowDiscards = true;
+                # if you want to use the key for interactive login be sure there is no trailing newline
+                # for example use `echo -n "password" > /tmp/secret.key`
+                # keyFile = "/tmp/secret.key"; # if not set, the user will be prompted to set a password during installation
+              };
+              content = {
+                type = "lvm_pv";
+                vg = "pool";
+              };
+            };
+          };
+        };
+      };
+    };
+    lvm_vg = {
+      pool = {
+        type = "lvm_vg";
+        lvs = {
           swap = {
-            size = "8G";
+            size = "16G";
             content = {
               type = "swap";
               resumeDevice = true;
             };
           };
           root = {
-            name = "root";
-            size = "100%";
+            size = "100%FREE"; # Uses all remaining space in the LVM Volume Group
             content = {
-              type = "filesystem";
-              format = "ext4";
-              mountpoint = "/";
+              type = "btrfs";
+              extraArgs = ["-f"];
+              subvolumes = {
+                "/root" = {
+                  mountpoint = "/";
+                  mountOptions = ["compress=zstd" "noatime"];
+                };
+                "/home" = {
+                  mountpoint = "/home";
+                  mountOptions = ["compress=zstd" "noatime"];
+                };
+              };
             };
           };
         };
