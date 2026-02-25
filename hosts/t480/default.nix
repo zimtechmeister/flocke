@@ -13,7 +13,7 @@
   };
 
   home-manager.users.tim.my = {
-    kanata.enable = lib.mkDefault true;
+    # kanata.enable = lib.mkForce true;
     desktop.enable = lib.mkForce true;
     general.enable = lib.mkForce true;
     scripts.enable = lib.mkForce true;

@@ -15,6 +15,7 @@
   options.my.general.enable = lib.mkEnableOption "enables general nixos-module";
   config = lib.mkIf config.my.general.enable {
     my = {
+      kanata.enable = lib.mkDefault false;
       nix.enable = lib.mkDefault true;
       openssh.enable = lib.mkDefault true;
       shell.enable = lib.mkDefault true;
