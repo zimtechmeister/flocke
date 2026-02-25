@@ -9,11 +9,11 @@
   my = {
     desktop.enable = lib.mkForce true;
     laptop.enable = lib.mkForce true;
+    kanata.enable = lib.mkForce true;
     bluetooth.enable = lib.mkForce true;
   };
 
   home-manager.users.tim.my = {
-    # kanata.enable = lib.mkForce true;
     desktop.enable = lib.mkForce true;
     general.enable = lib.mkForce true;
     scripts.enable = lib.mkForce true;

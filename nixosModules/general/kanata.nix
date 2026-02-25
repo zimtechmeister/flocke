@@ -7,6 +7,17 @@
 
   config = lib.mkIf config.my.kanata.enable {
     hardware.uinput.enable = true;
+    # NOTE: this fixed some permission bug i had but i think restarting also fixed it
+    # systemd.services.kanata-internal.serviceConfig = {
+    #   ExecStartPre = [
+    #     "+${pkgs.acl}/bin/setfacl -m g:uinput:rw /dev/uinput"
+    #   ];
+    #   SupplementaryGroups = [
+    #     "input"
+    #     "uinput"
+    #   ];
+    #   PrivateUsers = lib.mkForce false;
+    # };
     services.kanata = {
       enable = true;
       keyboards = {
