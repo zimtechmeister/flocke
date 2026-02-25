@@ -11,7 +11,7 @@ generate hardwareconfig if needed:
 ```bash
 nixos-generate-config --no-filesystems --force --dir ./ # when to use --root?
 ```
-there is a disko-install command which should do both in one step but im not shure if it works correctly
+there is a disko-install command which should format the disk and install nixos, but ram usage is very high and it seems to be better to do it manually
 ```bash
 sudo nix run --extra-experimental-features 'nix-command flakes' github:nix-community/disko/latest#disko-install -- --flake .#desktop --disk main /dev/sda
 ```
@@ -21,8 +21,6 @@ clone the repo first
 sudo nix \
 --extra-experimental-features 'nix-command flakes' \
 run github:nix-community/disko/latest -- --mode disko ./hosts/desktop/disko.nix
-# NOTE: the above seems to work but the docs use this instead
-# run github:nix-community/disko/latest -- --mode destroy,format,mount ./hosts/desktop/disko.nix
 ```
 Installation (dont forget to enter the root password in this step)
 ```bash
@@ -30,6 +28,7 @@ sudo nixos-install --flake .#desktop
 ```
 set user password with `passwd tim`
 
+launch `display settings`/ `nwg-displays` and apply the correct display configuration
 </details>
 
 <details>
