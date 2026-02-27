@@ -121,23 +121,29 @@
       startPluginsWithDeps
     }
   '';
+  neovim = inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  # neovim = pkgs.neovim-unwrapped; # stable neovim
 in
-  pkgs.symlinkJoin {
+  pkgs.buildEnv {
     name = "neovix";
     paths =
       [
-        inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default
-        # pkgs.neovim-unwrapped # stable neovim
+        neovim
       ]
       ++ extraPackages;
-    nativeBuildInputs = [pkgs.makeWrapper];
+    ignoreCollisions = true;
     postBuild = ''
-      wrapProgram $out/bin/nvim \
+      # Remove the symlinked nvim binary so we can create a wrapped version
+      rm $out/bin/nvim
+      cp ${neovim}/bin/nvim $out/bin/.nvim-unwrapped
+      makeWrapper $out/bin/.nvim-unwrapped $out/bin/nvim \
         --add-flags '-u ${./nvim/init.lua}' \
-        --add-flags "--cmd 'set packpath^=${packpath} | set runtimepath^=${./nvim},${packpath}'"
-      ln -s $out/bin/nvim $out/bin/vi
-      ln -s $out/bin/nvim $out/bin/vim
+        --add-flags "--cmd 'set packpath^=${packpath} | set runtimepath^=${./nvim},${packpath}'" \
+        --prefix PATH : $out/bin
+      ln -sf $out/bin/nvim $out/bin/vi
+      ln -sf $out/bin/nvim $out/bin/vim
     '';
+    buildInputs = [pkgs.makeWrapper];
 
     passthru = {
       inherit packpath;
