@@ -34,7 +34,6 @@ in {
   imports = [
     ./keybinds.nix
     # NOTE: after enabeling a plugin restart hyprland
-    ./plugins/hyprscrolling.nix
     # ./plugins/hyprbars.nix
   ];
   options.my.hyprland = {
@@ -45,7 +44,6 @@ in {
         hyprland monitor layout
       '';
     };
-    plugins.hyprscrolling.enable = lib.mkEnableOption "enables hyprscrolling plugin";
   };
   config = lib.mkIf config.my.hyprland.enable {
     programs.fish.loginShellInit = ''
@@ -87,12 +85,17 @@ in {
           #col.active_border = rgb(ea6962) rgb(e78a4e) rgb(d8a657) rgb(a9b665) rgb(89b482) rgb(7daea3) rgb(d3869b) 0deg
           # NOTE: transparent
           "col.inactive_border" = lib.mkForce "rgba(${config.stylix.base16Scheme.base11}00)";
-
-          layout = "dwindle";
           resize_on_border = true;
           snap = {
             enabled = true;
           };
+
+          layout = "scrolling";
+        };
+        scrolling = {
+          fullscreen_on_one_column = true;
+          column_width = 1.0;
+          focus_fit_method = 1;
         };
         decoration = {
           rounding = 0;
@@ -111,10 +114,6 @@ in {
             color = lib.mkForce "rgb(${config.stylix.base16Scheme.base11})";
             color_inactive = lib.mkForce "rgba(${config.stylix.base16Scheme.base11}00)"; # if not set, will fall back to color
           };
-        };
-        dwindle = {
-          force_split = 2;
-          preserve_split = true;
         };
         misc = {
           # solid background_color (wallpaper)

@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./bluetooth.nix
+    ./evolution-data-server.nix
     ./fonts.nix
     ./gaming.nix
     ./hyprland.nix
@@ -17,6 +18,7 @@
   config = lib.mkIf config.my.desktop.enable {
     my = {
       bluetooth.enable = lib.mkDefault false;
+      evolution-data-server.enable = lib.mkDefault true;
       fonts.enable = lib.mkDefault true;
       gaming.enable = lib.mkDefault false;
       hyprland.enable = lib.mkDefault true;

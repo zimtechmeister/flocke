@@ -53,7 +53,7 @@
 
       # testing editors
       zed-editor
-      helix
+      nil # needs to be installed seperately for nix lsp
     ];
     services.udev.packages = [pkgs.via];
     hardware.opentabletdriver.enable = true; # TODO: not working as expected

@@ -2,6 +2,7 @@
   lib,
   config,
   inputs,
+  pkgs,
   ...
 }: {
   imports = [
@@ -9,9 +10,10 @@
   ];
   options.my.noctalia.enable = lib.mkEnableOption "enables noctalia";
   config = lib.mkIf config.my.noctalia.enable {
-    # TODO: google calendar integration using khal and vdirsyncer
+    # NOTE: evolution-data-server must be enabled at the NixOS level for calendar events
     programs.noctalia-shell = {
       enable = true;
+      package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.override {calendarSupport = true;};
       systemd.enable = true;
       settings = {
         appLauncher = {
@@ -154,7 +156,7 @@
         };
         brightness = {
           brightnessStep = 5;
-          enableDdcSupport = false;
+          enableDdcSupport = true;
           enforceMinimum = true;
         };
         calendar = {
@@ -229,6 +231,14 @@
             ];
           };
         };
+        idle = {
+          enabled = true;
+          screenOffTimeout = 600;
+          lockTimeout = 660;
+          suspendTimeout = 1800;
+          fadeDuration = 5;
+          customCommands = [];
+        };
         desktopWidgets = {
           enabled = false;
           gridSnap = false;
@@ -269,7 +279,7 @@
           shadowDirection = "bottom_right";
           shadowOffsetX = 2;
           shadowOffsetY = 3;
-          showHibernateOnLockScreen = false;
+          showHibernateOnLockScreen = true;
           showScreenCorners = false;
           showSessionButtonsOnLockScreen = true;
         };
@@ -347,7 +357,7 @@
           overlayLayer = true;
         };
         sessionMenu = {
-          countdownDuration = 5000;
+          countdownDuration = 2000;
           enableCountdown = true;
           largeButtonsLayout = "grid";
           largeButtonsStyle = false;
