@@ -50,6 +50,10 @@
       switcheroo
       pandoc
       imagemagick
+
+      # testing editors
+      zed-editor
+      helix
     ];
     services.udev.packages = [pkgs.via];
     hardware.opentabletdriver.enable = true; # TODO: not working as expected
