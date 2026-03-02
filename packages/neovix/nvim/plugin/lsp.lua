@@ -1,18 +1,36 @@
 -- default config provided by nvim-lspconfig
 -- for reference https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
+
+-- vtsls: override nvim-lspconfig defaults (vim.lsp.config has highest priority)
+vim.lsp.config('vtsls', {
+    filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+    settings = {
+        vtsls = {
+            tsserver = {
+                globalPlugins = {
+                    {
+                        name = '@vue/typescript-plugin',
+                        location = os.getenv('VUE_TS_PLUGIN_PATH'),
+                        languages = { 'vue' },
+                        configNamespace = 'typescript',
+                    },
+                },
+            },
+        },
+    },
+})
+
+vim.lsp.enable('copilot')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('clangd')
 vim.lsp.enable('jdtls')
-vim.lsp.enable('rust_analyzer')
+-- vim.lsp.enable('rust_analyzer')
 vim.lsp.enable('nixd')
-vim.lsp.enable('copilot')
-vim.lsp.enable('air')
 vim.lsp.enable('tinymist')
-vim.lsp.enable('eslint') -- can only lint but also works for .vue files
-vim.lsp.enable('vtsls')  -- like more than ts_ls
+-- vim.lsp.enable('eslint') -- can only lint but also works for .vue files
+vim.lsp.enable('vtsls')
+vim.lsp.enable('vue_ls')
 vim.lsp.enable('tailwindcss')
--- vim.lsp.enable('ts_ls')
--- vim.lsp.enable('vue_ls') -- erlöse mein leid
 
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)

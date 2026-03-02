@@ -74,18 +74,17 @@
 
   extraPackages = with pkgs; [
     # --- language servers(lsp), etc. ---
-    lua-language-server
-    jdt-language-server
-    clang-tools
-    nixd
-    alejandra # nix formatter
     copilot-language-server
-    air-formatter
-    tinymist
-    # typescript-language-server
-    # vue-language-server
-    vscode-langservers-extracted
-    vtsls
+    lua-language-server
+    jdt-language-server # java
+    clang-tools # c/c++
+    nixd # nix
+    nil # nix
+    alejandra # nix formatter
+    tinymist #typst
+    vue-language-server
+    # vscode-langservers-extracted # eslint
+    vtsls # vue-ts-plugin
     tailwindcss-language-server
 
     # --- language specific tools ---
@@ -132,6 +131,7 @@ in
       ]
       ++ extraPackages;
     ignoreCollisions = true;
+    # VUE_TS_PLUGIN_PATH is used by vtsls lsp for vue projects
     postBuild = ''
       # Remove the symlinked nvim binary so we can create a wrapped version
       rm $out/bin/nvim
@@ -139,7 +139,8 @@ in
       makeWrapper $out/bin/.nvim-unwrapped $out/bin/nvim \
         --add-flags '-u ${./nvim/init.lua}' \
         --add-flags "--cmd 'set packpath^=${packpath} | set runtimepath^=${./nvim},${packpath}'" \
-        --prefix PATH : $out/bin
+        --prefix PATH : $out/bin \
+        --set VUE_TS_PLUGIN_PATH "${pkgs.vue-language-server}/lib/language-tools/packages/language-server"
       ln -sf $out/bin/nvim $out/bin/vi
       ln -sf $out/bin/nvim $out/bin/vim
     '';
