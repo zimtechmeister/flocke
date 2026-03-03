@@ -284,13 +284,15 @@
           showSessionButtonsOnLockScreen = true;
         };
         hooks = {
+          enabled = true;
+          wallpaperChange = "";
           darkModeChange = "";
-          enabled = false;
-          performanceModeDisabled = "";
-          performanceModeEnabled = "";
           screenLock = "";
           screenUnlock = "";
-          wallpaperChange = "";
+          performanceModeEnabled = "";
+          performanceModeDisabled = "";
+          startup = "";
+          session = "${lib.getExe pkgs.hyprshutdown} -p $1";
         };
         location = {
           analogClockInCalendar = false;

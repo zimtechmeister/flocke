@@ -94,8 +94,10 @@ in {
         };
         scrolling = {
           fullscreen_on_one_column = true;
-          column_width = 1.0;
+          column_width = 0.667;
           focus_fit_method = 1;
+          follow_min_visible = 0.33;
+          explicit_column_widths =  "0.333, 0.5, 0.667, 1.0";
         };
         decoration = {
           rounding = 0;

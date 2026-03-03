@@ -79,8 +79,8 @@
           "SUPER SHIFT, L, movewindow, r"
         ];
         binde = [
-          "SUPER CTRL, H, layoutmsg, colresize -0.25"
-          "SUPER CTRL, L, layoutmsg, colresize +0.25"
+          "SUPER CTRL, H, layoutmsg, colresize -conf"
+          "SUPER CTRL, L, layoutmsg, colresize +conf"
 
           "SUPER CTRL, J, resizeactive, 0 20"
           "SUPER CTRL, K, resizeactive, 0 -20"
