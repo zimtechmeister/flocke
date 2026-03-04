@@ -12,7 +12,6 @@
     ./mimeApps.nix
     ./noctalia.nix
     ./vesktop.nix
-    ./vicinae.nix
     ./zen-browser.nix
   ];
 
@@ -27,7 +26,6 @@
       mimeApps.enable = lib.mkDefault true;
       noctalia.enable = lib.mkDefault true;
       vesktop.enable = lib.mkDefault true;
-      vicinae.enable = lib.mkDefault true;
       zen-browser.enable = lib.mkDefault true;
     };
   };

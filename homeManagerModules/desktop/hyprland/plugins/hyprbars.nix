@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   lib,
   config,
@@ -8,7 +7,7 @@
   wayland.windowManager = {
     hyprland = {
       plugins = [
-        inputs.hyprland-plugins.packages."${pkgs.stdenv.hostPlatform.system}".hyprbars
+        pkgs.hyprlandPlugins.hyprbars
       ];
       settings = {
         "plugin:hyprbars" = {

@@ -31,20 +31,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri.url = "github:sodiboo/niri-flake";
-
-    vicinae.url = "github:vicinaehq/vicinae";
+    # niri.url = "github:sodiboo/niri-flake";
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
