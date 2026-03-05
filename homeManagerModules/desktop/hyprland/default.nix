@@ -97,7 +97,8 @@ in {
           column_width = 0.667;
           focus_fit_method = 1;
           follow_min_visible = 0.33;
-          explicit_column_widths =  "0.333, 0.5, 0.667, 1.0";
+          explicit_column_widths = "0.333, 0.5, 0.667, 1.0";
+          direction = "right";
         };
         decoration = {
           rounding = 0;
@@ -116,6 +117,25 @@ in {
             color = lib.mkForce "rgb(${config.stylix.base16Scheme.base11})";
             color_inactive = lib.mkForce "rgba(${config.stylix.base16Scheme.base11}00)"; # if not set, will fall back to color
           };
+        };
+        animations = {
+          enabled = true;
+          workspace_wraparound = false;
+          # For animation style slide in windows and layers you can specify a forced side. You can choose between top, bottom, left or right.
+          animation = [
+            "windowsIn, 1, 4, default, slide ${config.wayland.windowManager.hyprland.settings.scrolling.direction}"
+            "windowsOut, 1, 4, default, slide ${config.wayland.windowManager.hyprland.settings.scrolling.direction}"
+            "windowsMove, 1, 4, default"
+            "layers, 1, 4, default, slide ${config.programs.noctalia-shell.settings.bar.position}"
+            "fade, 0"
+            "fadeShadow, 1, 4, default"
+            "fadeDim, 1, 4, default"
+            "fadePopups, 1, 4, default"
+            "fadeDpms, 1, 4, default"
+            "border, 0"
+            "borderangle, 0"
+            "workspaces, 1, 4, default, slidevert"
+          ];
         };
         misc = {
           # solid background_color (wallpaper)
