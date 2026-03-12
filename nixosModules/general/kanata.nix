@@ -86,7 +86,7 @@
               j (tap-hold-release-tap-keys-release $quick-tap $tapping-term j rmet $r-keys $r-hrm)
               k (tap-hold-release-tap-keys-release $quick-tap $tapping-term k rsft $r-keys $r-hrm)
               l (tap-hold-release-tap-keys-release $quick-tap $tapping-term l rctl $r-keys $r-hrm)
-              ; (tap-hold-release-tap-keys-release $quick-tap $tapping-term ; ralt $r-keys $r-hrm)
+              ; (tap-hold-release-tap-keys-release $quick-tap $tapping-term ; lalt $r-keys $r-hrm)
 
               ;; nav layer
               ;; Left Hand
