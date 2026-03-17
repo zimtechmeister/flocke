@@ -65,6 +65,10 @@ in {
           name = at-translated-set-2-keyboard
           enabled = $LAPTOP_KB_ENABLED
         }
+        device {
+          name = synaptics-tm3276-022
+          accel_profile = adaptive
+        }
         source = ~/.config/hypr/monitors.conf
       '';
       settings = {
@@ -136,6 +140,10 @@ in {
             "borderangle, 0"
             "workspaces, 1, 4, default, slidevert"
           ];
+        };
+        gestures = {
+          workspace_swipe_distance = 200;
+          workspace_swipe_invert = false;
         };
         misc = {
           # solid background_color (wallpaper)

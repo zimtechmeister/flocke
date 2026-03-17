@@ -92,6 +92,11 @@
         bindl = [
           ", switch:on:Lid Switch, exec, noctalia-shell ipc call sessionMenu lockAndSuspend"
         ];
+        gesture = [
+          "3, vertical, workspace"
+          "3, right, dispatcher, layoutmsg, focus r"
+          "3, left, dispatcher, layoutmsg, focus l"
+        ];
       };
     };
   };
