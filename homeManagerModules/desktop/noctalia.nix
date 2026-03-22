@@ -292,7 +292,8 @@
           performanceModeEnabled = "";
           performanceModeDisabled = "";
           startup = "";
-          session = "${lib.getExe pkgs.hyprshutdown} -p $1";
+          # session = "${lib.getExe pkgs.hyprshutdown} -p $1";
+          session = "hyprctl dispatch exit && $1";
         };
         location = {
           analogClockInCalendar = false;

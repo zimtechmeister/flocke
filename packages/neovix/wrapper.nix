@@ -53,7 +53,7 @@
         owner = "neanias";
         repo = "everforest-nvim";
         rev = "main";
-        hash = "sha256-y0uLY2fx10fZvdHlsme9c8HZ3pz+kHOFS8OEgqeq4uU=";
+        hash = "sha256-PXZpEl2CIlgmXqqFMh1nSwxGOtiM0jmKYDBF2DoVCpc=";
       };
     })
 
