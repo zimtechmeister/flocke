@@ -11,12 +11,12 @@
     xdg = {
       terminal-exec = {
         enable = true;
-      };
-      mimeApps = {
-        enable = true;
         settings = {
           default = ["ghostty.desktop"];
         };
+      };
+      mimeApps = {
+        enable = true;
         defaultApplications = {
           "text/*" = ["nvim.desktop"];
 
