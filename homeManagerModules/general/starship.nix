@@ -17,10 +17,8 @@
 
         format = ''
           $fill$directory $username[@](green)$hostname
-          $character
-        '';
-        right_format = ''
-        '';
+          $character'';
+        right_format = "";
 
         fill = {
           symbol = " ";
