@@ -98,11 +98,11 @@ in {
         };
         scrolling = {
           fullscreen_on_one_column = false;
-          column_width = 0.94;
+          column_width = 0.95;
           focus_fit_method = 0;
           follow_focus = true;
           follow_min_visible = 0.3;
-          explicit_column_widths = "0.333, 0.5, 0.667, 0.94";
+          explicit_column_widths = "0.333, 0.5, 0.667, 0.95";
           # wrap_focus = false; # TODO: will come with one of the next updates
           direction = "right";
         };

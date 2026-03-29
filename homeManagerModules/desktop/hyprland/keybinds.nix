@@ -64,9 +64,9 @@
           "SUPER, P, layoutmsg, promote"
 
           "SUPER, H, layoutmsg, focus l"
-          "SUPER, J, layoutmsg, focus d"
+          "SUPER, J, layoutmsg, focus d" # TODO: move workspace next if cant foucs down
           "SUPER, K, layoutmsg, focus u"
-          "SUPER, L, layoutmsg, focus r"
+          "SUPER, L, layoutmsg, focus r" # TODO: move workspace next if cant foucs down
 
           "SUPER, left, focusmonitor, l"
           "SUPER, down, focusmonitor, d"
