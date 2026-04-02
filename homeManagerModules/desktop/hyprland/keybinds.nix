@@ -1,4 +1,47 @@
 {
+  pkgs,
+  lib,
+  ...
+}: let
+  jq = lib.getExe pkgs.jq;
+  focusDown = pkgs.writeShellScript "focus-down" ''
+    # Get the initial active window address
+    # We use -j for JSON output and jq for reliable parsing
+    OLD_WINDOW=$(hyprctl activewindow -j | ${jq} -r '.address')
+
+    # Attempt to move focus down
+    hyprctl dispatch layoutmsg focus down
+
+    # Get the new active window address
+    NEW_WINDOW=$(hyprctl activewindow -j | ${jq} -r '.address')
+
+    # Compare the two addresses
+    if [ "$OLD_WINDOW" == "$NEW_WINDOW" ]; then
+        # If they are the same, we reached the end of the layout
+        # Move to the next workspace on the current monitor
+        hyprctl dispatch focusworkspaceoncurrentmonitor +1
+    fi
+  '';
+
+  focusUp = pkgs.writeShellScript "focus-up" ''
+    # Get the initial active window address
+    # We use -j for JSON output and jq for reliable parsing
+    OLD_WINDOW=$(hyprctl activewindow -j | ${jq} -r '.address')
+
+    # Attempt to move focus up
+    hyprctl dispatch layoutmsg focus up
+
+    # Get the new active window address
+    NEW_WINDOW=$(hyprctl activewindow -j | ${jq} -r '.address')
+
+    # Compare the two addresses
+    if [ "$OLD_WINDOW" == "$NEW_WINDOW" ]; then
+        # If they are the same, we reached the end of the layout
+        # Move to the next workspace on the current monitor
+        hyprctl dispatch focusworkspaceoncurrentmonitor -1
+    fi
+  '';
+in {
   wayland.windowManager = {
     hyprland = {
       settings = {
@@ -64,9 +107,9 @@
           "SUPER, P, layoutmsg, promote"
 
           "SUPER, H, layoutmsg, focus l"
-          "SUPER, J, layoutmsg, focus d" # TODO: move workspace next if cant foucs down
-          "SUPER, K, layoutmsg, focus u"
-          "SUPER, L, layoutmsg, focus r" # TODO: move workspace next if cant foucs down
+          "SUPER, J, exec, ${focusDown}"
+          "SUPER, K, exec, ${focusUp}"
+          "SUPER, L, layoutmsg, focus r"
 
           "SUPER, left, focusmonitor, l"
           "SUPER, down, focusmonitor, d"
