@@ -8,6 +8,7 @@
     # ./niri
     ./firefox.nix
     ./ghostty.nix
+    ./gtk-styling.nix
     ./hyprpolkitagent.nix
     ./mimeApps.nix
     ./noctalia.nix
@@ -22,6 +23,7 @@
       # niri.enable = lib.mkDefault false;
       firefox.enable = lib.mkDefault false;
       ghostty.enable = lib.mkDefault true;
+      gtk-styling.enable = lib.mkDefault true;
       hyprpolkitagent.enable = lib.mkDefault true;
       mimeApps.enable = lib.mkDefault true;
       noctalia.enable = lib.mkDefault true;
