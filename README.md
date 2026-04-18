@@ -34,6 +34,9 @@ launch `display settings`/ `nwg-displays` and apply the correct display configur
 <details>
 <summary>Commands</summary>
 
+<details>
+<summary>Rebuild</summary>
+
 Rebuild: "desktop" is the host in those examples
 ```bash
 sudo nixos-rebuild switch --flake github:zimtechmeister/flocke#desktop
@@ -41,6 +44,12 @@ sudo nixos-rebuild switch --flake github:zimtechmeister/flocke#desktop
 ```bash
 nh os switch /path/to/flake -H desktop
 ```
+
+</details>
+
+<details>
+<summary>Update</summary>
+
 Update flake
 ```bash
 nix flake update
@@ -51,12 +60,6 @@ Update packages locked to a specific version (helium)
 cd /path/to/flake
 nix run nixpkgs#nix-update -- --flake helium
 ```
-
-run my Neovim distribution
-```bash
-nix run github:zimtechmeister/flocke#neovix
-```
-
 </details>
 
 <details>
@@ -69,6 +72,10 @@ sudo nix-collect-garbage -d
 ```bash
 sudo nix-store --optimise
 ```
+
+</details>
+
+---
 
 </details>
 
