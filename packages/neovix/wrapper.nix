@@ -47,15 +47,15 @@
     tokyonight-nvim
     oxocarbon-nvim
     # everforest # sainnhe's version
-    (pkgs.vimUtils.buildVimPlugin {
-      name = "everforest-nvim";
-      src = pkgs.fetchFromGitHub {
-        owner = "neanias";
-        repo = "everforest-nvim";
-        rev = "main";
-        hash = "sha256-PXZpEl2CIlgmXqqFMh1nSwxGOtiM0jmKYDBF2DoVCpc=";
-      };
-    })
+    # (pkgs.vimUtils.buildVimPlugin {
+    #   name = "everforest-nvim";
+    #   src = pkgs.fetchFromGitHub {
+    #     owner = "neanias";
+    #     repo = "everforest-nvim";
+    #     rev = "main";
+    #     hash = "sha256-q3rwQjC/462W6b8NLyBVZdWNVacfHlBBCoGQzaMAWoo=";
+    #   };
+    # })
 
     # gruvbox-material # sainnhe's version
     gruvbox-material-nvim
