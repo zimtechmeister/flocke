@@ -12,6 +12,7 @@
     ./laptop.nix
     ./localsend.nix
     ./packages.nix
+    ./virt-manager.nix
   ];
 
   options.my.desktop.enable = lib.mkEnableOption "enables desktop nixos-module";
@@ -25,6 +26,7 @@
       laptop.enable = lib.mkDefault false;
       localsend.enable = lib.mkDefault true;
       desktop-packages.enable = lib.mkDefault true;
+      virt-manager.enable = lib.mkDefault true;
     };
   };
 }
