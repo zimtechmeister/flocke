@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./fwupd.nix
     ./kanata.nix
     ./nix.nix
     ./openssh.nix
@@ -15,6 +16,7 @@
   options.my.general.enable = lib.mkEnableOption "enables general nixos-module";
   config = lib.mkIf config.my.general.enable {
     my = {
+      fwupd.enable = lib.mkDefault true;
       kanata.enable = lib.mkDefault false;
       nix.enable = lib.mkDefault true;
       openssh.enable = lib.mkDefault true;
