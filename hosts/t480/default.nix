@@ -4,7 +4,7 @@
     ./disko.nix
   ];
 
-  networking.hostName = "t480";
+  networking.hostName = "t480"; # TODO: might be double in nixos.nix
 
   my = {
     desktop.enable = lib.mkForce true;

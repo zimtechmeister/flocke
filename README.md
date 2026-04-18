@@ -96,7 +96,9 @@ enter a shell with
 ```bash
 nix-shell -p "python3.withPackages (ps: with ps; [ dbus-python ])"
 ```
-and execute the eduroamscript
+and execute the eduroamscript\
+in nmtui edit the eduroam connection and set "Store password for all users" so
+you wont need to enter the password every time you log in
 ```bash
 python ./location/eduroamscript
 ```
