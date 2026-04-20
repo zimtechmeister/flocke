@@ -31,11 +31,11 @@
           # https://www.reddit.com/r/ErgoMechKeyboards/comments/1qosvc0/a_try_on_urobs_timeless_home_row_mods_for_kanata/
           config = ''
             (defsrc
-              grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-              tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-              caps a    s    d    f    g    h    j    k    l    ;    '    ret
-              lsft z    x    c    v    b    n    m    ,    .    /    rsft
-              lctl lmet lalt           spc            ralt rmet rctl
+              grv  1    2    3    4    5    6    7    8    9     0    -    =    bspc
+              tab  q    w    e    r    t    y    u    i    o     p    [    ]    \
+              caps a    s    d    f    g    h    j    k    l     ;    '    ret
+              lsft z    x    c    v    b    n    m    ,    .     /    rsft
+              lctl lmet lalt           spc            ralt prtsc rctl
             )
 
             (defvar
@@ -62,7 +62,7 @@
                 y u i o p [ ] \
                 ' ret
                 n m , . / rsft
-                ralt rmet rctl
+                ralt prtsc rctl
               )
               ;; right-hand homerow mods
               r-hrm (
@@ -106,13 +106,13 @@
               tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
               esc  @a   @s   @d   @f   @g   @h   @j   @k   @l   @;   '    ret
               lsft z    x    c    v    b    n    m    ,    .    /    rsft
-              lctl lmet lalt           @spc           ralt rmet rctl
+              lctl lmet lalt           @spc           bspc ralt rctl
             )
             (deflayer nav
               _    _    _    _    _    _    _    _    _    _    _    _    _    _
-              _    _    7    8    9    0    _    _    _    _    _    _    _    _
+              _    _    7    8    9    0    _    -    =    [    ]    _    _    _
               _    _    @4   @5   @6   _    @le  @do  @up  @ri  _    _    _
-              _    _    1    2    3    _    _    _    _    _    _    _
+              _    _    1    2    3    _    _    _    _    _    \    _
               _    _    _              _              _    _    _
             )
           '';
