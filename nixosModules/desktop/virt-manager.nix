@@ -18,5 +18,6 @@
     programs.dconf.enable = true;
     virtualisation.spiceUSBRedirection.enable = true;
     services.spice-vdagentd.enable = true;
+    networking.firewall.checkReversePath = false;
   };
 }
