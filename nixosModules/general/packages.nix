@@ -11,7 +11,8 @@
     environment.systemPackages = with pkgs; [
       # TODO: move to shell flake for the projects that need them
       # languages
-      jdk
+      openjdk25
+      rlwrap
 
       typst
 
@@ -55,6 +56,7 @@
       trash-cli
       smartmontools
       openconnect
+      openvpn
       wireguard-tools
       yt-dlp
       gemini-cli-bin
