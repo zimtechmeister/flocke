@@ -43,7 +43,7 @@
       };
 
       initContent = let
-        mynvim = lib.getExe' self.packages.${pkgs.stdenv.hostPlatform.system}.neovix "nvim";
+        mynvim = lib.getExe' self.packages.${pkgs.stdenv.hostPlatform.system}.nvim "nvim";
       in
         /*
         sh

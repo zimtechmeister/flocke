@@ -64,17 +64,22 @@
   };
 
   outputs = inputs @ {flake-parts, ...}:
-    flake-parts.lib.mkFlake {inherit inputs;}
-    {
-      systems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
+    flake-parts.lib.mkFlake {inherit inputs;} {
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
       imports = [
         inputs.home-manager.flakeModules.home-manager
-        ./packages/neovix
+        ./packages/nvim
         ./packages/helium.nix
         ./nixos.nix
       ];
       perSystem = {pkgs, ...}: {
         formatter = pkgs.alejandra;
+        # formatter = pkgs.nixfmt;
       };
     };
 }

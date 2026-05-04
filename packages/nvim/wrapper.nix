@@ -124,7 +124,7 @@
   # neovim = pkgs.neovim-unwrapped; # stable neovim
 in
   pkgs.buildEnv {
-    name = "neovix";
+    name = "nvim";
     paths =
       [
         neovim

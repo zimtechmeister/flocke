@@ -61,7 +61,7 @@
       yt-dlp
       gemini-cli-bin
       inputs.nix-alien.packages.${pkgs.stdenv.hostPlatform.system}.nix-alien
-      self.packages.${pkgs.stdenv.hostPlatform.system}.neovix
+      self.packages.${pkgs.stdenv.hostPlatform.system}.nvim
     ];
     virtualisation.docker.enable = true;
   };

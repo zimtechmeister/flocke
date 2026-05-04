@@ -55,7 +55,7 @@
 
         # avoid nested nvim instances
         mux = let
-          mynvim = lib.getExe' self.packages.${pkgs.stdenv.hostPlatform.system}.neovix "nvim";
+          mynvim = lib.getExe' self.packages.${pkgs.stdenv.hostPlatform.system}.nvim "nvim";
         in ''
           # Check if arguments (files) were provided
           if test -n "$argv[1]"
@@ -83,7 +83,7 @@
 
         # update nvim cwd
         cvd = let
-          mynvim = lib.getExe' self.packages.${pkgs.stdenv.hostPlatform.system}.neovix "nvim";
+          mynvim = lib.getExe' self.packages.${pkgs.stdenv.hostPlatform.system}.nvim "nvim";
         in ''
           if test -n "$NVIM"
             ${mynvim} --server "$NVIM" --remote-send "<C-\><C-n>:cd $(pwd)<CR>i"

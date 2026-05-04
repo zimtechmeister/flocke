@@ -36,6 +36,8 @@
       easyeffects
 
       nautilus
+      kdePackages.dolphin
+      simple-mtpfs
       zathura
       mpv
       imv

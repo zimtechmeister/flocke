@@ -9,16 +9,16 @@
       inherit system;
       config.allowUnfree = true;
     };
-    packages.neovix = import ./wrapper.nix {
+    packages.nvim = import ./wrapper.nix {
       inherit pkgs;
       inherit inputs;
     };
-    apps.neovix = {
+    apps.nvim = {
       type = "app";
-      program = "${pkgs.lib.getExe' self'.packages.neovix "nvim"}";
+      program = "${pkgs.lib.getExe' self'.packages.nvim "nvim"}";
     };
-    devShells.neovix = pkgs.mkShell {
-      buildInputs = [self'.packages.neovix];
+    devShells.nvim = pkgs.mkShell {
+      buildInputs = [self'.packages.nvim];
     };
   };
 }
