@@ -28,16 +28,13 @@ vim.opt.colorcolumn    = "80"    -- Highlight column at 80 characters
 vim.opt.signcolumn     = 'yes'   -- Always show sign column (otherwise it will shift text)
 vim.opt.fillchars      = 'eob: ' -- Don't show `~` outside of buffer
 
--- extra UI options
-vim.opt.showmode       = false -- Don't show the mode, since it's already in the status line
-
 vim.opt.pumheight      = 15 -- Limit max height of the popup menu
 
 vim.opt.list           = true -- show some helper symbols
 vim.opt.listchars      = { tab = '→ ', trail = '·', nbsp = '␣', extends = '»', precedes = '«' } -- define the symbols
 
 -- Editing
-vim.opt.clipboard      = 'unnamedplus' -- Use system clipboard for all operations
+-- vim.opt.clipboard      = 'unnamedplus' -- Use system clipboard for all operations
 
 vim.opt.scrolloff      = 8             -- Keep 8 lines above/below the cursor when scrolling
 
@@ -65,9 +62,16 @@ vim.opt.completeopt    = {             -- Customize completions
     'popup',
     'preview'
 }
+vim.opt.pumborder      = 'rounded'      -- Rounded border for the completion menu
 
-vim.opt.laststatus     = 3 -- Global status line (for all windows)
--- vim.opt.cmdheight      = 0 -- Only show command line when needed and above the status line NOTE: worse than using noice
+-- statusline
+vim.opt.showmode       = false -- Don't show the mode, since it's already in the status line
+-- vim.opt.laststatus     = 3 -- Global status line (for all windows)
+vim.opt.cmdheight      = 0 -- Only show command line when needed and above the status line
+
+-- colors
+vim.opt.termguicolors = true
+vim.opt.background = 'dark'
 
 -- Neovide
 -- NOTE: some settings are configured in a neovide/config.toml file

@@ -1,3 +1,4 @@
+-- required plugins: nvim-dap nvim-dap-ui nvim-nio nvim-dap-virtual-text
 local dap = require('dap')
 require('dapui').setup()
 dap.adapters.gdb = {

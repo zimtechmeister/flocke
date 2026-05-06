@@ -6,6 +6,14 @@ my_theme.replace.c.bg = 'NONE'
 my_theme.command.c.bg = 'NONE'
 -- my_theme.inactive.c.bg = 'NONE'
 
+local function show_macro_recording()
+    local recording_register = vim.fn.reg_recording()
+    if recording_register == "" then
+        return ""
+    else
+        return "Recording @" .. recording_register
+    end
+end
 
 require('lualine').setup({
     options = {
@@ -27,10 +35,8 @@ require('lualine').setup({
         lualine_c = {},
         lualine_x = {},
         lualine_y = {
-            -- show recording macro https://www.lazyvim.org/plugins/ui#lualinenvim when using noice
             {
-                function() return require("noice").api.status.mode.get() end,
-                cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
+                show_macro_recording,
             },
             'branch',
             'diagnostics',
