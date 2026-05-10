@@ -11,7 +11,7 @@
       powerOnBoot = false;
     };
     environment.systemPackages = with pkgs; [
-      zmkBATx
+      zmkbatx
     ];
   };
 }

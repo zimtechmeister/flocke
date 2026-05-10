@@ -2,7 +2,6 @@
   lib,
   config,
   inputs,
-  pkgs,
   ...
 }: {
   imports = [
@@ -10,11 +9,8 @@
   ];
   options.my.noctalia.enable = lib.mkEnableOption "enables noctalia";
   config = lib.mkIf config.my.noctalia.enable {
-    # NOTE: evolution-data-server must be enabled at the NixOS level for calendar events
     programs.noctalia-shell = {
       enable = true;
-      package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.override {calendarSupport = true;};
-      systemd.enable = true;
       # NOTE: create these settings with
       #       noctalia-shell ipc call state all > somefile.json
       #       and convert to nix with

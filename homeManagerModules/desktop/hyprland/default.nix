@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }: let
   monitorLayouts = {
@@ -75,6 +76,7 @@ in {
         monitor = monitorLayout;
         exec-once = [
           "touch ~/.config/hypr/monitors.conf"
+          "${pkgs.lib.getExe' inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default "noctalia-shell"}"
         ];
         input = {
           kb_layout = "eu, de, us";

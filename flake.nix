@@ -18,7 +18,6 @@
 
     stylix = {
       url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-index-database = {
