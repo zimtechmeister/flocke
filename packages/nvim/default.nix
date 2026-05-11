@@ -2,13 +2,8 @@
   perSystem = {
     pkgs,
     self',
-    system,
     ...
   }: {
-    _module.args.pkgs = import inputs.nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-    };
     packages.nvim = import ./wrapper.nix {
       inherit pkgs;
       inherit inputs;

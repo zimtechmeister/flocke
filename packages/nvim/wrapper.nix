@@ -3,10 +3,10 @@
   inputs,
   ...
 }: let
-  packageName = "mypackage";
+  packageName = "nvim";
 
   # Define plugins and extra packages
-  startPlugins = with pkgs.vimPlugins; [
+  plugins = with pkgs.vimPlugins; [
     # lsp
     nvim-lspconfig
 
@@ -98,7 +98,7 @@
     ${pkgs.lib.concatMapStringsSep "\n" (plugin: ''
         ln -s ${plugin} $out/pack/${packageName}/start/${pkgs.lib.getName plugin}
       '')
-      startPlugins}
+      plugins}
   '';
   # Create a self-contained environment using symlinkJoin
   # This is cleaner than buildEnv + manual 'rm bin/nvim'

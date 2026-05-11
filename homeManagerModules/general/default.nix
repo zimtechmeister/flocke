@@ -11,7 +11,6 @@
     ./lsd.nix
     ./neovide.nix
     ./nushell.nix
-    ./nvim.nix
     ./starship.nix
     ./tmux.nix
     ./yazi.nix
@@ -28,7 +27,6 @@
       lsd.enable = lib.mkDefault true;
       git.enable = lib.mkDefault true;
       neovide.enable = lib.mkDefault true;
-      nvim.enable = lib.mkDefault true;
       nushell.enable = lib.mkDefault true;
       starship.enable = lib.mkDefault true;
       tmux.enable = lib.mkDefault true;

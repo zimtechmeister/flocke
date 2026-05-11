@@ -7,6 +7,7 @@
     ./fwupd.nix
     ./kanata.nix
     ./nix.nix
+    ./nvim.nix
     ./openssh.nix
     ./shell.nix
     ./packages.nix
@@ -19,6 +20,7 @@
       fwupd.enable = lib.mkDefault true;
       kanata.enable = lib.mkDefault false;
       nix.enable = lib.mkDefault true;
+      nvim.enable = lib.mkDefault true;
       openssh.enable = lib.mkDefault true;
       shell.enable = lib.mkDefault true;
       general-packages.enable = lib.mkDefault true;
