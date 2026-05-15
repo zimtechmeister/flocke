@@ -6,7 +6,6 @@
   imports = [
     ./fastfetch
     ./fish.nix
-    ./fzf.nix
     ./git.nix
     ./lsd.nix
     ./neovide.nix
@@ -23,7 +22,6 @@
     my = {
       fish.enable = lib.mkDefault true;
       fastfetch.enable = lib.mkDefault true;
-      fzf.enable = lib.mkDefault true;
       lsd.enable = lib.mkDefault true;
       git.enable = lib.mkDefault true;
       neovide.enable = lib.mkDefault true;

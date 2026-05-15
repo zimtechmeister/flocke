@@ -34,7 +34,7 @@ vim.opt.list           = true -- show some helper symbols
 vim.opt.listchars      = { tab = '→ ', trail = '·', nbsp = '␣', extends = '»', precedes = '«' } -- define the symbols
 
 -- Editing
--- vim.opt.clipboard      = 'unnamedplus' -- Use system clipboard for all operations
+vim.opt.clipboard      = 'unnamedplus' -- Use system clipboard for all operations
 
 vim.opt.scrolloff      = 8             -- Keep 8 lines above/below the cursor when scrolling
 

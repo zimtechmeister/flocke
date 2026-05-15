@@ -4,8 +4,8 @@
   ...
 }: {
   imports = [
-    ./hyprland
     # ./niri
+    ./autostart-hyprland.nix
     ./firefox.nix
     ./ghostty.nix
     ./gtk-styling.nix
@@ -19,7 +19,7 @@
   options.my.desktop.enable = lib.mkEnableOption "enables desktop home-manager config";
   config = lib.mkIf config.my.desktop.enable {
     my = {
-      hyprland.enable = lib.mkDefault true;
+      autostart-hyprland.enable = lib.mkDefault true;
       # niri.enable = lib.mkDefault false;
       firefox.enable = lib.mkDefault false;
       ghostty.enable = lib.mkDefault true;

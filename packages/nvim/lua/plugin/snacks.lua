@@ -1,7 +1,6 @@
 require("snacks").setup({
-    animate = { enabled = true },
-    bigfile = { enabled = true },
     dashboard = {
+        enabled = false,
         preset = {
             keys = {
                 { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
@@ -38,21 +37,45 @@ require("snacks").setup({
         },
     },
     image = {
-        enabled = true,
+        enabled = false,
         doc = {
             inline = vim.g.neovim_mode == "skitty" and true or false,
         }
     },
     indent = { enabled = true },
-    input = { enabled = true },
-    notifier = { enabled = true },
     picker = { enabled = true },
-    quickfile = { enabled = true },
     statuscolumn = { enabled = true },
-    words = { enabled = true },
-})
--- }
 
+    animated = { enabled = false },
+    bigfile = { enabled = false },
+    bufdelete = { enabled = false },
+    debug = { enabled = false },
+    dim = { enabled = false },
+    explorer = { enabled = false },
+    gh = { enabled = false },
+    git = { enabled = false },
+    gitbrowse = { enabled = false },
+    input = { enabled = false },
+    keymap = { enabled = false },
+    layout = { enabled = false },
+    lazygit = { enabled = false },
+    notifier = { enabled = false },
+    notify = { enabled = false },
+    profiler = { enabled = false },
+    quickfile = { enabled = false },
+    rename = { enabled = false },
+    scope = { enabled = false, },
+    scratch = { enabled = false },
+    scroll = { enabled = false },
+    terminal = { enabled = false },
+    toggle = { enabled = false },
+    util = { enabled = false },
+    win = { enabled = false },
+    words = { enabled = false },
+    zen = { enabled = false },
+})
+
+-- notify
 vim.keymap.set('n', '<Esc', function() Snacks.notifier.hide() end, { desc = "Notification (Hide)" })
 vim.keymap.set('n', '<leader>n', function()
     if package.loaded["noice"] then
@@ -61,16 +84,13 @@ vim.keymap.set('n', '<leader>n', function()
         Snacks.notifier.show_history()
     end
 end, { desc = "Notification History" })
-vim.keymap.set('n', '<leader>g', function() Snacks.lazygit.open() end, { desc = "Lazygit" })
-vim.keymap.set('n', '<leader>gb', function() Snacks.git.blame_line() end, { desc = "Git Blame Line" })
--- incorrect syntax
--- dont know what this does
--- { "]]",          function() Snacks.words.jump(vim.v.count1) end,      desc = "Next Reference",               mode = { "n", "t" } },
--- { "[[",          function() Snacks.words.jump(-vim.v.count1) end,     desc = "Prev Reference",               mode = { "n", "t" } },
 
--- -- picker
+-- lazygit
+-- vim.keymap.set('n', '<leader>g', function() Snacks.lazygit.open() end, { desc = "Lazygit" })
+
+-- picker
 vim.keymap.set('n', '<leader>fp', function() Snacks.picker.pickers() end, { desc = "Pickers" })
-vim.keymap.set('n', '<leader>ff', function() Snacks.picker.files() end, { desc = "Files" })
+-- vim.keymap.set('n', '<leader>ff', function() Snacks.picker.files() end, { desc = "Files" })
 vim.keymap.set('n', '<leader>fr', function() Snacks.picker.recent() end, { desc = "Recent Files" })
 -- vim.keymap.set('n', '<leader>fb', function() Snacks.picker.buffers() end, { desc = "Buffers" })
 -- start in normal mode
@@ -84,22 +104,22 @@ vim.keymap.set('n', '<leader>fb',
     end,
     { desc = "Buffers" }
 )
-vim.keymap.set('n', '<leader>f/', function() Snacks.picker.grep() end, { desc = "Grep" })
+-- vim.keymap.set('n', '<leader>f/', function() Snacks.picker.grep() end, { desc = "Grep" })
 vim.keymap.set('n', '<leader>f?', function() Snacks.picker.grep_buffers() end, { desc = "Grep Open Buffers" })
 vim.keymap.set('n', '<leader>f:', function() Snacks.picker.command_history() end, { desc = "Command History" })
 vim.keymap.set('n', '<leader>fn', function() Snacks.picker.notifications() end, { desc = "Notification History" })
-vim.keymap.set('n', '<leader>fgb', function() Snacks.picker.git_branches() end, { desc = "Git Branches" })
+vim.keymap.set('n', '<leader>fg', function() Snacks.picker.git_branches() end, { desc = "Git Branches" })
 vim.keymap.set('n', '<leader>fk', function() Snacks.picker.keymaps() end, { desc = "Keymaps" })
 vim.keymap.set('n', '<leader>fh', function() Snacks.picker.help() end, { desc = "Help Pages" })
 vim.keymap.set('n', '<leader>fc', function() Snacks.picker.colorschemes() end, { desc = "Colorschemes" })
-vim.keymap.set('n', '<leader>fp', function() Snacks.picker.projects() end, { desc = "Projects" })
+vim.keymap.set('n', '<leader>fP', function() Snacks.picker.projects() end, { desc = "Projects" })
 vim.keymap.set('n', '<leader>f"', function() Snacks.picker.registers() end, { desc = "Registers" })
 vim.keymap.set('n', '<leader>fj', function() Snacks.picker.jumps() end, { desc = "Jumps" })
 vim.keymap.set('n', '<leader>fm', function() Snacks.picker.marks() end, { desc = "Marks" })
 vim.keymap.set('n', '<leader>fd', function() Snacks.picker.diagnostics() end, { desc = "Diagnostics" })
 vim.keymap.set('n', '<leader>fq', function() Snacks.picker.qflist() end, { desc = "Quickfix List" })
 vim.keymap.set('n', '<leader>fi', function() Snacks.picker.icons() end, { desc = "Icons" })
--- -- LSP
+-- LSP
 vim.keymap.set('n', '<leader>lpd', function() Snacks.picker.lsp_definitions() end, { desc = "Picker Goto Definition" })
 vim.keymap.set('n', '<leader>lpD', function() Snacks.picker.lsp_declaration() end, { desc = "Picker Goto Declaration" })
 vim.keymap.set('n', '<leader>lpi', function() Snacks.picker.lsp_implementations() end,

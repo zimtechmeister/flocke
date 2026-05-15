@@ -2,6 +2,7 @@
   lib,
   config,
   inputs,
+  pkgs,
   ...
 }: {
   imports = [
@@ -14,7 +15,7 @@
       # NOTE: create these settings with
       #       noctalia-shell ipc call state all > somefile.json
       #       and convert to nix with
-      #       nix eval --impure --expr 'builtins.fromJSON (builtins.readFile ./somefile.json)' > someotherfil.nix
+      #       nix eval --impure --expr 'builtins.fromJSON (builtins.readFile ./somefile.json)' > someotherfile.nix
       #       only small small manual changes are required after that
       #       opacity settings need to be 1.0 not 1
       settings = {
@@ -23,8 +24,12 @@
           clipboardWatchImageCommand = "wl-paste --type image --watch cliphist store"; # TODO: nixify
           clipboardWatchTextCommand = "wl-paste --type text --watch cliphist store"; # TODO: nixify
           clipboardWrapText = true;
-          customLaunchPrefix = "";
-          customLaunchPrefixEnabled = false;
+          customLaunchPrefixEnabled = true; # NOTE: temp workaround till noctalia updates to hyprlands lua config
+          customLaunchPrefix = let
+            noctalia-custom-launch-prefix = pkgs.writeShellScript "noctalia-custom-launch-prefix" ''
+              hyprctl dispatch "hl.dsp.exec_cmd(\"$*\")"
+            '';
+          in "${noctalia-custom-launch-prefix}";
           density = "compact";
           enableClipPreview = true;
           enableClipboardChips = true;
@@ -60,12 +65,12 @@
           autoHideDelay = 500;
           autoShowDelay = 150;
           backgroundOpacity = 1.0;
-          barType = "floating";
+          barType = "simple";
           capsuleColorKey = "none";
           capsuleOpacity = 1.0;
           contentPadding = 2;
           density = "default";
-          displayMode = "non_exclusive";
+          displayMode = "always_visible";
           enableExclusionZoneInset = true;
           fontScale = 1;
           frameRadius = 12;
@@ -73,14 +78,14 @@
           hideOnOverview = false;
           marginHorizontal = 10;
           marginVertical = 10;
-          middleClickAction = "none";
+          middleClickAction = "launcherPanel";
           middleClickCommand = "";
-          middleClickFollowMouse = false;
+          middleClickFollowMouse = true;
           monitors = [];
           mouseWheelAction = "none";
           mouseWheelWrap = true;
           outerCorners = false;
-          position = "right";
+          position = "bottom";
           reverseScroll = false;
           rightClickAction = "controlCenter";
           rightClickCommand = "";
@@ -355,7 +360,7 @@
           screenLock = "";
           screenUnlock = "";
           # session = "${lib.getExe pkgs.hyprshutdown} -p $1";
-          session = "hyprctl dispatch exit && $1"; # TODO: nixify
+          session = "hyprctl dispatch 'hl.dsp.exit()' && $1"; # TODO: nixify
           startup = "";
           wallpaperChange = "";
         };

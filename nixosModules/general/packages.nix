@@ -35,6 +35,7 @@
       cargo
 
       # cli tools
+      jq
       bottom
       lazygit
       gzip

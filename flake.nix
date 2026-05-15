@@ -30,6 +30,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland.url = "github:hyprwm/Hyprland";
+
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -72,11 +74,20 @@
       ];
       imports = [
         inputs.home-manager.flakeModules.home-manager
+        ./packages/hyprland
         ./packages/nvim
         ./packages/helium.nix
         ./nixos.nix
       ];
-      perSystem = {pkgs, ...}: {
+      perSystem = {
+        pkgs,
+        system,
+        ...
+      }: {
+        _module.args.pkgs = import inputs.nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
         formatter = pkgs.alejandra;
         # formatter = pkgs.nixfmt;
       };

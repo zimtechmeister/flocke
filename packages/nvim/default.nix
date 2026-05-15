@@ -2,6 +2,7 @@
   perSystem = {
     pkgs,
     self',
+    lib,
     ...
   }: {
     packages.nvim = import ./wrapper.nix {
@@ -10,7 +11,7 @@
     };
     apps.nvim = {
       type = "app";
-      program = "${pkgs.lib.getExe' self'.packages.nvim "nvim"}";
+      program = lib.getExe self'.packages.nvim;
     };
     devShells.nvim = pkgs.mkShell {
       buildInputs = [self'.packages.nvim];

@@ -11,6 +11,7 @@
     ./openssh.nix
     ./shell.nix
     ./packages.nix
+    ./television.nix
     ./zram.nix
   ];
 
@@ -24,6 +25,7 @@
       openssh.enable = lib.mkDefault true;
       shell.enable = lib.mkDefault true;
       general-packages.enable = lib.mkDefault true;
+      television.enable = lib.mkDefault true;
       zram.enable = lib.mkDefault true;
     };
   };

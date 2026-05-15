@@ -56,6 +56,8 @@
       # testing editors
       zed-editor
       nil # needs to be installed seperately for nix lsp
+
+      t3code
     ];
     services.udev.packages = [pkgs.via];
     hardware.opentabletdriver.enable = true; # TODO: not working as expected

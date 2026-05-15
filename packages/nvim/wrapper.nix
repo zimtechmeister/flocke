@@ -7,10 +7,9 @@
 
   # Define plugins and extra packages
   plugins = with pkgs.vimPlugins; [
-    # lsp
     nvim-lspconfig
-
     nvim-treesitter.withAllGrammars
+    fff-nvim
     arrow-nvim # optional
     nvim-scrollbar # optional
     gitsigns-nvim
@@ -106,6 +105,7 @@ in
   pkgs.symlinkJoin {
     name = "nvim-wrapped";
     paths = [inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default] ++ extraPackages;
+    meta.mainProgram = "nvim";
 
     nativeBuildInputs = [pkgs.makeWrapper];
 

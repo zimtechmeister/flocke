@@ -1,0 +1,5 @@
+require("settings")
+require("animations")
+require("keybinds")
+require("rules")
+-- require("hyprbars")

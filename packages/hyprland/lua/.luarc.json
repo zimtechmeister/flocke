@@ -1,0 +1,10 @@
+{
+  "workspace": {
+    "library": [
+      "/nix/store/n0hlgn27ag64ji06qpv1p4yhiqzm991s-hyprland-wrapped/share/hypr/stubs"
+    ]
+  },
+  "diagnostics": {
+    "globals": ["hl"]
+  }
+}

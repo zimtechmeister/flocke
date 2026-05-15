@@ -50,6 +50,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
             { desc = 'format buffer', buffer = bufnr })
         vim.keymap.set('n', '<leader>lj', '<cmd>lua vim.diagnostic.open_float()<cr>',
             { desc = 'show diagnostic' })
+        vim.keymap.set('n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<cr>',
+            { desc = 'code action', buffer = bufnr })
+        vim.keymap.set('n', '<leader>lr', '<cmd>lua vim.lsp.buf.rename()<cr>',
+            { desc = 'rename symbol', buffer = bufnr })
         vim.keymap.set('n', '<leader>ld', '<cmd>lua vim.lsp.buf.definition()<cr>',
             { desc = 'definition', buffer = bufnr })
         vim.keymap.set('n', '<leader>lD', '<cmd>lua vim.lsp.buf.declaration()<cr>',
