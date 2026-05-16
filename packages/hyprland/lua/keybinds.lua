@@ -1,5 +1,7 @@
+local nix = require("nix")
+
 hl.on("hyprland.start", function()
-    hl.exec_cmd("noctalia-shell")
+    hl.exec_cmd(nix.noctalia_shell)
 end)
 
 local focus_left = function()
@@ -35,15 +37,15 @@ local focus_right = function()
     end
 end
 
-hl.bind("SUPER + Return", hl.dsp.exec_cmd("ghostty"))
+hl.bind("SUPER + Return", hl.dsp.exec_cmd(nix.ghostty))
 
-hl.bind("SUPER + S", hl.dsp.exec_cmd("screenshot"))
+hl.bind("SUPER + S", hl.dsp.exec_cmd(nix.screenshot))
 
-hl.bind("SUPER + Space", hl.dsp.exec_cmd("noctalia-shell ipc call launcher toggle"))
-hl.bind("SUPER + V", hl.dsp.exec_cmd("noctalia-shell ipc call launcher clipboard"))
-hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd("noctalia-shell ipc call bar toggle"))
-hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("noctalia-shell ipc call volume muteInput"))
-hl.bind("switch:[Lid Switch]", hl.dsp.exec_cmd("noctalia-shell ipc call sessionMenu lockAndSuspend"), { locked = true })
+hl.bind("SUPER + Space", hl.dsp.exec_cmd(nix.noctalia_shell .. " ipc call launcher toggle"))
+hl.bind("SUPER + V", hl.dsp.exec_cmd(nix.noctalia_shell .. " ipc call launcher clipboard"))
+hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd(nix.noctalia_shell .. " ipc call bar toggle"))
+hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd(nix.noctalia_shell .. " ipc call volume muteInput"))
+hl.bind("switch:[Lid Switch]", hl.dsp.exec_cmd(nix.noctalia_shell .. " ipc call sessionMenu lockAndSuspend"), { locked = true })
 
 
 hl.bind("SUPER + M", hl.dsp.exit())

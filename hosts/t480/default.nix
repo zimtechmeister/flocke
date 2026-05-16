@@ -16,6 +16,5 @@
   home-manager.users.tim.my = {
     desktop.enable = lib.mkForce true;
     general.enable = lib.mkForce true;
-    scripts.enable = lib.mkForce true;
   };
 }

@@ -2,13 +2,11 @@
   imports = [
     ./desktop
     ./general
-    ./scripts
   ];
 
   my = {
     desktop.enable = lib.mkDefault false;
     general.enable = lib.mkDefault true;
-    scripts.enable = lib.mkDefault false;
   };
 
   home = {

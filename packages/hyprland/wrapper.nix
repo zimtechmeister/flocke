@@ -33,12 +33,21 @@
       }
     '';
 
-  nixLua = pkgs.writeText "nix.lua" ''
-    return {
-      noctalia-shell = "${lib.getExe inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default}"
-      ghostty = "${lib.getExe pkgs.ghostty}"
-    }
-  '';
+  nixLua = let
+    grim = lib.getExe pkgs.grim;
+    slurp = lib.getExe pkgs.slurp;
+    satty = lib.getExe pkgs.satty;
+    screenshot = pkgs.writeShellScript "screenshot" ''
+      ${grim} -cg "$(${slurp} -o -d -c '#00000000' -B '#88888888')" -t ppm - | ${satty} --filename - --output-filename $HOME/Pictures/screenshot-$(date '+%Y%m%d-%H:%M:%S').png
+    '';
+  in
+    pkgs.writeText "nix.lua" ''
+      return {
+        noctalia_shell = "${lib.getExe inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default}",
+        ghostty = "${lib.getExe pkgs.ghostty}",
+        screenshot = "${screenshot}",
+      }
+    '';
   # Create a directory for the config files
   configDir = pkgs.symlinkJoin {
     name = "hyprland-config";
