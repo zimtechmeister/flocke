@@ -12,8 +12,6 @@
         specialArgs = {inherit inputs self;};
         modules =
           [
-            # imports = [];
-            # all this could also be done in imports in ./hosts/desktop/default.nix
             self.nixosModules.default
             inputs.home-manager.nixosModules.home-manager
             inputs.stylix.nixosModules.stylix

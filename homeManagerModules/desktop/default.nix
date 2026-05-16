@@ -4,7 +4,6 @@
   ...
 }: {
   imports = [
-    # ./niri
     ./autostart-hyprland.nix
     ./firefox.nix
     ./ghostty.nix
@@ -20,7 +19,6 @@
   config = lib.mkIf config.my.desktop.enable {
     my = {
       autostart-hyprland.enable = lib.mkDefault true;
-      # niri.enable = lib.mkDefault false;
       firefox.enable = lib.mkDefault false;
       ghostty.enable = lib.mkDefault true;
       gtk-styling.enable = lib.mkDefault true;
