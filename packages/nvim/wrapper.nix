@@ -19,6 +19,7 @@
     which-key-nvim
     todo-comments-nvim
     flash-nvim
+    sidekick-nvim
     # mini
     mini-ai
     mini-comment
