@@ -10,16 +10,7 @@
     programs.hyprland = {
       enable = true;
       withUWSM = false;
-      package = self.packages.${pkgs.stdenv.hostPlatform.system}.hyprland.override {
-        theme = {
-          colors = config.lib.stylix.colors;
-          fonts = {
-            serif = config.stylix.fonts.serif.name;
-            sansSerif = config.stylix.fonts.sansSerif.name;
-            monospace = config.stylix.fonts.monospace.name;
-          };
-        };
-      };
+      package = self.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       portalPackage = self.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
   };

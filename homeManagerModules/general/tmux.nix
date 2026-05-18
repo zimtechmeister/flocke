@@ -3,6 +3,7 @@
   lib,
   config,
   inputs,
+  self,
   ...
 }: {
   options.my.tmux.enable =
@@ -38,8 +39,8 @@
           {
             plugin = inputs.minimal-tmux.packages.${pkgs.stdenv.hostPlatform.system}.default;
             extraConfig = ''
-              set -g @minimal-tmux-bg "#${config.stylix.base16Scheme.base05}"
-              set -g @minimal-tmux-fg "#${config.stylix.base16Scheme.base00}"
+              set -g @minimal-tmux-bg "${self.theme.colors.base05}"
+              set -g @minimal-tmux-fg "${self.theme.colors.base00}"
               set -g @minimal-tmux-use-arrow false
             '';
           }

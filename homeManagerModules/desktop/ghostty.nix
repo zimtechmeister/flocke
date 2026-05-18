@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  self,
   ...
 }: {
   options.my.ghostty.enable = lib.mkEnableOption "enables ghostty";
@@ -11,7 +12,7 @@
       enableZshIntegration = true;
       systemd.enable = true;
       settings = {
-        cursor-color = "#${config.stylix.base16Scheme.base05}";
+        cursor-color = self.theme.colors.base05;
         window-padding-balance = true;
         window-new-tab-position = "current"; # current, end
         gtk-tabs-location = "top"; # top, bottom, left, right, hidden

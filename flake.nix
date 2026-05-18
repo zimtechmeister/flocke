@@ -65,6 +65,9 @@
   };
 
   outputs = inputs @ {flake-parts, ...}:
+    let
+      theme = import ./theme.nix;
+    in
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = [
         "x86_64-linux"
@@ -74,6 +77,7 @@
       ];
       imports = [
         inputs.home-manager.flakeModules.home-manager
+        ./theme.nix
         ./packages/hyprland
         ./packages/nvim
         ./packages/helium.nix
@@ -82,8 +86,10 @@
       perSystem = {
         pkgs,
         system,
+        self',
         ...
       }: {
+        _module.args.theme = self'.themeNoHash or inputs.self.themeNoHash;
         _module.args.pkgs = import inputs.nixpkgs {
           inherit system;
           config.allowUnfree = true;

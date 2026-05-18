@@ -18,7 +18,12 @@
       pkgs.lib.mapAttrs (n: v: "#${v}") filtered;
     fonts = theme'.fonts or {};
     toLuaTableEntries = attrs: let
-      stringAttrs = pkgs.lib.filterAttrs (n: v: builtins.isString v) attrs;
+      processed = pkgs.lib.mapAttrs (n: v:
+        if builtins.isAttrs v
+        then v.name
+        else v)
+      attrs;
+      stringAttrs = pkgs.lib.filterAttrs (n: v: builtins.isString v) processed;
     in
       pkgs.lib.concatStringsSep "\n    " (pkgs.lib.mapAttrsToList (name: value: "${name} = \"${value}\",") stringAttrs);
   in
