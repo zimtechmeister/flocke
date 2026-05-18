@@ -53,7 +53,7 @@
       man
       man-db
       man-pages
-      tldr
+      tealdeer
       trash-cli
       smartmontools
       openconnect
@@ -62,7 +62,6 @@
       yt-dlp
       gemini-cli-bin
       inputs.nix-alien.packages.${pkgs.stdenv.hostPlatform.system}.nix-alien
-      self.packages.${pkgs.stdenv.hostPlatform.system}.nvim
     ];
     virtualisation.docker.enable = true;
   };
