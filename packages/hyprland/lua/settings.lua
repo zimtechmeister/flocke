@@ -37,7 +37,7 @@ hl.config({
     input = {
         kb_layout = "eu, de, us",
         accel_profile = "flat",
-        follow_mouse = 0,
+        follow_mouse = 1,
         touchpad = {
             natural_scroll = true,
         },
