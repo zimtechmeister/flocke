@@ -7,8 +7,8 @@ hl.device({ name = "synaptics-tm3276-022", accel_profile = "adaptive" })
 hl.config({
     general = {
         border_size = 2,
-        gaps_in = 5,
-        gaps_out = { top = 10, right = 10, bottom = 10, left = 10 },
+        gaps_in = 0,
+        gaps_out = { top = 0, right = 0, bottom = 0, left = 0 },
 
         col = {
             active_border = theme.colors.base05,
@@ -64,7 +64,7 @@ hl.config({
     cursor = {
         hotspot_padding = 3,
         inactive_timeout = 5,
-        no_warps = true,
+        no_warps = false,
     },
 
     scrolling = {

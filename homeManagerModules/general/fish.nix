@@ -40,6 +40,7 @@
         mv = "mv -i";
         cp = "cp -i";
         ls = lib.mkForce "lsd -lhAg --group-dirs first --header";
+        lg = "lazygit";
       };
 
       functions = {

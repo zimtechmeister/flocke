@@ -8,7 +8,7 @@
     ./kanata.nix
     ./nix.nix
     ./nvim.nix
-    ./openssh.nix
+    ./ssh.nix
     ./shell.nix
     ./packages.nix
     ./television.nix
@@ -22,7 +22,7 @@
       kanata.enable = lib.mkDefault false;
       nix.enable = lib.mkDefault true;
       nvim.enable = lib.mkDefault true;
-      openssh.enable = lib.mkDefault true;
+      ssh.enable = lib.mkDefault true;
       shell.enable = lib.mkDefault true;
       general-packages.enable = lib.mkDefault true;
       television.enable = lib.mkDefault true;
