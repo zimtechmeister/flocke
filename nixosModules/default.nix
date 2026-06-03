@@ -1,6 +1,7 @@
 {
   inputs,
   lib,
+  pkgs,
   ...
 }: {
   imports = [
@@ -30,7 +31,30 @@
   # this is for the nixd lsp to get the pkgs from the flake if im correct?
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.limine = {
+    enable = true;
+    package = pkgs.limine-full;
+    extraEntries = ''
+      /Windows 11
+      protocol: efi
+      path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
+    '';
+    secureBoot = {
+      enable = true;
+      sbctl = pkgs.sbctl;
+      autoGenerateKeys = true;
+      autoEnrollKeys = {
+        enable = true;
+        extraArgs = [
+          "--microsoft"
+          "--firmware-builtin"
+        ];
+      };
+    };
+  };
+  environment.systemPackages = with pkgs; [
+  sbctl
+  ];
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 5;
 

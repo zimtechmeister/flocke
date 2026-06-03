@@ -1,7 +1,4 @@
-Personal flake for deskop pc laptop and home-server(optiplex3000)
-<details>
-<summary>Installation (NixOS)</summary>
-
+# Installation
 requires NixOS [ISO](https://nixos.org/download/#nixos-iso)  
 write the image to the USB flash drive.
 ```bash
@@ -29,14 +26,30 @@ sudo nixos-install --flake .#desktop
 set user password with `passwd tim`
 
 launch `display settings`/ `nwg-displays` and apply the correct display configuration
-</details>
 
-<details>
-<summary>Commands</summary>
+# Secure Boot
+1. Put Secure Boot into **Setup Mode** in your UEFI settings (to allow automated enrollment).
 
-<details>
-<summary>Rebuild</summary>
+> [!WARNING]
+> - If you are using a ThinkPad, do NOT select "Clear All Secure Boot Keys"; use "Reset to Setup Mode" to prevent deleting the Forbidden Signature Database (dbx).  
+> - If you are on a Framework 13 (Core Ultra), manually delete keys from the PK/KEK/DB sections as "Erase all Secure Boot settings" is bugged in the firmware.
 
+2. Boot into NixOS and rebuild the configuration. NixOS will automatically generate keys (under `/var/lib/sbctl`) and enroll them:
+   ```bash
+   sudo nixos-rebuild switch --flake .
+   ```
+
+3. Reboot, enter your UEFI settings, and enable/enforce **Secure Boot**.
+
+4. Verify Secure Boot status:
+   ```bash
+   sudo bootctl status
+   # or check using sbctl
+   sudo sbctl status
+   ```
+
+# Commands
+## Rebuild
 Rebuild: "desktop" is the host in those examples
 ```bash
 sudo nixos-rebuild switch --flake github:zimtechmeister/flocke#desktop
@@ -45,11 +58,7 @@ sudo nixos-rebuild switch --flake github:zimtechmeister/flocke#desktop
 nh os switch /path/to/flake -H desktop
 ```
 
-</details>
-
-<details>
-<summary>Update</summary>
-
+## Update
 Update flake
 ```bash
 nix flake update
@@ -60,10 +69,8 @@ Update packages locked to a specific version (helium)
 cd /path/to/flake
 nix run nixpkgs#nix-update -- --flake helium
 ```
-</details>
 
-<details>
-<summary>GarbageCollect</summary>
+## Garbage Collection
 
 ```bash
 sudo nix-collect-garbage -d
@@ -73,31 +80,18 @@ sudo nix-collect-garbage -d
 sudo nix-store --optimise
 ```
 
-</details>
-
----
-
-</details>
-
-<details>
-<summary>todo</summary>
-
+# TODO
 [generally good source](https://www.vimjoyer.com/nix)
 [vimjoyer](https://github.com/Goxore/nixconf)
 - [ ] update (e.g. helium) using github actions
 - [ ] devenv / devbox / flox / direnv / my own
 - [ ] secrets sops [vimjoyer](https://www.youtube.com/watch?v=G5f6GC7SnhU)
 - [ ] [hardware](https://github.com/NixOS/nixos-hardware) / [facter](https://github.com/nix-community/nixos-facter)
-- [ ] secureboot [lancaboote](https://github.com/nix-community/lanzaboote)
 - [ ] [anywhere](https://github.com/nix-community/nixos-anywhere) [example](https://github.com/nix-community/nixos-anywhere-examples)
-## laptop only:
+laptop only:
 - [ ] tlp
 
-</details>
-
-<details>
-<summary>eduroam</summary>
-
+# Eduroam
 download the eduroam script from [here](https://cat.eduroam.org/)  
 enter a shell with
 ```bash
@@ -109,4 +103,3 @@ you wont need to enter the password every time you log in
 ```bash
 python ./location/eduroamscript
 ```
-</details>
