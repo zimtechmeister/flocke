@@ -60,7 +60,7 @@
       openvpn
       wireguard-tools
       yt-dlp
-      gemini-cli-bin
+      antigravity-cli
       inputs.nix-alien.packages.${pkgs.stdenv.hostPlatform.system}.nix-alien
     ];
     virtualisation.docker.enable = true;

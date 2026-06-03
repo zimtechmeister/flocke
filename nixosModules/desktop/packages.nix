@@ -43,8 +43,6 @@
       imv
       qimgv
 
-      antigravity
-      # antigravity-fhs
       zotero
       anki-bin
 

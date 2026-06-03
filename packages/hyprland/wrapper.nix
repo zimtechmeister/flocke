@@ -77,7 +77,7 @@
   ];
 in
   pkgs.symlinkJoin {
-    name = "hyprland-wrapped";
+    name = "hyprland";
     inherit (inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland) version;
     paths =
       [

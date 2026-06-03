@@ -8,6 +8,7 @@
 in {
   stylix = {
     enable = true;
+    targets.kmscon.enable = false;
 
     # NOTE: collection of colorschemes https://tinted-theming.github.io/tinted-gallery/
     base16Scheme = theme.colors;
