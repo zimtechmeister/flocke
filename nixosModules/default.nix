@@ -47,7 +47,6 @@
         enable = true;
         extraArgs = [
           "--microsoft"
-          "--firmware-builtin"
           "--ignore-immutable"
         ];
       };
