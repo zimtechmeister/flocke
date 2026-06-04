@@ -4,8 +4,6 @@
     # ./disko.nix
   ];
 
-  networking.hostName = "optiplex3000";
-
   boot.loader.limine = {
     secureBoot.autoEnrollKeys.extraArgs = [
       "--microsoft"

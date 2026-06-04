@@ -4,8 +4,6 @@
     ./disko.nix
   ];
 
-  networking.hostName = "t480"; # TODO: might be double in nixos.nix
-
   boot.loader.limine = {
     secureBoot.autoEnrollKeys.extraArgs = [
       "--microsoft"

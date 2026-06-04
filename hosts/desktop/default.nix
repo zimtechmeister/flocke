@@ -4,8 +4,6 @@
     # ./disko.nix
   ];
 
-  networking.hostName = "desktop";
-
   boot.loader.limine = {
     extraEntries = ''
       /Windows 11

@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   disko.devices = {
     disk.main = {
       device = "/dev/disk/by-id/nvme-Micron_2450_NVMe_256GB_22353B15F9E2";
@@ -37,10 +37,7 @@
     bcachefs_filesystems = {
       pool = {
         type = "bcachefs_filesystem";
-        # Set a password file for formatting and installing. 
-        # If you want to use the key for interactive login, write the password 
-        # to this path before formatting, e.g.: echo -n "password" > /tmp/secret.key
-        passwordFile = "/tmp/secret.key"; 
+        passwordFile = config.age.secrets.disk-encryption.path;
         extraFormatArgs = [
           "--compression=zstd"
           "--background_compression=zstd"
@@ -48,11 +45,11 @@
         subvolumes = {
           "subvolumes/root" = {
             mountpoint = "/";
-            mountOptions = [ "noatime" ];
+            mountOptions = ["noatime"];
           };
           "subvolumes/home" = {
             mountpoint = "/home";
-            mountOptions = [ "noatime" ];
+            mountOptions = ["noatime"];
           };
         };
       };
