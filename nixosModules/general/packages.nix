@@ -3,12 +3,12 @@
   inputs,
   lib,
   config,
-  self,
   ...
 }: {
   options.my.general-packages.enable = lib.mkEnableOption "general-packages";
   config = lib.mkIf config.my.general-packages.enable {
     environment.systemPackages = with pkgs; [
+      inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
       # TODO: move to shell flake for the projects that need them
       # languages
       openjdk25

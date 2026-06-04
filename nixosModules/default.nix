@@ -2,6 +2,7 @@
   inputs,
   lib,
   pkgs,
+  config,
   ...
 }: {
   imports = [
@@ -9,6 +10,7 @@
     ./general
     ./server
 
+    ./age.nix
     ./cachix.nix
     ./stylix.nix
   ];
@@ -44,7 +46,7 @@
     };
   };
   environment.systemPackages = with pkgs; [
-  sbctl
+    sbctl
   ];
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.timeout = 5;
@@ -72,14 +74,20 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  users.users.tim = {
-    isNormalUser = true;
-    description = "tim";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-    useDefaultShell = true;
+  users.users = {
+    "tim" = {
+      isNormalUser = true;
+      description = "tim";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
+      useDefaultShell = true;
+      passwordFile = config.age.secrets.tim-password.path;
+    };
+    "root" = {
+      passwordFile = config.age.secrets.root-password.path;
+    };
   };
 
   system.stateVersion = "26.05";

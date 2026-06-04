@@ -13,6 +13,7 @@
         modules =
           [
             self.nixosModules.default
+            inputs.agenix.nixosModules.default
             inputs.home-manager.nixosModules.home-manager
             inputs.stylix.nixosModules.stylix
 
@@ -60,6 +61,7 @@
       extraSpecialArgs = {inherit inputs self;};
       modules = [
         self.homeManagerModules.default
+        inputs.agenix.homeManagerModules.default
         inputs.stylix.homeModules.stylix
         # stylix has problems with home-manager if not imported here too
         ./nixosModules/stylix.nix
