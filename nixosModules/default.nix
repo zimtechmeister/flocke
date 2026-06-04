@@ -83,10 +83,10 @@
         "wheel"
       ];
       useDefaultShell = true;
-      passwordFile = config.age.secrets.tim-password.path;
+      hashedPasswordFile = config.age.secrets.tim-password.path;
     };
     "root" = {
-      passwordFile = config.age.secrets.root-password.path;
+      hashedPasswordFile = config.age.secrets.root-password.path;
     };
   };
 
