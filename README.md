@@ -1,4 +1,10 @@
 # Installation
+> [!WARNING]
+> agenix still needs new ssh keys from
+> `/etc/ssh/ssh_host_*_key.pub` and
+> `~/.ssh/id_ed25519.pub` to work, so you need to generate those first and add
+> them to the flake before installing
+
 requires NixOS [ISO](https://nixos.org/download/#nixos-iso)  
 write the image to the USB flash drive.
 ```bash
@@ -19,11 +25,10 @@ sudo nix \
 --extra-experimental-features 'nix-command flakes' \
 run github:nix-community/disko/latest -- --mode disko ./hosts/desktop/disko.nix
 ```
-Installation (dont forget to enter the root password in this step)
+Installation
 ```bash
 sudo nixos-install --flake .#desktop
 ```
-set user password with `passwd tim`
 
 launch `display settings`/ `nwg-displays` and apply the correct display configuration
 
