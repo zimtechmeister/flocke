@@ -34,21 +34,12 @@
   boot.loader.limine = {
     enable = true;
     package = pkgs.limine-full;
-    extraEntries = ''
-      /Windows 11
-      protocol: efi
-      path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
-    '';
     secureBoot = {
       enable = true;
       sbctl = pkgs.sbctl;
       autoGenerateKeys = true;
       autoEnrollKeys = {
         enable = true;
-        extraArgs = [
-          "--microsoft"
-          "--ignore-immutable"
-        ];
       };
     };
   };

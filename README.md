@@ -28,7 +28,10 @@ set user password with `passwd tim`
 launch `display settings`/ `nwg-displays` and apply the correct display configuration
 
 # Secure Boot
-1. Put Secure Boot into **Setup Mode** in your UEFI settings (to allow automated enrollment).
+1. Put Secure Boot into **Setup Mode** (to allow automated enrollment).  
+   In UEFI, look for options like "Secure Boot", "Key Management", or
+   "Security". Select "Reset to Setup Mode" or similar to clear existing keys
+   and allow new ones to be enrolled.
 
 > [!WARNING]
 > - If you are using a ThinkPad, do NOT select "Clear All Secure Boot Keys"; use "Reset to Setup Mode" to prevent deleting the Forbidden Signature Database (dbx).  
@@ -38,6 +41,19 @@ launch `display settings`/ `nwg-displays` and apply the correct display configur
    ```bash
    sudo nixos-rebuild switch --flake .
    ```
+> [!NOTE]
+> automatic enrollment may fail on some hardware due to different UEFI implementations.
+> If it does, you can try enrolling the keys manually or adjust the host specific limine config
+> ```bash
+> sudo sbctl enroll-keys --microsoft
+> ```
+> useful options are:
+> ```
+> -m --microsoft
+> -b --firmware-builtin
+> -i --ignore-immutable
+> ```
+> my t480 for example works with `sudo sbctl enroll-keys -m -i`
 
 3. Reboot, enter your UEFI settings, and enable/enforce **Secure Boot**.
 

@@ -6,6 +6,13 @@
 
   networking.hostName = "optiplex3000";
 
+  boot.loader.limine = {
+    secureBoot.autoEnrollKeys.extraArgs = [
+      "--microsoft"
+      "--firmware-builtin"
+    ];
+  };
+
   my = {
     desktop.enable = lib.mkForce false;
     bluetooth.enable = lib.mkForce false;

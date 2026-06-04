@@ -6,6 +6,13 @@
 
   networking.hostName = "t480"; # TODO: might be double in nixos.nix
 
+  boot.loader.limine = {
+    secureBoot.autoEnrollKeys.extraArgs = [
+      "--microsoft"
+      "--ignore-immutable"
+    ];
+  };
+
   my = {
     desktop.enable = lib.mkForce true;
     laptop.enable = lib.mkForce true;
