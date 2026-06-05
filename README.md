@@ -30,8 +30,6 @@ Installation
 sudo nixos-install --flake .#desktop
 ```
 
-launch `display settings`/ `nwg-displays` and apply the correct display configuration
-
 # Secure Boot
 1. Put Secure Boot into **Setup Mode** (to allow automated enrollment).  
    In UEFI, look for options like "Secure Boot", "Key Management", or

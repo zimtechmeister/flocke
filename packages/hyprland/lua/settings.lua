@@ -1,5 +1,16 @@
 local theme = require("theme")
 
+local home = os.getenv("HOME")
+if home then
+    os.execute("mkdir -p " .. home .. "/.config/hypr")
+
+    local monitors_file = home .. "/.config/hypr/monitors.lua"
+    local f = io.open(monitors_file, "r")
+    if f then
+        f:close()
+        pcall(dofile, monitors_file)
+    end
+end
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
 
 hl.device({ name = "synaptics-tm3276-022", accel_profile = "adaptive" })

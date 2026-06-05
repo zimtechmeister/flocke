@@ -71,6 +71,7 @@
     ];
   };
 
+  # TODO: does this make sens? to add extraPackages here
   extraPackages = with pkgs; [
     ghostty
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default

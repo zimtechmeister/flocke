@@ -3,8 +3,6 @@
   inputs,
   ...
 }: let
-  packageName = "nvim";
-
   # Define plugins and extra packages
   plugins = with pkgs.vimPlugins; [
     nvim-lspconfig
@@ -94,9 +92,9 @@
   # Replicate the project's robust plugin directory structure
   # This avoids manual runtimepath management in Lua
   packDir = pkgs.runCommand "nvim-pack-dir" {} ''
-    mkdir -p $out/pack/${packageName}/start
+    mkdir -p $out/pack/nvim/start
     ${pkgs.lib.concatMapStringsSep "\n" (plugin: ''
-        ln -s ${plugin} $out/pack/${packageName}/start/${pkgs.lib.getName plugin}
+        ln -s ${plugin} $out/pack/nvim/start/${pkgs.lib.getName plugin}
       '')
       plugins}
   '';
@@ -104,7 +102,7 @@
   # This is cleaner than buildEnv + manual 'rm bin/nvim'
 in
   pkgs.symlinkJoin {
-    name = "nvim-wrapped";
+    name = "nvim";
     paths = [inputs.neovim-nightly-overlay.packages.${pkgs.stdenv.hostPlatform.system}.default] ++ extraPackages;
     meta.mainProgram = "nvim";
 
