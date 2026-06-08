@@ -61,6 +61,7 @@
       wireguard-tools
       yt-dlp
       antigravity-cli
+      pass
       inputs.nix-alien.packages.${pkgs.stdenv.hostPlatform.system}.nix-alien
     ];
     virtualisation.docker.enable = true;

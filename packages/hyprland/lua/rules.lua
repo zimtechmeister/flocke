@@ -1,8 +1,6 @@
-hl.config({
-    windowrule = {
-        "suppress_event maximize, class:.*",
-    },
-    workspace = {
-        "special:scratchpad, gapsout:32, gapsin:4",
-    },
+hl.window_rule({
+    match = { title = "Select what to share" },
+    float = true,
+    center = true,
+    size = { 600, 500 },
 })
