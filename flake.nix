@@ -6,6 +6,8 @@
 
     flake-parts.url = "github:hercules-ci/flake-parts";
 
+    import-tree.url = "github:vic/import-tree";
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -69,35 +71,36 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = inputs @ {flake-parts, ...}:
-    flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
-      imports = [
-        inputs.home-manager.flakeModules.home-manager
-        ./theme.nix
-        ./packages/hyprland
-        ./packages/nvim
-        ./packages/helium.nix
-        ./nixos.nix
-      ];
-      perSystem = {
-        pkgs,
-        system,
-        self',
-        ...
-      }: {
-        _module.args.theme = self'.themeNoHash or inputs.self.themeNoHash;
-        _module.args.pkgs = import inputs.nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
-        formatter = pkgs.alejandra;
-        # formatter = pkgs.nixfmt;
-      };
-    };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} (inputs.import-tree ./modules);
+  # outputs = inputs @ {flake-parts, ...}:
+  #   flake-parts.lib.mkFlake {inherit inputs;} {
+  #     systems = [
+  #       "x86_64-linux"
+  #       "aarch64-linux"
+  #       "x86_64-darwin"
+  #       "aarch64-darwin"
+  #     ];
+  #     imports = [
+  #       inputs.home-manager.flakeModules.home-manager
+  #       ./theme.nix
+  #       ./packages/hyprland
+  #       ./packages/nvim
+  #       ./packages/helium.nix
+  #       ./nixos.nix
+  #     ];
+  #     perSystem = {
+  #       pkgs,
+  #       system,
+  #       self',
+  #       ...
+  #     }: {
+  #       _module.args.theme = self'.themeNoHash or inputs.self.themeNoHash;
+  #       _module.args.pkgs = import inputs.nixpkgs {
+  #         inherit system;
+  #         config.allowUnfree = true;
+  #       };
+  #       formatter = pkgs.alejandra;
+  #       # formatter = pkgs.nixfmt;
+  #     };
+  #   };
 }

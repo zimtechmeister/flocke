@@ -42,7 +42,7 @@ sudo nixos-install --flake .#desktop
 
 2. Boot into NixOS and rebuild the configuration. NixOS will automatically generate keys (under `/var/lib/sbctl`) and enroll them:
    ```bash
-   sudo nixos-rebuild switch --flake .
+   sudo nixos-rebuild switch --flake .#desktop
    ```
 > [!NOTE]
 > automatic enrollment may fail on some hardware due to different UEFI implementations.
