@@ -116,6 +116,21 @@ function _G.get_macro_recording()
     return "REC @" .. reg .. " "
 end
 
+-- show search count information in statusline
+function _G.get_search_count()
+    if vim.v.hlsearch == 0 then return "" end
+
+    local last_search = vim.fn.getreg('/')
+    if last_search == '' then return "" end
+
+    -- Safe search count limits to prevent lockups on huge files
+    local search = vim.fn.searchcount({ maxcount = 9999, timeout = 500 })
+    if search.total == 0 then return "" end
+
+    -- Styled to use your existing ModeCommand highlight group (Yellow)
+    return string.format("%%#StatusLineModeCommandDimbg# [%d/%d] ", search.current, search.total)
+end
+
 -- show diagnostics in statusline
 function _G.get_diagnostics()
     if vim.diagnostic.count == nil then
@@ -184,6 +199,7 @@ function _G.render_statusline()
     end
 
     local macro = _G.get_macro_recording()
+    local search_count = _G.get_search_count()
     local diagnostics = _G.get_diagnostics()
 
     return table.concat({
@@ -196,11 +212,12 @@ function _G.render_statusline()
         "%=",
 
         (function()
-            if macro ~= "" or diagnostics ~= "" then
+            if macro ~= "" or search_count ~= "" or diagnostics ~= "" then
                 return table.concat({
                     "%#StatusLineDefaultDimfg#",
                     "%#StatusLineDefaultDimbg#",
                     "%#StatusLineDiagErrorDimbg#" .. macro,
+                    search_count,
                     diagnostics,
                     "%#StatusLineDefaultDimbg#"
                 })
