@@ -100,4 +100,8 @@ in
           --prefix PATH : "$out/bin"
       fi
     '';
+
+    meta = {
+      mainProgram = "start-hyprland";
+    };
   }

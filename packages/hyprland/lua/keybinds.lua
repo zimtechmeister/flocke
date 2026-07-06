@@ -37,6 +37,39 @@ local focus_right = function()
     end
 end
 
+local move_left = function()
+    local old_windowPosX = hl.get_active_window().at.x
+    hl.dispatch(hl.dsp.window.move({ direction = "l" }))
+    local new_windowPosX = hl.get_active_window().at.x
+    if old_windowPosX == new_windowPosX then
+        hl.dispatch(hl.dsp.window.move({ workspace = "-1", follow = false }))
+    end
+end
+local move_down = function()
+    local old_windowPosY = hl.get_active_window().at.y
+    hl.dispatch(hl.dsp.window.move({ direction = "d" }))
+    local new_windowPosY = hl.get_active_window().at.y
+    if old_windowPosY == new_windowPosY then
+        hl.dispatch(hl.dsp.window.move({ workspace = "+1", follow = false }))
+    end
+end
+local move_up = function()
+    local old_windowPosY = hl.get_active_window().at.y
+    hl.dispatch(hl.dsp.window.move({ direction = "u" }))
+    local new_windowPosY = hl.get_active_window().at.y
+    if old_windowPosY == new_windowPosY then
+        hl.dispatch(hl.dsp.window.move({ workspace = "-1", follow = false }))
+    end
+end
+local move_right = function()
+    local old_windowPosX = hl.get_active_window().at.x
+    hl.dispatch(hl.dsp.window.move({ direction = "r" }))
+    local new_windowPosX = hl.get_active_window().at.x
+    if old_windowPosX == new_windowPosX then
+        hl.dispatch(hl.dsp.window.move({ workspace = "+1", follow = false }))
+    end
+end
+
 hl.bind("SUPER + Return", hl.dsp.exec_cmd(nix.ghostty))
 
 hl.bind("SUPER + S", hl.dsp.exec_cmd(nix.screenshot))
@@ -45,7 +78,8 @@ hl.bind("SUPER + Space", hl.dsp.exec_cmd(nix.noctalia_shell .. " ipc call launch
 hl.bind("SUPER + V", hl.dsp.exec_cmd(nix.noctalia_shell .. " ipc call launcher clipboard"))
 hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd(nix.noctalia_shell .. " ipc call bar toggle"))
 hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd(nix.noctalia_shell .. " ipc call volume muteInput"))
-hl.bind("switch:[Lid Switch]", hl.dsp.exec_cmd(nix.noctalia_shell .. " ipc call sessionMenu lockAndSuspend"), { locked = true })
+hl.bind("switch:[Lid Switch]", hl.dsp.exec_cmd(nix.noctalia_shell .. " ipc call sessionMenu lockAndSuspend"),
+    { locked = true })
 
 
 hl.bind("SUPER + M", hl.dsp.exit())
@@ -67,10 +101,10 @@ hl.bind("SUPER + J", hl.dsp.layout("focus d"))
 hl.bind("SUPER + K", hl.dsp.layout("focus u"))
 hl.bind("SUPER + L", focus_right)
 
-hl.bind("SUPER + SHIFT + H", hl.dsp.window.move({ direction = "l" }))
+hl.bind("SUPER + SHIFT + H", move_left)
 hl.bind("SUPER + SHIFT + J", hl.dsp.window.move({ direction = "d" }))
 hl.bind("SUPER + SHIFT + K", hl.dsp.window.move({ direction = "u" }))
-hl.bind("SUPER + SHIFT + L", hl.dsp.window.move({ direction = "r" }))
+hl.bind("SUPER + SHIFT + L", move_right)
 
 hl.bind("SUPER + CTRL + H", hl.dsp.window.resize({ x = 20, y = 0, relative = true }), { repeating = true })
 hl.bind("SUPER + CTRL + K", hl.dsp.layout("colresize -conf"), { repeating = true })

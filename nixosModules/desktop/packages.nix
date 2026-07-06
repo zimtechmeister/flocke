@@ -55,7 +55,7 @@
       zed-editor
       nil # needs to be installed seperately for nix lsp
 
-      t3code
+      # t3code # TODO: pnpm vuln
       vicinae
     ];
     services.udev.packages = [pkgs.via];
