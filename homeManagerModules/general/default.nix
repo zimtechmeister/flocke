@@ -7,6 +7,7 @@
     ./fastfetch
     ./fish.nix
     ./git.nix
+    ./jujutsu.nix
     ./lsd.nix
     ./neovide.nix
     ./nushell.nix
@@ -25,6 +26,7 @@
       fastfetch.enable = lib.mkDefault true;
       lsd.enable = lib.mkDefault true;
       git.enable = lib.mkDefault true;
+      jujutsu.enable = lib.mkDefault true;
       neovide.enable = lib.mkDefault true;
       nushell.enable = lib.mkDefault true;
       ssh.enable = lib.mkDefault true;

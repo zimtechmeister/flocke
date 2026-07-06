@@ -23,7 +23,6 @@
 
       nodejs
       yarn
-      pnpm
       bun
 
       R
@@ -59,7 +58,7 @@
       openconnect
       openvpn
       wireguard-tools
-      yt-dlp
+      yt-dlp # TODO: pnpm vuln
       antigravity-cli
       pass
       inputs.nix-alien.packages.${pkgs.stdenv.hostPlatform.system}.nix-alien
