@@ -72,6 +72,8 @@
 
             (defalias
               spc (tap-hold-release 300 175 spc (layer-toggle nav))
+              bsp (tap-hold-release 300 175 bspc (layer-toggle nav))
+              lal (tap-hold-release 300 175 lalt (layer-toggle nav))
 
               ;; Homerow Mods
               ;; Left Hand
@@ -106,7 +108,7 @@
               tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
               esc  @a   @s   @d   @f   @g   @h   @j   @k   @l   @;   '    ret
               lsft z    x    c    v    b    n    m    ,    .    /    rsft
-              lctl lmet lalt           @spc           bspc ralt rctl
+              lctl lmet @lal           spc           @bsp ralt rctl
             )
             (deflayer nav
               _    _    _    _    _    _    _    _    _    _    _    _    _    _
