@@ -90,5 +90,8 @@
     };
   };
 
+  # Essential firmware
+  hardware.enableAllFirmware = true;
+
   system.stateVersion = "26.05";
 }

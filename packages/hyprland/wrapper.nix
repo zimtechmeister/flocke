@@ -49,6 +49,7 @@
     pkgs.writeText "nix.lua" ''
       return {
         noctalia_shell = "${lib.getExe inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default}",
+        vicinae = "${lib.getExe pkgs.vicinae}",
         ghostty = "${lib.getExe pkgs.ghostty}",
         screenshot = "${screenshot}",
       }
