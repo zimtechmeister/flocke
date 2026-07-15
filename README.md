@@ -1,3 +1,7 @@
+> [!WARNING]
+> This repo is Archived and no longer maintained. It is kept for reference only.
+> my config lives on in [nixconf](https://github.com/zimtechmeister/nixconf)
+
 # Installation
 > [!WARNING]
 > agenix still needs new ssh keys from
